@@ -1,0 +1,125 @@
+/*
+stark css by Matthew Gatland
+
+lifting many ideas from Ryan Tomayko ( http://tomayko.com ) 
+and Dave Perrett ( http://www.daveperrett.com/ )
+
+*/
+
+body {
+	font-size: 24px;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	color: #000;
+	line-height: 1.8;
+}
+
+/* there's some awkward duplication between h2 when it as .headingWithDate 
+and a div with .postTitleInList - both are displayed exactly the same,
+the only difference is that one is not a heading */
+
+h1, h2, h3, .headingWithDate {
+	line-height: 1.1;
+	position: relative;
+	font-family: Helvetica, Arial, sans-serif;
+	/*letter-spacing:  -0.03em;*/
+	font-weight: normal;
+	display: block;
+}
+
+/* always hide links in header */
+h1 a, h2 a, h3 a, .headingWithDate a {
+	background-color: transparent;
+	color: black;
+	padding: 5px 10px;
+	margin-left: -10px;
+}
+
+.headingWithDate h2 {
+	display: inline;
+}
+
+.headingWithDate .date, .headingWithDate .date {
+	display: inline;
+	color: #777;
+	margin-left: 60px;
+}
+
+.homepage h1 {
+	font-size: 86px;
+}
+
+h1 {
+	font-size: 64px;
+	margin: 0;
+}
+
+h2 {
+	font-size: 48px;
+	margin: 40px 0;
+}
+
+h3, .headingWithDate {
+	font-size: 38px;
+	margin: 40px 0;	
+}
+
+header {
+	margin: 70px 0;
+	text-align: center;
+}
+
+header p {
+	line-height: 1.4;
+	margin: 12px 0 0 0;
+	color: #444;
+}
+
+/* partially hide links in the page header */
+header a {
+	background-color: #f9f9f9;
+	color: black;
+}
+
+p {
+	display: block;
+	margin: 30px 0;
+}
+
+a {
+	text-decoration: underline;
+	cursor: auto;
+	background-color: #ddd;
+	color: #555;
+	text-decoration: none;
+	padding: 2px 4px;
+	border-radius: 3px;
+	transition-property: background-color;
+	transition-duration: 0.4s;
+}
+
+a:hover, a:active {
+	background-color: #444;
+	color: #eee;
+}
+
+#content {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+#content.homepage {
+	max-width: 700px;
+}
+
+.sideimage {
+	float: left;
+	margin-right: 40px;
+	box-shadow: 2px 2px 4px #777;
+	padding: 5px;
+	border: 1px solid #ddd;
+
+}
+
+.listOfPosts {
+	text-align: center;
+}
