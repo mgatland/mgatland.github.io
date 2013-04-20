@@ -1,5 +1,6 @@
 ---
 title: Saturday
+layout: post
 ---
 
 ### Fridge Adventure

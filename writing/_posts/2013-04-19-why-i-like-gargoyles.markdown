@@ -1,5 +1,6 @@
 ---
 title: Why I like Gargoyles
+layout: post
 ---
 Gargoyles is the best TV series ever.
 
