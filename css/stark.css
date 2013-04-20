@@ -86,8 +86,6 @@ p {
 }
 
 a {
-	text-decoration: underline;
-	cursor: auto;
 	background-color: #ddd;
 	color: #555;
 	text-decoration: none;
