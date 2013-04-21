@@ -53,7 +53,7 @@ Fonts I like, but didn't use:
 * font-family: Optima, Segoe, "Segoe UI", Calibri, Arial, sans-serif;
 * font-family: 'Courier New', Courier, monospace; 
 * font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-** calibri is quite fun for huge text.
+* * calibri is quite fun for huge text.
 
 ### Little things
 
