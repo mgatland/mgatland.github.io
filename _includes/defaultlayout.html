@@ -5,6 +5,7 @@
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ site.url }}/css/stark.css" />
   <link rel="icon" type="image/x-icon" href="{{ site.url }}/favicon.png" />
+{% include analytics.html %}
 </head>
 <body>
 	<section id="content" {% if page.ishomepage != nil %}class="homepage"{% endif %}>
@@ -21,7 +22,5 @@
 <hr>
 {% include footer.html %}
 	</section>
-
-{% include analytics.html %}
 </body>
 </html>
