@@ -115,7 +115,7 @@ a:hover, a:active {
 	box-shadow: 2px 2px 4px #777;
 	padding: 5px;
 	border: 1px solid #ddd;
-
+	background-color: #fff;
 }
 
 .listOfPosts {
@@ -125,4 +125,22 @@ a:hover, a:active {
 hr {
 	border: 1px solid #777;
 	background-color: #777;
+}
+
+.button {
+	display: block;
+	margin-bottom: 40px;
+	padding: 40px;
+}
+
+/*subtle link background for huge buttons */
+a.button {
+	background-color: #f9f9f9;
+	color: black;
+}
+
+/*the button's hover color is less intense, to compensate for it's huge size */
+a.button:hover, a.button:active {
+	background-color: #777;
+	color: #333;
 }

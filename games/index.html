@@ -1,0 +1,13 @@
+---
+title: Games
+layout: page
+---
+
+{% comment %} We need to sort the pages, here's an awkward way to do it...{% endcomment %}
+{% for order in (1..100) reversed %}{% for post in site.pages %}{% if post.order == order %}{% capture niceurl %}{{ post.url | remove: 'index.html' }}{% endcapture %}{% if niceurl contains '/games/' and niceurl != '/games/' %}
+{% include inlinegame.html %}
+{% endif %}{% endif %}{% endfor %}{% endfor %}
+
+<p>You can view more of my games at my <a href="http://mgatland.appspot.com/games/">previous website</a>.</p>
+
+<div style="clear: both"></div>
