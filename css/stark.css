@@ -93,6 +93,9 @@ a {
 	border-radius: 3px;
 	transition-property: background-color;
 	transition-duration: 0.4s;
+	/*for Safari 6.0: */
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration: 0.4s;
 }
 
 a:hover, a:active {
