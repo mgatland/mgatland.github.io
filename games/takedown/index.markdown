@@ -13,7 +13,7 @@ those that seek to destroy it.
 
 <p><a href="takedown-install-1.2.exe" onClick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">TakeDown 1.2</a> (2 MB, Windows only)</p>
  
-<img src="takedown-01.png"/> 
+<img src="takedown-01.png" alt="a screenshot of TakeDown"/> 
  
 That's how I described it in 2002, anyway. I was 16 years old and thought TakeDown was my magnum opus.
 
@@ -23,5 +23,5 @@ I stopped work on TakeDown in the middle of some big AI changes, which means thi
 
 OK, enough excuses. If you want to play my magnum opus, click on the link at the top of the page.
 
-<img src="takedown-02.png"/> 
-<img src="takedown-03.png"/> 
+<img src="takedown-02.png" alt="a screenshot of TakeDown"/>
+<img src="takedown-03.png" alt="a screenshot of TakeDown"/>
