@@ -121,3 +121,8 @@ a:hover, a:active {
 .listOfPosts {
 	text-align: center;
 }
+
+hr {
+	border: 1px solid #777;
+	background-color: #777;
+}
