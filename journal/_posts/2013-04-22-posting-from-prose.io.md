@@ -4,8 +4,6 @@ layout: post
 
 ---
 
-This is just a test to see if I can update the website from online, without using any files on my file system.
-
 For me, "the cloud" is about websites that talk to each other directly.
 
 When I change my Gravatar avatar and Github updates automatically, that's "cloud." If have to manually update my avatar on Github, but I can do it by passing a link to my avatar on Gravatar, that's a little bit cloudy.
