@@ -147,3 +147,10 @@ a.button:hover, a.button:active {
 	background-color: #777;
 	color: #333;
 }
+
+/*subtle messages like 'you have reached the last post in my journal' */
+.subtle {
+	color: #777;
+	font-size: 1em;
+	margin-top: 40px;
+}
