@@ -6,3 +6,86 @@ layout: page
 {% for post in site.categories.journal %}
 	{% include inlinepost.html %}
 {% endfor %}
+
+
+{ % comment %}<script>
+
+//learning how to infinite scroll:
+
+//this should, in most browsers, detect when the user has scrolled near the end.
+//then I need to:
+// 1. load the next page
+// 2. update the url
+// 3. be ready to load the next next page - also be ready to change the url back if we scroll up (but that's an edge case, who ever scrolls up?)
+// I 100% require graceful degradation 
+
+//ok, but the bare minimum:
+// when we reach the end of the page, load the next page
+// we don't _need_ history modification. Facebook, twitter etc don't do it!
+//(but it makes it hard to access old pages. But maybe that's OK.)
+
+//maybe the index page starts off with a link to EVERY previous post
+// (or just the most recent 50 or so, to keep the size down.)
+// we use javascript to load the first page and inject it.
+// whenever the links scroll into view, we repeat.
+
+// actually, I'm sure we _can_ hack in a next\previous links
+// if, for every post's page, we loop over every post in the category,
+// and find the current one, and then find the next one...
+
+window.setInterval(function() { 
+	var body = document.body;
+    var html = document.documentElement;
+	var height = Math.max( body.scrollHeight, body.offsetHeight, 
+        html.clientHeight, html.scrollHeight, html.offsetHeight );
+	var scrollY = window.pageYOffset;
+
+	var windowHeight = window.innerHeight;
+
+	console.log("height: " + height + ", scroll: " + scrollY); 
+	console.log("window height: " + windowHeight);
+	if (windowHeight * 2 + 600 + scrollY > height) {
+		console.log("Load the next page!");
+		//history.pushState(null, null, "/journal/2");
+		loadXMLDoc();
+	}
+
+	}, 1000);
+
+function loadXMLDoc()
+		{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+
+			var response = xmlhttp.responseText;
+			var startKey = "id=\"content\">";
+			var endKey = "<footer>";
+			var trimmed = response.substring(
+				response.indexOf(startKey) + startKey.length,
+				response.indexOf(endKey));
+
+		    var footerNode = document.getElementsByTagName("footer")[0];
+		    var newNode = document.createElement("div");
+		    newNode.innerHTML = trimmed;
+		    var parentNode = footerNode.parentNode;
+		    parentNode.insertBefore(newNode, footerNode);
+
+		    }
+		  }
+		xmlhttp.open("GET","2013-04-21-the-zone/",true);
+		xmlhttp.setRequestHeader("Content-type", "text/xml");
+		xmlhttp.send();
+		}
+
+</script>{ % endcomment %}

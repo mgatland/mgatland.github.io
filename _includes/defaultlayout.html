@@ -8,7 +8,7 @@
 {% include analytics.html %}
 </head>
 <body>
-	<section id="content" {% if page.ishomepage != nil %}class="homepage"{% endif %}>
+	<section id="content"{% if page.ishomepage != nil %} class="homepage"{% endif %}>
 		<header>
 			{% if page.ishomepage == nil %}
 			<h1>{{page.title}}</h1>
@@ -18,6 +18,16 @@
 				<h1>{{page.title}}</h1>
 			{% endif %}
 		</header>
+
+<h2>{{page.previous.title}}</h2>
+<h2>{{page.previous.previous.title}}</h2>
+<h2>{{page.previous.previous.previous.title}}</h2>
+<h2>{{site.categories.journal}}</h2>
+{% for post2 in site.categories.journal %}
+  ..find previous and next... how?
+<h2></h2>
+{% endfor %}
+
 {{content}}
 
 {% include previousjournal.html %}
