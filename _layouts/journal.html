@@ -1,0 +1,19 @@
+{% include part-above-body.html %}
+<body>
+	<section id="content">
+		<header>
+			<h1><a href="{{ site.url }}/{{ page.categories[0] }}/">{{page.categories[0] | capitalize}}</a></h1>
+			<p><a href="{{ site.url }}/">Matthew Gatland</a></p>
+		</header>
+   	<hr>
+    <div class="headingWithDate"><h2>{{ page.title }}</h2>
+    <span class="date">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</span></div>
+    <hr>
+{{content}}
+	<footer>
+	{% include next-previous-journals.html %}
+	{% include footer.html %}
+	</footer>
+</section>
+</body>
+</html>

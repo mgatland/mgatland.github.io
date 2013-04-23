@@ -1,6 +1,7 @@
 ---
 title: Takedown
-layout: post
+layout: page
+categories: [games]
 description: Rebel forces want to destroy the computer that runs the world. We're here to stop them.
 order: 2
 icon: takedown/takedown-icon.png

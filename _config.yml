@@ -1,11 +1,12 @@
 permalink: /:categories/:year-:month-:day-:title/
 google_analytics_id: UA-707544-6
 url: ''
+title: Matthew Gatland
 prose:
   metadata:
     "journal/_posts": |
       title: 
-      layout: post
+      layout: journal
     "writing/_posts": |
       title:
-      layout: post
+      layout: page

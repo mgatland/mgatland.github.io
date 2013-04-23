@@ -1,6 +1,6 @@
 ---
 title: Posting from Prose.io
-layout: post
+layout: journal
 
 ---
 

@@ -34,6 +34,12 @@ h1 a, h2 a, h3 a, .headingWithDate a {
 	margin-left: -10px;
 }
 
+/* partially hide links in paragraphs in the page header */
+header p a {
+	background-color: #f9f9f9;
+	color: black;
+}
+
 .headingWithDate h2 {
 	display: inline;
 }
@@ -72,12 +78,6 @@ header p {
 	line-height: 1.4;
 	margin: 12px 0 0 0;
 	color: #444;
-}
-
-/* partially hide links in the page header */
-header a {
-	background-color: #f9f9f9;
-	color: black;
 }
 
 p {

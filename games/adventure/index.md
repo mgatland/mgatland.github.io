@@ -1,6 +1,7 @@
 ---
 title: Adventure
-layout: post
+layout: page
+categories: [games]
 description: You strike with the pointy stick! A multiplayer quest from the turn of the century.
 icon: adventure/adventure-icon.png
 order: 1
