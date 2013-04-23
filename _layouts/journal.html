@@ -1,17 +1,21 @@
 {% include part-above-body.html %}
 <body>
 	<section id="content">
-		<header>
-			<h1><a href="{{ site.url }}/{{ page.categories[0] }}/">{{page.categories[0] | capitalize}}</a></h1>
-			<p><a href="{{ site.url }}/">Matthew Gatland</a></p>
-		</header>
-   	<hr>
-    <div class="headingWithDate"><h2>{{ page.title }}</h2>
-    <span class="date">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</span></div>
+  <div class="journal">
+	{% include calculate-journal-links.html %}
+	{% include journal-links.html %}
+  	<hr>
+    <div>
+    	<h2>{{ page.title }}</h2>
+    	<span class="subtle">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</span>
+
+    	<span class="subtle" style="margin-left: 60px"><a href="/">{{ site.title }}</a></span>
+    </div>
     <hr>
-{{content}}
+    {{ content }}
+  </div>
 	<footer>
-	{% include next-previous-journals.html %}
+	{% include journal-links.html %}
 	{% include footer.html %}
 	</footer>
 </section>

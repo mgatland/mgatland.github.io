@@ -15,9 +15,5 @@
 			{% assign temp_minus_one = page2 %}
 		{% endfor %}
 	{% endif %}
-	<div>
-		{% if minus_one %}<a href="{{minus_one.url}}" title="{{minus_one.title}}">Newer</a>{% else %}<span class="subtle">This is the latest post.</span>{% endif %}
 
-		{% if plus_one %}<a href="{{plus_one.url}}" title="{{plus_one.title}}">Older</a>{% else %}<span class="subtle">This is the earliest post.</span>{% endif %}
-	</div>
 {% endif %}

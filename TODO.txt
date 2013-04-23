@@ -1,49 +1,6 @@
-[x] make <hr> the same color in firefox that it is in chrome
-add the games page, with all my games
-[x] games page: show title cards and a summary for each game
-[X] migrate Adventure
-[X] migrate Takedown
-[X] connect matthewgatland.com to the new website
-[X] custom 404 page
-[X] test on OS X 
-[X] (fix animations on Safari)
-[X] next and previous links (2013-04-22)
-[X] footers display breadcrumbs, not links to every part of the site. (2013-04-23)
-[X] Journal pages never have a grandiose full title page. They always look like inline posts, under a 'journal' header (which links to the journal homepage). (2013-04-23)
-[ ] style images on games pages
-
-----
-
-2013-04-23
-Wow, the complexity of my website is exploding.
-
-Here are the different types of links, sorted by where they first appear
-
-homepage:
-* normal text links (or footer links) - grey background
-games:
-* link back home - subtle background
-* big game button - subtle background, big margins, text does not change color
-Writing:
-* 'heading with date' link - link to an article, NO background
-	only the title links, not the date.
-Journal:
-* 'heading with date' v2 - the journal heading links to its permalink
-Journal - one post:
-* big top heading links back to the journal, NO background
-
-That's six different types of link stylings...
-The journal is particularly problematic.
-It's not obvious that clicking on the title is a permalink.
-Also, that link is too big and prominant, considering you should rarely click it.
-
-Maybe I should have an explicit 'permalink' link (ugly...)
-...or maybe I should only have headings on the journal home page - no infinite scroll (aww...)
-...or maybe I should make that link more subtle (a different hover color)
-----
+=== The Future ===
 
 [ ] infinite scroll for the journal:
-
 	Load 1 page natively.
 	non-js: There's a link to the previous post (as on an individual page)
 
@@ -51,12 +8,7 @@ Maybe I should have an explicit 'permalink' link (ugly...)
 		hide the next + previous links.
 		on scroll, load the next post and insert at the end.
 
-[ ] Remove the footer from:
-		Writing posts, maybe
-		Games pages, maybe
-		Journal posts and the root journal page
-
-I claim that I "make games and talk to people."
+[ ] I claim that I "make games and talk to people."
 	add some evidence that I talk to people
 
 [ ] migrate many more games
@@ -84,3 +36,54 @@ TIL:
 When asked to display Helvetica, Windows will display Arial.
 This made me think I had Helvetica installed, and I got really confused when I tried comparing Helvetica and Arial.
 
+
+
+=== The Past ===
+
+2013-04-24:
+[X] style images on games pages
+[X] next and previous links above individual journal posts
+[X] show a disabled 'next' button instead of 'there is no next post'
+[X] journal permalink anchor is now on the date, not the title
+	(the title was way too and prominent for something you're not really ever meant to click)
+[X] layout changes so that the above makes sense.
+
+2013-04-23:
+[X] footers display breadcrumbs, not links to every part of the site.
+[X] Journal pages never have a grandiose full title page. They always look like inline posts, under a 'journal' header (which links to the journal homepage).
+
+2013-04-22:
+[X] next and previous links (2013-04-22)
+
+earlier:
+[x] make <hr> the same color in firefox that it is in chrome
+add the games page, with all my games
+[x] games page: show title cards and a summary for each game
+[X] migrate Adventure
+[X] migrate Takedown
+[X] connect matthewgatland.com to the new website
+[X] custom 404 page
+[X] test on OS X 
+[X] (fix animations on Safari)
+
+
+----
+
+2013-04-23
+Here are the different types of links, sorted by where they first appear
+
+homepage:
+* normal text links (or footer links) - grey background
+games:
+* link back home - subtle background
+* big game button - subtle background, big margins, text does not change color
+Writing:
+* 'heading with date' link - link to an article, NO background
+	only the title links, not the date.
+Journal:
+* 'subtle' link - the date links to the permalink. Similar to big game button
+
+Maybe I should have an explicit 'permalink' link (ugly...)
+...or maybe I should only have headings on the journal home page - no infinite scroll (aww...)
+...or maybe I should make that link more subtle (a different hover color)
+----

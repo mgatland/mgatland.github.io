@@ -30,10 +30,21 @@ h1 a, h2 a, h3 a, .listOfPosts a {
 	margin-left: -10px;
 }
 
-/* partially hide links in paragraphs in the page header */
+/* partially hide links in the page header */
 header p a {
 	background-color: #f9f9f9;
 	color: black;
+}
+
+/*subtle messages like 'you have reached the last post in my journal' */
+.subtle {
+	color: #777;
+	font-size: 1em;
+	margin-top: 40px;
+}
+
+.subtle a {
+	background-color: #f9f9f9;	
 }
 
 .listOfPosts .date {
@@ -141,14 +152,25 @@ a.button {
 }
 
 /*the button's hover color is less intense, to compensate for it's huge size */
-a.button:hover, a.button:active {
+
+a.button:hover, a.button:active, .subtle a:hover, .subtle a:active {
 	background-color: #777;
 	color: #333;
 }
 
-/*subtle messages like 'you have reached the last post in my journal' */
-.subtle {
-	color: #777;
-	font-size: 1em;
-	margin-top: 40px;
+.journal {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.journal h2 {
+	margin-bottom: 7px;
+}
+
+.disabled-link {
+	background-color: #ddd;
+	color: #bbb;
+	text-decoration: none;
+	padding: 2px 4px;
+	border-radius: 3px;
 }
