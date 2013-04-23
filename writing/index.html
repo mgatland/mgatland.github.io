@@ -5,6 +5,6 @@ layout: page
 
 {% for post in site.categories.writing %}
   <div class="listOfPosts">
-    <div class="headingWithDate"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> <div class="date">{{ post.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</div></div>
+    <div><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a> <span class="date">{{ post.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</span></div>
   </div>
 {% endfor %}

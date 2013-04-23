@@ -13,11 +13,7 @@ body {
 	line-height: 1.8;
 }
 
-/* there's some awkward duplication between h2 when it as .headingWithDate 
-and a div with .postTitleInList - both are displayed exactly the same,
-the only difference is that one is not a heading */
-
-h1, h2, h3, .headingWithDate {
+h1, h2, h3, .listOfPosts {
 	line-height: 1.1;
 	position: relative;
 	font-family: Helvetica, Arial, sans-serif;
@@ -27,7 +23,7 @@ h1, h2, h3, .headingWithDate {
 }
 
 /* always hide links in header */
-h1 a, h2 a, h3 a, .headingWithDate a {
+h1 a, h2 a, h3 a, .listOfPosts a {
 	background-color: transparent;
 	color: black;
 	padding: 5px 10px;
@@ -40,12 +36,7 @@ header p a {
 	color: black;
 }
 
-.headingWithDate h2 {
-	display: inline;
-}
-
-.headingWithDate .date, .headingWithDate .date {
-	display: inline;
+.listOfPosts .date {
 	color: #777;
 	margin-left: 60px;
 }
@@ -64,7 +55,7 @@ h2 {
 	margin: 40px 0;
 }
 
-h3, .headingWithDate {
+h3, .listOfPosts {
 	font-size: 38px;
 	margin: 40px 0;	
 }
