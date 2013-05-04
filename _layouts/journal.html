@@ -3,13 +3,11 @@
 	<section id="content">
   <div class="journal">
 	{% include calculate-journal-links.html %}
-	{% include journal-links.html %}
+  <span class="subtle"><a href="/">{{ site.title }}</a></span>
   	<hr>
     <div>
     	<h2>{{ page.title }}</h2>
     	<span class="subtle">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</span>
-
-    	<span class="subtle" style="margin-left: 60px"><a href="/">{{ site.title }}</a></span>
     </div>
     <hr>
     {{ content }}

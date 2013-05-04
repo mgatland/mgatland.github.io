@@ -63,7 +63,7 @@ h1 {
 
 h2 {
 	font-size: 48px;
-	margin: 40px 0;
+	margin: 28px 0;
 }
 
 h3, .listOfPosts {
@@ -164,11 +164,19 @@ a.button:hover, a.button:active, .subtle a:hover, .subtle a:active {
 }
 
 .journal h2 {
-	margin-bottom: 7px;
+	margin-bottom: 9px;
 }
 
 .disabled-link {
 	background-color: #ddd;
+	color: #bbb;
+	text-decoration: none;
+	padding: 2px 4px;
+	border-radius: 3px;
+}
+
+.subtle .disabled-link {
+	background-color: #f9f9f9;
 	color: #bbb;
 	text-decoration: none;
 	padding: 2px 4px;

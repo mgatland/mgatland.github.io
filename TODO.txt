@@ -1,5 +1,13 @@
 === The Future ===
 
+[X] on journal pages, put 'matthew gatland' up top, not next/prev
+[ ] write some more content!
+[ ] migrate many more games
+[ ] I claim that I "make games and talk to people."
+	add some evidence that I talk to people
+
+[ ] use liquid templates to template the CSS colors.
+
 [ ] infinite scroll for the journal:
 	Load 1 page natively.
 	non-js: There's a link to the previous post (as on an individual page)
@@ -8,10 +16,7 @@
 		hide the next + previous links.
 		on scroll, load the next post and insert at the end.
 
-[ ] I claim that I "make games and talk to people."
-	add some evidence that I talk to people
 
-[ ] migrate many more games
 
 [ ] re-archive looseleafgames
 [ ] archive matthewgatland.com
@@ -82,8 +87,3 @@ Writing:
 	only the title links, not the date.
 Journal:
 * 'subtle' link - the date links to the permalink. Similar to big game button
-
-Maybe I should have an explicit 'permalink' link (ugly...)
-...or maybe I should only have headings on the journal home page - no infinite scroll (aww...)
-...or maybe I should make that link more subtle (a different hover color)
-----
