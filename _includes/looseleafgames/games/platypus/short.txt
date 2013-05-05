@@ -1,0 +1,27 @@
+<h3>Platypus</h3>
+
+<p>Platypus is one of the most unique looking games ever created. All of its visuals were created using photographed plasticine (clay). Help the peaceful land of Mungola defend themselves against the attacking hordes of Collosatropolis! A huge variety of clay-animated enemies oppose you, but you will have loads of powerups at your disposal.</p>
+
+<p><a href="/archive/looseleafgames/games/platypus">Read our full review</a></p>
+
+<div class="gamepanel">
+<img class="gameicon" src="/archive/looseleafgames/games/platypus/platypus.png"/>
+  <div class="buylinks">
+  <p><a href="http://arcade.reflexive.com/downloadgame.aspx?CID=21750&AID=120">
+    Download now!</a> - free trial, 14.83 MB</p>
+  <p><a href="http://arcade.reflexive.com/BuyNow.aspx?CID=21750&AID=120&return=ref">
+    Get full version!</a> - $19.95</p>
+  </div>
+<a href="/archive/looseleafgames/games/platypus/screen1.html"target=new>
+  <img class="screenthumb" src="/archive/looseleafgames/games/platypus/thumb/platypus1.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/platypus/screen2.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/platypus/thumb/platypus2.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/platypus/screen3.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/platypus/thumb/platypus3.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/platypus/screen4.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/platypus/thumb/platypus4.jpg"/>
+</a>
+</div>

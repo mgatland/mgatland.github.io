@@ -1,0 +1,31 @@
+<h3>Professor Fizzwizzle</h3>
+
+<p> Professor Fizzwizzle needs your help! His Friend-Bots have gone in to rage mode, and have thrown him out of his lab! In this mind-expanding puzzle game, you must help the professor use his brains and his gadgets to solve each exciting level. Do you have what it takes to get past the Rage-Bots and bring the professor back to his lab?</p>
+
+<p><a href="/archive/looseleafgames/games/professorfizzwizzle">Read our full review</a></p>
+
+<div class="gamepanel">
+<img class="gameicon" src="games/professorfizzwizzle/professorfizzwizzle.png"/>
+  <div class="buylinks">
+  <p><a href="http://arcade.reflexive.com/downloadgame.aspx?CID=21750&AID=393">
+    Download now!</a> - free trial, 9.26 MB</p>
+  <p><a href="http://arcade.reflexive.com/BuyNow.aspx?CID=21750&AID=393&return=ref">
+    Get full version!</a> - $19.95</p>
+  </div>
+<a href="/archive/looseleafgames/games/professorfizzwizzle/screen1.html"target=new>
+  <img class="screenthumb" src="/archive/looseleafgames/games/professorfizzwizzle/thumb/professorfizzwizzle1.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/professorfizzwizzle/screen2.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/professorfizzwizzle/thumb/professorfizzwizzle2.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/professorfizzwizzle/screen3.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/professorfizzwizzle/thumb/professorfizzwizzle3.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/professorfizzwizzle/screen4.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/professorfizzwizzle/thumb/professorfizzwizzle4.jpg"/>
+</a>
+</div>
+
+
+
+

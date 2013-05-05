@@ -1,0 +1,54 @@
+<h1>Trail Bay</h1>
+
+<p>Trail Bay is a tranquil yet mind-bending puzzle game from Loose Leaf Games. Explore eighty mazes as you piece together the key to secret treasure.</p>
+
+<p>Every new level will teach you to see in a new way, but be wary of the mysterious locked squares and ghost keys.</p>
+
+<p>Some levels are extremely difficult. You can skip difficult levels if you just want to relax, or push yourself to master them all.</p>
+
+<div class="gamepanel">
+<img class="gameicon" src="/archive/looseleafgames/games/trailbay/trailbay.png"/>
+  <div class="buylinks">
+  <p><a href="/archive/looseleafgames/games/trail-bay/trail-bay-demo.exe">
+    Download now!</a> - free trial, 5.42 MB</p>
+  <p><a href="/archive/looseleafgames/game_order.html?game=trailbay">
+    Get full version!</a> - $19.95</p>
+  </div>
+<a href="/archive/looseleafgames/games/trailbay/screen1.html"target=new>
+  <img class="screenthumb" src="/archive/looseleafgames/games/trailbay/thumb/trailbay1.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/trailbay/screen2.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/trailbay/thumb/trailbay2.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/trailbay/screen3.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/trailbay/thumb/trailbay3.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/trailbay/screen4.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/trailbay/thumb/trailbay4.jpg"/>
+</a>
+</div>
+
+<p>Features:</p>
+
+<ul>
+<li>80 unique and puzzling levels</li>
+<ul>
+<li>Find your way past teleporters, locks, and keys</li>
+<li>Each maze was hand crafted to teach and test new skills.</li>
+</ul>
+<li>Easy to learn and control</li>
+<ul>
+<li>Play with the mouse or keyboard</li>
+<li>The rules are simple, yet the possibilities are endless.</li>
+</ul>
+<li>Great fun for all skill levels</li>
+<ul>
+<li>Set your own pace.</li>
+<li>Beginners can skip difficult levels whenever they want.</li>
+<li>Experienced players will be pushed to their limits and beyond.</li>
+</ul>
+<li>Developed on location at 'Trail Bay'</li>
+<ul>
+<li>A special look and feel that you won't find anywhere else.</li>
+</ul>
+</ul>

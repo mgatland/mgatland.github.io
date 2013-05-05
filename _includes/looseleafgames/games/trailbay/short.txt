@@ -1,0 +1,27 @@
+<h3>Trail Bay</h3>
+
+<p>Trail Bay is a tranquil yet mind-bending puzzle game from Loose Leaf Games. Explore eighty mazes as you piece together the key to secret treasure.</p>
+
+<p><a href="/archive/looseleafgames/games/trailbay/">Get more information</a></p>
+
+<div class="gamepanel">
+<img class="gameicon" src="/archive/looseleafgames/games/trailbay/trailbay.png"/>
+  <div class="buylinks">
+  <p><a href="/games/trail-bay/trail-bay-demo.exe">
+    Download now!</a> - free trial, 5.42 MB</p>
+  <p><a href="/archive/looseleafgames/game_order.html?game=trailbay">
+    Get full version!</a> - $19.95</p>
+  </div>
+<a href="/archive/looseleafgames/games/trailbay/screen1.html"target=new>
+  <img class="screenthumb" src="/archive/looseleafgames/games/trailbay/thumb/trailbay1.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/trailbay/screen2.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/trailbay/thumb/trailbay2.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/trailbay/screen3.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/trailbay/thumb/trailbay3.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/trailbay/screen4.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/trailbay/thumb/trailbay4.jpg"/>
+</a>
+</div>

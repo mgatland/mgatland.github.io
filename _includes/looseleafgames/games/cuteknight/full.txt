@@ -1,0 +1,31 @@
+<h1>Cute Knight</h1>
+
+<p>In this role playing game, you help an orphan girl learn a trade, make friends or find romance. Cute Knight has a town full of exciting people and events, as well as a dangerous dungeon to explore. With fifty different endings, you can choose any path you can imagine - princess, dancer, librarian, knight... anything is possible!</p>
+
+<p>At Loose Leaf Games, we play Cute Knight all the time - sometimes when we should be working! We especially like the little, unexpected touches: classmates will introduce themselves after a class, found items can be combined to make new equipment, and special events happen when you play on Halloween or Christmas!</p>
+
+<div class="gamepanel">
+<img class="gameicon" src="/archive/looseleafgames/games/cuteknight/cuteknight.png"/>
+  <div class="buylinks">
+  <p><a href="http://www.hanakogames.com/demos/CuteKnightOriginalDemo.exe">
+    Download now!</a> - free trial, 7.94 MB</p>
+  <p><a href="https://secure.bmtmicro.com/servlets/Orders.ShoppingCart?CID=1339&PRODUCTID=13390006">
+    Get full version!</a> - $19.95</p>
+  </div>
+<a href="/archive/looseleafgames/games/cuteknight/screen1.html"target=new>
+  <img class="screenthumb" src="/archive/looseleafgames/games/cuteknight/thumb/cuteknight1.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/cuteknight/screen2.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/cuteknight/thumb/cuteknight2.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/cuteknight/screen3.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/cuteknight/thumb/cuteknight3.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/cuteknight/screen4.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/cuteknight/thumb/cuteknight4.jpg"/>
+</a>
+</div>
+
+
+
+

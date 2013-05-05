@@ -1,0 +1,31 @@
+<h1>Platypus</h1>
+
+<p>Platypus is one of the most unique looking games ever created. All of its visuals were created using photographed plasticine (clay). Help the peaceful land of Mungola defend themselves against the attacking hordes of Collosatropolis! A huge variety of clay-animated enemies oppose you, but you will have loads of powerups at your disposal.</p>
+
+<p>This is an action game (a shooter), but even if you don't like action games you should try it out. The clay world is fun and and original. When the larger enemies are damaged, clay cracks appear on their surfaces and little clay panels peel off. It's very cute. Then they explode in clay explosions!</p>
+
+<p>The game has good, responsive controls, whether you use the mouse or the keyboard. You lose a life after only one hit, so it can be challenging at times.</p>
+
+<p>You can play two-player with a friend, one person using the mouse and the other using the keyboard. We always play two player because it's much more fun.</p>
+
+<div class="gamepanel">
+<img class="gameicon" src="/archive/looseleafgames/games/platypus/platypus.png"/>
+  <div class="buylinks">
+  <p><a href="http://arcade.reflexive.com/downloadgame.aspx?CID=21750&AID=120">
+    Download now!</a> - free trial, 14.83 MB</p>
+  <p><a href="http://arcade.reflexive.com/BuyNow.aspx?CID=21750&AID=120&return=ref">
+    Get full version!</a> - $19.95</p>
+  </div>
+<a href="/archive/looseleafgames/games/platypus/screen1.html"target=new>
+  <img class="screenthumb" src="/archive/looseleafgames/games/platypus/thumb/platypus1.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/platypus/screen2.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/platypus/thumb/platypus2.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/platypus/screen3.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/platypus/thumb/platypus3.jpg"/>
+</a>
+<a href="/archive/looseleafgames/games/platypus/screen4.html"target=new>
+  <img class="screenthumb"  src="/archive/looseleafgames/games/platypus/thumb/platypus4.jpg"/>
+</a>
+</div>

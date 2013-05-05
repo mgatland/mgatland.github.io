@@ -1,0 +1,10 @@
+<h3>Sign up for our free newsletter!</h3>
+
+<p>You'll hear about our updates, new releases, and special offers.
+ Your information will never be sold or given away. Type in your email address and press the button to join.</p>
+
+<form method=post action=http://www.ymlp.com/subscribe.php?looseleafgames>
+<input type="text" name="YMLP0" size="20">
+<input type="submit" value="Sign Up!">
+<p class="credit"><a href="http://www.yourmailinglistprovider.com" target="_new">Newsletter by YMLP.com</a></p>
+</form>
