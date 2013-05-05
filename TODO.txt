@@ -1,6 +1,6 @@
 === The Future ===
 
-[X] on journal pages, put 'matthew gatland' up top, not next/prev
+
 [ ] write some more content!
 [ ] migrate many more games
 [ ] I claim that I "make games and talk to people."
@@ -44,6 +44,9 @@ This made me think I had Helvetica installed, and I got really confused when I t
 
 
 === The Past ===
+
+2013-05-04
+[x] on journal pages, put 'matthew gatland' up top, not next/prev
 
 2013-04-24:
 [X] style images on games pages
