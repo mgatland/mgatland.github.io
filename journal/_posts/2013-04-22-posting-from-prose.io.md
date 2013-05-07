@@ -6,7 +6,7 @@ layout: journal
 
 For me, "the cloud" is about websites that talk to each other directly.
 
-When I change my Gravatar avatar and Github updates automatically, that's "cloud." If have to manually update my avatar on Github, but I can do it by passing a link to my avatar on Gravatar, that's a little bit cloudy.
+When I change my Gravatar avatar and Github updates automatically, that's "cloud." If I have to manually update my avatar on Github, but I can do it by passing a link to my avatar on Gravatar, that's a little bit cloudy.
 
 When I have to download my avatar from Gravatar, save it to the Desktop on my PC, then ask Github to download that file from my computer, that's broken. That's not cloudy at all.
 
