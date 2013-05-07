@@ -14,8 +14,8 @@ layout: none
 				<description><![CDATA[<p>{{ post.description }}</p><img src="{{ site.url }}/games/{{ post.icon }}" alt="game screenshot"/>
 				{{ post.content }}]]></description>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>{{ site.url }}{{ post.url }}</link>
-				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+				<link>{{ site.url }}{{ post.url | remove: 'index.html'}}</link>
+				<guid isPermaLink="true">{{ site.url }}{{ post.url | remove: 'index.html'}}</guid>
 			</item>
 {% endif %}{% endif %}{% endfor %}{% endfor %}
 	</channel>
