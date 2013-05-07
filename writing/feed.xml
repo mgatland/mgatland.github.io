@@ -6,7 +6,7 @@ layout: none
 	<channel>
 		<title>{{ site.title }} - Writing</title>
 		<description>My Writing</description>
-		<link>{{ site.url }}</link>
+		<link>{{ site.url }}/writing/</link>
 		<atom:link href="{{ site.url }}/writing/feed.xml" rel="self" type="application/rss+xml" />
 		{% for post in site.categories.writing limit:10 %}
 			<item>
