@@ -4,6 +4,7 @@ layout: page
 categories: [games]
 description: Explore eighty mazes as you piece together the key to secret treasure.
 order: 3
+date: 2013-05-05
 icon: trail-bay/trail-bay-icon.jpg
 ---
 

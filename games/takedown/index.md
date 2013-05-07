@@ -4,6 +4,7 @@ layout: page
 categories: [games]
 description: Rebel forces want to destroy the computer that runs the world. We're here to stop them.
 order: 2
+date: 2013-04-24
 icon: takedown/takedown-icon.png
 ---
 TakeDown is a 2D game of action and strategy, taking elements from traditional 

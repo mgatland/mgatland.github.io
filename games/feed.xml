@@ -1,0 +1,21 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ site.title }} - Games</title>
+		<description>Games from {{ site.title }}</description>
+		<link>{{ site.url }}/games/</link>
+		<atom:link href="{{ site.url }}/games/feed.xml" rel="self" type="application/rss+xml" />
+{% for order in (1..100) reversed %}{% for post in site.pages %}{% if post.order == order %}{% capture niceurl %}{{ post.url | remove: 'index.html' }}{% endcapture %}{% if niceurl contains '/games/' and niceurl != '/games/' %}
+			<item>
+				<title>{{ post.title }}</title>
+				<description><![CDATA[<p>{{ post.description | xml_escape }}</p><img src="{{ site.url }}/games/{{ post.icon }}" alt="game screenshot"/>]]></description>
+				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+				<link>{{ site.url }}{{ post.url }}</link>
+				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+			</item>
+{% endif %}{% endif %}{% endfor %}{% endfor %}
+	</channel>
+</rss>
