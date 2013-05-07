@@ -11,7 +11,8 @@ layout: none
 {% for order in (1..100) reversed %}{% for post in site.pages %}{% if post.order == order %}{% capture niceurl %}{{ post.url | remove: 'index.html' }}{% endcapture %}{% if niceurl contains '/games/' and niceurl != '/games/' %}
 			<item>
 				<title>{{ post.title }}</title>
-				<description><![CDATA[<p>{{ post.description | xml_escape }}</p><img src="{{ site.url }}/games/{{ post.icon }}" alt="game screenshot"/>]]></description>
+				<description><![CDATA[<p>{{ post.description }}</p><img src="{{ site.url }}/games/{{ post.icon }}" alt="game screenshot"/>
+				{{ post.content }}]]></description>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
 				<link>{{ site.url }}{{ post.url }}</link>
 				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
