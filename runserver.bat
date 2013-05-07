@@ -1,1 +1,1 @@
-jekyll --auto --server --url=""
+jekyll --auto --server --url="http://localhost:4000"
