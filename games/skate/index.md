@@ -2,7 +2,7 @@
 title: Skate
 layout: page
 categories: [games]
-description: A game about going fast and being good at sport
+description: A game about going fast and being good at sport.
 order: 4
 date: 2013-05-13
 icon: skate/skate-icon.png
