@@ -147,13 +147,18 @@ hr {
 
 /*subtle link background for huge buttons */
 a.button {
-	background-color: #f9f9f9;
+	background-color: #f4f4f4;
 	color: black;
 }
 
 /*the button's hover color is less intense, to compensate for it's huge size */
 
-a.button:hover, a.button:active, .subtle a:hover, .subtle a:active {
+a.button:hover, a.button:active {
+	background-color: #ccc;
+	color: #333;
+}
+
+.subtle a:hover, .subtle a:active {
 	background-color: #777;
 	color: #333;
 }
