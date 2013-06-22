@@ -5,8 +5,6 @@ layout: journal
 
 [Tide](/games/tide/) is my second game prototype.
 
-Here's a brief summary of [the development](https://mgatland.hackpad.com/one-day-project-tOsqPXkLvoC).
-
 I choose the style and concept in the first few hours:
 
 * Avoid expanding badness.
@@ -40,4 +38,9 @@ With that, the gameplay was finished. I added animations, sound, music, and poli
 * No touch controls (so when Megan tried it on her phone, it didn't work).
 * Some levels seem to be impossible. This is especially unfair since you only have one life.
 
-You can [play Tide online](/games/tide/). I'd love to see [your feedback](https://mgatland.hackpad.com/Tide-feedback-XD1sfXQIBGw)!
+### Links
+
+* [Play](/games/tide/)
+* [Feedback](https://mgatland.hackpad.com/Tide-feedback-XD1sfXQIBGw)
+* [Development diary](https://mgatland.hackpad.com/one-day-project-tOsqPXkLvoC)
+* [Source code](http://www.github.com/mgatland/tide/)
