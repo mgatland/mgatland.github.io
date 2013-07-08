@@ -1,9 +1,11 @@
 ---
-title: Idea for Rabble Room
+title: Idea for a game installation
 layout: journal
 ---
 
 Hi, here's an idea for a game for [Rabble Room Arcade](http://rabbleroom.co.nz/).
+
+_edit: they're not going to use this; I guess it's too elaborate or expensive. I've also proposed a much simpler project which I hope will get in._
 
 It's basically a clone of the iPhone game [Space Team](https://itunes.apple.com/us/app/spaceteam/id570510529?mt=8), but... in real life.
 
