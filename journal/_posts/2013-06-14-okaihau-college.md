@@ -1,6 +1,6 @@
 ---
 title: Okaihau College
-layout: post
+layout: journal
 ---
 
 I spent yesterday in Okaihau, teaching HTML and CSS to high school students.
