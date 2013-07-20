@@ -1,0 +1,3 @@
+[submodule "games/tide"]
+	path = games/tide
+	url = git://github.com/mgatland/tide
