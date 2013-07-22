@@ -1,3 +1,6 @@
 [submodule "games/tide"]
 	path = games/tide
 	url = git://github.com/mgatland/tide
+[submodule "games/takedown/play"]
+	path = games/takedown/play
+	url = git://github.com/mgatland/takedown.git
