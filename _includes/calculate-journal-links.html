@@ -5,7 +5,7 @@
     {% endif %}
 {% endfor %}
 {% for post in catg_posts %}
-    {% if post.title == page.title %}
+    {% if post.title == page.title and post.date == page.date %}
         {% unless forloop.last %}
             {% assign plus_one = catg_posts[forloop.index] %}
         {% endunless %}
