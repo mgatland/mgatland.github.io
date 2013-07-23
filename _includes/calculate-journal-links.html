@@ -1,19 +1,17 @@
-{% if page.categories contains 'journal' %}
-	{% if page.previous.categories contains 'journal' and page.next.categories contains 'journal' %}{% comment %} this is a possibly unneeded performance optimisation for the simple case{% endcomment %}
-		{% assign plus_one = page.previous %}
-		{% assign minus_one = page.next %}
-	{% else %}
-		{% for page2 in site.categories.journal %}
-			{% if found == 'true' %}
-				{% assign plus_one = page2 %}
-				{% assign found = 'false' %}
-			{% endif %}
-			{% if page2.title == page.title and page2.date == page.date %}
-				{% assign found = 'true' %}
-				{% assign minus_one = temp_minus_one %}
-			{% endif %}
-			{% assign temp_minus_one = page2 %}
-		{% endfor %}
-	{% endif %}
-
-{% endif %}
+{% for category in site.categories %}
+    {% assign catg_name = category.first %}
+    {% if catg_name == page.categories.first %}
+        {% assign catg_posts = category.last %}
+    {% endif %}
+{% endfor %}
+{% for post in catg_posts %}
+    {% if post.title == page.title %}
+        {% unless forloop.last %}
+            {% assign plus_one = catg_posts[forloop.index] %}
+        {% endunless %}
+        {% unless forloop.first %}
+        	{% assign minus_one = prev %}
+        {% endunless %}
+    {% endif %}
+    {% assign prev = post %}
+{% endfor %}
