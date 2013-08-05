@@ -5,7 +5,7 @@ layout: journal
 
 [Gather](http://gathergather.co.nz/) is an unconference held in Auckland every year.
 
-This year, Alice, Amie and I used nine laptops to set up a pop-up arcade.
+This year, Alice, Amie and I used ten laptops to set up a pop-up arcade.
 
 Thank you to everyone who came! We hope you had fun and saw something new. Super thank you to everyone who loaned their computer.
 

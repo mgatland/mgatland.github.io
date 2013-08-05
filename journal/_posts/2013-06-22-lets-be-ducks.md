@@ -3,7 +3,7 @@ title: Let's Be Ducks
 layout: journal
 ---
 
-[Let's Be Ducks](/games/ducks) (or just <i>Ducks</i>) is my third game prototype.
+[Let's Be Ducks](/games/ducks) is my third game prototype.
 
 The concept was simple: Make a clone of [ChatChat](http://distractionware.com/blog/2012/01/chatchat-2/) (a game by Terry Cavanagh), using HTML, CSS and JavaScript.
 
