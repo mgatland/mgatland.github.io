@@ -4,3 +4,6 @@
 [submodule "games/takedown/play"]
 	path = games/takedown/play
 	url = git://github.com/mgatland/takedown.git
+[submodule "games/cerulean"]
+	path = games/cerulean
+	url = git://github.com/mgatland/cerulean2/
