@@ -145,6 +145,10 @@ hr {
 	padding: 40px;
 }
 
+.button h2 {
+	margin-top:58px;
+}
+
 /*subtle link background for huge buttons */
 a.button {
 	background-color: #f4f4f4;
