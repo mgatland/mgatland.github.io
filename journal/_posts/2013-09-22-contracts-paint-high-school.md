@@ -18,9 +18,9 @@ Hey! I haven't released a game for a while. What did I do all month?
 
 A lecturer offered me some contract work, building a game for her and the university. This was a great opportunity, but was it right for me?
 
-Making some money from game dev would be great — I haven't earned any money since I quit my day job.
+Making some money from game dev would be great. I haven't earned any money since I quit my day job.
 
-And having a client would force me back into good work habits — like waking up before midday :/
+And having a client would force me back into good work habits, like waking up before midday :/
 
 On the other hand, all the game developers I know who do contract work seem to wish that they didn't. If they could afford to work on their own IP, they would.
 
