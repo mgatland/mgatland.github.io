@@ -7,6 +7,3 @@
 [submodule "games/cerulean"]
 	path = games/cerulean
 	url = git://github.com/mgatland/cerulean2/
-[submodule "games/tide2"]
-	path = games/tide2
-	url = http://www.github.com/mgatland/tide
