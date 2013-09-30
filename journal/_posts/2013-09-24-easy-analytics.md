@@ -3,51 +3,53 @@ title: Easy analytics
 layout: journal
 ---
 
-Tide was mentioned on [indiegames.com](http://indiegames.com/2013/09/browser_pick_tide.html). The link brought a few hundred visitors — more than I've ever had before.
+Tide was mentioned on [indiegames.com](http://indiegames.com/2013/09/browser_pick_tide.html). The link brought a few hundred visitors, which is more than I've ever had before.
 
 ![Visits increase from about zero per day to nearly 300 on September 19.](/journal/images/2013-09-30-site-traffic.png)
 
-I wanted to see what these new players were doing in the game, so I added some event tracking code.
+I wanted to see what these players were doing in the game, so I added some event tracking code.
 
 ### Code corner
 
 If your page already uses Google Analytics, tracking events in JavaScript is easy. All you need to do is call this function:
 
-    _gaq.push(['_trackEvent',gameTitle, action, ""+label, value]);
+    _gaq.push(['_trackEvent',gameTitle, action, ""+label]);
 
-I include the game's title, use the action to describe what happened (e.g. the player won a level) and the label to give additional information, like what level the player was on.
+I include the game's title, use the action to describe what happened (e.g. the player lost, or won a level) and the label to give additional information, like what level the player was on.
 
-I don't currently use the last argument.
+You can also add a 'value' argument, but I don't.
 
 ### The results
 
 ![Screenshot of data discussed below](/journal/images/2013-09-30-tide-overview.png)
 
-I'm looking at the Unique Events column, which counts only one of each event from each device. This means the same person playing twice will only be counted once.
+The Unique Events column only counts one event of each type from each device. Someone who starts the game many times will only be counted once in that column.
 
-473 different people started the game. Most of those (438) won at least one level. That's good; it means most people tried the game and worked out the controls.
+* 473 people started the game.
+* 438 (93%) played at least one level.
+* Only 375 (79%) ever lost. The others must have quit before they lost.
 
-Only 375 people ever lost. That surprised me, because I thought almost everyone would keep playing until they lost.
+The last result surprised me. I thought everyone would keep playing until they lost at least once.
 
-We'll look at the _consecutivegames_ event in a moment.
-
-First, let's look at the levels.
+The next image shows how many times each level was played.
 
 ![Level 2 was reached 738 times. The numbers drop off for higher levels. Level 16 and 17 were only reached once.](/journal/images/2013-09-30-tide-level-stats.png)
 
-The first column is the level number. The second column shows how many times that level was reached. (Ignore the percentages at the end; they are not useful.)
+(Ignore the percentages on this chart and the next one, they are not meaningful.)
 
-This looks how you would expect. Fewer people reached higher levels. The highest level anyone reached was level 17.
+* The first level was played 738 times.
+* Higher levels were reached fewer times.
+* The highest level ever reached was level 17.
 
-Next, let's look at how many times players restarted the game after losing.
+The next image shows how many players restarted after losing.
 
 ![There were 203 restarts after losing once, 83 after losing twice, 33 after losing 3 times. The numbers decrease rapidly.](/journal/images/2013-09-30-tide-restart-stats.png)
 
-The number on the left is how many times they had lost already when they decided to play again.
+This event is recorded if a player restarts after losing a game. The number on the left is the number of times they have already played.
 
-Most players didn't restart any games at all (which isn't shown on this graph). About 200 (42%) restarted after their first loss, and the numbers decrease rapidly.
-
-Five dedicated players played 10 games before quitting.
+* Most players didn't restart at all.
+* 203 (43%) restarted after their first game.
+* Far fewer restarted after subsequent games.
 
 ### What's next?
 
@@ -57,13 +59,13 @@ However, that's not happening. Most people only play once.
 
 If players only want to play once, maybe I should make Tide progress more like a modern-style game:
 
-* When you lose, you restart the current level instead of going back to the start of the game
-* There is a limited number of levels
-* Levels are hand-made, not random, and more interesting
+* When you lose, you can continue from the current level instead of restarting the whole game.
+* There is a limited number of levels.
+* Levels are hand-made, not random, and more interesting.
 * When you finish all the levels you get a nice victory screen.
 
-On the other hand, I could try to make Tide into a better arcade style game:
+On the other hand, I could try to make Tide into a better arcade-style game:
 
-* Make it much harder, so new players lose in the first few seconds
-* Show the player's score more clearly
+* Make it much harder, so beginners lose in the first few seconds.
+* Show the player's score more clearly.
 * Have a high score table.
