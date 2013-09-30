@@ -11,54 +11,43 @@ I wanted to see what these new players were doing in the game, so I added some e
 
 ### Code corner
 
-If your page already uses Google Analytics, tracking events in JavaScript is easy. All you need to do is add a function like this:
+If your page already uses Google Analytics, tracking events in JavaScript is easy. All you need to do is call this function:
 
-    var track = function (action, label, val) {
-      console.log("tracked: " + action + ", " + label + ", " + val);
-      try {
-        //Replace "Tide" with your game's name
-        _gaq.push(['_trackEvent',"Tide", action, ""+label, val]);
-      } catch (e) {
-      }
-    }
+    _gaq.push(['_trackEvent',gameTitle, action, ""+label, value]);
 
-I use the action to describe what happened (e.g. the player won a level) and the label to give additional information, like what level the player was.
+I include the game's title, use the action to describe what happened (e.g. the player won a level) and the label to give additional information, like what level the player was on.
 
-    track("lose", level);
-
-(I don't currently use the third argument.)
-
-Warning: What I'm doing might not be best practice! I'm just a beginner with Google Analytics.
+I don't currently use the last argument.
 
 ### The results
 
 ![Screenshot of data discussed below](/journal/images/2013-09-30-tide-overview.png)
 
-The Unique Events column ignores repeated events from the same computer. This is useful when you want to count individual people.
+I'm looking at the Unique Events column, which counts only one of each event from each device. This means the same person playing twice will only be counted once.
 
-The _newgame_ column shows that 473 different people started the game.
+473 different people started the game. Most of those (438) won at least one level. That's good; it means most people tried the game and worked out the controls.
 
-438 people won at least one level. That's good; it means most people tried the game and worked out the controls.
-
-375 people lost at least once. This leaves nearly 100 players (21%) who quit before they lost. That surprised me, because I thought most players would keep playing until they lost.
+Only 375 people ever lost. That surprised me, because I thought almost everyone would keep playing until they lost.
 
 We'll look at the _consecutivegames_ event in a moment.
 
-First, lets see how many levels people are playing.
+First, let's look at the levels.
 
 ![Level 2 was reached 738 times. The numbers drop off for higher levels. Level 16 and 17 were only reached once.](/journal/images/2013-09-30-tide-level-stats.png)
 
-The first column is the level number. The second column shows how many times that level was reached. (Ignore the percentage at the end; it's not meaningful.)
+The first column is the level number. The second column shows how many times that level was reached. (Ignore the percentages at the end; they are not useful.)
 
-Fewer people reached higher levels, as expected. The highest level reached was level 17.
+This looks how you would expect. Fewer people reached higher levels. The highest level anyone reached was level 17.
 
 Next, let's look at how many times players restarted the game after losing.
 
 ![There were 203 restarts after losing once, 83 after losing twice, 33 after losing 3 times. The numbers decrease rapidly.](/journal/images/2013-09-30-tide-restart-stats.png)
 
-The first column is the number of times the player has already lost. The second column is how many people restarted (instead of quitting) at that point.
+The number on the left is how many times they had lost already when they decided to play again.
 
-Most players didn't restart any games at all (which isn't shown on this graph). About 200 restarted after their first loss, and the numbers decrease rapidly. Five dedicated players played 10 games before quitting.
+Most players didn't restart any games at all (which isn't shown on this graph). About 200 (42%) restarted after their first loss, and the numbers decrease rapidly.
+
+Five dedicated players played 10 games before quitting.
 
 ### What's next?
 
