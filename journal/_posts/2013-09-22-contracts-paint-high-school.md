@@ -18,17 +18,20 @@ Hey! I haven't released a game for a while. What did I do all month?
 
 A lecturer offered me some contract work, building a game for her and the university. This was a great opportunity, but was it right for me?
 
+<!--
 Making some money from game dev would be great. I haven't earned any money since I quit my day job.
 
 And having a client would force me back into good work habits, like waking up before midday :/
 
 On the other hand, all the game developers I know who do contract work seem to wish that they didn't. If they could afford to work on their own IP, they would.
+-->
 
 At Webstock this year, Jim Coudal said "fire your clients!" His company fired its clients one-by-one until there were none left. Now they work only own their own projects.
 
-I can already afford to work on my own projects, so... isn't taking on a client a step backwards for me?
+I can already afford to work on my own projects, which is what I really want to do. Taking on a client is not a step towards that goal.
 
-And while it might help me develop good working habits, it's also going to occupy my time for many months until the contract is over.
+<!--
+And while it might help me develop good working habits, it's also going to occupy my time for many months until the contract is over.-->
 
 In the end, I turned down the job — recommending some friends instead.
 
