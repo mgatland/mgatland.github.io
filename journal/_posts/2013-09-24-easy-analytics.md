@@ -7,17 +7,12 @@ Tide was mentioned on [indiegames.com](http://indiegames.com/2013/09/browser_pic
 
 ![Visits increase from about zero per day to nearly 300 on September 19.](/journal/images/2013-09-30-site-traffic.png)
 
-I wanted to see what these players were doing in the game, so I added some event tracking code.
+I wanted to see what these players were doing in the game, so I added some event tracking code. I recorded:
 
-### Code corner
-
-If your page already uses Google Analytics, tracking events in JavaScript is easy. All you need to do is call this function:
-
-    _gaq.push(['_trackEvent',gameTitle, action, ""+label]);
-
-I include the game's title, use the action to describe what happened (e.g. the player lost, or won a level) and the label to give additional information, like what level the player was on.
-
-You can also add a 'value' argument, but I don't.
+* Each time the game starts.
+* Each time a new level starts (except level 1).
+* Each time the player loses.
+* Each time the player restarts, after losing.
 
 ### The results
 
@@ -26,7 +21,7 @@ You can also add a 'value' argument, but I don't.
 The Unique Events column only counts one event of each type from each device. Someone who starts the game many times will only be counted once in that column.
 
 * 473 people started the game.
-* 438 (93%) played at least one level.
+* 438 (93%) finished at least one level.
 * Only 375 (79%) ever lost. The others must have quit before they lost.
 
 The last result surprised me. I thought everyone would keep playing until they lost at least once.
@@ -49,13 +44,13 @@ This event is recorded if a player restarts after losing a game. The number on t
 
 * Most players didn't restart at all.
 * 203 (43%) restarted after their first game.
-* Far fewer restarted after subsequent games.
+* Far fewer players restarted after subsequent games.
 
 ### What's next?
 
 I thought Tide was a hard, arcade style game that people would replay to try to improve their high score.
 
-However, that's not happening. Most people only play once.
+That is not happening. Most people only play once.
 
 If players only want to play once, maybe I should make Tide progress more like a modern-style game:
 
@@ -64,7 +59,7 @@ If players only want to play once, maybe I should make Tide progress more like a
 * Levels are hand-made, not random, and more interesting.
 * When you finish all the levels you get a nice victory screen.
 
-On the other hand, I could try to make Tide into a better arcade-style game:
+On the other hand, I could encourage replays by making Tide a better arcade-style game:
 
 * Make it much harder, so beginners lose in the first few seconds.
 * Show the player's score more clearly.
