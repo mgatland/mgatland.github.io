@@ -29,6 +29,14 @@ var Network = {};
 		});
 		peer.on('connection', function(conn) {
 			console.log("incoming connection...");
+			if (connection != null) {
+				console.log("You already have a connection. Ignoring the new one.");
+				conn.on('open', function() {
+					console.log("Rejecting new connection.");
+					conn.send("REJECTED");	
+				});
+				return;
+			}
 			connection = conn;
 
 			connection.on('open', function(){
@@ -66,6 +74,10 @@ var Network = {};
 			  		connection.send('hi!');
 				});
 				connection.on('data', function(data){
+					if (data == "REJECTED") {
+						alert("Error: That game is full, you cannot join. Please refresh the page and join a different game or host your own.");
+						connection.close();
+					}
 					dataCallback(data);
 				});
 				connection.on('error', function(err) {
