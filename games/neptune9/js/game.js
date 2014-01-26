@@ -4,12 +4,20 @@ require(["creature", "controls", "keyboard"], function(Creature, Controls, Keybo
 $( document ).ready( function () {
 
 
+	var makeEnemy = function(slot, type) {
+		if (type === undefined) type = Math.floor(Math.random()*4);
+		if (type === 0) return new Creature(slot, "Dopnot", "dopnot.png", "'Grr! Zeek!'", 6, creatures, true);
+		if (type === 1) return new Creature(slot, "Gobnit", "gobnit.png", "'Garble garble'", 3, creatures, true);
+		if (type === 2) return new Creature(slot, "Weewit", "weewit.png", "'Target assigned.'", 4, creatures, true);
+		return new Creature(slot, "Leepig", "leepig.png", "'Leave me alone!'", 5, creatures, true);
+	}
+
 	var keyboard = new Keyboard();
 	var creatures = [];
-	creatures[0] = new Creature(0, "Riley", 10, 5, 5, 5, 5, creatures, false);
-	creatures[1] = new Creature(1, "Brooklyn", 10, 4, 5, 4, 6, creatures, false);
-	creatures[2] = new Creature(2, "Dopnot", 5, 5, 5, 5, 5, creatures, true);
-	creatures[3] = new Creature(3, "Gobnit", 5, 5, 5, 5, 5, creatures, true);
+	creatures[0] = new Creature(0, "Rylie", "warrior.png", "'Let's go!'", 10, creatures, false);
+	creatures[1] = new Creature(1, "Brooklyn", "missionary.png", "'I sense trouble.'", 10, creatures, false);
+	creatures[2] = makeEnemy(2);
+	creatures[3] = makeEnemy(3);
 
 	creatures.forEach(function (c) {
 		c.draw();
@@ -68,7 +76,7 @@ $( document ).ready( function () {
 		creatures.forEach(function (c, index) {
 			c.update();
 			if (c.alive === false && c.deadTimer === 0 && c.isAI) {
-				creatures[index] = new Creature(index, "Cat", 5, 5, 5, 5, 5, creatures, true);
+				creatures[index] = makeEnemy(index);
 				creatures[index].draw();
 			}
 		});

@@ -81,17 +81,14 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		this.teammateCoverCost = -1;
 	}
 
-	var Creature = function (id, name, cover, energy, aim, dodge, leadership, creatures, isAI) {
+	var Creature = function (id, name, pic, greeting, cover, creatures, isAI) {
 		var c = this; //for private methods
 		this.id = id;
 		this.name = name;
 		this.cover = 0;
 		this.maxCover = cover;
-		this.energy = energy;
-		this.maxEnergy = energy;
-		this.aim = aim;
-		this.dodge = dodge;
-		this.leadership = leadership;
+		this.energy = 1;
+		this.maxEnergy = 1;
 		this.isAI = isAI ? true : false;
 
 		this.alive = true;
@@ -108,11 +105,14 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 			cooldownEle = getElement("cooldown");
 			cooldownLabelEle = getElement("bar .label");
 			coverTokensEle = getElement("coverTokens");
+			getElement("portrait").src = "arts/" + pic;
 			if (c.isAI) {
 				c.cooldown = Math.floor(Math.random() * 30) + 80;
-				c.maxCooldown = c.cooldown;
-				c.lastActionText = "Get them!";
+			} else {
+				c.cooldown = 45;
 			}
+			c.maxCooldown = c.cooldown;
+			c.lastActionText = greeting;
 			c.initCoverTokens(c.maxCover);
 		}
 
@@ -161,6 +161,7 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		}
 
 		this.initCoverTokens = function () {
+			coverTokensEle.innerHTML = ""; //clear tokens from a previous character
 			var tokens = 0;
 			while (tokens < this.maxCover) {
 				var iDiv = document.createElement('div');
@@ -314,11 +315,6 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 
 		this.draw = function () {
 			getElement("name").innerHTML = this.name;
-			getElement("cover").innerHTML = "Cover: " + this.cover + "/" + this.maxCover;
-			getElement("energy").innerHTML = "Energy: " + this.energy + "/" + this.maxEnergy;
-			getElement("aim").innerHTML = "Aim: " + this.aim;
-			getElement("dodge").innerHTML = "Dodge: " + this.dodge;
-			getElement("leadership").innerHTML = "Leadership: " + this.leadership;
 			getElement().classList.toggle("dead", !this.alive);
 		}
 
