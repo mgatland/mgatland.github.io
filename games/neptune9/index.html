@@ -7,15 +7,17 @@
 </head>
 <body>
 	<div class="controls p0">
-		<div class="actionbutton act0"><div class="keyhint p0">W</div>Shoot</div>
-		<div class="actionbutton act1"><div class="keyhint p0">S</div>Find cover</div>
-		<div class="actionbutton act2"><div class="keyhint p0">A</div>Advance!</div>
-		<div class="actionbutton act3"><div class="keyhint p0">D</div>Protect</div>
 		<div class="instructions">
 			<div class="onChooseAction">Choose an action</div>
 			<div class="onChooseTarget">Choose a target</div>
 			<div class="onWait">Waiting...</div>
 		</div>
+		<div class="targetHint p0 onChooseTarget">A</div>
+		<div class="targetHint right p0 onChooseTarget">D</div>
+		<div class="actionbutton act0"><div class="keyhint p0">W</div>Shoot</div>
+		<div class="actionbutton act1"><div class="keyhint p0">S</div>Find cover</div>
+		<div class="actionbutton act2"><div class="keyhint p0">A</div>Advance!</div>
+		<div class="actionbutton act3"><div class="keyhint p0">D</div>Protect</div>
 	</div>
 	<div class="cards">
 		<div class="card p0">
@@ -60,22 +62,26 @@
 		</div>
 	</div>
 	<div class="controls p1">
-		<div class="actionbutton act0"><div class="keyhint p1">&#8593;</div>Shoot</div>
-		<div class="actionbutton act1"><div class="keyhint p1">&#8595;</div>Find cover</div>
-		<div class="actionbutton act2"><div class="keyhint p1">&#8592;</div>Advance!</div>
-		<div class="actionbutton act3"><div class="keyhint p1">&#8594;</div>Protect</div>
 		<div class="instructions">
 			<div class="onChooseAction">Choose an action</div>
 			<div class="onChooseTarget">Choose a target</div>
 			<div class="onWait">Waiting...</div>
 		</div>
+		<div class="targetHint p1 onChooseTarget">&#8592;</div>
+		<div class="targetHint right p1 onChooseTarget">&#8594;</div>
+		<div class="actionbutton act0"><div class="keyhint p1">&#8593;</div>Shoot</div>
+		<div class="actionbutton act1"><div class="keyhint p1">&#8595;</div>Find cover</div>
+		<div class="actionbutton act2"><div class="keyhint p1">&#8592;</div>Advance!</div>
+		<div class="actionbutton act3"><div class="keyhint p1">&#8594;</div>Protect</div>
 	</div>
 	<div class="guide">
-		<p>Actions:</p>
-		<p><b>Shoot</b><br>Choose a target.<br>If they have no cover, they die.<br>Otherwise they lose -1 Cover.</p>
-		<p><b>Find cover</b><br>You gain +2 Cover.</p>
-		<p><b>Advance!</b><br>You lose -4 Cover.<br>Both enemies lose -2 Cover.</p>
-		<p><b>Protect</b><br>You lose -2 Cover.<br>Your friend gains +1 Cover.</p>
+		<p>Instructions:</p>
+		<p>Cover (<span class="covertoken"></span>) protects you from being shot. Drive your enemies out of cover, then shoot them! Watch your own cover to stay alive.</p>
+		<p><b>Shoot</b><br>If your target has no <span class="covertoken"></span>, you destroy them.<br>
+		Otherwise, your target loses 1<span class="covertoken"></span>.</p>
+		<p><b>Find cover</b><br>You retreat and gain 2<span class="covertoken"></span>.</p>
+		<p><b>Advance!</b><br>Charge at your enemies.<br>You lose 4<span class="covertoken"></span> but both enemies lose 2<span class="covertoken"></span>.</p>
+		<p><b>Protect</b><br>Protect your teammate.<br>You lose 2<span class="covertoken"></span>. Your teammate gains 1<span class="covertoken"></span>.</p>
 	</div>
 	<div class="lines"></div>
 </body>

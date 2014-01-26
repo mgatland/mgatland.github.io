@@ -183,8 +183,9 @@ body {
 }
 
 .instructions {
+	margin-top: 16px;
 	font-size: 28px;
-	margin-top: 18px;
+	height: 54px;
 }
 
 
@@ -238,16 +239,51 @@ p {
 	color: hsl(0, 50%, 40%);
 	background-color: hsl(0, 100%, 75%);
 	box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 50%, 55%) 0 .1em 3px, hsl(0, 50%, 40%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+}
 
+.guide .coverToken {
+	width: 2px;
+	height: 2px;
+	font-size: 14px;
 }
 
 /* key hints */
 
+.targetHint {
+	width: 64px;
+	height: 64px;
+
+	font-size: 44px;
+	text-align: center;
+	line-height: 64px;
+
+	padding-right: 3px;
+	padding-bottom: 3px;
+	margin-left: 0px;
+	margin-top: 3px;
+
+	z-index: 1;
+
+	background: rgba(94, 233, 59, 200);
+
+	box-shadow: 		inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+	position: absolute;
+}
+
+.targetHint.right {
+	margin-left: 94;
+}
+
+.targetHint.p1 {
+	background: skyblue;
+}
+
 .keyhint {
 	width: 19px;
 	height: 19px;
-	padding-right: 3px;
-	padding-bottom: 3px;
+	padding: 2px;
 	margin-left: -19px;
 	margin-top: 3px;
 
@@ -271,14 +307,16 @@ p {
 }
 
 .cards .keyhint {
-	width: 24px;
-	height: 24px;
-	font-size: 160%;
+	width: 28px;
+	height: 32px;
+	font-size: 32px;
+	line-height: 32px;
+	margin-left: -10px;
 }
 
 .cards .keyhint.p1 {
 	background: skyblue;
-	margin-top: 30px;
+	margin-top: 42px;
 }
 
 .keyhints .keyhint {
