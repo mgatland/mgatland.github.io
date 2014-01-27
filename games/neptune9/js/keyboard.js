@@ -11,7 +11,10 @@ if (typeof KeyEvent == "undefined") {
         DOM_VK_W: 87,
         DOM_VK_A: 65,
         DOM_VK_S: 83,
-        DOM_VK_D: 68
+        DOM_VK_D: 68,
+
+        DOM_VK_ENTER: 14,
+        DOM_VK_RETURN: 13
     }
 }
 

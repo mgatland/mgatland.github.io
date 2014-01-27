@@ -95,6 +95,8 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		this.maxEnergy = 1;
 		this.isAI = isAI ? true : false;
 
+		this.instructionText = ""; //Set by Controls
+
 		this.alive = true;
 		this.deadTimer = 0;
 
@@ -309,8 +311,14 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		};
 
 		this.update = function () {
-			if (this.deadTimer > 0) {
-				this.deadTimer--;
+
+			if (this.alive === false) {
+				cooldownLabelEle.innerHTML = "";
+
+				if (this.deadTimer > 0) {
+					this.deadTimer--;
+				}
+				return;
 			}
 
 			if (this.cooldown > 0) {
@@ -321,7 +329,9 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 				cooldownLabelEle.innerHTML = this.lastActionText;
 			} else {
 				cooldownEle.style.width = 0;
-				cooldownLabelEle.innerHTML = "";
+				if (this.isAI === false) {
+					cooldownLabelEle.innerHTML = this.instructionText; //controlled by Controls
+				}
 			}
 
 			if (this.cooldown <= 0 && this.alive && this.isAI) {

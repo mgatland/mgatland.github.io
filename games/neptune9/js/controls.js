@@ -13,6 +13,7 @@ define(function () {
 		this.setCreature = function(newCreature) {
 			creature = newCreature;
 			updateLabels();
+			setState("wait", true);
 		}
 
 		var updateLabels = function () {
@@ -80,10 +81,11 @@ define(function () {
 			useAction(selectedAction, num);
 		}
 
-		var setState = function (newState) {
-			if (state === newState) return;
+		var setState = function (newState, force) {
+			if (state === newState && !force) return;
 			state = newState;
 			if (state === "chooseTarget") {
+				creature.instructionText = "<span class='instruction'>Choose Target</span>";
 				ele.classList.add("chooseTarget");
 				ele.classList.add("enabled");
 				ele.classList.remove("chooseAction");
@@ -93,6 +95,7 @@ define(function () {
 				cardsEle.classList.toggle("keyhints" + id, true);
 			}
 			if (state === "chooseAction") {
+				creature.instructionText = "<span class='instruction'>Choose Action</span>";
 				ele.classList.remove("chooseTarget");
 				ele.classList.remove("enabled");
 				ele.classList.add("chooseAction");
@@ -120,7 +123,6 @@ define(function () {
 				cardsEle.classList.toggle("keyhints" + id, false);
 			}
 		}
-		setState("chooseAction");
 	}
 
 	return Controls;

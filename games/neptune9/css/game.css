@@ -213,6 +213,14 @@
 	text-align: center;
 }
 
+.p0 .instruction {
+	color: hsl(88, 70%, 30%);
+}
+
+.p1 .instruction {
+	color: hsl(223, 70%, 30%);
+}
+
 /* popover */
 
 .popover {
@@ -239,10 +247,10 @@
 
 /* instructions and guides */
 
-.instructions {
+.controlsLabel {
 	margin-top: 16px;
-	font-size: 28px;
-	height: 54px;
+	font-size: 16px;
+	height: 32px;
 }
 
 .guide {
@@ -305,37 +313,6 @@ p {
 
 /* key hints */
 
-.targetHint {
-	width: 64px;
-	height: 64px;
-
-	font-size: 44px;
-	text-align: center;
-	line-height: 64px;
-
-	padding-right: 3px;
-	padding-bottom: 3px;
-	margin-left: 0px;
-	margin-top: 3px;
-
-	z-index: 1;
-
-	background: rgba(94, 233, 59, 200);
-
-	box-shadow: 		inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
-							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
-							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
-	position: absolute;
-}
-
-.targetHint.right {
-	margin-left: 94;
-}
-
-.targetHint.p1 {
-	background: skyblue;
-}
-
 .keyhint {
 	width: 19px;
 	height: 19px;
@@ -351,6 +328,7 @@ p {
 
 	position: absolute;
 	display: none;
+	z-index: 100;
 }
 
 .controls .keyhint {
@@ -363,16 +341,22 @@ p {
 }
 
 .cards .keyhint {
-	width: 28px;
-	height: 32px;
-	font-size: 32px;
-	line-height: 32px;
-	margin-left: -10px;
+	width: 64px;
+	height: 64px;
+	font-size: 44px;
+	text-align: center;
+	line-height: 64px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+
+	margin-left: -32px;
+	margin-top: -20px;
 }
+
 
 .cards .keyhint.p1 {
 	background: skyblue;
-	margin-top: 42px;
+	margin-left: 160px;
 }
 
 .keyhints .keyhint {
