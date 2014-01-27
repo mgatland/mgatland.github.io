@@ -37,11 +37,21 @@ var startNeptune9 = function(event) {
 
 	restartGame();
 
+	var firstParentWithClass = function (startNode, className) {
+		var node = startNode;
+		while(node && node.classList && !node.classList.contains(className)) {
+	    	node = node.parentNode;
+	    	if (!node.classList) return null; //we clicked outside a card.
+		}
+		return node;
+	}
+
 	var addControlsEventListener = function (i) {
 		var controlsEle = document.querySelector('.controls.p' + i);
 		controlsEle.addEventListener('click', function (event) {
-		    if (event.target.classList.contains('actionbutton')) {
-		        var action = event.target.className.replace("actionbutton", "").replace(" ", "").replace("act", "");
+			var node = firstParentWithClass(event.target, 'actionbutton');
+		    if (node) {
+		        var action = node.className.replace("actionbutton", "").replace(" ", "").replace("act", "");
 		        controls[i].actionSelected(action);
 		    }
 		}, false);
@@ -59,11 +69,8 @@ var startNeptune9 = function(event) {
 
 	var cardsEle = document.querySelector('.cards');
 	cardsEle.addEventListener('click', function (event) {
-		var node = event.target;
-		while(node && node.classList && !node.classList.contains('card')) {
-		    node = node.parentNode;
-		    if (!node.classList) return; //we clicked outside a card.
-		}
+		var node = firstParentWithClass(event.target, 'card');
+		if (!node) return;
 		var num = 0;
 		for (var i = 0; i < 4; i++) {
 			if (node.classList.contains("p" + i)) num = i;
