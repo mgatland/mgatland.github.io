@@ -1,11 +1,21 @@
+---
+title: Neptune 9
+categories: [games]
+description: A shootout in a space-corridor for 2 players.
+order: 9
+date: 2014-01-27
+icon: neptune9/neptune9-icon.png
+---
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
+	<title>Neptune 9</title>
 	<link rel="stylesheet" href="css/game.css">
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script data-main="js/game" src="js/require.js"></script>
+	{% include analytics.html %}
 </head>
 <body>
+<div class="game">
 	<div class="controls p0">
 		<div class="instructions">
 			<div class="onChooseAction">Choose an action</div>
@@ -14,16 +24,16 @@
 		</div>
 		<div class="targetHint p0 onChooseTarget">A</div>
 		<div class="targetHint right p0 onChooseTarget">D</div>
-		<div class="actionbutton act0"><div class="keyhint p0">W</div>Shoot</div>
-		<div class="actionbutton act1"><div class="keyhint p0">S</div>Find cover</div>
-		<div class="actionbutton act2"><div class="keyhint p0">A</div>Advance!</div>
-		<div class="actionbutton act3"><div class="keyhint p0">D</div>Protect</div>
+		<div class="actionbutton act0"><div class="keyhint p0">W</div><span class="actionLabel">…</span></div>
+		<div class="actionbutton act1"><div class="keyhint p0">S</div><span class="actionLabel">…</span></div>
+		<div class="actionbutton act2"><div class="keyhint p0">A</div><span class="actionLabel">…</span></div>
+		<div class="actionbutton act3"><div class="keyhint p0">D</div><span class="actionLabel">…</span></div>
 	</div>
 	<div class="cards">
 		<div class="card p0">
 		  <div class="front">
 			<div class="name">Sophia</div>
-			<img class="portrait">
+			<div class="image"><img class="portrait"><img class="overlay"></div>
 			<div class="coverTokens"></div>
 			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
 		  </div>
@@ -32,7 +42,7 @@
 		<div class="card p1">
 		  <div class="front">
 			<div class="name">Sophia</div>
-			<img class="portrait">
+			<div class="image"><img class="portrait"><img class="overlay"></div>
 			<div class="coverTokens"></div>
 			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
 		  </div>
@@ -43,7 +53,7 @@
 			<div class="keyhint p0">A</div>
 			<div class="keyhint p1">&#8592;</div>
 			<div class="name">Sophia</div>
-			<img class="portrait">
+			<div class="image"><img class="portrait"><img class="overlay"></div>
 			<div class="coverTokens"></div>
 			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
 		  </div>
@@ -54,7 +64,7 @@
 			<div class="keyhint p0">D</div>
 			<div class="keyhint p1">&#8594;</div>
 			<div class="name">Sophia</div>
-			<img class="portrait">
+			<div class="image"><img class="portrait"><img class="overlay"></div>
 			<div class="coverTokens"></div>
 			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
 		  </div>
@@ -69,20 +79,26 @@
 		</div>
 		<div class="targetHint p1 onChooseTarget">&#8592;</div>
 		<div class="targetHint right p1 onChooseTarget">&#8594;</div>
-		<div class="actionbutton act0"><div class="keyhint p1">&#8593;</div>Shoot</div>
-		<div class="actionbutton act1"><div class="keyhint p1">&#8595;</div>Find cover</div>
-		<div class="actionbutton act2"><div class="keyhint p1">&#8592;</div>Advance!</div>
-		<div class="actionbutton act3"><div class="keyhint p1">&#8594;</div>Protect</div>
+		<div class="actionbutton act0"><div class="keyhint p1">&#8593;</div><span class="actionLabel">…</span></div>
+		<div class="actionbutton act1"><div class="keyhint p1">&#8595;</div><span class="actionLabel">…</span></div>
+		<div class="actionbutton act2"><div class="keyhint p1">&#8592;</div><span class="actionLabel">…</span></div>
+		<div class="actionbutton act3"><div class="keyhint p1">&#8594;</div><span class="actionLabel">…</span></div>
+	</div>
+	<div class="popover front fadeIn hidden">
+		Game Over<br>
+		<div class="actionbutton restartButton">Restart</div>
 	</div>
 	<div class="guide">
 		<p>Instructions:</p>
 		<p>Cover (<span class="covertoken"></span>) protects you from being shot. Drive your enemies out of cover, then shoot them! Watch your own cover to stay alive.</p>
-		<p><b>Shoot</b><br>If your target has no <span class="covertoken"></span>, you destroy them.<br>
-		Otherwise, your target loses 1<span class="covertoken"></span>.</p>
+		<p><b>Shoot</b><br>Shoot an enemy with no <span class="covertoken"></span> to kill them.<br>
+		Otherwise, shooting an enemy makes them lose 1<span class="covertoken"></span>.</p>
 		<p><b>Find cover</b><br>You retreat and gain 2<span class="covertoken"></span>.</p>
-		<p><b>Advance!</b><br>Charge at your enemies.<br>You lose 4<span class="covertoken"></span> but both enemies lose 2<span class="covertoken"></span>.</p>
-		<p><b>Protect</b><br>Protect your teammate.<br>You lose 2<span class="covertoken"></span>. Your teammate gains 1<span class="covertoken"></span>.</p>
+		<p><b>Advance</b><br>Charge at your enemies.<br>You lose 4<span class="covertoken"></span> but both enemies lose 2<span class="covertoken"></span>.</p>
+		<p><b>Protect</b><br>Protect your teammate.<br>You lose 2<span class="covertoken"></span>. Your teammate gains 2<span class="covertoken"></span>.</p>
 	</div>
 	<div class="lines"></div>
+	<div class="preload-images" style="display:none;"><img src="arts/dead.png"></div>
+</div>
 </body>
 </html>

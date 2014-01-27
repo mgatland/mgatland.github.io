@@ -1,8 +1,7 @@
 "use strict";
 require(["creature", "controls", "keyboard"], function(Creature, Controls, Keyboard) {
 
-$( document ).ready( function () {
-
+var startNeptune9 = function(event) {
 
 	var makeEnemy = function(slot, type) {
 		if (type === undefined) type = Math.floor(Math.random()*4);
@@ -14,18 +13,29 @@ $( document ).ready( function () {
 
 	var keyboard = new Keyboard();
 	var creatures = [];
-	creatures[0] = new Creature(0, "Rylie", "warrior.png", "'Let's go!'", 10, creatures, false);
-	creatures[1] = new Creature(1, "Brooklyn", "missionary.png", "'I sense trouble.'", 10, creatures, false);
-	creatures[2] = makeEnemy(2);
-	creatures[3] = makeEnemy(3);
-
-	creatures.forEach(function (c) {
-		c.draw();
-	});
-
 	var controls = [];
-	controls[0] = new Controls(0, creatures[0]);
-	controls[1] = new Controls(1, creatures[1]);
+	controls[0] = new Controls(0);
+	controls[1] = new Controls(1);
+	var popoverDelayTimer = 0;
+
+	var restartGame = function () {
+		popoverDelayTimer = 0;
+		creatures[0] = new Creature(0, "Rylie", "warrior.png", "'Let's go!'", 10, creatures, false);
+		creatures[1] = new Creature(1, "Brooklyn", "missionary.png", "'I sense trouble.'", 10, creatures, false);
+		creatures[2] = makeEnemy(2);
+		creatures[3] = makeEnemy(3);
+
+		creatures.forEach(function (c) {
+			c.draw();
+		});
+
+		controls[0].setCreature(creatures[0]);
+		controls[1].setCreature(creatures[1]);
+	}
+
+
+
+	restartGame();
 
 	var addControlsEventListener = function (i) {
 		var controlsEle = document.querySelector('.controls.p' + i);
@@ -61,6 +71,19 @@ $( document ).ready( function () {
 		cardSelected(num);
 	}, false);
 
+	var popoverShown = false;
+	var showPopover = function () {
+		if (popoverShown) return;
+		popoverShown = true;
+		document.querySelector('.popover').classList.toggle("hidden", false);
+	}
+
+	var hidePopover = function () {
+		if (!popoverShown) return;
+		popoverShown = false;
+		document.querySelector('.popover').classList.toggle("hidden", true);
+	}
+
 	window.setInterval(function () {
 		var left = (keyboard.isKeyHit(KeyEvent.DOM_VK_LEFT));
 		var right = (keyboard.isKeyHit(KeyEvent.DOM_VK_RIGHT));
@@ -80,6 +103,30 @@ $( document ).ready( function () {
 				creatures[index].draw();
 			}
 		});
+
+		if (creatures[0].alive === false && creatures[1].alive === false) {
+			popoverDelayTimer++;
+			if (popoverDelayTimer === 60) {
+				showPopover();
+			}
+		}
 	}, 1000/30);
-}); //end of jquery ready
+
+	var addRestartEventListener = function () {
+		var buttonEle = document.querySelector('.restartButton');
+		buttonEle.addEventListener('click', function (event) {
+		    hidePopover();
+		    restartGame();
+		}, false);
+	}
+
+	addRestartEventListener();
+};
+if (document.readyState !== "loading") {
+	startNeptune9();
+} else {
+	document.addEventListener("DOMContentLoaded", function(event) {
+		startNeptune9();
+	});
+}
 });

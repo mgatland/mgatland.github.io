@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:bold);
 
-body {
+.game {
 	font: 20px/1em 'Droid Sans', sans-serif;
+	min-width: 955px;
 }
 
 .lines {
@@ -20,8 +21,8 @@ body {
 	height: 720px;
 	display: inline-block;
 	vertical-align:top;
-	-webkit-perspective:400px;
-	-moz-perspective:100px;
+	-webkit-perspective:2000px;
+	-moz-perspective:2000px;
 }
 
 .card {
@@ -54,21 +55,34 @@ body {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 
-	transition: 1.6s;
-	transform-style: preserve-3d;
+	transition: 1.6s; /*ease-in*/
+	/*transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;*/
+	-moz-transition-property: -moz-transform;
+	-webkit-transition-property: -webkit-transform;
+	-o-transition-property: -o-transform;
+	transition-property: transform;
 }
 
 .card.inDanger .front {
 		background-image:         linear-gradient(to bottom, #fdd, #daa);
 }
 
-/* flip the pane when hovered */
 .card.dead .front {
+	background-image: linear-gradient(to bottom, #aaa, #777);
+}
+
+.card.dead .portrait {
+	opacity: 0.5;
+}
+
+/* flip the pane when hovered */
+.card.enemy.dead .front {
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-transform: rotateY(180deg);
 }
-.card.dead .back {
+.card.enemy.dead .back {
 	-moz-transform: rotateY(0deg);
 	-webkit-transform: rotateY(0deg);
 	-transform: rotateY(0deg);
@@ -80,12 +94,27 @@ body {
 	-transform: rotateY(-180deg);
 }
 
-.portrait {
+/* portraits */
+.image {
+	width: 144px;
+	height: 144px;
+	margin: 8px auto;
+	position: relative;
+}
+
+.portrait, .overlay {
+	position: absolute;
 	width: 140px;
 	height: 140px;
-	border: 2px solid white;
-	margin: 8px;
+	left: 0;
+	top: 0;	
 }
+
+.portrait {
+	border: 2px solid white;
+}
+
+/* control panels */
 
 .controls {
 	width: 160px;
@@ -152,6 +181,8 @@ body {
 	transform: 			translateY(5px);
 }
 
+/* cooldown bars */
+
 
 .bar {
 	width: 192px;
@@ -182,12 +213,37 @@ body {
 	text-align: center;
 }
 
+/* popover */
+
+.popover {
+	position: absolute;
+	top: 220px;
+	left: 170px;
+	width: 570px;
+	height: 100px;
+	z-index: 20;
+	opacity: 1;
+}
+
+.hidden {
+	/*visibility:hidden;*/
+  	opacity:0;
+  	pointer-events: none;
+}
+
+.fadeIn {
+   transition: opacity 0.8s linear;
+   -moz-transition: opacity 0.8s linear;
+   -webkit-transition: opacity 0.8s linear;
+   }
+
+/* instructions and guides */
+
 .instructions {
 	margin-top: 16px;
 	font-size: 28px;
 	height: 54px;
 }
-
 
 .guide {
 	display: inline-block;

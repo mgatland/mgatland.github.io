@@ -3,7 +3,7 @@ define(function () {
 
 /* line drawing hacks */
 
-var lines = document.querySelector(".lines"); 
+var lines = document.querySelector(".lines");
 
 function getCenter( el ) { // return element top, left, width, height
     var _x = 0;
@@ -46,6 +46,7 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 //////
 
 	var Shoot = function () {
+		this.buttonLabel = "Shoot";
 		this.name = "Shooting"
 		this.verb = " fire at ";
 		this.needsTarget = true;
@@ -55,30 +56,33 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 	}
 
 	var FindCover = function () {
+		this.buttonLabel = "Find Cover";
 		this.name = "Taking Cover"
 		this.verb = " move back to find cover.";
 		this.needsTarget = false;
-		this.cooldown = 90;
+		this.cooldown = 90; //Must be slower than 2 shots
 		this.coverCost = -2;
 	}
 
 	var Charge = function () {
+		this.buttonLabel = "Advance";
 		this.name = "Charging"
 		this.verb = " charge forwards!";
 		this.needsTarget = false;
-		this.cooldown = 60;
+		this.cooldown = 60; //Should be quicker than 2 shots?
 		this.coverCost = 4;
 		this.targets = "both enemies";
 		this.coverDamage = 2;
 	}
 
 	var Protect = function () {
-		this.name = "Protect teammate";
+		this.buttonLabel = "Protect";
+		this.name = "Protect $teammate";
 		this.verb = " protects a teammate.";
 		this.needsTarget = false;
-		this.cooldown = 90;
+		this.cooldown = 40;
 		this.coverCost = 2;
-		this.teammateCoverCost = -1;
+		this.teammateCoverCost = -2;
 	}
 
 	var Creature = function (id, name, pic, greeting, cover, creatures, isAI) {
@@ -106,20 +110,26 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 			cooldownLabelEle = getElement("bar .label");
 			coverTokensEle = getElement("coverTokens");
 			getElement("portrait").src = "arts/" + pic;
+			getElement("overlay").src = "arts/blank.png";
 			if (c.isAI) {
 				c.cooldown = Math.floor(Math.random() * 30) + 80;
+				getElement().classList.add("enemy");
 			} else {
 				c.cooldown = 45;
+				getElement().classList.remove("enemy");
 			}
 			c.maxCooldown = c.cooldown;
 			c.lastActionText = greeting;
 			c.initCoverTokens(c.maxCover);
+
 		}
 
 		this.die = function () {
 			if (!this.alive) return;
 			this.alive = false;
 			console.log(this.name + " died.");
+			getElement("overlay").src = "arts/dead.png";
+			updateDangerStatus();
 			this.deadTimer = 300;
 		}
 
@@ -170,7 +180,7 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 				tokens++;
 			}
 			this.cover = this.maxCover;
-			getElement().classList.toggle("inDanger", false);
+			updateDangerStatus();
 		}
 
 		this.loseCover = function (num) {
@@ -193,12 +203,13 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 				tokens--;
 				effects.push(getCenter(tokenToToggle));
 			}
-
-			var inDanger = (this.cover === 0);
-			
-			getElement().classList.toggle("inDanger", inDanger);
-
+			updateDangerStatus();
 			return effects;
+		}
+
+		var updateDangerStatus = function () {
+			var inDanger = (c.cover === 0 && c.alive === true);
+			getElement().classList.toggle("inDanger", inDanger);
 		}
 
 		var getAttackColor = function () {
@@ -264,14 +275,19 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 				if (action.teammateCoverCost) {
 					friendTokens = friendTokens.concat(getFriend().loseCover(action.teammateCoverCost));
 				}
-				
+
 				creatures.forEach(function (c) {
 					c.draw();
 				})
 				this.maxCooldown = action.cooldown;
 				if (this.isAI) this.maxCooldown *= 2;
 				this.cooldown = this.maxCooldown;
+
 				this.lastActionText = action.name;
+
+				if (action.name.indexOf("$teammate") !== -1) {
+					this.lastActionText = this.lastActionText.replace("$teammate", getFriend().name);
+				}
 
 				var color = getAttackColor();
 				friendTokens.forEach(function (token) {
@@ -322,7 +338,7 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 			if (ele) {
 				return document.querySelector(".card.p" + id + " ." + ele);
 			} else {
-				return document.querySelector(".card.p" + id); 
+				return document.querySelector(".card.p" + id);
 			}
 		}
 		init();
