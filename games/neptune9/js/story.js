@@ -43,6 +43,7 @@ define(["Actions", "Creature"], function (Actions, Creature) {
 		}
 
 		this.next = function (storyPopover) {
+			track("startChapter", chapterNum);
 			if (chapterNum === chapters.length) return null;
 
 			var chapter = new Chapter(chapters[chapterNum], storyPopover);

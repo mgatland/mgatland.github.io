@@ -4,6 +4,8 @@ require(["creature", "controls", "keyboard", "popover", "actions", "story"],
 
 var startNeptune9 = function(event) {
 
+	track("pageload");
+
 	var isGameRunning = false;
 	var DEBUG = {};
 	if (location.search) {
@@ -70,6 +72,7 @@ var startNeptune9 = function(event) {
 	}
 
 	var startGame = function (noOfPlayers) {
+		track("startGameWithNPlayers", noOfPlayers);
 		startGamePopover.hide();
 		popoverDelayTimer = 0;
 
@@ -207,3 +210,13 @@ if (document.readyState !== "loading") {
 	});
 }
 });
+
+
+var track = function (action, label, number) {
+	console.log("_trackEvent: " + action + ", " + label + ", " + number);
+	try {
+		_gaq.push(['_trackEvent',"neptune9", action, ""+label, number]);;
+	} catch (e) {
+
+	}
+}
