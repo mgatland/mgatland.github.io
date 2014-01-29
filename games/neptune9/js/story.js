@@ -1,4 +1,4 @@
-define(["Actions", "Creature"], function (Actions, Creature) {
+define(["actions", "creature"], function (Actions, Creature) {
 
 	var Story = function () {
 		var allActions = [Actions.Shoot, Actions.FindCover, Actions.Charge, Actions.Protect];
