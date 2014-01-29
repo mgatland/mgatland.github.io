@@ -39,12 +39,18 @@ define(function () {
 
 			if (!creature) return;
 
+			if (creature.isAI) {
+				setState("ai");
+				return;
+			}
+
 			if (!creature.alive) {
 				setState("dead");
 				return;
 			}
 			if (creature.cooldown > 0) {
 				setState("wait");
+				return;
 			}
 
 			tryKeys(up, down, left, right);
@@ -84,43 +90,36 @@ define(function () {
 		var setState = function (newState, force) {
 			if (state === newState && !force) return;
 			state = newState;
+
+			//Reset
+			ele.classList.remove("chooseTarget");
+			ele.classList.remove("enabled");
+			ele.classList.remove("chooseAction");
+			ele.classList.remove("wait");
+			ele.classList.remove("dead");
+			ele.classList.toggle("keyhints", false);
+			cardsEle.classList.toggle("keyhints" + id, false);
+			ele.classList.remove("aiControlled");
+
 			if (state === "chooseTarget") {
 				creature.instructionText = "<span class='instruction'>Choose Target</span>";
 				ele.classList.add("chooseTarget");
 				ele.classList.add("enabled");
-				ele.classList.remove("chooseAction");
-				ele.classList.remove("wait");
-				ele.classList.remove("dead");
-				ele.classList.toggle("keyhints", false);
 				cardsEle.classList.toggle("keyhints" + id, true);
 			}
 			if (state === "chooseAction") {
 				creature.instructionText = "<span class='instruction'>Choose Action</span>";
-				ele.classList.remove("chooseTarget");
-				ele.classList.remove("enabled");
 				ele.classList.add("chooseAction");
-				ele.classList.remove("wait");
-				ele.classList.remove("dead");
 				ele.classList.toggle("keyhints", true);
-				cardsEle.classList.toggle("keyhints" + id, false);
 			}
 			if (state === "wait") {
-				ele.classList.remove("chooseTarget");
-				ele.classList.remove("enabled");
-				ele.classList.remove("chooseAction");
 				ele.classList.add("wait");
-				ele.classList.remove("dead");
-				ele.classList.toggle("keyhints", false);
-				cardsEle.classList.toggle("keyhints" + id, false);
 			}
 			if (state === "dead") {
-				ele.classList.remove("chooseTarget");
-				ele.classList.remove("enabled");
-				ele.classList.remove("chooseAction");
-				ele.classList.remove("wait");
 				ele.classList.add("dead");
-				ele.classList.toggle("keyhints", false);
-				cardsEle.classList.toggle("keyhints" + id, false);
+			}
+			if (state === "ai") {
+				ele.classList.add("aiControlled");
 			}
 		}
 	}

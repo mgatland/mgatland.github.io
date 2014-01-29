@@ -1,36 +1,91 @@
 "use strict";
-require(["creature", "controls", "keyboard"], function(Creature, Controls, Keyboard) {
+require(["creature", "controls", "keyboard", "popover", "actions", "story"], 
+	function(Creature, Controls, Keyboard, Popover, Actions, Story) {
 
 var startNeptune9 = function(event) {
 
+	var isGameRunning = false;
 	var DEBUG = {};
 	if (location.search) {
 		if (location.search.indexOf("1hit") >= 0) {
 			DEBUG.oneHit = true;
 		}
+		if (location.search.indexOf("aiparty") >= 0) {
+			DEBUG.aiParty = true;
+		}
+		if (location.search.indexOf("pfast") >= 0) {
+			DEBUG.pFast = true;
+		}
 	}
 
-	var makeEnemy = function(slot, type) {
-		if (type === undefined) type = Math.floor(Math.random()*4);
-		if (type === 0) return new Creature(slot, "Dopnot", "dopnot.png", "'Grr! Zeek!'", 6, creatures, true);
-		if (type === 1) return new Creature(slot, "Gobnit", "gobnit.png", "'Garble garble'", 3, creatures, true);
-		if (type === 2) return new Creature(slot, "Weewit", "weewit.png", "'Target assigned.'", 4, creatures, true);
-		return new Creature(slot, "Leepig", "leepig.png", "'Leave me alone!'", 5, creatures, true);
+	var allActions = [Actions.Shoot, Actions.FindCover, Actions.Charge, Actions.Protect];
+	var rylie = {name: "Rylie", pic: "warrior.png", greeting: "Let's go!", cover: 10, isAI:false, actions: allActions, isHero: true};
+	var brooklyn = {name: "Brooklyn", pic: "missionary.png", greeting: "I sense trouble.", cover: 10, isAI:false, actions: allActions, isHero: true};
+	
+	if (DEBUG.oneHit) {
+		rylie.cover = 1;
+		brooklyn.cover = 1;
+	}
+	if (DEBUG.aiParty) {
+		rylie.isAI = true;
+		brooklyn.isAI = true;
+	}
+	if (DEBUG.pFast) {
+		rylie.speed = 2;
+		brooklyn.speed = 2;
+	}
+
+	var advanceStory = function () {
+		if (chapter.isEnded()) {
+			chapter.cleanUp();
+			var nextChapter = story.next(storyPopover);
+			if (nextChapter === null) {
+				document.querySelector('.restartText').innerHTML = "Mission Accomplished!<br><br>Neptune 9 is safe once again...<br><br>...but for how long?";
+				restartPopover.show();
+			} else {
+				chapter = nextChapter;
+				chapter.start(creatures);
+			}
+		} else {
+			chapter.reallyStart(creatures);
+		}
 	}
 
 	var keyboard = new Keyboard();
 	var creatures = [];
 	var controls = [];
+	var story = null;
+	var chapter = null;
 	controls[0] = new Controls(0);
 	controls[1] = new Controls(1);
+	var restartPopover = new Popover("restart");
+	var startGamePopover = new Popover("startgame");
+	var storyPopover = new Popover("storyPopover");
 	var popoverDelayTimer = 0;
 
 	var restartGame = function () {
+		restartPopover.hide();
+		startGamePopover.show();
+		//TODO: set enemy cards to be flipped face down.
+	}
+
+	var startGame = function (noOfPlayers) {
+		startGamePopover.hide();
 		popoverDelayTimer = 0;
-		creatures[0] = new Creature(0, "Rylie", "warrior.png", "'Let's go!'", DEBUG.oneHit ? 1 : 10, creatures, false);
-		creatures[1] = new Creature(1, "Brooklyn", "missionary.png", "'I sense trouble.'", DEBUG.oneHit ? 1 : 10, creatures, false);
-		creatures[2] = makeEnemy(2);
-		creatures[3] = makeEnemy(3);
+
+		if (noOfPlayers === 1) {
+			rylie.isAI = true;
+		} else {
+			rylie.isAI = false;
+		}
+
+		story = new Story();
+		chapter = story.start(storyPopover);
+		chapter.start(creatures);
+		creatures[0] = new Creature(0, rylie, creatures);
+		creatures[1] = new Creature(1, brooklyn, creatures);
+		creatures[2] = new Creature(2, Creature.placeHolder, creatures);
+		creatures[3] = new Creature(2, Creature.placeHolder, creatures);
 
 		creatures.forEach(function (c) {
 			c.draw();
@@ -38,11 +93,9 @@ var startNeptune9 = function(event) {
 
 		controls[0].setCreature(creatures[0]);
 		controls[1].setCreature(creatures[1]);
+
+		isGameRunning = true;
 	}
-
-
-
-	restartGame();
 
 	var firstParentWithClass = function (startNode, className) {
 		var node = startNode;
@@ -85,20 +138,8 @@ var startNeptune9 = function(event) {
 		cardSelected(num);
 	}, false);
 
-	var popoverShown = false;
-	var showPopover = function () {
-		if (popoverShown) return;
-		popoverShown = true;
-		document.querySelector('.popover').classList.toggle("hidden", false);
-	}
-
-	var hidePopover = function () {
-		if (!popoverShown) return;
-		popoverShown = false;
-		document.querySelector('.popover').classList.toggle("hidden", true);
-	}
-
 	window.setInterval(function () {
+
 		var left = (keyboard.isKeyHit(KeyEvent.DOM_VK_LEFT));
 		var right = (keyboard.isKeyHit(KeyEvent.DOM_VK_RIGHT));
 		var up = (keyboard.isKeyHit(KeyEvent.DOM_VK_UP));
@@ -109,38 +150,54 @@ var startNeptune9 = function(event) {
 		var down2 = (keyboard.isKeyHit(KeyEvent.DOM_VK_S));
 		var enter = (keyboard.isKeyHit(KeyEvent.DOM_VK_ENTER)) || (keyboard.isKeyHit(KeyEvent.DOM_VK_RETURN));
 		keyboard.update();
+
+		if (enter && restartPopover.isShown()) {
+			restartGame();
+		}
+
+		if (enter && storyPopover.isShown()) {
+			advanceStory();
+		}
+
+		if ((left || left2) && startGamePopover.isShown()) {
+			startGame(1);
+		}
+
+		if ((right || right2) && startGamePopover.isShown()) {
+			startGame(2);
+		}
+
+		if (!isGameRunning || storyPopover.isShown()) return;
+
 		controls[0].update(up2, down2, left2, right2);
 		controls[1].update(up, down, left, right);
-		creatures.forEach(function (c, index) {
-			c.update();
-			if (c.alive === false && c.deadTimer === 0 && c.isAI) {
-				creatures[index] = makeEnemy(index);
-				creatures[index].draw();
-			}
-		});
 
 		if (creatures[0].alive === false && creatures[1].alive === false) {
 			popoverDelayTimer++;
 			if (popoverDelayTimer === 60) {
-				showPopover();
+				document.querySelector('.restartText').innerHTML = "Game Over";
+				restartPopover.show();
 			}
 		}
 
-		if (enter && popoverShown === true) {
-			hidePopover();
-			restartGame();
-		}
+		creatures.forEach(function (c, index) {
+			c.update();
+		});
+
+		chapter.update(creatures);
 	}, 1000/30);
 
-	var addRestartEventListener = function () {
-		var buttonEle = document.querySelector('.restartButton');
+	var addClickEventListener = function (buttonClass, action, arg) {
+		var buttonEle = document.querySelector(buttonClass);
 		buttonEle.addEventListener('click', function (event) {
-		    hidePopover();
-		    restartGame();
+		    action(arg);
 		}, false);
 	}
 
-	addRestartEventListener();
+	addClickEventListener('.restartButton', restartGame);
+	addClickEventListener('.onePlayerButton', startGame, 1);
+	addClickEventListener('.twoPlayerButton', startGame, 2);
+	addClickEventListener('.storyButton', advanceStory);
 };
 if (document.readyState !== "loading") {
 	startNeptune9();

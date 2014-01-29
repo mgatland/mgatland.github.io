@@ -1,5 +1,5 @@
 "use strict";
-define(function () {
+define(["actions"], function (Actions) {
 
 /* line drawing hacks */
 
@@ -43,57 +43,20 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 	}, duration);
 }
 
-//////
-
-	var Shoot = function () {
-		this.buttonLabel = "Shoot";
-		this.name = "Shooting"
-		this.verb = " fire at ";
-		this.needsTarget = true;
-		this.cooldown = 40;
-		this.coverDamage = 1;
-		this.isFatal = true;
-	}
-
-	var FindCover = function () {
-		this.buttonLabel = "Find Cover";
-		this.name = "Taking Cover"
-		this.verb = " move back to find cover.";
-		this.needsTarget = false;
-		this.cooldown = 90; //Must be slower than 2 shots
-		this.coverCost = -2;
-	}
-
-	var Charge = function () {
-		this.buttonLabel = "Advance";
-		this.name = "Charging"
-		this.verb = " charge forwards!";
-		this.needsTarget = false;
-		this.cooldown = 60; //Should be quicker than 2 shots?
-		this.coverCost = 4;
-		this.targets = "both enemies";
-		this.coverDamage = 2;
-	}
-
-	var Protect = function () {
-		this.buttonLabel = "Protect";
-		this.name = "Protect $teammate";
-		this.verb = " protects a teammate.";
-		this.needsTarget = false;
-		this.cooldown = 40;
-		this.coverCost = 2;
-		this.teammateCoverCost = -2;
-	}
-
-	var Creature = function (id, name, pic, greeting, cover, creatures, isAI) {
+	var Creature = function (id, data, creatures) {
 		var c = this; //for private methods
 		this.id = id;
-		this.name = name;
+		this.name = data.name;
 		this.cover = 0;
-		this.maxCover = cover;
+		this.maxCover = data.cover;
 		this.energy = 1;
 		this.maxEnergy = 1;
-		this.isAI = isAI ? true : false;
+		this.isAI = data.isAI ? true : false;
+		this.greeting = data.greeting;
+		this.isHero = data.isHero ? true : false;
+		this.speed = (data.speed !== undefined) ? data.speed : 1;
+		this.actions = data.actions;
+		var pic = data.pic;
 
 		this.instructionText = ""; //Set by Controls
 
@@ -107,23 +70,36 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		this.cooldown = 0;
 		this.maxCooldown = 0;
 
+		var aiDelayTimer = 0;
+
+		if (data === Creature.placeHolder) {
+			this.alive = false;
+			this.deadTimer = 60;
+		}
+
 		var init = function () {
 			cooldownEle = getElement("cooldown");
 			cooldownLabelEle = getElement("bar .label");
 			coverTokensEle = getElement("coverTokens");
 			getElement("portrait").src = "arts/" + pic;
 			getElement("overlay").src = "arts/blank.png";
-			if (c.isAI) {
-				c.cooldown = Math.floor(Math.random() * 30) + 80;
-				getElement().classList.add("enemy");
-			} else {
+			if (c.isHero) {
 				c.cooldown = 45;
 				getElement().classList.remove("enemy");
+			} else {
+				c.cooldown = Math.floor(Math.random() * 30) + 80;
+				getElement().classList.add("enemy");
 			}
 			c.maxCooldown = c.cooldown;
-			c.lastActionText = greeting;
+			c.lastActionText = c.greeting;
 			c.initCoverTokens(c.maxCover);
 
+		}
+
+		this.idleAction = function () {
+			c.cooldown = 45;
+			c.maxCooldown = c.cooldown;
+			c.lastActionText = c.greeting;
 		}
 
 		this.die = function () {
@@ -132,7 +108,7 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 			console.log(this.name + " died.");
 			getElement("overlay").src = "arts/dead.png";
 			updateDangerStatus();
-			this.deadTimer = 300;
+			this.deadTimer = 150;
 		}
 
 		var getFriend = function () {
@@ -144,8 +120,8 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 
 		var randomEnemyId = function () {
 			var enemies = getEnemies();
-			if (!enemies[0].alive) return 1;
-			if (!enemies[1].alive) return 0;
+			if (!enemies[0].alive) return enemies[1].id;
+			if (!enemies[1].alive) return enemies[0].id;
 			return enemies[Math.floor(Math.random() * 2)].id;
 		}
 
@@ -160,12 +136,6 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 			}
 			return enemies;
 		}
-
-		this.actions = [];
-		this.actions.push(new Shoot());
-		this.actions.push(new FindCover());
-		this.actions.push(new Charge());
-		this.actions.push(new Protect());
 
 		this.doesActionNeedTarget = function (actionCode) {
 			var action = this.actions[actionCode];
@@ -185,8 +155,17 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 			updateDangerStatus();
 		}
 
+		this.recover = function () {
+			this.alive = true;
+			this.cooldown = 0;
+			this.loseCover(-this.maxCover);
+		}
+
 		this.loseCover = function (num) {
 			var effects = [];
+
+			if (!this.alive) return effects;
+
 			var tokens = this.cover;
 			this.cover -= num;
 			if (this.cover < 0) this.cover = 0;
@@ -215,10 +194,10 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		}
 
 		var getAttackColor = function () {
-			if (c.isAI) {
-				return "rgba(200,100,100,0.4)";
-			} else {
+			if (c.isHero) {
 				return "rgba(100,100,200,0.4)";
+			} else {
+				return "rgba(200,100,100,0.4)";
 			}
 		}
 
@@ -248,7 +227,11 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		}
 
 		this.useAction = function(actionCode, targetCode) {
-			var action = this.actions[actionCode];
+			if (typeof actionCode === "number") {
+				var action = this.actions[actionCode];
+			} else {
+				var action = actionCode;
+			}
 			var origin = getAttackOrigin();
 			var friendTokens = [];
 			if (!action) {
@@ -281,8 +264,7 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 				creatures.forEach(function (c) {
 					c.draw();
 				})
-				this.maxCooldown = action.cooldown;
-				if (this.isAI) this.maxCooldown *= 2;
+				this.maxCooldown = Math.floor(action.cooldown / this.speed);
 				this.cooldown = this.maxCooldown;
 
 				this.lastActionText = action.name;
@@ -304,17 +286,31 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		};
 
 		var runAI = function () {
+
+			if (aiDelayTimer < 20) {
+				aiDelayTimer++;
+				return;
+			}
+
+			var ideas = [];
 			var enemies = getEnemies();
-			if (!enemies[0].alive && !enemies[1].alive) return;
-			if (c.cover < 2 && Math.random() > 0.3) c.useAction(1);
-			c.useAction(0, randomEnemyId());
+			var friend = getFriend();
+
+			c.actions.forEach(function (action, index) {
+				action.addIdeas(c, ideas, enemies, friend);
+			});
+
+			if (ideas.length === 0) return;
+
+			ideas.sort(function (a, b) { return a.score - b.score});
+			var idea = ideas.pop();
+			c.useAction(idea.move, idea.target);
+			aiDelayTimer = 0;
 		};
 
 		this.update = function () {
 
 			if (this.alive === false) {
-				cooldownLabelEle.innerHTML = "";
-
 				if (this.deadTimer > 0) {
 					this.deadTimer--;
 				}
@@ -323,23 +319,33 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 
 			if (this.cooldown > 0) {
 				this.cooldown--;
+			}
+			if (this.cooldown <= 0 && this.alive && this.isAI) {
+				runAI();
+			}
+			this.draw();
+		}
+
+		this.draw = function (hideHints) {
+
+			if (this.alive === false) {
+				cooldownLabelEle.innerHTML = "";
+			}
+
+			if (this.cooldown > 0) {
 				var coolPercentage = Math.floor(this.cooldown * 100 / this.maxCooldown);
 				if (coolPercentage > 92) coolPercentage = 92;
 				cooldownEle.style.width = coolPercentage + "%";
 				cooldownLabelEle.innerHTML = this.lastActionText;
 			} else {
 				cooldownEle.style.width = 0;
-				if (this.isAI === false) {
+				if (this.isAI === false && !hideHints) {
 					cooldownLabelEle.innerHTML = this.instructionText; //controlled by Controls
+				} else {
+					cooldownLabelEle.innerHTML = "";
 				}
 			}
 
-			if (this.cooldown <= 0 && this.alive && this.isAI) {
-				runAI();
-			}
-		}
-
-		this.draw = function () {
 			getElement("name").innerHTML = this.name;
 			getElement().classList.toggle("dead", !this.alive);
 		}
@@ -353,5 +359,6 @@ function connect(start, end, color, thickness, duration) { // draw a line connec
 		}
 		init();
 	}
+Creature.placeHolder = {name: "", pic: "gobnit.png", greeting: "", cover: 0, actions: [], isAI:false};
 return Creature;
 });
