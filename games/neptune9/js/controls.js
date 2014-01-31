@@ -10,10 +10,17 @@ define(function () {
 		var ele = document.querySelector(".p" + id + ".controls");
 		var cardsEle = document.querySelector(".cards");
 
+		var newbieMode = true;
+
 		this.setCreature = function(newCreature) {
 			creature = newCreature;
 			updateLabels();
 			setState("wait", true);
+		}
+
+		this.setNewbieMode = function (value) {
+			newbieMode = value;
+			ele.classList.toggle("newbieMode", newbieMode);
 		}
 
 		var updateLabels = function () {
@@ -63,6 +70,7 @@ define(function () {
 		}
 
 		this.actionSelected = function (act) {
+			if (newbieMode && act >= 2) return;
 			if (state !== "chooseAction") return;
 			selectedAction = act;
 			if (creature.doesActionNeedTarget(act)) {

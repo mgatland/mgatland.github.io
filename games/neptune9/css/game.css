@@ -211,6 +211,10 @@
 	transform: 			translateY(5px);
 }
 
+.newbieMode .act2, .newbieMode .act3 {
+	display : none;
+}
+
 /* cooldown bars */
 
 

@@ -40,6 +40,10 @@ var startNeptune9 = function(event) {
 	var advanceStory = function () {
 		if (chapter.isEnded()) {
 			chapter.cleanUp();
+
+			controls[0].setNewbieMode(false);
+			controls[1].setNewbieMode(false);
+
 			var nextChapter = story.next(storyPopover);
 			if (nextChapter === null) {
 				document.querySelector('.restartText').innerHTML = "Mission Accomplished!<br><br>Neptune 9 is safe once again...<br><br>...but for how long?";
@@ -68,7 +72,12 @@ var startNeptune9 = function(event) {
 	var restartGame = function () {
 		restartPopover.hide();
 		startGamePopover.show();
-		//TODO: set enemy cards to be flipped face down.
+		creatures[2].die();
+		creatures[3].die();
+		creatures[2].draw();
+		creatures[3].draw();
+		controls[0].setNewbieMode(true);
+		controls[1].setNewbieMode(true);
 	}
 
 	var startGame = function (noOfPlayers) {
