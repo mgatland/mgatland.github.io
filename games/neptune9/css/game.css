@@ -3,7 +3,29 @@
 .game {
 	font: 20px/1em 'Droid Sans', sans-serif;
 	min-width: 955px;
+	color: black;
 }
+
+.storyText {
+	text-align: left;
+	line-height: 1.2em;
+	padding-left: 1em;
+}
+
+.chatLabel {
+	font-weight: bold;
+	text-indent: -1em;
+	display: inline-block;	
+}
+
+.chatLabel.p0 {
+	color: hsl(88, 46%, 36%);
+}
+
+.chatLabel.p1 {
+	color: hsl(190, 43%, 50%);
+}
+
 
 .lines {
 	pointer-events: none;
@@ -167,22 +189,24 @@
 	height: 32px;
 	margin: 16px auto;
 	font-size: 20px;
+	line-height: 1.5em;
 	position: relative;
 
 	/*based on BonBon Buttons 1.1 by simurai.com*/
 
 	padding: 				.5em .6em .4em 1.6em;
 
-	border-radius: 1.5em / 1em;
+	border-radius: 0.3em / 0.1em;
 
 	background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
 	background-image: 	-moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(noise.png);
 	background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
 
-	color: 				hsl(88, 70%, 30%) !important;
-	background-color: 	hsl(88, 70%, 60%);
+	/* inactive */
+	color: 				hsl(88, 20%, 30%) !important;
+	background-color: 	hsl(88, 20%, 60%);
 	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
-							hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+							hsl(88, 20%, 40%) 0 .1em 3px, hsl(88, 20%, 30%) 0 .3em 1px, /* color border */
 							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
 
 	border-top: none;
@@ -191,7 +215,20 @@
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.actionbutton:hover { 	background-color: hsl(88, 70%, 75%); }
+.chooseAction .actionbutton,
+.popover .actionbutton {
+	/* active */
+	color: 				hsl(88, 70%, 30%) !important;
+	background-color: 	hsl(88, 70%, 60%);
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+.popover .actionbutton:hover, 
+.chooseAction .actionbutton:hover { 	
+	background-color: hsl(88, 70%, 75%); 
+}
 
 .dead .actionbutton {
 	/*based on BonBon Buttons 1.1 by simurai.com*/
@@ -302,8 +339,13 @@
 
 p {
 	line-height: 1.3em;
-	color: darkgrey;
 	margin: 20px;
+}
+
+.newbieHint {
+	font-size: 27px;
+	margin-top: 25px;
+	line-height: 1.05em;
 }
 /* cover tokens*/
 
@@ -352,30 +394,30 @@ p .coverToken {
 /* key hints */
 
 .keyhint {
-	width: 19px;
-	height: 19px;
-	padding: 2px;
-	margin-left: -19px;
-	margin-top: 3px;
+	width: 36px;
+	height: 36px;
+	margin-left: -22px;
+	margin-top: -2px;
+	line-height: 36px;
 
-	background: rgba(94, 233, 59, 200);
+	background-image: url(noise_half.png);
+	background-color: rgba(94, 233, 59, 200);
 
 	box-shadow: 		inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
 							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
 							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
-
-	position: absolute;
 	display: none;
 	z-index: 10;
 }
 
-.controls .keyhint {
-	display: block;
-	background: rgba(200, 200, 200, 100);
+.controls .keyhint, .popover .keyhint {
+	display: inline-block;
+	float:left;
+	background-color: rgba(200, 200, 200, 100);
 }
 
-.keyhints .keyhint.p1 {
-	background: skyblue;
+.keyhints .keyhint.p1, .popover .keyhint {
+	background-color: skyblue;
 }
 
 .cards .keyhint {
@@ -389,17 +431,20 @@ p .coverToken {
 
 	margin-left: -32px;
 	margin-top: -20px;
+
+	position: absolute;
+	opacity: 70%;
 }
 
 
 .cards .keyhint.p1 {
-	background: skyblue;
+	background-color: skyblue;
 	margin-left: 160px;
 }
 
 .keyhints .keyhint {
 	display: block;
-	background: rgba(94, 233, 59, 200);
+	background-color: rgba(94, 233, 59, 200);
 }
 
 .keyhints0 .keyhint.p0 {
@@ -410,12 +455,12 @@ p .coverToken {
 	display: block;
 }
 
-.controls.p0.chooseAction, .controls.p0.aiControlled {
+.controls.p0, .controls.p0 {
 	background: rgba(94, 233, 59, 0.2);
 	box-shadow: 0px -2px 5px rgba(94, 233, 59, 0.2);
 }
 
-.controls.p1.chooseAction, .controls.p1.aiControlled {
+.controls.p1, .controls.p1 {
 	background: hsla(208, 100%, 75%, 0.2);
 	box-shadow: 0px -2px 5px hsla(208, 100%, 75%, 0.2);
 }
@@ -426,11 +471,13 @@ p .coverToken {
 }
 
 /* Control panel state */
-.onChooseTarget, .onChooseAction, .onWait {
+.onChooseTarget, .onChooseAction, .onWait, .onNewbieChooseTarget, .onNewbieChooseAction {
 	display: none;
 }
 .chooseTarget .onChooseTarget, 
 .wait .onWait, 
-.chooseAction .onChooseAction {
+.chooseAction .onChooseAction,
+.newbieMode.chooseTarget .onNewbieChooseTarget,
+.newbieMode.chooseAction .onNewbieChooseAction {
 	display: block;
 }

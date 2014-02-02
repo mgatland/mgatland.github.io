@@ -18,11 +18,13 @@ icon: neptune9/neptune9-icon.png
 <div class="game">
 	<div class="sidebar">
 		<div class="controls p0 newbieMode">
-			<div class="controlsLabel">Actions:</div>
+			<div class="controlsLabel"></div>
 			<div class="actionbutton act0"><div class="keyhint p0">W</div><span class="actionLabel">…</span></div>
 			<div class="actionbutton act1"><div class="keyhint p0">S</div><span class="actionLabel">…</span></div>
 			<div class="actionbutton act2"><div class="keyhint p0">A</div><span class="actionLabel">…</span></div>
 			<div class="actionbutton act3"><div class="keyhint p0">D</div><span class="actionLabel">…</span></div>
+			<div class="newbieHint onNewbieChooseAction">Press W or S to choose an action.</div>
+			<div class="newbieHint onNewbieChooseTarget">Now press A or D to choose who to shoot.</div>
 		</div>
 	</div>
 	<div class="cards">
@@ -69,11 +71,13 @@ icon: neptune9/neptune9-icon.png
 	</div>
 	<div class="sidebar">
 		<div class="controls p1 newbieMode">
-			<div class="controlsLabel">Actions:</div>
+			<div class="controlsLabel"></div>
 			<div class="actionbutton act0"><div class="keyhint p1">&#8593;</div><span class="actionLabel">…</span></div>
 			<div class="actionbutton act1"><div class="keyhint p1">&#8595;</div><span class="actionLabel">…</span></div>
 			<div class="actionbutton act2"><div class="keyhint p1">&#8592;</div><span class="actionLabel">…</span></div>
 			<div class="actionbutton act3"><div class="keyhint p1">&#8594;</div><span class="actionLabel">…</span></div>
+			<div class="newbieHint onNewbieChooseAction">Press &#8593; or &#8595; to choose an action.</div>
+			<div class="newbieHint onNewbieChooseTarget">Now press &#8592; or &#8594; to choose who to shoot.</div>
 		</div>
 		<div class="progress">
 			<div class="chapterName text"></div>
@@ -82,19 +86,19 @@ icon: neptune9/neptune9-icon.png
 	</div>
 	<div class="popover restart front fadeIn hidden">
 		<div class="restartText"></div>
-		<div class="actionbutton restartButton">Restart</div>
+		<div class="actionbutton restartButton"><div class="keyhint p1">&#8593;</div>Restart</div>
 	</div>
 	<div class="popover startgame front fadeIn">
 		<img src="arts/logo.png"></img>
-		<p>A gunfight in the Crime Sector!</p>
+		<p>A gunfight in the space dock!</p>
 		<p>Player 1 uses the arrow keys. Player 2 uses W, A, S and D.</p>
 		<p>Scroll down for more instructions (or look to your right on a wide screen).</p>
-		<div class="actionbutton onePlayerButton">One Player</div> 
-		<div class="actionbutton twoPlayerButton">Two Players</div>
+		<div class="actionbutton onePlayerButton"><div class="keyhint p1">&#8592;</div>1 Player</div> 
+		<div class="actionbutton twoPlayerButton"><div class="keyhint p1">&#8594;</div>2 Players</div>
 	</div>
 	<div class="popover storyPopover front fadeIn hidden">
 		<div class="storyText"></div>
-		<div class="actionbutton storyButton">Continue</div>
+		<div class="actionbutton storyButton"><div class="keyhint p1">&#8593;</div>Continue</div>
 	</div>
 	<div class="guide">
 		<p>Instructions:</p>

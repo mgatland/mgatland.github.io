@@ -1,5 +1,5 @@
 "use strict";
-require(["creature", "controls", "keyboard", "popover", "actions", "story"], 
+require(["creature", "controls", "keyboard", "popover", "actions", "story"],
 	function(Creature, Controls, Keyboard, Popover, Actions, Story) {
 
 var startNeptune9 = function(event) {
@@ -21,9 +21,9 @@ var startNeptune9 = function(event) {
 	}
 
 	var allActions = [Actions.Shoot, Actions.FindCover, Actions.Charge, Actions.Protect];
-	var rylie = {name: "Rylie", pic: "warrior.png", greeting: "Let's go!", cover: 10, isAI:false, actions: allActions, isHero: true};
-	var brooklyn = {name: "Brooklyn", pic: "missionary.png", greeting: "I sense trouble.", cover: 10, isAI:false, actions: allActions, isHero: true};
-	
+	var rylie = {name: "Rylie", pic: "warrior.png", greeting: "Here comes trouble.", cover: 10, isAI:false, actions: allActions, isHero: true};
+	var brooklyn = {name: "Brooklyn", pic: "missionary.png", greeting: "Let's go!", cover: 10, isAI:false, actions: allActions, isHero: true};
+
 	if (DEBUG.oneHit) {
 		rylie.cover = 1;
 		brooklyn.cover = 1;
@@ -33,8 +33,8 @@ var startNeptune9 = function(event) {
 		brooklyn.isAI = true;
 	}
 	if (DEBUG.pFast) {
-		rylie.speed = 2;
-		brooklyn.speed = 2;
+		rylie.speed = 6;
+		brooklyn.speed = 6;
 	}
 
 	var advanceStory = function () {
@@ -91,13 +91,15 @@ var startNeptune9 = function(event) {
 			rylie.isAI = false;
 		}
 
-		story = new Story();
-		chapter = story.start(storyPopover);
-		chapter.start(creatures);
 		creatures[0] = new Creature(0, rylie, creatures);
 		creatures[1] = new Creature(1, brooklyn, creatures);
 		creatures[2] = new Creature(2, Creature.placeHolder, creatures);
 		creatures[3] = new Creature(2, Creature.placeHolder, creatures);
+
+		story = new Story(creatures);
+		chapter = story.start(storyPopover);
+		chapter.start(creatures);
+
 
 		creatures.forEach(function (c) {
 			c.draw();
@@ -161,6 +163,10 @@ var startNeptune9 = function(event) {
 		var up2 = (keyboard.isKeyHit(KeyEvent.DOM_VK_W));
 		var down2 = (keyboard.isKeyHit(KeyEvent.DOM_VK_S));
 		var enter = (keyboard.isKeyHit(KeyEvent.DOM_VK_ENTER)) || (keyboard.isKeyHit(KeyEvent.DOM_VK_RETURN));
+
+		//Up also counts as enter in every situation
+		enter = (enter || up || up2);
+
 		keyboard.update();
 
 		if (enter && restartPopover.isShown()) {
@@ -179,7 +185,7 @@ var startNeptune9 = function(event) {
 			startGame(2);
 		}
 
-		if (!isGameRunning || storyPopover.isShown()) return;
+		if (!isGameRunning || storyPopover.isShown() || restartPopover.isShown() || startGamePopover.isShown()) return;
 
 		controls[0].update(up2, down2, left2, right2);
 		controls[1].update(up, down, left, right);

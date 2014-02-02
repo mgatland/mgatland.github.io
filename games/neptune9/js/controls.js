@@ -24,6 +24,7 @@ define(function () {
 		}
 
 		var updateLabels = function () {
+			ele.querySelector('.controlsLabel').innerHTML = creature.name;
 			for (var n = 0; n < 4; n++) {
 				var buttonLabel = document.querySelector(".p" + id + ".controls .act" + n + " .actionLabel");
 				buttonLabel.innerHTML = creature.actions[n].buttonLabel;
@@ -121,6 +122,8 @@ define(function () {
 				ele.classList.toggle("keyhints", true);
 			}
 			if (state === "wait") {
+				/* hack: instructionText isn't shown until chooseAction state, but that updates it a frame too late so we set the text here as well*/
+				creature.instructionText = "<span class='instruction'>Choose Action</span>";
 				ele.classList.add("wait");
 			}
 			if (state === "dead") {

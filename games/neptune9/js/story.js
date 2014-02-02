@@ -1,38 +1,49 @@
 define(["actions", "creature"], function (Actions, Creature) {
 
-	var Story = function () {
+	var Story = function (creatures) {
 		var allActions = [Actions.Shoot, Actions.FindCover, Actions.Charge, Actions.Protect];
 		var antisocialActions = [Actions.Shoot, Actions.FindCover, Actions.Charge];
 
-		var gobnit = {name: "Gobnit", pic: "gobnit.png", greeting: "'Garble garble'", cover: 3, actions: antisocialActions, isAI:true, speed: 0.5};
-		var weewit = {name: "Weewit", pic: "weewit.png", greeting: "'Target assigned.", cover: 4, actions: antisocialActions, isAI:true, speed: 0.75};
-		var leepig = {name: "Leepig", pic: "leepig.png", greeting: "'Leave me alone!'", cover: 5, actions: allActions, isAI:true, speed: 0.5};
-		var dopnot = {name: "Dopnot", pic: "dopnot.png", greeting: "'Grr! Zeek!'", cover: 6, actions: antisocialActions, isAI:true, speed: 0.75};
+		var gobnit = {name: "Gobnit", pic: "gobnit.png", greeting: "'Garble garble'", cover: 1, actions: antisocialActions, isAI:true, speed: 0.5};
+		var weewit = {name: "Weewit", pic: "weewit.png", greeting: "'Target assigned.", cover: 3, actions: antisocialActions, isAI:true, speed: 0.75};
+		var leepig = {name: "Leepig", pic: "leepig.png", greeting: "'Leave me alone!'", cover: 4, actions: allActions, isAI:true, speed: 0.5};
+		var dopnot = {name: "Dopnot", pic: "dopnot.png", greeting: "'Grr! Zeek!'", cover: 5, actions: antisocialActions, isAI:true, speed: 0.75};
+
+		//generate dialogue strings
+		var dialogue = function (speakerNum, line) {
+			return "<p><span class='chatLabel p" + speakerNum + "'>" + creatures[speakerNum].name + ":</span> " + line + "</p>";
+		}
 
 		var chapters = [];
 		chapters.push({
 			name: "Ambush",
-			start: "Look out – it's an ambush!",
-			end: "We made it. But we're running late. We'll have to take a shortcut...",
+			start: "",
+			end: dialogue(1, "Only two of them. What were they doing in the city?") +
+				dialogue(0, "Someone must have scared them out of the sewers. Let's check it out."),
 			enemies: [gobnit, weewit]
 		});
 		chapters.push({
 			name:"Crime Zone",
-			start:"The Crime Zone has tunnels to every major sector. But the Alvani gang is going to be waiting for us. They're still furious that we stopped their smuggling ring.",
-			end:"Good work! We're through the Crime Zone.",
-			enemies: [gobnit, weewit, gobnit, leepig, weewit, gobnit, dopnot]
+			start:dialogue(0, "The Crime Zone. Fastest way to the sewers, or anywhere. We'll sneak through.") +
+				dialogue(1, "Too late! We've been spotted."),
+			end:dialogue(1, "They were waiting for us.") +
+				dialogue(0, "Maybe they were waiting for someone else. Someone worse."),
+			enemies: [gobnit, weewit, gobnit, leepig, weewit, leepig]
 		});
 		chapters.push({
-			name:"Water Zone",
-			start:"Finally, the Water Zone! But it's full of robots?!",
-			end:"The water's full of slime. The purifier must be broken.",
-			enemies: [dopnot, dopnot, weewit, dopnot, weewit, leepig, weewit, dopnot, gobnit]
+			name:"Sewer Tunnel",
+			start:dialogue(0, "The sewer entrance. There's a whole army in here!") +
+				dialogue(1, "Planning to invade the crime zone. We need to stop them."),
+			end:dialogue(1, "I've got an idea. If we open the dams, this whole tunnel floods with sewerage.") +
+				dialogue(0, "Robots hate sewerage! OK, let's get to a control valve."),
+			enemies: [dopnot, dopnot, weewit, weewit, dopnot, weewit]
 		});
 		chapters.push({
-			name:"Slime Zone",
-			start:"This is where the purifier should be. If we can get to it, we can fix it.",
-			end:"Found the purifier! Someone forgot to turn it on. One switch, and we're good!",
-			enemies: [gobnit, gobnit, gobnit]
+			name:"Sewer side room",
+			start:"",
+			end:dialogue(0, "That's the valve.") +
+				dialogue(1, "Eat sewerage, robot army!"),
+			enemies: [gobnit, gobnit, gobnit, dopnot]
 		});
 
 		var chapterNum = 0;
@@ -92,8 +103,14 @@ define(["actions", "creature"], function (Actions, Creature) {
 					}
 				});
 
-				document.querySelector('.storyText').innerHTML = storyStart;
-				storyPopover.show();
+				if (typeof storyStart === "string" && storyStart.length > 0) {
+					document.querySelector('.storyText').innerHTML = storyStart;
+					storyPopover.show();
+				} else {
+					//no intro text
+					this.reallyStart(creatures);
+				}
+
 			}
 
 			this.cleanUp = function () {
