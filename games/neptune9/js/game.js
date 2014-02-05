@@ -62,6 +62,9 @@ var startNeptune9 = function(event) {
 	var controls = [];
 	var story = null;
 	var chapter = null;
+
+	var hardMode = false;
+
 	controls[0] = new Controls(0);
 	controls[1] = new Controls(1);
 	var restartPopover = new Popover("restart");
@@ -80,6 +83,11 @@ var startNeptune9 = function(event) {
 		controls[1].setNewbieMode(true);
 	}
 
+	var toggleHardMode = function () {
+		hardMode = !hardMode;
+		document.querySelector('.hardModeLabel').innerHTML = hardMode ? "ON" : "OFF";
+	}
+
 	var startGame = function (noOfPlayers) {
 		track("startGameWithNPlayers", noOfPlayers);
 		startGamePopover.hide();
@@ -89,6 +97,18 @@ var startNeptune9 = function(event) {
 			rylie.isAI = true;
 		} else {
 			rylie.isAI = false;
+		}
+
+		if (hardMode) {
+			rylie.cover = 3;
+			brooklyn.cover = 3;
+			rylie.actions[2] = Actions.CheapCharge;
+			brooklyn.actions[2] = Actions.CheapCharge;
+		} else {
+			rylie.cover = 10;
+			brooklyn.cover = 10;
+			rylie.actions[2] = Actions.Charge;
+			brooklyn.actions[2] = Actions.Charge;
 		}
 
 		creatures[0] = new Creature(0, rylie, creatures);
@@ -185,6 +205,10 @@ var startNeptune9 = function(event) {
 			startGame(2);
 		}
 
+		if ((up || up2) && startGamePopover.isShown()) {
+			toggleHardMode();
+		}
+
 		if (!isGameRunning || storyPopover.isShown() || restartPopover.isShown() || startGamePopover.isShown()) return;
 
 		controls[0].update(up2, down2, left2, right2);
@@ -213,6 +237,7 @@ var startNeptune9 = function(event) {
 	}
 
 	addClickEventListener('.restartButton', restartGame);
+	addClickEventListener('.hardModeButton', toggleHardMode);
 	addClickEventListener('.onePlayerButton', startGame, 1);
 	addClickEventListener('.twoPlayerButton', startGame, 2);
 	addClickEventListener('.storyButton', advanceStory);

@@ -15,7 +15,7 @@ define(function () {
 			var that = this;
 			enemies.forEach(function (enemy) {
 				if (enemy.alive) {
-					ideas.push({move: that, score: 10 + Math.random(), target: enemy.id});
+					ideas.push({move: that, score: 10 + Math.random() * 0.2 - enemy.cover / 10, target: enemy.id});
 				}
 			});
 		};
@@ -58,6 +58,26 @@ define(function () {
 		this.addIdeas = function (c, ideas, enemies, friend) {
 			if (c.cover > 4 && enemies[0].cover >= 2 && enemies[1].cover >= 2
 				&& Math.random() > 0.7) {
+				ideas.push({score: 15, move: this});
+			}
+		};	
+	}
+
+	//For characters with very low maximum cover, charge only costs 2
+	Actions.CheapCharge = new function () {
+		this.buttonLabel = "Advance";
+		this.name = "Charging"
+		this.verb = " charge forwards!";
+		this.needsTarget = false;
+		this.cooldown = 60;
+		this.coverCost = 2;
+		this.targets = "both enemies";
+		this.coverDamage = 2;
+
+		this.addIdeas = function (c, ideas, enemies, friend) {
+			//Note: the AI player with NEVER use this on hard mode, they don't have > 3 cover
+			if (c.cover > 3 && enemies[0].cover >= 2 && enemies[1].cover >= 2
+				&& friend.cover > 2 && Math.random() > 0.7) {
 				ideas.push({score: 15, move: this});
 			}
 		};	

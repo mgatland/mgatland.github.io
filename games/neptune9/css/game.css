@@ -248,6 +248,16 @@
 	transform: 			translateY(5px);
 }
 
+.popover .hardModeButton {
+	width: 200px;
+	/* active */
+	color: 				hsl(88, 20%, 30%) !important;
+	background-color: 	hsl(88, 20%, 60%);
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 20%, 40%) 0 .1em 3px, hsl(88, 20%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
 .newbieMode .act2, .newbieMode .act3 {
 	display : none;
 }
