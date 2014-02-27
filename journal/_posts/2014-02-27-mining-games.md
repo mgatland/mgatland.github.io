@@ -32,7 +32,7 @@ I particularly like how the world is hand-made, instead of being randomly genera
 
 While Cave of the Space Worm focusses on fighting enemies, Dig-N-Rig has very few enemies, and would probably by just as fun with no enemies at all. That's worth knowing.
 
-Unlike all the other games here, Dig-N-Rig never makes the player return to their home base on the surface. You can buy upgrades from anywhere, and your mined materials are transported back home by a series of conveyor belts that you build as you explore.
+Unlike most of the other games here, Dig-N-Rig never makes the player return to their home base on the surface. You can buy upgrades from anywhere, and your mined materials are transported back home by a series of conveyor belts that you build as you explore.
 
 The player has to buy "wifi upgrades" to be able to travel deeper into the earth. This stops you from skipping straight to the end.
 
@@ -46,7 +46,7 @@ The player has to buy "wifi upgrades" to be able to travel deeper into the earth
 
 Recommended to me, and very popular, but I didn't enjoy it. 
 
-I don't know if it's the dreary grey\brown art style, the high difficulty, or the awkward store UIs, but the game never hooked me like the other games here.
+I don't know if it's the dreary grey–brown art style, the high difficulty, or the awkward store UIs, but the game never hooked me like the other games here.
 
 One notable thing is that the game has a bit of storyline that includes a big, satisfying ending.
 
@@ -62,7 +62,7 @@ In Motherload the player has limited fuel which limits how far you can explore b
 
 ![](/journal/images/2014-02-27-scavenger.png)
 
-Another game that creates a strong atmosphere from not that much. You're exploring the wreckage of a destroyed space station.
+Scavenger creates a strong atmosphere from a very small amount of content. You're exploring the wreckage of a destroyed space station.
 
 Collecting wreckage like empty escape pods gives the game a bleak atmosphere, quite different from the other games where you collect raw materials like gold and "explodium".
 
