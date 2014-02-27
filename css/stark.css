@@ -36,6 +36,12 @@ header p a {
 	color: black;
 }
 
+.subtitle {
+	margin-top: -40px;
+	margin-left: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
 /*subtle messages like 'you have reached the last post in my journal' */
 .subtle {
 	color: #777;

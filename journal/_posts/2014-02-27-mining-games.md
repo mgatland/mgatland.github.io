@@ -6,6 +6,8 @@ I'm working on a 2D mining and exploration game. Here are some similar games I'v
 
 ### [Cave of the Space Worm](http://www.drewhitchcock.com/g/caves.html)
 
+<div class="subtitle">by Drew Hitchcock</div>
+
 ![](/journal/images/2014-02-27-caves-of-the-space-worm.png)
 
 This was the original inspiration for my game. Cave of the Space Worm is simple and satisfying. The player flies around a cave, fighting space worms and collecting items.
@@ -19,6 +21,8 @@ Some dirt cannot be destroyed until your ship's lasers are upgraded. This is a n
 [Play Cave of the Space Worm](http://www.drewhitchcock.com/g/caves.html)
 
 ### [Dig-N-Rig](https://games.digipen.edu/games/dig-n-rig)
+
+<div class="subtitle">by Kirk Barnett, Andrew Colean, Brandon Stenen and Derek Opitz</div>
 
 ![](/journal/images/2014-02-27-dig-n-rig.png)
 
@@ -36,6 +40,8 @@ The player has to buy "wifi upgrades" to be able to travel deeper into the earth
 
 ### [Motherload](http://www.xgenstudios.com/game.php?keyword=motherload)
 
+<div class="subtitle">by XGen Studios</div>
+
 ![](/journal/images/2014-02-27-motherload.png)
 
 Recommended to me, and very popular, but I didn't enjoy it. 
@@ -51,6 +57,8 @@ In Motherload the player has limited fuel which limits how far you can explore b
 [Play Motherload](http://www.xgenstudios.com/game.php?keyword=motherload)
 
 ### [Scavenger](http://www.ludumdare.com/compo/ludum-dare-16/?uid=150)
+
+<div class="subtitle">by Fiona Burrows</div>
 
 ![](/journal/images/2014-02-27-scavenger.png)
 
@@ -70,5 +78,5 @@ Scavenger was made in 48 hours, and is a good reminder to focus on what's import
 
 As well as being a mining game, my game is (probably) eventually going to be a defence game. That's still a while away, but here are two defence games I like:
 
-* [Gaiadi by Xerus](http://www.ludumdare.com/compo/ludum-dare-17/?uid=2037)
+* [Gaiadi by Kyle Pulver](http://www.ludumdare.com/compo/ludum-dare-17/?uid=2037)
 * [Drone by David W Wilson](http://dwwilson.info/?page_id=14)
