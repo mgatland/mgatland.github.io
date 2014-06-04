@@ -197,3 +197,14 @@ a.button:hover, a.button:active {
 	padding: 2px 4px;
 	border-radius: 3px;
 }
+
+blockquote {
+	border: 2px dashed #ccc;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 20px;
+}
+
+.w640 {
+	width: 640px;
+}

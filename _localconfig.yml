@@ -1,1 +1,16 @@
+permalink: /:categories/:year-:month-:day-:title/
+google_analytics_id: UA-707544-6
+url: 'http://www.matthewgatland.com'
+title: Matthew Gatland
+description: Matthew Gatland's personal website
+markdown: kramdown
+prose:
+  metadata:
+    "journal/_posts": |
+      title: 
+      layout: journal
+    "writing/_posts": |
+      title:
+      layout: page
+
 url: 'http://localhost:4000'
