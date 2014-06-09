@@ -1,6 +1,6 @@
 ---
 title: Easy analytics
-layout: journal
+layout: normal
 ---
 
 Tide was mentioned on [indiegames.com](http://indiegames.com/2013/09/browser_pick_tide.html). The link brought a few hundred visitors, which is more than I've ever had before.

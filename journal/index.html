@@ -1,6 +1,6 @@
 ---
 title: Journal
-layout: page
+layout: notitle
 rss: /journal/feed.xml
 ---
 
@@ -9,5 +9,7 @@ rss: /journal/feed.xml
 	{% if forloop.last %}
 		{% include calculate-journal-links.html %}
 		{% include journal-link-older.html %}
+	{% else %}
+		<hr>
 	{% endif %}
 {% endfor %}

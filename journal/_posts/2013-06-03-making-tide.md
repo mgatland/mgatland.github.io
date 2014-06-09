@@ -1,6 +1,6 @@
 ---
 title: Making Tide
-layout: journal
+layout: normal
 ---
 
 [Tide](/games/tide/) is my second game prototype.

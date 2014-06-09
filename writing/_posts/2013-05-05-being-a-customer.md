@@ -1,6 +1,6 @@
 ---
 title: Being a Customer
-layout: page
+layout: normal
 ---
 I have a group of students who build software for me. It's pretty cool.
 

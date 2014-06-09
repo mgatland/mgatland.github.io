@@ -1,7 +1,7 @@
 ---
 title: Matthew Gatland
 ishomepage: true
-layout: homepage
+layout: bigtitle
 rss: /feed.xml
 ---
 

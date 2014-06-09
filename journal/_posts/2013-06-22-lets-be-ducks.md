@@ -1,6 +1,6 @@
 ---
 title: Let's Be Ducks
-layout: journal
+layout: normal
 ---
 
 [Let's Be Ducks](/games/ducks) is my third game prototype.

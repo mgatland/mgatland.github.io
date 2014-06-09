@@ -1,6 +1,6 @@
 ---
 title: Idea for a game installation
-layout: journal
+layout: normal
 ---
 
 Hi, here's an idea for a game for [Rabble Room Arcade](http://rabbleroom.co.nz/).

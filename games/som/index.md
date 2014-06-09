@@ -1,6 +1,6 @@
 ---
 title: Space Octopus Mono
-layout: page
+layout: normal
 categories: [games]
 description: Two-player shooter in shades of grey.
 order: 8

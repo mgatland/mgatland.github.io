@@ -1,6 +1,6 @@
 ---
 title: What Happens Next
-layout: journal
+layout: normal
 ---
 
 Yesterday was my last day at work.

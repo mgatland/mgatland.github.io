@@ -1,6 +1,6 @@
 ---
 title: Rewriting Takedown
-layout: journal
+layout: normal
 ---
 
 I wrote Takedown while I was at high school.

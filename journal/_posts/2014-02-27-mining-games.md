@@ -1,6 +1,6 @@
 ---
 title: Mining Games
-layout: journal
+layout: normal
 ---
 I'm working on a 2D mining and exploration game. Here are some similar games I've been playing as research.
 

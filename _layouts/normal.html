@@ -1,9 +1,11 @@
 {% include part-above-body.html %}
 <body>
 	<section id="content">
+  <header class="smallheader">
+    <span class="subtle"><a href="{{site.url}}/">{{site.title}}</a></span>
+  </header>
   <div class="journal">
 	{% include calculate-journal-links.html %}
-  <span class="subtle"><a href="/">{{ site.title }}</a></span>
   	<hr>
     <div>
     	<h2>{{ page.title }}</h2>

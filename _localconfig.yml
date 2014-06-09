@@ -8,9 +8,9 @@ prose:
   metadata:
     "journal/_posts": |
       title: 
-      layout: journal
+      layout: normal
     "writing/_posts": |
       title:
-      layout: page
+      layout: normal
 
 url: 'http://localhost:4000'
