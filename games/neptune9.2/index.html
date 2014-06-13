@@ -1,0 +1,138 @@
+---
+title: Neptune 9.2
+categories: [games]
+description: A shootout in a space-corridor for 2 players.
+order: 10
+date: 2014-06-14
+icon: neptune9/neptune9-icon.png
+---
+<html lang="en-US" ng-app="neptune9">
+<head>
+	<meta charset="UTF-8">
+	<title>Neptune 9</title>
+	<!--<link href="//fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet" type="text/css">-->
+	<link rel="stylesheet" href="css/game.css">
+	<script data-main="js/game" src="js/lib/seedrandom.js"></script>
+	<script data-main="js/game" src="js/lib/peer.min.js"></script>
+	<script data-main="js/game" src="js/lib/angular.js"></script>
+	<script data-main="js/game" src="js/lib/angular-animate.js"></script>
+	<script data-main="js/game" src="js/game.js"></script>
+	<script data-main="js/game" src="js/neptune9.js"></script>
+	{% include analytics.html %}
+</head>
+<body>
+{% raw %}
+<!-- Setup -->
+	<div class="setupscreen" ng-controller="SetupCtrl" ng-if="!inGame">
+		<div ng-show="screen==='gametype'">
+			<p>Neptune 9</p>
+			<p>A two-player turn-based combat game.</p>
+			<p>Works best on Mozilla Firefox, Google Chrome or Google Chrome for Mobile.</p>
+			<div class="actionbutton" ng-click="localMode()">Local Game</div>
+			<div class="actionbutton" ng-click="networkMode()">Network Game</div>
+		</div>
+		<div ng-show="screen==='hostorjoin'">
+			<div class="actionbutton" ng-click="hostGame()">New Multiplayer Game</div>
+			<div class="actionbutton" ng-click="joinGame()">Join Existing Game</div>
+			<div class="actionbutton" ng-click="back()">Back</div>
+		</div>
+		<div ng-show="screen==='hostgame'">
+			<p>You are hosting.</p>
+			<p>Ask your friend to join game <b>{{hostingId}}</b>.</p>
+			<p>Waiting for connection…</p>
+			<div class="actionbutton" ng-click="back()">Back</div>
+		</div>
+		<div ng-show="screen==='joingame'">
+			<p>Enter the game number to join the game</p>
+			<input ng-model='joiningId' placeholder='0000'>
+			<div class="actionbutton" ng-click="join()">Join {{joiningId}}</div>
+			<div class="actionbutton" ng-click="back()">Back</div>
+		</div>
+	</div>
+<!-- Gameplay -->
+	<div class="gamescreen" ng-show="inGame">
+		<div class="cards">
+			<div class="xp-bar">
+				<div 
+				class="xp-bar-inside"
+				style="width:{{experienceProgress()}}%"></div>
+			</div>
+			<div class="card" 
+			ng-class="{turn: isMyTurn()}" 
+			ng-repeat="card in cards" 
+			ng-controller="CardCtrl" 
+			ng-click="select($index)"
+			ng-init="init($index)">
+				<div>{{card.creature.name}}</div>
+				<div class="portrait">
+					<img class="inportrait" ng-src="art/{{card.creature.img}}">
+					<div class="damage" style="height:{{64-card.creature.hp*64/card.creature.getMaxHp()}}"></div>
+					<img class="inportrait" src="art/dead.png" ng-if="card.creature.hp <= 0">
+				</div>
+				<div class="energybar">
+					<div class="energybarinside" style="height:{{card.creature.energy*64/card.creature.getMaxEnergy()}}"></div>
+				</div>
+				<div class="hppotions" 
+					ng-if="card.creature.potions.hp > 0">
+					H Potions: {{card.creature.potions.hp}}
+				</div>
+				<div class="energypotions" 
+					ng-if="card.creature.potions.energy > 0">
+					E Potions: {{card.creature.potions.energy}}
+				</div>
+				<div class="target-icon" ng-if="isActiveTarget()">Target</div>
+				<img class="cardfx" 
+					ng-repeat="fx in card.creature.fx"
+					ng-src="art/{{fx.sprite}}">
+			</div>
+		</div>
+		<div class="controls" ng-class="{disabled: !isLocalTurn()}">
+			<div class="controlpanel"
+			ng-controller="ControlCtrl"
+			ng-show="showLevelUpUI===0"
+			ng-init="init()">
+				<div 
+				class="actionbutton"
+				ng-repeat="action in player().card.creature.moves" 
+				ng-class="{selected: $index==selectedAction}"
+				ng-click="useAction($index)">
+				{{action.name}}
+				<span class="actionodds">{{player().actionOdds[$index]}}</span>
+				</div>
+				<p ng-if="player().card.creature.moves.length < 3">
+					You are {{player().card.creature.name}}. On your turn, click on creature to target, then click on an action like 'Shoot'.
+				</p>
+			</div>
+			<div ng-controller="LevelUpCtrl">
+				<div 
+					ng-show="showLevelUpUI===1"
+					class="controlpanel levelup">
+					<div>Level up! ({{player().card.creature.levelUpPoints}} points left)</div>
+					<div 
+						class="actionbutton"
+						ng-repeat="attr in player().card.creature.attrNames" 
+						ng-click="levelUpAttribute($index)">
+						{{attr}}
+						<span class="actionodds">{{player().card.creature.attr[$index]}}</span>
+					</div>
+				</div>
+			</div>
+			<div ng-controller="LevelUpCtrl">
+				<div 
+					ng-show="showLevelUpUI===2"
+					class="controlpanel levelup">
+					<div>Level up! Choose a new skill:</div>
+					<div 
+						class="actionbutton"
+						ng-repeat="skill in player().card.creature.availableSkills" 
+						ng-click="levelUpSkill($index)">
+						{{skill.name}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="lines"></div>
+{% endraw %}
+</body>
+</html>
