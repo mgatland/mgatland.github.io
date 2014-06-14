@@ -4,7 +4,7 @@ categories: [games]
 description: A shootout in a space-corridor for 2 players.
 order: 10
 date: 2014-06-14
-icon: neptune9/neptune9-icon.png
+icon: neptune9.2/neptune9.2-icon.png
 ---
 <html lang="en-US" ng-app="neptune9">
 <head>
@@ -12,13 +12,13 @@ icon: neptune9/neptune9-icon.png
 	<title>Neptune 9</title>
 	<!--<link href="//fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet" type="text/css">-->
 	<link rel="stylesheet" href="css/game.css">
-	<script data-main="js/game" src="js/lib/seedrandom.js"></script>
-	<script data-main="js/game" src="js/lib/peer.min.js"></script>
-	<script data-main="js/game" src="js/lib/angular.js"></script>
-	<script data-main="js/game" src="js/lib/angular-animate.js"></script>
-	<script data-main="js/game" src="js/lib/angular-touch.min.js"></script>
-	<script data-main="js/game" src="js/game.js"></script>
-	<script data-main="js/game" src="js/neptune9.js"></script>
+	<script src="js/lib/seedrandom.js"></script>
+	<script src="js/lib/peer.min.js"></script>
+	<script src="js/lib/angular.js"></script>
+	<script src="js/lib/angular-animate.js"></script>
+	<script src="js/lib/angular-touch.min.js"></script>
+	<script src="js/game.js"></script>
+	<script src="js/neptune9.js"></script>
 	<meta name="viewport" content="width=455, user-scalable=no">
 	{% include analytics.html %}
 </head>
@@ -92,17 +92,19 @@ icon: neptune9/neptune9-icon.png
 			<div class="controlpanel"
 			ng-controller="ControlCtrl"
 			ng-show="showLevelUpUI===0"
-			ng-init="init()">
+			ng-init="init()"
+			>
 				<div 
 				class="actionbutton"
 				ng-repeat="action in player().card.creature.moves" 
 				ng-class="{selected: $index==selectedAction}"
 				ng-click="useAction($index)">
 				{{action.name}}
-				<span class="actionodds">{{player().actionOdds[$index]}}</span>
+				<span class="actionodds">{{player().actionOdds[player().getTargetNum()][$index]}}</span>
+				<span ng-if="action.energyCost" class="action-cost">{{energyCostIcon(action)}}</span>
 				</div>
 				<p ng-if="player().card.creature.moves.length < 3">
-					You are {{player().card.creature.name}}. On your turn, click on creature to target, then click on an action like 'Shoot'.
+					You are <b>{{player().card.creature.name}}</b>. On your turn, click on a creature to target, then click on an action like 'Shoot'.
 				</p>
 			</div>
 			<div ng-controller="LevelUpCtrl">

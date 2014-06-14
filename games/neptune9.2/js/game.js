@@ -8,7 +8,6 @@ function Random(seed) {
 	console.log("Check value: ", rng());
 	this.value = function () {
 		var temp = rng();
-		console.log(temp);
 		return temp;
 	}
 }
@@ -50,8 +49,8 @@ function Game() {
   this.cards[3].creature = new Creature(gobnit);
 
   this.players = [];
-  this.players[0] = new Player(this.cards, {card: this.cards[0], targetNum: 2});
-  this.players[1] = new Player(this.cards, {card: this.cards[1], targetNum: 3});
+  this.players[0] = new Player({card: this.cards[0], targetNum: 2});
+  this.players[1] = new Player({card: this.cards[1], targetNum: 3});
 
   this.players.forEach(function (p) {
   	p.card.creature.availableSkills = [];
@@ -67,9 +66,27 @@ function Game() {
 
   var nextTurnMap = {0:2, 2:1, 1:3, 3:0};
 
-  var spawnCreature = function(num) {
+  var updateActionOdds = function() {
+  	_this.players.forEach(function (player) {
+      player.updateActionOdds(_this.cards);
+    });
+  }
+
+  var spawnCreature = function (num) {
   	var type = (random.value() < 0.5) ? leepig : dopnot;
   	_this.cards[num].creature = new Creature(type);
+  }
+
+  var gotAKill = function (attacker, victim) {
+	console.log(victim.name + " was killed");
+	if (attacker.team === "good" && victim.team !== "good") {
+	  _this.experience++;
+	  if (random.value() > 0.5) {
+        attacker.getPotionHp();
+      } else {
+        attacker.getPotionEnergy();
+      }
+	}
   }
 
   this.useAction = function(userCard, actionNum, targetNum) {
@@ -82,21 +99,19 @@ function Game() {
   	var attacker = userCard.creature;
   	var action = attacker.moves[actionNum];
   	var target = this.cards[targetNum].creature;
-    var wasAlive = target.isAlive();
   	console.log(attacker.name + " used " + action.name + " on " + target.name);
   	action.act(attacker, target, userCard.num, targetNum);
+  	if (action.energyCost) {
+  		attacker.useEnergy(action.energyCost);
+  	}
 
-    if (target.isAlive() === false && wasAlive === true) {
-      console.log("Target was killed");
-      if (attacker.team === "good" && target.team !== "good") {
-      	this.experience++;
-      }
-      if (random.value() > 0.5) {
-        attacker.getPotionHp();
-      } else {
-        attacker.getPotionEnergy();
-      }
-    }
+  	this.cards.forEach(function (card) {
+  		var c = card.creature;
+  		if (c.justDied === true) {
+  			c.justDied = false;
+  			gotAKill(attacker, c);
+  		}
+  	});
 
     if (this.experience >= this.experienceTarget) {
     	experienceLevel++;
@@ -107,9 +122,6 @@ function Game() {
 	    });
     }
 
-    this.players.forEach(function (player) {
-      player.updateActionOdds();
-    });
     return true;
   }  
 
@@ -118,9 +130,9 @@ function Game() {
   	moveIsUsed = false;
   	var creature = this.cards[this.turn].creature;
 
-  	if (creature.hp <= 0) {
+  	if (creature.isDead()) {
   		creature.deadTime++;
-  		if (creature.deadTime == 2) {
+  		if (creature.deadTime == 2 && creature.team !== "good") {
   			//create new creature
   			spawnCreature(this.turn);
   		}
@@ -129,6 +141,8 @@ function Game() {
   	} else {
   		creature.recoverEnergy(creature.getMaxEnergy() / 4);
   	}
+
+    updateActionOdds();
 
   	if (creature.ai != null) {
   		var action = creature.ai(this, this.turn);
@@ -141,6 +155,9 @@ function Game() {
   this.moveIsUsed = function () {
   	return moveIsUsed;
   }
+
+  //Start initial turn
+  updateActionOdds();
 }
 
 function addFx(character, fxName) {
@@ -162,6 +179,7 @@ function makeHitDecider(bonusToHit) {
 function Move(options) {
 	//configurable parts
 	this.name = options.name;
+	this.energyCost = options.energyCost;
 	var action = options.act;
 	var validTargets = options.validTargets;
 
@@ -219,6 +237,7 @@ var healMove = new Move(
 		{
 			name: "Heal",
 			validTargets: "friends",
+			energyCost: 6,
 			act: function(user, target, chance) {
 				if (random.value() < chance) {
 					target.healAmount(user.iFoc()/2);
@@ -226,7 +245,6 @@ var healMove = new Move(
 				} else {
 					addFx(target, "heal-miss");
 				}
-				user.useEnergy(6);
 			},
 			hitChance: function(user, target) {
 				var chance = (user.iFoc() / (user.iFoc() + 6));
@@ -238,14 +256,14 @@ var healMove = new Move(
 var drainMove = new Move(
 		{
 			name: "Drain",
+			energyCost: 6,
 			act: function(user, target, chance) {
 				if (random.value() < chance) {
-					target.useEnergy(user.iFoc()/2);
+					target.useEnergy(user.iFoc());
 					addFx(target, "drain");
 				} else {
 					addFx(target, "drain-miss");
 				}
-				user.useEnergy(6);
 			},
 			hitChance: function (user, target) {
 				var chance = (user.iFoc() / (user.iFoc() + target.iFoc()));
@@ -254,7 +272,11 @@ var drainMove = new Move(
 		}
 	)
 
-var superShotMove = new Move({name:"Super shot!", bonusToHit: 0.25, act: function (user, target, chance) {
+var superShotMove = new Move({
+	name:"Super shot!", 
+	bonusToHit: 0, 
+	energyCost: 9,
+	act: function (user, target, chance) {
 	if (random.value() < chance) {
 		target.hurt(Math.max(user.iStr() / 2, 1));
 		target.useEnergy(Math.max(user.iStr() / 4, 1));
@@ -262,7 +284,6 @@ var superShotMove = new Move({name:"Super shot!", bonusToHit: 0.25, act: functio
 	} else {
 		addFx(target,"shot-miss");
 	}
-	user.useEnergy(9);
 }});
 
 
@@ -270,7 +291,8 @@ var normalMoves = [];
 normalMoves.push(new Move(
 	{
 		name:"Shoot",
-		bonusToHit: 0.5, 
+		bonusToHit: 0.2,
+		energyCost: 3,
 		act: function (user, target, chance) {
 			if (random.value() < chance) {
 				target.hurt(Math.max(user.iStr() / 4, 1));
@@ -278,7 +300,6 @@ normalMoves.push(new Move(
 			} else {
 				addFx(target, "shot-miss");
 			}
-			user.useEnergy(3);
 		}
 	}
 	));
@@ -286,10 +307,7 @@ normalMoves.push(new Move({name:"Rest", bonusToHit: 1, act: function (user, targ
 	addFx(user, "rest");
 }}));
 
-//passing in _cards is a hack so we can update action odds mid-turn
-//fixme: only do it once at the end of a turn, called by gameservice,
-//pass in the cards then
-function Player(_cards, options) {
+function Player(options) {
 	var _this = this;
 
 	for (var attrname in options) {
@@ -300,20 +318,22 @@ function Player(_cards, options) {
 	this.actionOdds = [];
 	this.isLocal = true;
 
-	this.updateActionOdds = function () {
+	this.updateActionOdds = function (cards) {
 		_this.actionOdds = [];
 		var user = _this.card.creature;
-		var target = _cards[_targetNum].creature;
-		_this.card.creature.moves.forEach(function (move) {
-			var hitChance = move.hitChance(user, target);
-			_this.actionOdds.push(Math.floor(hitChance*100) + "%");
-		});
-			
+		var target = cards[_targetNum].creature;
+
+		cards.forEach(function (card) {
+			_this.actionOdds[card.num] = [];
+			_this.card.creature.moves.forEach(function (move) {
+				var hitChance = move.hitChance(user, card.creature);
+				_this.actionOdds[card.num].push(Math.floor(hitChance*100) + "%");
+			});
+		});			
 	}
 
 	this.setTargetNum = function (i) {
 		_targetNum = i;
-		this.updateActionOdds();
 	}
 
 	this.getTargetNum = function () {
@@ -372,7 +392,14 @@ function Creature (options) {
 	this.hp = this.attr[MAXHP]
 	this.energy = this.attr[MAXENERGY];
 
-	var energyModifier = function () { return c.energy / c.attr[MAXENERGY] + 0.5};
+	this.isDead = function () {
+		return this.hp <= 0;
+	}
+
+	var energyModifier = function () {
+	  if (c.isDead()) return 0;
+	  return c.energy / c.attr[MAXENERGY] + 0.5
+	};
 
 	this.iStr = function () { return c.attr[STRENGTH] * energyModifier()};
 	this.iSpd = function () { return c.attr[SPEED] * energyModifier()};
@@ -387,19 +414,22 @@ function Creature (options) {
 	}
 
 	this.hurt = function (damage) {
+		if (this.isDead()) return;
 		damage = Math.floor(damage);
 		this.hp -= damage;
-		if (this.hp < 0) this.hp = 0;
+		if (this.isDead()) {
+			this.hp = 0;
+			this.energy = 0;
+			this.justDied = true;
+		}
 	}
 
 	this.useEnergy = function (amount) {
-		amount = Math.floor(amount);
 		this.energy -= amount;
 		if (this.energy < 0) this.energy = 0;
 	}
 
 	this.recoverEnergy = function (amount) {
-		amount = Math.floor(amount);
 		this.energy += amount;
 		if (this.energy > this.attr[MAXENERGY]) this.energy = this.attr[MAXENERGY];
 	}
@@ -442,13 +472,13 @@ function Creature (options) {
 	}
 
 	this.healAmount = function(amount) {
-		if (this.hp <= 0) return;
+		if (this.isDead()) return;
 		this.hp += Math.floor(amount * this.attr[MAXHP]);
 		this.hp = Math.min(this.hp, this.attr[MAXHP]);		
 	}
 
 	this.restoreEnergyFraction = function(amount) {
-		if (this.hp <= 0) return;
+		if (this.isDead()) return;
 		this.energy += Math.floor(amount * this.attr[MAXENERGY]);
 		this.energy = Math.min(this.energy, this.attr[MAXENERGY]);		
 	}
@@ -465,12 +495,16 @@ function Creature (options) {
 		}
 	}
 
+	var fullHeal = function () {
+		c.hp = c.getMaxHp();
+		c.energy = c.getMaxEnergy();
+	}
+
 	this.levelUpAttribute = function(index) {
 		if (this.levelUpPoints <= 0) return;
 		this.attr[index] += 1;
 		this.levelUpPoints--;
-		this.hp = this.getMaxHp();
-		this.energy = this.getMaxEnergy();
+		fullHeal();
 	}
 
 	this.levelUpSkill = function (index) {
@@ -478,6 +512,7 @@ function Creature (options) {
 		this.levelUpSkillPoints--;
 		this.moves.push(this.availableSkills[index]);
 		this.availableSkills.splice(index, 1);
+		fullHeal();
 	}
 }
 
