@@ -1,262 +1,649 @@
-"use strict";
-require(["creature", "controls", "keyboard", "popover", "actions", "story"],
-	function(Creature, Controls, Keyboard, Popover, Actions, Story) {
+//Game code
 
-var startNeptune9 = function(event) {
+var random; //eww global.
 
-	track("pageload");
-
-	var isGameRunning = false;
-	var DEBUG = {};
-	if (location.search) {
-		if (location.search.indexOf("1hit") >= 0) {
-			DEBUG.oneHit = true;
-		}
-		if (location.search.indexOf("aiparty") >= 0) {
-			DEBUG.aiParty = true;
-		}
-		if (location.search.indexOf("pfast") >= 0) {
-			DEBUG.pFast = true;
-		}
+function Random(seed) {
+	console.log("Random seed [" + seed + "]");
+	var rng = new Math.seedrandom(seed);
+	console.log("Check value: ", rng());
+	this.value = function () {
+		var temp = rng();
+		return temp;
 	}
-
-	var allActions = [Actions.Shoot, Actions.FindCover, Actions.Charge, Actions.Protect];
-	var rylie = {name: "Rylie", pic: "warrior.png", greeting: "Here comes trouble.", cover: 10, isAI:false, actions: allActions, isHero: true};
-	var brooklyn = {name: "Brooklyn", pic: "missionary.png", greeting: "Let's go!", cover: 10, isAI:false, actions: allActions, isHero: true};
-
-	if (DEBUG.oneHit) {
-		rylie.cover = 1;
-		brooklyn.cover = 1;
-	}
-	if (DEBUG.aiParty) {
-		rylie.isAI = true;
-		brooklyn.isAI = true;
-	}
-	if (DEBUG.pFast) {
-		rylie.speed = 6;
-		brooklyn.speed = 6;
-	}
-
-	var advanceStory = function () {
-		if (chapter.isEnded()) {
-			chapter.cleanUp();
-
-			controls[0].setNewbieMode(false);
-			controls[1].setNewbieMode(false);
-
-			var nextChapter = story.next(storyPopover);
-			if (nextChapter === null) {
-				document.querySelector('.restartText').innerHTML = "Mission Accomplished!<br><br>Neptune 9 is safe once again...<br><br>...but for how long?";
-				restartPopover.show();
-			} else {
-				chapter = nextChapter;
-				chapter.start(creatures);
-			}
-		} else {
-			chapter.reallyStart(creatures);
-		}
-	}
-
-	var keyboard = new Keyboard();
-	var creatures = [];
-	var controls = [];
-	var story = null;
-	var chapter = null;
-
-	var hardMode = false;
-
-	controls[0] = new Controls(0);
-	controls[1] = new Controls(1);
-	var restartPopover = new Popover("restart");
-	var startGamePopover = new Popover("startgame");
-	var storyPopover = new Popover("storyPopover");
-	var popoverDelayTimer = 0;
-
-	var restartGame = function () {
-		restartPopover.hide();
-		startGamePopover.show();
-		creatures[2].die();
-		creatures[3].die();
-		creatures[2].draw();
-		creatures[3].draw();
-		controls[0].setNewbieMode(true);
-		controls[1].setNewbieMode(true);
-	}
-
-	var toggleHardMode = function () {
-		hardMode = !hardMode;
-		document.querySelector('.hardModeLabel').innerHTML = hardMode ? "ON" : "OFF";
-	}
-
-	var startGame = function (noOfPlayers) {
-		track("startGameWithNPlayers", noOfPlayers);
-		startGamePopover.hide();
-		popoverDelayTimer = 0;
-
-		if (noOfPlayers === 1) {
-			rylie.isAI = true;
-		} else {
-			rylie.isAI = false;
-		}
-
-		if (hardMode) {
-			rylie.cover = 3;
-			brooklyn.cover = 3;
-			rylie.actions[2] = Actions.CheapCharge;
-			brooklyn.actions[2] = Actions.CheapCharge;
-		} else {
-			rylie.cover = 10;
-			brooklyn.cover = 10;
-			rylie.actions[2] = Actions.Charge;
-			brooklyn.actions[2] = Actions.Charge;
-		}
-
-		creatures[0] = new Creature(0, rylie, creatures);
-		creatures[1] = new Creature(1, brooklyn, creatures);
-		creatures[2] = new Creature(2, Creature.placeHolder, creatures);
-		creatures[3] = new Creature(2, Creature.placeHolder, creatures);
-
-		story = new Story(creatures);
-		chapter = story.start(storyPopover);
-		chapter.start(creatures);
-
-
-		creatures.forEach(function (c) {
-			c.draw();
-		});
-
-		controls[0].setCreature(creatures[0]);
-		controls[1].setCreature(creatures[1]);
-
-		isGameRunning = true;
-	}
-
-	var firstParentWithClass = function (startNode, className) {
-		var node = startNode;
-		while(node && node.classList && !node.classList.contains(className)) {
-	    	node = node.parentNode;
-	    	if (!node.classList) return null; //we clicked outside a card.
-		}
-		return node;
-	}
-
-	var addControlsEventListener = function (i) {
-		var controlsEle = document.querySelector('.controls.p' + i);
-		controlsEle.addEventListener('click', function (event) {
-			var node = firstParentWithClass(event.target, 'actionbutton');
-		    if (node) {
-		        var action = node.className.replace("actionbutton", "").replace(" ", "").replace("act", "");
-		        controls[i].actionSelected(action);
-		    }
-		}, false);
-	}
-
-	for (var i = 0; i < 2; i++) {
-		addControlsEventListener(i);
-	}
-
-	var cardSelected = function(num) {
-		console.log("Card selected: " + num);
-		controls[0].cardSelected(num);
-		controls[1].cardSelected(num);
-	}
-
-	var cardsEle = document.querySelector('.cards');
-	cardsEle.addEventListener('click', function (event) {
-		var node = firstParentWithClass(event.target, 'card');
-		if (!node) return;
-		var num = 0;
-		for (var i = 0; i < 4; i++) {
-			if (node.classList.contains("p" + i)) num = i;
-		}
-		cardSelected(num);
-	}, false);
-
-	window.setInterval(function () {
-
-		var left = (keyboard.isKeyHit(KeyEvent.DOM_VK_LEFT));
-		var right = (keyboard.isKeyHit(KeyEvent.DOM_VK_RIGHT));
-		var up = (keyboard.isKeyHit(KeyEvent.DOM_VK_UP));
-		var down = (keyboard.isKeyHit(KeyEvent.DOM_VK_DOWN));
-		var left2 = (keyboard.isKeyHit(KeyEvent.DOM_VK_A));
-		var right2 = (keyboard.isKeyHit(KeyEvent.DOM_VK_D));
-		var up2 = (keyboard.isKeyHit(KeyEvent.DOM_VK_W));
-		var down2 = (keyboard.isKeyHit(KeyEvent.DOM_VK_S));
-		var enter = (keyboard.isKeyHit(KeyEvent.DOM_VK_ENTER)) || (keyboard.isKeyHit(KeyEvent.DOM_VK_RETURN));
-
-		//Up also counts as enter in every situation
-		enter = (enter || up || up2);
-
-		keyboard.update();
-
-		if (enter && restartPopover.isShown()) {
-			restartGame();
-		}
-
-		if (enter && storyPopover.isShown()) {
-			advanceStory();
-		}
-
-		if ((left || left2) && startGamePopover.isShown()) {
-			startGame(1);
-		}
-
-		if ((right || right2) && startGamePopover.isShown()) {
-			startGame(2);
-		}
-
-		if ((up || up2) && startGamePopover.isShown()) {
-			toggleHardMode();
-		}
-
-		if (!isGameRunning || storyPopover.isShown() || restartPopover.isShown() || startGamePopover.isShown()) return;
-
-		controls[0].update(up2, down2, left2, right2);
-		controls[1].update(up, down, left, right);
-
-		if (creatures[0].alive === false && creatures[1].alive === false) {
-			popoverDelayTimer++;
-			if (popoverDelayTimer === 60) {
-				document.querySelector('.restartText').innerHTML = "Game Over";
-				restartPopover.show();
-			}
-		}
-
-		creatures.forEach(function (c, index) {
-			c.update();
-		});
-
-		chapter.update(creatures);
-	}, 1000/30);
-
-	var addClickEventListener = function (buttonClass, action, arg) {
-		var buttonEle = document.querySelector(buttonClass);
-		buttonEle.addEventListener('click', function (event) {
-		    action(arg);
-		}, false);
-	}
-
-	addClickEventListener('.restartButton', restartGame);
-	addClickEventListener('.hardModeButton', toggleHardMode);
-	addClickEventListener('.onePlayerButton', startGame, 1);
-	addClickEventListener('.twoPlayerButton', startGame, 2);
-	addClickEventListener('.storyButton', advanceStory);
-};
-if (document.readyState !== "loading") {
-	startNeptune9();
-} else {
-	document.addEventListener("DOMContentLoaded", function(event) {
-		startNeptune9();
-	});
 }
-});
 
+function Game() {
 
-var track = function (action, label, number) {
-	console.log("_trackEvent: " + action + ", " + label + ", " + number);
-	try {
-		_gaq.push(['_trackEvent',"neptune9", action, ""+label, number]);;
-	} catch (e) {
+	var _this = this;
+	var moveIsUsed = false;
 
+	var experienceLevel = 1;
+	this.experience = 0;
+	this.experienceTarget = 2;
+
+	this.isGameOver = function () {
+		var survivorCount = 0;
+		this.players.forEach(function (p) {
+			if (!p.card.creature.isDead()) survivorCount++;
+		});
+		return survivorCount == 0;
 	}
+
+	this.getLevel = function () {
+		return experienceLevel;
+	}
+
+	this.experienceProgress = function () {
+		//show a full bar if there are unallocated points
+		var unallocatedPoints = false;
+		this.players.forEach(function (p) {
+			if (p.card.creature.isDead()) return;
+			if (p.card.creature.levelUpPoints > 0) unallocatedPoints = true;
+			if (p.card.creature.levelUpSkillPoints > 0) unallocatedPoints = true;
+		});
+		if (unallocatedPoints) {
+			return 100;
+		}
+		return Math.floor(100 * this.experience / this.experienceTarget);
+	}
+
+	this.turn = 0;
+
+//attrs: hp, energy, strength, speed, focus
+	var weewit = {name:"Weewit", img:"weewit.png", attr:[5, 6, 5, 5, 1]};
+	var gobnit = {name:"Gobnit", img:"gobnit.png", attr:[4,  10, 6, 10, 1]};
+	var leepig = {name: "Leepig", img: "leepig.png", attr:[6,  5, 8, 7, 10]};
+	var dopnot = {name: "Dopnot", img: "dopnot.png", attr:[8,  9, 12, 8, 10]};
+
+  this.cards = [{}, {}, {}, {}];
+  this.cards[0].creature = new Creature({name:"Kathee", img:"spy.png", attr:[10, 10, 10, 10, 10], ai: null, team: "good"});
+  this.cards[1].creature = new Creature({name:"Imogen", img:"missionary.png", attr:[10, 10, 10, 10, 10], ai: null, team: "good"});
+  this.cards[2].creature = new Creature(weewit);
+  this.cards[3].creature = new Creature(gobnit);
+
+  this.players = [];
+  this.players[0] = new Player({card: this.cards[0], targetNum: 2});
+  this.players[1] = new Player({card: this.cards[1], targetNum: 3});
+
+  this.players.forEach(function (p) {
+  	p.card.creature.availableSkills = [];
+  	p.card.creature.availableSkills.push(superShotMove);
+  	p.card.creature.availableSkills.push(healMove);
+  	p.card.creature.availableSkills.push(drainMove);
+  });
+
+  //let every card know its index.
+  for (var i = 0; i < 4; i++) {
+  	this.cards[i].num = i;
+  }
+
+  var nextTurnMap = {0:2, 2:1, 1:3, 3:0};
+
+  var updateActionOdds = function() {
+  	_this.players.forEach(function (player) {
+      player.updateActionOdds(_this.cards);
+    });
+  }
+
+  var spawnCreature = function (num) {
+  	var type = (random.value() < 0.5) ? leepig : dopnot;
+  	_this.cards[num].creature = new Creature(type);
+  }
+
+  var gotAKill = function (attacker, victim) {
+	console.log(victim.name + " was killed");
+	if (attacker.team === "good" && victim.team !== "good") {
+	  _this.experience++;
+	  if (random.value() > 0.5) {
+        attacker.getPotionHp();
+      } else {
+        attacker.getPotionEnergy();
+      }
+	}
+  }
+
+  this.useAction = function(userCard, actionNum, targetNum) {
+  	if (this.cards[this.turn] !== userCard) {
+  		console.log(userCard.creature.name + " tried to act but it's not their turn.");
+  		return false;
+  	}
+  	if (moveIsUsed) return false;
+  	var attacker = userCard.creature;
+  	var action = attacker.moves[actionNum];
+  	var target = this.cards[targetNum].creature;
+
+  	if (!attacker.canUse(action)) {
+  		console.log(attacker.name + " doesn't have enough energy to " + action.name);
+  		return false;
+  	}
+
+  	moveIsUsed = true;
+  	console.log(attacker.name + " used " + action.name + " on " + target.name);
+  	action.act(attacker, target, userCard.num, targetNum);
+	attacker.useEnergy(action.energyCost);
+
+  	this.cards.forEach(function (card) {
+  		var c = card.creature;
+  		if (c.justDied === true) {
+  			c.justDied = false;
+  			gotAKill(attacker, c);
+  		}
+  	});
+
+    if (this.experience >= this.experienceTarget) {
+    	experienceLevel++;
+    	this.experience -= this.experienceTarget;
+    	this.experienceTarget += 2;
+	    this.players.forEach(function (player) {
+	      player.card.creature.queueLevelUp(experienceLevel % 2 == 0);
+	    });
+    }
+
+    return true;
+  }  
+
+  this.endTurn = function() {
+
+  	if (this.isGameOver()) {
+  		return "gameover";
+  	}
+
+  	this.turn = nextTurnMap[this.turn];
+  	moveIsUsed = false;
+  	var creature = this.cards[this.turn].creature;
+  	if (creature.isDead()) {
+  		creature.deadTime++;
+  		if (creature.deadTime == 2 && creature.team !== "good") {
+  			//create new creature
+  			spawnCreature(this.turn);
+  		}
+  		moveIsUsed = true;
+  		return "skip";
+  	} else {
+  		creature.recoverEnergy(creature.getMaxEnergy() / 4);
+  	}
+
+    updateActionOdds();
+
+  	if (creature.ai != null) {
+  		var action = creature.ai(this, this.turn);
+  		var success = this.useAction(this.cards[this.turn], action.move, action.target);
+  		if (!success) {
+  			console.error(creature.name + " tried to do an illegal action " + action.move.name + ". Let's just skip their turn.");
+  		}
+  		return "endturn"
+  	}
+  	return "normal";
+  }
+
+  this.moveIsUsed = function () {
+  	return moveIsUsed;
+  }
+
+  //Start initial turn
+  updateActionOdds();
+}
+
+function addFx(character, fxName) {
+	var fx = {sprite: fxName + ".png"};
+	character.fx.push(fx);
+	setTimeout(function () {
+		var index = character.fx.indexOf(fx);
+		character.fx.splice(index, 1);
+	}, 400);
+}
+
+function makeHitDecider(bonusToHit) {
+	return function (user, target) {
+  	var chance = bonusToHit + (2 * user.iSpd() / (2 * user.iSpd() + target.iSpd()));
+		return Math.min(chance, 1);
+	}
+}
+
+function Move(options) {
+	//configurable parts
+	this.name = options.name;
+	this.energyCost = options.energyCost ? options.energyCost : 0;
+	var action = options.act;
+	var validTargets = options.validTargets;
+
+	if (options.hitChance) {
+		this.hitChance = options.hitChance;
+	} else {
+		this.hitChance = makeHitDecider(options.bonusToHit);
+	}
+
+	if (options.aiValue) {
+		this.aiValue = options.aiValue;
+	} else {
+		this.aiValue = function () {return 10;};
+	}
+
+	var fixTarget = function (user, target) {
+		if (validTargets === "friends") {
+			if (target.team !== user.team) {
+				return user;
+			}
+		}
+		return target;
+	}
+
+	this.act = function (user, target, userNum, targetNum) {
+		target = fixTarget(user, target);
+		var chance = this.hitChance(user, target);
+		action(user, target, chance, userNum, targetNum);
+	}
+}
+
+var useHpPotionMove = new Move(
+	{
+		name:"Health Potion",
+		bonusToHit: 1,
+		validTargets: "friends",
+		act: function (user, target, chance) {
+			if (user.usePotionHp()) {
+				target.healFraction(0.5);
+				addFx(target, "heal");
+			}
+		}
+	}
+);
+
+var useEnergyPotionMove = new Move(
+	{
+		name:"Energy Potion",
+		bonusToHit: 1,
+		validTargets: "friends",
+		act: function (user, target, chance) {
+			if (user.usePotionEnergy()) {
+				target.restoreEnergyFraction(1);
+				addFx(target, "energy");
+			}
+		}
+	}
+);
+
+var healMove = new Move(
+		{
+			name: "Heal",
+			validTargets: "friends",
+			energyCost: 6,
+			act: function(user, target, chance) {
+				if (random.value() < chance) {
+					target.healAmount(user.iFoc()/2);
+					addFx(target, "heal");
+				} else {
+					addFx(target, "heal-miss");
+				}
+			},
+			hitChance: function(user, target) {
+				var chance = (user.iFoc() / (user.iFoc() + 6));
+				return Math.min(chance, 1);
+			}
+		}
+	);
+
+var drainMove = new Move(
+		{
+			name: "Drain",
+			energyCost: 6,
+			act: function(user, target, chance) {
+				if (random.value() < chance) {
+					target.useEnergy(user.iFoc());
+					addFx(target, "drain");
+				} else {
+					addFx(target, "drain-miss");
+				}
+			},
+			hitChance: function (user, target) {
+				var chance = 0.2 + (2 * user.iFoc() / (2 * user.iFoc() + target.iFoc()));
+				return Math.min(chance, 1);
+			}
+		}
+	)
+
+var superShotMove = new Move({
+	name:"Super shot!", 
+	bonusToHit: 0, 
+	energyCost: 9,
+	act: function (user, target, chance) {
+	if (random.value() < chance) {
+		target.hurt(Math.max(user.iStr() / 2, 1));
+		target.useEnergy(Math.max(user.iStr() / 4, 1));
+		addFx(target, "whack");
+	} else {
+		addFx(target,"shot-miss");
+	}
+}});
+
+
+var normalMoves = [];
+normalMoves.push(new Move(
+	{
+		name:"Shoot",
+		bonusToHit: 0.2,
+		energyCost: 3,
+		act: function (user, target, chance) {
+			if (random.value() < chance) {
+				target.hurt(Math.max(user.iStr() / 4, 1));
+				addFx(target, "shot");
+			} else {
+				addFx(target, "shot-miss");
+			}
+		}
+	}
+	));
+normalMoves.push(new Move({
+	name:"Rest", 
+	bonusToHit: 1, 
+	act: function (user, target) {
+		addFx(user, "rest");
+	},
+	aiValue: function () {return 1;},
+}));
+
+function Player(options) {
+	var _this = this;
+
+	for (var attrname in options) {
+	 this[attrname] = options[attrname]; 
+	};
+	var _targetNum = -1;
+
+	this.actionOdds = [];
+	this.isLocal = true;
+
+	this.updateActionOdds = function (cards) {
+		_this.actionOdds = [];
+		var user = _this.card.creature;
+		var target = cards[_targetNum].creature;
+
+		cards.forEach(function (card) {
+			_this.actionOdds[card.num] = [];
+			_this.card.creature.moves.forEach(function (move) {
+				var hitChance = move.hitChance(user, card.creature);
+				_this.actionOdds[card.num].push(Math.floor(hitChance*100) + "%");
+			});
+		});			
+	}
+
+	this.setTargetNum = function (i) {
+		_targetNum = i;
+	}
+
+	this.getTargetNum = function () {
+		return _targetNum;
+	}
+
+	this.levelUpState = function () {
+		if (this.card.creature.levelUpPoints > 0) return 1;
+		if (this.card.creature.levelUpSkillPoints > 0) return 2;
+		return 0;
+	}
+
+	//initialize target
+	this.setTargetNum(this.targetNum);
+	this.targetNum = undefined;
+}
+
+var MAXHP = 0;
+var MAXENERGY = 1;
+var STRENGTH = 2;
+var SPEED = 3;
+var FOCUS = 4;
+var attrNames = ["Hitpoints", "Energy", "Strength", "Speed", "Focus"];
+
+function Creature (options) {
+	var c = this;
+	this.name = "Name";
+	this.team = "evil";
+	this.attrNames = attrNames;
+
+	this.potions = {};
+	this.potions.hp = 0;
+	this.potions.energy = 0;
+
+	this.levelUpPoints = 0;
+	this.levelUpSkillPoints = 0;
+
+	this.fx = [];
+
+	this.moves = [];
+	normalMoves.forEach(function (move) {
+		c.moves.push(move);
+	});
+
+	this.deadTime = 0;
+	this.ai = function (game, num) {
+		var target = (num + 2) % 4;
+		if (game.players[target].card.creature.isDead()) {
+			target = (target == 0 ? 1 : 0); //swap target if my target is dead.
+		}
+		var odds = [];
+		var max = 0;
+		this.moves.forEach(function (move) {
+			if (c.canUse(move) === false) {
+				odds.push(0);
+			} else {
+				var value = move.aiValue();
+				odds.push(value);
+				max += value;
+			}
+		});
+		var choiceVal = random.value() * max;
+		var choice = -1;
+		while (choiceVal > 0) {
+			choice++;
+			choiceVal -= odds[choice];
+		}
+		return {move: choice, target: target};
+	};
+
+	for (var attrname in options) {
+	 this[attrname] = options[attrname]; 
+	};
+	if (this.attr.length != this.attrNames.length) { //Just a sanity check
+		console.error("Wrong number of attr values for " + this.name, this.attr);
+	}
+	this.hp = this.attr[MAXHP]
+	this.energy = this.attr[MAXENERGY];
+
+	this.isDead = function () {
+		return this.hp <= 0;
+	}
+
+	var energyModifier = function () {
+	  if (c.isDead()) return 0;
+	  return c.energy / c.attr[MAXENERGY] + 0.5
+	};
+
+	this.iStr = function () { return c.attr[STRENGTH] * energyModifier()};
+	this.iSpd = function () { return c.attr[SPEED] * energyModifier()};
+	this.iFoc = function () { return c.attr[FOCUS] * energyModifier()};
+
+	this.getMaxEnergy = function () {
+		return this.attr[MAXENERGY];
+	}
+
+	this.getMaxHp = function () {
+		return this.attr[MAXHP];
+	}
+
+	this.hurt = function (damage) {
+		if (this.isDead()) return;
+		damage = Math.floor(damage);
+		this.hp -= damage;
+		if (this.isDead()) {
+			this.hp = 0;
+			this.energy = 0;
+			this.justDied = true;
+		}
+	}
+
+	this.useEnergy = function (amount) {
+		this.energy -= amount;
+		if (this.energy < 0) this.energy = 0;
+	}
+
+	this.recoverEnergy = function (amount) {
+		this.energy += amount;
+		if (this.energy > this.attr[MAXENERGY]) this.energy = this.attr[MAXENERGY];
+	}
+
+	this.getPotionHp = function () {
+		this.potions.hp++;
+		if (this.potions.hp === 1) {
+			this.moves.push(useHpPotionMove);
+		}
+	}
+
+	this.getPotionEnergy = function () {
+		this.potions.energy++;
+		if (this.potions.energy === 1) {
+			this.moves.push(useEnergyPotionMove);
+		}
+	}
+
+	this.usePotionHp = function () {
+		if (this.potions.hp < 1) return false;
+		this.potions.hp -= 1;
+		if (this.potions.hp < 1) {
+			this.moves.splice(this.moves.indexOf(useHpPotionMove), 1);
+		}
+		return true;
+	}
+
+	this.usePotionEnergy = function () {
+		if (this.potions.energy < 1) return false;
+		this.potions.energy -= 1;
+		if (this.potions.energy < 1) {
+			this.moves.splice(this.moves.indexOf(useEnergyPotionMove), 1);
+		}
+		return true;
+	}
+
+	this.healFraction = function(fraction) {
+		var amount = fraction * this.attr[MAXHP];
+		this.healAmount(amount);
+	}
+
+	this.healAmount = function(amount) {
+		if (this.isDead()) return;
+		this.hp += Math.floor(amount * this.attr[MAXHP]);
+		this.hp = Math.min(this.hp, this.attr[MAXHP]);		
+	}
+
+	this.restoreEnergyFraction = function(amount) {
+		if (this.isDead()) return;
+		this.energy += Math.floor(amount * this.attr[MAXENERGY]);
+		this.energy = Math.min(this.energy, this.attr[MAXENERGY]);		
+	}
+
+	this.isAlive = function () {
+		return this.hp > 0;
+	}
+
+	this.queueLevelUp = function (giveSkill) {
+		if (giveSkill && this.availableSkills.length > 0) {
+			this.levelUpSkillPoints += 1;
+		} else {
+			this.levelUpPoints += 2;
+		}
+	}
+
+	var fullHeal = function () {
+		c.hp = c.getMaxHp();
+		c.energy = c.getMaxEnergy();
+	}
+
+	this.levelUpAttribute = function(index) {
+		if (this.levelUpPoints <= 0) return;
+		this.attr[index] += 1;
+		this.levelUpPoints--;
+		fullHeal();
+	}
+
+	this.levelUpSkill = function (index) {
+		if (this.levelUpSkillPoints <= 0) return;
+		this.levelUpSkillPoints--;
+		this.moves.push(this.availableSkills[index]);
+		this.availableSkills.splice(index, 1);
+		fullHeal();
+	}
+
+	this.canUse = function (action) {
+		return this.energy >= action.energyCost;
+	}
+}
+
+
+// keyboard 
+
+if (typeof KeyEvent == "undefined") {
+    var KeyEvent = {
+        DOM_VK_LEFT: 37,
+        DOM_VK_UP: 38,
+        DOM_VK_RIGHT: 39,
+        DOM_VK_DOWN: 40,
+
+        DOM_VK_W: 87,
+        DOM_VK_A: 65,
+        DOM_VK_S: 83,
+        DOM_VK_D: 68,
+
+        DOM_VK_E: 69,
+
+        DOM_VK_ENTER: 14,
+        DOM_VK_RETURN: 13
+    }
+};
+
+var Keyboard = function () {
+	var actions = [];
+	console.log("New Keyboard");
+	var switchFunc = function () {return true};
+
+	this.setSwitch = function(func) {
+		switchFunc = func;
+	}
+
+	this.setActions = function(i, callback) {
+		var newActions = [];
+		if (i == 0) {
+		  newActions[KeyEvent.DOM_VK_W] = "up";
+		  newActions[KeyEvent.DOM_VK_A] = "left";
+		  newActions[KeyEvent.DOM_VK_S] = "down";
+		  newActions[KeyEvent.DOM_VK_D] = "right";
+		  newActions[KeyEvent.DOM_VK_E] = "use";
+		} else if (i == 1) {
+			newActions[KeyEvent.DOM_VK_LEFT] = "left";
+		  newActions[KeyEvent.DOM_VK_UP] = "up";
+		  newActions[KeyEvent.DOM_VK_RIGHT] = "right";
+		  newActions[KeyEvent.DOM_VK_DOWN] = "down";
+		  newActions[KeyEvent.DOM_VK_ENTER] = "use";
+		  newActions[KeyEvent.DOM_VK_RETURN] = "use";
+		}
+		actions[i] = {map: newActions, callback: callback}
+	}
+
+  window.addEventListener("keydown", function (e) {
+  	if (!switchFunc()) return;
+  	actions.forEach(function (actionSet) {
+  		var action = actionSet.map[e.keyCode];
+  		if (action != null) {
+	  		e.preventDefault();
+	  		actionSet.callback(action);
+	  	}
+  	});
+  }, false);
+};
+
+function preloadImages () {
+	urls = ["dead.png", "dopnot.png", "drain.png", "drain-miss.png", "energy.png", "energy-miss.png",
+		"gobnit.png", "heal.png", "heal-miss.png", "leepig.png", "missionary.png", "rest.png", "shot.png",
+		"shot-miss.png", "spy.png", "weewit.png", "whack.png"];
+	urls.forEach(function (url) {
+		var img=new Image();
+    	img.src="art/" + url;	
+	});
 }

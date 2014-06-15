@@ -3,115 +3,143 @@ title: Neptune 9
 categories: [games]
 description: A shootout in a space-corridor for 2 players.
 order: 9
-date: 2014-01-27
+date: 2014-06-14
 icon: neptune9/neptune9-icon.png
 ---
-<html lang="en-US">
+<html lang="en-US" ng-app="neptune9">
 <head>
 	<meta charset="UTF-8">
 	<title>Neptune 9</title>
+	<!--<link href="//fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet" type="text/css">-->
 	<link rel="stylesheet" href="css/game.css">
-	<script data-main="js/game" src="js/require.js"></script>
+	<script src="js/lib/seedrandom.js"></script>
+	<script src="js/lib/peer.min.js"></script>
+	<script src="js/lib/angular.js"></script>
+	<script src="js/lib/angular-animate.js"></script>
+	<script src="js/lib/angular-touch.min.js"></script>
+	<script src="js/game.js"></script>
+	<script src="js/neptune9.js"></script>
+	<meta name="viewport" content="width=455, user-scalable=no">
 	{% include analytics.html %}
 </head>
 <body>
-<div class="game">
-	<div class="sidebar">
-		<div class="controls p0 newbieMode">
-			<div class="controlsLabel"></div>
-			<div class="actionbutton act0"><div class="keyhint p0">W</div><span class="actionLabel">…</span></div>
-			<div class="actionbutton act1"><div class="keyhint p0">S</div><span class="actionLabel">…</span></div>
-			<div class="actionbutton act2"><div class="keyhint p0">A</div><span class="actionLabel">…</span></div>
-			<div class="actionbutton act3"><div class="keyhint p0">D</div><span class="actionLabel">…</span></div>
-			<div class="newbieHint onNewbieChooseAction">Press W or S to choose an action.</div>
-			<div class="newbieHint onNewbieChooseTarget">Now press A or D to choose who to shoot.</div>
+{% raw %}
+<!-- Setup -->
+	<div class="setupscreen" ng-controller="SetupCtrl" ng-if="!inGame">
+		<div ng-show="screen==='gametype'">
+			<p>Neptune 9</p>
+			<p>A two-player turn-based combat game.</p>
+			<p>Works best on Mozilla Firefox, Google Chrome or Google Chrome for Mobile.</p>
+			<div class="actionbutton" ng-click="localMode()">Local Game</div>
+			<div class="actionbutton" ng-click="networkMode()">Network Game</div>
+		</div>
+		<div ng-show="screen==='hostorjoin'">
+			<div class="actionbutton" ng-click="hostGame()">New Multiplayer Game</div>
+			<div class="actionbutton" ng-click="joinGame()">Join Existing Game</div>
+			<div class="actionbutton" ng-click="back()">Back</div>
+		</div>
+		<div ng-show="screen==='hostgame'">
+			<p>You are hosting.</p>
+			<p>Ask your friend to join game <b>{{hostingId}}</b>.</p>
+			<p>Waiting for connection…</p>
+			<div class="actionbutton" ng-click="back()">Back</div>
+		</div>
+		<div ng-show="screen==='joingame'">
+			<p>Enter the game number to join the game</p>
+			<input ng-model='joiningId' placeholder='0000'>
+			<div class="actionbutton" ng-click="join()">Join {{joiningId}}</div>
+			<div class="actionbutton" ng-click="back()">Back</div>
 		</div>
 	</div>
-	<div class="cards">
-		<div class="card p0">
-		  <div class="front">
-			<div class="name"></div>
-			<div class="image"><img class="portrait"><img class="overlay"></div>
-			<div class="coverTokens"></div>
-			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
-		  </div>
-		  <div class="back"><img src="arts/logo.png"></img></div>
+<!-- Gameplay -->
+	<div class="gamescreen" ng-show="inGame">
+		<div class="cards">
+			<div class="xp-bar">
+				<div 
+				class="xp-bar-inside"
+				style="width:{{experienceProgress()}}%"></div>
+			</div>
+			<div class="card" 
+			ng-class="{turn: isMyTurn()}" 
+			ng-repeat="card in cards" 
+			ng-controller="CardCtrl" 
+			ng-click="select($index)"
+			ng-init="init($index)">
+				<div>{{card.creature.name}}</div>
+				<div class="portrait">
+					<img class="inportrait" ng-src="art/{{card.creature.img}}">
+					<div class="damage" style="height:{{64-card.creature.hp*64/card.creature.getMaxHp()}}"></div>
+					<img class="inportrait" src="art/dead.png" ng-if="card.creature.hp <= 0">
+				</div>
+				<div class="energybar">
+					<div class="energybarinside" style="height:{{card.creature.energy*64/card.creature.getMaxEnergy()}}"></div>
+				</div>
+				<div class="hppotions" 
+					ng-if="card.creature.potions.hp > 0">
+					H Potions: {{card.creature.potions.hp}}
+				</div>
+				<div class="energypotions" 
+					ng-if="card.creature.potions.energy > 0">
+					E Potions: {{card.creature.potions.energy}}
+				</div>
+				<div class="target-icon" ng-if="isActiveTarget()">Target</div>
+				<img class="cardfx" 
+					ng-repeat="fx in card.creature.fx"
+					ng-src="art/{{fx.sprite}}">
+			</div>
 		</div>
-		<div class="card p1">
-		  <div class="front">
-			<div class="name"></div>
-			<div class="image"><img class="portrait"><img class="overlay"></div>
-			<div class="coverTokens"></div>
-			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
-		  </div>
-		  <div class="back"><img src="arts/logo.png"></img></div>
+		<div class="controls" ng-class="{disabled: !isLocalTurn()}" ng-if="!isGameOver()">
+			<div class="controlpanel"
+			ng-controller="ControlCtrl"
+			ng-show="showLevelUpUI===0"
+			ng-init="init()"
+			>
+				<div 
+				class="actionbutton"
+				ng-repeat="action in player().card.creature.moves" 
+				ng-class="{selected: $index==selectedAction, disabled: !player().card.creature.canUse(action)}"
+				ng-click="useAction($index)">
+				{{action.name}}
+				<span class="actionodds">{{player().actionOdds[player().getTargetNum()][$index]}}</span>
+				<span class="action-cost">{{energyCostIcon(action)}}</span>
+				</div>
+				<p ng-if="player().card.creature.moves.length < 3">
+					You are <b>{{player().card.creature.name}}</b>. On your turn, click on a creature to target, then click on an action like 'Shoot'.
+				</p>
+			</div>
+			<div ng-controller="LevelUpCtrl">
+				<div 
+					ng-show="showLevelUpUI===1"
+					class="controlpanel levelup">
+					<div>Level up! ({{player().card.creature.levelUpPoints}} points left)</div>
+					<div 
+						class="actionbutton"
+						ng-repeat="attr in player().card.creature.attrNames" 
+						ng-click="levelUpAttribute($index)">
+						{{attr}}
+						<span class="actionodds">{{player().card.creature.attr[$index]}}</span>
+					</div>
+				</div>
+			</div>
+			<div ng-controller="LevelUpCtrl">
+				<div 
+					ng-show="showLevelUpUI===2"
+					class="controlpanel levelup">
+					<div>Level up! Choose a new skill:</div>
+					<div 
+						class="actionbutton"
+						ng-repeat="skill in player().card.creature.availableSkills" 
+						ng-click="levelUpSkill($index)">
+						{{skill.name}}
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="card p2 enemy dead">
-		  <div class="front">
-			<div class="keyhint p0">A</div>
-			<div class="keyhint p1">&#8592;</div>
-			<div class="name"></div>
-			<div class="image"><img class="portrait"><img class="overlay"></div>
-			<div class="coverTokens"></div>
-			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
-		  </div>
-		  <div class="back"><img src="arts/logo.png"></img></div>
-		</div>
-		<div class="card p3 enemy dead">
-		  <div class="front">
-			<div class="keyhint p0">D</div>
-			<div class="keyhint p1">&#8594;</div>
-			<div class="name"></div>
-			<div class="image"><img class="portrait"><img class="overlay"></div>
-			<div class="coverTokens"></div>
-			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
-		  </div>
-		  <div class="back"><img src="arts/logo.png"></img></div>
+		<div class="controls" ng-if="isGameOver()">
+			<p>Game Over</p>
+			<p>You reached level {{getLevel()}}</p>
 		</div>
 	</div>
-	<div class="sidebar">
-		<div class="controls p1 newbieMode">
-			<div class="controlsLabel"></div>
-			<div class="actionbutton act0"><div class="keyhint p1">&#8593;</div><span class="actionLabel">…</span></div>
-			<div class="actionbutton act1"><div class="keyhint p1">&#8595;</div><span class="actionLabel">…</span></div>
-			<div class="actionbutton act2"><div class="keyhint p1">&#8592;</div><span class="actionLabel">…</span></div>
-			<div class="actionbutton act3"><div class="keyhint p1">&#8594;</div><span class="actionLabel">…</span></div>
-			<div class="newbieHint onNewbieChooseAction">Press &#8593; or &#8595; to choose an action.</div>
-			<div class="newbieHint onNewbieChooseTarget">Now press &#8592; or &#8594; to choose who to shoot.</div>
-		</div>
-		<div class="progress">
-			<div class="chapterName text"></div>
-			<div class="enemiesLeft"></div>
-		</div>
-	</div>
-	<div class="popover restart front fadeIn hidden">
-		<div class="restartText"></div>
-		<div class="actionbutton restartButton"><div class="keyhint p1">&#8593;</div>Restart</div>
-	</div>
-	<div class="popover startgame front fadeIn">
-		<img src="arts/logo.png"></img>
-		<p>A gunfight in the space dock!</p>
-		<p>Player 1 uses the arrow keys. Player 2 uses W, A, S and D.</p>
-		<p>Scroll down for more instructions (or look to your right on a wide screen).</p>
-		<div class="actionbutton hardModeButton"><div class="keyhint p1">&#8593;</div>Hard mode is <span class="hardModeLabel">OFF</span></div><br>
-		<div class="actionbutton onePlayerButton"><div class="keyhint p1">&#8592;</div>1 Player</div> 
-		<div class="actionbutton twoPlayerButton"><div class="keyhint p1">&#8594;</div>2 Players</div>
-	</div>
-	<div class="popover storyPopover front fadeIn hidden">
-		<div class="storyText"></div>
-		<div class="actionbutton storyButton"><div class="keyhint p1">&#8593;</div>Continue</div>
-	</div>
-	<div class="guide">
-		<p>Instructions:</p>
-		<p>Cover (<span class="covertoken"></span>) protects you from being shot. Drive your enemies out of cover, then shoot them! Watch your own cover to stay alive.</p>
-		<p><b>Shoot</b><br>Shoot an enemy with no <span class="covertoken"></span> to kill them.<br>
-		Otherwise, shooting an enemy makes them lose 1<span class="covertoken"></span>.</p>
-		<p><b>Find cover</b><br>You retreat and gain 2<span class="covertoken"></span>.</p>
-		<p><b>Advance</b><br>Charge at your enemies.<br>You lose 4<span class="covertoken"></span> but both enemies lose 2<span class="covertoken"></span>.</p>
-		<p><b>Protect</b><br>Protect your teammate.<br>You lose 2<span class="covertoken"></span>. Your teammate gains 2<span class="covertoken"></span>.</p>
-	</div>
-	<div class="lines"></div>
-	<div class="preload-images" style="display:none;"><img src="arts/dead.png"></div>
-</div>
+{% endraw %}
 </body>
 </html>

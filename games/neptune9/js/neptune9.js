@@ -77,7 +77,8 @@ angular.module('neptune9', ['ngAnimate'])
   var endTurn = function(gs) {
     var result = game.endTurn();
     gs.turn = game.turn;
-    if (game.players[gs.turn] != undefined && game.players[gs.turn].isLocal) {
+    if (game.players[gs.turn] != undefined && game.players[gs.turn].isLocal 
+    	&& !game.players[gs.turn].card.creature.isDead()) {
     	gs.activePlayer = gs.turn;
 
     	$rootScope.showLevelUpUI = gs.players[gs.turn].levelUpState();
@@ -85,6 +86,9 @@ angular.module('neptune9', ['ngAnimate'])
 
     if (result === "skip") queueNextTurn(skipDelay);
     if (result === "endturn") queueNextTurn(turnDelay);
+    if (result === "gameover") {
+    	//Do nothing, the game just stops.
+    }
   	$rootScope.$apply();
   }
 
@@ -119,6 +123,14 @@ angular.module('neptune9', ['ngAnimate'])
 
   gs.experienceProgress = function () {
   	return game.experienceProgress();
+  }
+
+  gs.getLevel = function () {
+  	return game.getLevel();
+  }
+
+  gs.isGameOver = function () {
+  	return game.isGameOver();
   }
 
   gs.setLocalPlayer = function(num) {
@@ -170,9 +182,19 @@ angular.module('neptune9', ['ngAnimate'])
 
 	$rootScope.isLocalTurn = function () {
 		var player = $rootScope.players[gameService.turn];
-		if (player) return player.isLocal;
+		if (player && !player.card.creature.isDead()) return player.isLocal;
 		return false;
 	}
+
+	$rootScope.isGameOver = function () {
+		return gameService.isGameOver();
+	}
+
+	$rootScope.getLevel = function () {
+		return gameService.getLevel();
+	}
+
+	preloadImages();
 })
 
 .controller('CardCtrl', function($scope, gameService) {
@@ -249,7 +271,6 @@ angular.module('neptune9', ['ngAnimate'])
 	}
 
 	$scope.energyCostIcon = function (action) {
-		if (!action.energyCost) return null;
 		var out = "";
 		for (var i = 0; i < action.energyCost / 3; i++) {
 			out += "•";
@@ -265,13 +286,18 @@ angular.module('neptune9', ['ngAnimate'])
 	}
 	$scope.player = player;
 
-	var updateUI = function () {
+	var updateUI = function (delayed) {
 		var levelUpState = player().levelUpState();
 		if (levelUpState != $rootScope.showLevelUpUI) {
-			setTimeout(function () {
+			if (delayed) {
+				setTimeout(function () {
+					$rootScope.showLevelUpUI = levelUpState;
+					$rootScope.$apply();
+				}, quickDelay);
+			} else {
 				$rootScope.showLevelUpUI = levelUpState;
-				$rootScope.$apply();
-			}, quickDelay);
+			}
+
     }
 	}
 
@@ -282,7 +308,7 @@ angular.module('neptune9', ['ngAnimate'])
 
 	$scope.levelUpAttribute = function (index) {
 		gameService.levelUpAttribute(player(), index);
-		updateUI();
+		updateUI(true);
 	}
 })
 

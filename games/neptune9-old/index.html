@@ -1,0 +1,115 @@
+---
+title: Neptune 9
+description: A shootout in a space-corridor for 2 players.
+date: 2014-01-27
+icon: neptune9-old/neptune9-icon.png
+---
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Neptune 9</title>
+	<link rel="stylesheet" href="css/game.css">
+	<script data-main="js/game" src="js/require.js"></script>
+	{% include analytics.html %}
+</head>
+<body>
+<div class="game">
+	<div class="sidebar">
+		<div class="controls p0 newbieMode">
+			<div class="controlsLabel"></div>
+			<div class="actionbutton act0"><div class="keyhint p0">W</div><span class="actionLabel">…</span></div>
+			<div class="actionbutton act1"><div class="keyhint p0">S</div><span class="actionLabel">…</span></div>
+			<div class="actionbutton act2"><div class="keyhint p0">A</div><span class="actionLabel">…</span></div>
+			<div class="actionbutton act3"><div class="keyhint p0">D</div><span class="actionLabel">…</span></div>
+			<div class="newbieHint onNewbieChooseAction">Press W or S to choose an action.</div>
+			<div class="newbieHint onNewbieChooseTarget">Now press A or D to choose who to shoot.</div>
+		</div>
+	</div>
+	<div class="cards">
+		<div class="card p0">
+		  <div class="front">
+			<div class="name"></div>
+			<div class="image"><img class="portrait"><img class="overlay"></div>
+			<div class="coverTokens"></div>
+			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
+		  </div>
+		  <div class="back"><img src="arts/logo.png"></img></div>
+		</div>
+		<div class="card p1">
+		  <div class="front">
+			<div class="name"></div>
+			<div class="image"><img class="portrait"><img class="overlay"></div>
+			<div class="coverTokens"></div>
+			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
+		  </div>
+		  <div class="back"><img src="arts/logo.png"></img></div>
+		</div>
+		<div class="card p2 enemy dead">
+		  <div class="front">
+			<div class="keyhint p0">A</div>
+			<div class="keyhint p1">&#8592;</div>
+			<div class="name"></div>
+			<div class="image"><img class="portrait"><img class="overlay"></div>
+			<div class="coverTokens"></div>
+			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
+		  </div>
+		  <div class="back"><img src="arts/logo.png"></img></div>
+		</div>
+		<div class="card p3 enemy dead">
+		  <div class="front">
+			<div class="keyhint p0">D</div>
+			<div class="keyhint p1">&#8594;</div>
+			<div class="name"></div>
+			<div class="image"><img class="portrait"><img class="overlay"></div>
+			<div class="coverTokens"></div>
+			<div class="bar"><div class="cooldown"></div><div class="label"></div></div>
+		  </div>
+		  <div class="back"><img src="arts/logo.png"></img></div>
+		</div>
+	</div>
+	<div class="sidebar">
+		<div class="controls p1 newbieMode">
+			<div class="controlsLabel"></div>
+			<div class="actionbutton act0"><div class="keyhint p1">&#8593;</div><span class="actionLabel">…</span></div>
+			<div class="actionbutton act1"><div class="keyhint p1">&#8595;</div><span class="actionLabel">…</span></div>
+			<div class="actionbutton act2"><div class="keyhint p1">&#8592;</div><span class="actionLabel">…</span></div>
+			<div class="actionbutton act3"><div class="keyhint p1">&#8594;</div><span class="actionLabel">…</span></div>
+			<div class="newbieHint onNewbieChooseAction">Press &#8593; or &#8595; to choose an action.</div>
+			<div class="newbieHint onNewbieChooseTarget">Now press &#8592; or &#8594; to choose who to shoot.</div>
+		</div>
+		<div class="progress">
+			<div class="chapterName text"></div>
+			<div class="enemiesLeft"></div>
+		</div>
+	</div>
+	<div class="popover restart front fadeIn hidden">
+		<div class="restartText"></div>
+		<div class="actionbutton restartButton"><div class="keyhint p1">&#8593;</div>Restart</div>
+	</div>
+	<div class="popover startgame front fadeIn">
+		<img src="arts/logo.png"></img>
+		<p>A gunfight in the space dock!</p>
+		<p>Player 1 uses the arrow keys. Player 2 uses W, A, S and D.</p>
+		<p>Scroll down for more instructions (or look to your right on a wide screen).</p>
+		<div class="actionbutton hardModeButton"><div class="keyhint p1">&#8593;</div>Hard mode is <span class="hardModeLabel">OFF</span></div><br>
+		<div class="actionbutton onePlayerButton"><div class="keyhint p1">&#8592;</div>1 Player</div> 
+		<div class="actionbutton twoPlayerButton"><div class="keyhint p1">&#8594;</div>2 Players</div>
+	</div>
+	<div class="popover storyPopover front fadeIn hidden">
+		<div class="storyText"></div>
+		<div class="actionbutton storyButton"><div class="keyhint p1">&#8593;</div>Continue</div>
+	</div>
+	<div class="guide">
+		<p>Instructions:</p>
+		<p>Cover (<span class="covertoken"></span>) protects you from being shot. Drive your enemies out of cover, then shoot them! Watch your own cover to stay alive.</p>
+		<p><b>Shoot</b><br>Shoot an enemy with no <span class="covertoken"></span> to kill them.<br>
+		Otherwise, shooting an enemy makes them lose 1<span class="covertoken"></span>.</p>
+		<p><b>Find cover</b><br>You retreat and gain 2<span class="covertoken"></span>.</p>
+		<p><b>Advance</b><br>Charge at your enemies.<br>You lose 4<span class="covertoken"></span> but both enemies lose 2<span class="covertoken"></span>.</p>
+		<p><b>Protect</b><br>Protect your teammate.<br>You lose 2<span class="covertoken"></span>. Your teammate gains 2<span class="covertoken"></span>.</p>
+	</div>
+	<div class="lines"></div>
+	<div class="preload-images" style="display:none;"><img src="arts/dead.png"></div>
+</div>
+</body>
+</html>
