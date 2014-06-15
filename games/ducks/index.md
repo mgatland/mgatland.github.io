@@ -13,7 +13,7 @@ A multiplayer world where everyone is a duck.
 
 Can you discover the mysteries of Ducktown?
 
-<div>Play <a href="http://ducks.hp.af.cm" onClick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">Let's Be Ducks</a></div>
+<div>Play <a href="http://ducks.ap01.aws.af.cm/" onClick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">Let's Be Ducks</a></div>
 
 <img src="ducks-screenshot.png">
 
