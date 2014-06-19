@@ -30,17 +30,15 @@ rss: /feed.xml
 
 I run a [Pop-Up Arcade](http://popuparcade.co.nz) with two friends. We show a collection of DIY videogames from the local community. 
 
-It's a fun, inclusive event. Most of our audience don't identify as gamers, but find that they love playing games in a friendly environment.
+It's a fun, inclusive event. Most of our audience don't see themselves as gamers, but find that they love playing games in a friendly environment.
 
 <hr>
 
 ![Alice's Birthday Game 2.0](/images/alices-birthday-game-2.jpg){:.w640}
 
-This photo is from an elaborate party game adventure that I co-created with my sister for her birthday.
+I make a few non-digital games. These photos are from an elaborate party game adventure that I co-created with my sister.
 
 ![Alice's Birthday Game 2.0](/images/alices-birthday-game-2-map.jpg){:.w640}
-
-The game started with sit-down activities like creating this map, but led to the players leaving the property to explore the city, solve puzzles in a park and catch a train.
 
 I've worked on other interactive experiences, including Mysterious Stranger's [Frequency](http://www.mysterious-stranger.co.nz/frequency/) in 2014.
 
@@ -54,23 +52,31 @@ Between projects, I visit schools to teach programming and promote technology ca
 
 >"The Gather Workshop was really enjoyable! Matt was my mentor. He was really enthusiastic, which really inspired me to want to learn more! Thank you Matt." - Okaihau College student
 
-Many high school students don't know how big New Zealand's software sector is. There are so many vacancies right now that anyone who becomes good at IT is guaranteed a job.
+New Zealand software companies provide great jobs, but are facing a huge skill shortage. Making students aware of the opportunities can help them into a great career, and help the industry keep growing.
 
-Making students aware of the opportunities can help them make the best choice about their future.
-
-<!-- Scratch workshop at Ponsonby Primary School (FutureInTech), a talk at Glendowie College (FIT), and gather workshops at Tamaki College, Howick College, Mount Roskill Grammar School, Westlake Girls' High School, Okaihau College-->
+<!-- A talk at Mount Roskill Grammar School (ICT-Connect), Scratch workshop at Ponsonby Primary School (FutureInTech), a talk at Glendowie College (FIT), and gather workshops at Tamaki College, Howick College, Mount Roskill Grammar School, Westlake Girls' High School, Okaihau College-->
 
 <hr>
 
-I'm self-employed, but I used to work at Orion Health with these amazing people:
+I used to work at Orion Health with these amazing people:
 
 ![Orion Health](/images/orion-health.jpg){:.w640}
 
-Our projects ranged from tiny prototypes to massive back-end systems.
+I mainly worked on a complex back-end system, but did other stuff over the years.
 
-Google has interviewed me three times but never offered me a job. I've actually spent more time in Google interviews than in all other job interviews combined.
+One of my favourite tasks was visiting a hospital to watch a nurse's pen-and-paper workflow. We were designing a digital system to take its place, and it was great to really understand what the problems were and how our product could make life easier.
 
-I like programming competitions, giving talks and teaching people. I also love the outdoors, although I rarely visit them.
+<hr>
+
+![Deadline Club #4](/images/deadline-club.jpg){:.w640}
+
+The Deadline Club was a place for busy people to get together and work.
+
+We wanted to make a weekly meetup where you actually worked on your hobby projects, instead of just talking about them. The Deadline Club was something you could put on your calendar and know you'd get some work done.
+
+It was the first time I'd helped run a regular event, and I learned a lot about venues, catering and promotion. The club has closed now but the skills I learned from DLC helped the Pop-Up Arcade get started.
+
+<hr>
 
 You can find me on [twitter](http://twitter.com/mgatland), [GitHub](http://www.github.com/mgatland) and [Linkedin](http://nz.linkedin.com/in/mgatland).
 
