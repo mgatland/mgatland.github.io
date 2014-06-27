@@ -1,0 +1,38 @@
+.gamecontainer {
+	text-align: center;
+	margin-top: 128px;
+}
+
+canvas {
+	border: 4px solid grey;
+}
+
+body {
+	background-color: black;
+	color: grey;
+}
+
+.hide {
+	display: none;
+}
+
+input {
+	background-color: grey;
+	color: black;
+	padding: 6px;
+	border: none;
+	border-left: 6px solid white;
+}
+
+a {
+	color: grey;
+	border: 1px solid grey;
+	padding: 6px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+a:hover {
+	background-color: grey;	
+	color: white;
+}

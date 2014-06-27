@@ -1,13 +1,23 @@
 var Dir = {};
-Dir.UP = {isHorizontal: false};
-Dir.DOWN = {isHorizontal: false};
-Dir.LEFT = {isHorizontal: true};
-Dir.RIGHT = {isHorizontal: true};
+Dir.UP = {isHorizontal: false, x:0};
+Dir.DOWN = {isHorizontal: false, x:0};
+Dir.LEFT = {isHorizontal: true, x:-1};
+Dir.RIGHT = {isHorizontal: true, x:1};
 
 Dir.UP.reverse = Dir.DOWN;
 Dir.DOWN.reverse = Dir.UP;
 Dir.LEFT.reverse = Dir.RIGHT;
 Dir.RIGHT.reverse = Dir.LEFT;
+
+Dir.list = [Dir.UP, Dir.DOWN, Dir.LEFT, Dir.RIGHT];
+
+Dir.fromId = function (id) {
+    return Dir.list[id];
+}
+
+Dir.toId = function (dir) {
+    return Dir.list.indexOf(dir);
+}
 
 //Pos is a mutable x and y coordinate pair. Use clone() to clone it.
 var Pos = function (x, y) {
@@ -77,6 +87,14 @@ Pos.prototype.floor = function () {
     return this;
 }
 
+Pos.prototype.toData = function () {
+    return {x:this.x, y:this.y};
+}
+
+Pos.fromData = function (data) {
+    return new Pos(data.x, data.y);
+}
+
 //End of Pos.prototype
 
 
@@ -87,4 +105,13 @@ var track = function (action, label, number) {
 	} catch (e) {
 
 	}
+}
+
+var extend = function (destination, source) {
+  for (var k in source) {
+    if (source.hasOwnProperty(k)) {
+      destination[k] = source[k];
+    }
+  }
+  return destination;
 }
