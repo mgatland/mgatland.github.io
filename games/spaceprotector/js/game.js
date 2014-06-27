@@ -19,7 +19,6 @@ var Events = new function () {
 	}
 	this.playSound = function (name, pos) {
 		this.sounds.push({name: name, pos:pos});
-		console.log("New sound queued");
 	}
 	this.explosion = function (exp) {
 		this.explosions.push(exp);
@@ -60,9 +59,9 @@ require(["util", "player", "level", "bridge", "keyboard", "network",
 			var mapData =
 			"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\n" +
 			"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO   x                      O           O\n" +
-			"O !   m       O ! O m O m O   O   x !                    O           O\n" +
-			"O OO OOO OOOO O O O O O O O O O OOOOOOOOOOOOOOOO  OOO  OOO    @      O\n" +
-			"O OO OOO OOOO k O m O   O   O   OOOO                   OOO    OO     O\n" +
+			"O !    m      O ! O m O m O   O   x !                    O           O\n" +
+			"O OOO OOO OOO O O O O O O O O O OOOOOOOOOOOOOOOO  OOO  OOO    @      O\n" +
+			"O OOO OOO OOO k O m O   O   O   OOOO                   OOO    OO     O\n" +
 			"O OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                  OOOO    OO  m  O\n" +
 			"O O                                O               m OOOOO        OO O\n" +
 			"O O                                            OOOOOOOOOOO     m  OO O\n" +
@@ -75,7 +74,7 @@ require(["util", "player", "level", "bridge", "keyboard", "network",
 			"O OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  OO                 O\n" +
 			"O  !                 O       x mm            !    OO                 O\n" +
 			"O  O   m O  m O  k O !       x OO           OOOOOOOOOOOOOOOOOOOOOOOOOO\n" +
-			"O  OOOOOOOOOOOOOOOOOOO    OOOO OO  OOOO  OOOOOOOOOOOOOOOOOOOOOOOOOOOOO\n" +
+			"O  OOOOOOOOOOOOOOOOOOO    OOOO OO OOOO OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\n" +
 			"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\n";
 
 			var level = new Level(mapData, tileSize);
@@ -216,7 +215,6 @@ require(["util", "player", "level", "bridge", "keyboard", "network",
 				Events.sounds.forEach(function (sound) {
 					if (sound.pos === null || painter.isOnScreen(sound.pos.x, sound.pos.y, 10, 10)) {
 						audio.play(sound.name);
-						console.log("sound played");
 					}
 				});
 				Events.sounds.length = 0;
