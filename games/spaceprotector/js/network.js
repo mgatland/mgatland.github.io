@@ -1,11 +1,20 @@
-var Network = {};
-(function(){
-
+"use strict";
+define([], function () {
+	var Network = {};
 	Network.debug = {};
 	var simulateNetworkProblems = false;
 	Network.debug.fakeLag = 50;
 	Network.debug.fakeJitter = 50;
 	Network.debug.fakePacketLoss = 0.02;
+
+	Network.networkRole = null;
+	//consts
+	Network.HOST = "HOST";
+	Network.GUEST = "GUEST";
+
+	var connection;
+	var connectionIsReady = false;
+	var tryingToJoin = false; //guest only
 
 	Network.debug.simulateNetworkProblems = function (value) {
 		simulateNetworkProblems = value ? true : false;
@@ -28,11 +37,6 @@ var Network = {};
 		window.setTimeout(processData, lag, data, dataCallback);
 	}
 
-	Network.networkRole = null;
-	//consts
-	Network.HOST = "HOST";
-	Network.CLIENT = "GUEST";
-
 	var setNetworkMessage = function (message) {
 		document.getElementById('netinfo').innerHTML = message;
 	}
@@ -51,10 +55,6 @@ var Network = {};
 
 	    return text;
 	}
-
-	var connection;
-	var connectionIsReady = false;
-	var tryingToJoin = false; //guest only
 
 	var setupConn = function (conn, type, dataCallback) {
 
@@ -94,14 +94,14 @@ var Network = {};
 			if (type === "host") {
 				Network.networkRole = Network.HOST;
 				console.log("Someone connected to you!");
-				setNetworkMessage("You are hosting a game.");
+				setNetworkMessage("<b style='color: red'>You are hosting a game.</b>");
 				conn.send('Thanks for joining!');
 			} else {
 				console.log("You connected to the host!");
 				tryingToJoin = false;
 				connection = conn;
 				Network.networkRole = Network.GUEST;
-				setNetworkMessage("You have joined a game.");
+				setNetworkMessage("<b style='color: red'>You have joined a game.</b>");
 		  		conn.send('Thank you for hosting me!');
 			}
 		});
@@ -153,4 +153,6 @@ var Network = {};
 			connection.send(data);
 		}
 	}
-})();
+
+	return Network;
+});

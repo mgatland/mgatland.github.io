@@ -1,5 +1,6 @@
 "use strict";
-define(["monster"], function (Monster) {
+define(["monster", "player", "events", "colors"],
+	function (Monster, Player, Events, Colors) {
 	var Level = function(mapData, tileSize) {
 		var level = this; //for use in private methods
 		var map = [];
@@ -43,6 +44,10 @@ define(["monster"], function (Monster) {
 			var y = 0;
 			map[y] = [];
 			while (mapData[n]) {
+				if (mapData[n]==="p") {
+					Events.player(new Player(level, x*tileSize, y*tileSize));
+					map[y][x] = 0;
+				}
 				if (mapData[n]==="m") {
 					Events.monster(Monster.create1(level, x*tileSize, y*tileSize));
 					map[y][x] = 0;
@@ -114,13 +119,18 @@ define(["monster"], function (Monster) {
 			return true;
 		}
 		this.draw = function(painter) {
-			map.forEach(function (row, y) {
-				row.forEach(function (value, x) {
-					if (value === 1) {
-						drawTile(x, y, painter);
+			var bounds = painter.screenBounds();
+			var minX = Math.floor(bounds.minX / tileSize);
+			var minY = Math.floor(bounds.minY / tileSize);
+			var maxX = Math.floor(bounds.maxX / tileSize);
+			var maxY = Math.floor(bounds.maxY / tileSize);
+			for (var y = minY; y <= maxY; y++) {
+				for (var x = minX; x <= maxX; x++) {
+					if (map[y] && map[y][x] === 1) {
+						drawTile(x, y, painter);	
 					}
-				});
-			});
+				}
+			}
 		}
 		loadMap(mapData);
 	};

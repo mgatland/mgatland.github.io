@@ -38,39 +38,58 @@ if (typeof KeyEvent == "undefined") {
     }
 }
 
-function Keyboard() {
+define([], function () {
+    function Keyboard(touch) {
 
-    var keysDown = {};
-    var keysHit = {};
+        var keysDown = {};
+        var keysHit = {};
 
-    window.addEventListener("keydown", function (e) {
-        if (!keysDown[e.keyCode]) { //ignore repeated triggering of keyhit when key is held down
-            keysDown[e.keyCode] = true;
-            keysHit[e.keyCode] = true;
+        function keyDown (code) {
+            if (!keysDown[code]) { //ignore repeated triggering of keyhit when key is held down
+                keysDown[code] = true;
+                keysHit[code] = true;
+            }
         }
-        switch(e.keyCode) {
-            case KeyEvent.DOM_VK_DOWN:
-            case KeyEvent.DOM_VK_UP:
-            case KeyEvent.DOM_VK_RIGHT:
-            case KeyEvent.DOM_VK_LEFT:
-            e.preventDefault();
-            break;
+
+        function keyUp (code) {
+            if (keysDown[code]) {
+                delete keysDown[code];
+            }
         }
-    }, false);
-    window.addEventListener("keyup", function (e) {
-        delete keysDown[e.keyCode];
-    }, false);
 
-    this.isKeyDown = function (keyCode) {
-        return keysDown[keyCode];
+        window.addEventListener("keydown", function (e) {
+            keyDown(e.keyCode);
+            switch(e.keyCode) {
+                case KeyEvent.DOM_VK_DOWN:
+                case KeyEvent.DOM_VK_UP:
+                case KeyEvent.DOM_VK_RIGHT:
+                case KeyEvent.DOM_VK_LEFT:
+                e.preventDefault();
+                break;
+            }
+
+        }, false);
+
+        window.addEventListener("keyup", function (e) {
+            keyUp(e.keyCode);
+        }, false);
+
+        if (touch) {
+            touch.setCallbacks(keyDown, keyUp);
+        }
+
+        this.isKeyDown = function (keyCode) {
+            return keysDown[keyCode];
+        }
+
+        this.isKeyHit = function (keyCode) {
+            return keysHit[keyCode];
+        }
+
+        this.update = function () {
+            keysHit = {};
+        }
+
     }
-
-    this.isKeyHit = function (keyCode) {
-        return keysHit[keyCode];
-    }
-
-    this.update = function () {
-        keysHit = {};
-    }
-
-}
+    return Keyboard;
+});

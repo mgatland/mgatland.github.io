@@ -1,9 +1,12 @@
 "use strict";
-define(["shot", "sprite_player", "sprites"], function (Shot) {
-	var Player = function (level, startPos) {
+define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "util"], 
+	function (Shot, Events, Colors, WalkingThing, Sprites, Dir, Pos, Util) {
+
+	var Player = function (level, x, y) {
 		var _this = this;
 		
-		extend(this, new WalkingThing(level, startPos, new Pos(5,6)));
+		var startPos = new Pos(x, y);
+		Util.extend(this, new WalkingThing(level, startPos, new Pos(5,6)));
 
 		//Replicated variables
 		this.state = "falling";
@@ -46,7 +49,7 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 			data.timeSinceLastShot = timeSinceLastShot;
 			data.jumpIsQueued = jumpIsQueued;
 
-			Entity.toData(this, data);
+			WalkingThing.toData(this, data);
 			return data;
 		}
 
@@ -68,13 +71,14 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 			timeSinceLastShot = data.timeSinceLastShot;
 			jumpIsQueued = data.jumpIsQueued;
 
-			Entity.fromData(this, data);
+			WalkingThing.fromData(this, data);
 		}
 
 		//Constants or not replicated
-
 		var maxDeadTime = 30;
-		var playerSprites = loadFramesFromData(playerSpriteData);
+		var playerSpriteData = "v1.0:0011000000000010000000001111100000000010000000000101000000000101000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000000011000000000101000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000001111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000001111000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000000110000000000010000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000000010000000001101000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000011000000000010000000000011100000000010000000000101000000001001";
+		var playerSprites = Sprites.loadFramesFromData(playerSpriteData);
+		this.hidden = false;
 
 		//functions
 
@@ -149,6 +153,8 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 		};
 
 		this.draw = function (painter) {
+			if (this.hidden) return;
+
 			var color = this.live === true ? Colors.good : Colors.highlight;
 			var frame;
 			if (animState === "standing") {
@@ -178,7 +184,9 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 			Events.playSound("pshoot", this.pos.clone());
 		}
 
-		this.update = function (left, right, shoot, shootHit, jumpIsHeld, jumpIsHit) {
+		this.update = function (keys) {
+			
+			if (this.hidden) return;
 
 			if (!this.live) {
 				if (deadTimer === 0) {
@@ -189,18 +197,6 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 					deadTimer--;
 				}
 				return;
-			}
-
-			if (animState !== "running") {
-				animDelay = 0;
-				animFrame = 3; //first frame when we start running after landing\standing still
-			} else {
-				animDelay++;
-				if (animDelay >= 5) {
-					animDelay = 0;
-					animFrame++;
-					if (animFrame === 4) animFrame = 0;
-				}
 			}
 
 			this.collisions.forEach(function (other) {
@@ -224,7 +220,7 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 
 			if (this.loading > 0) this.loading--;
 
-			if (shootHit || shoot && this.loading === 0) {
+			if (keys.shootHit || keys.shoot && this.loading === 0) {
 				this.loading = this.refireRate;
 				this._shoot();
 				this.shotThisFrame = true;
@@ -232,7 +228,7 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 				this.shotThisFrame = false;
 			}
 
-			if (shoot) {
+			if (keys.shoot) {
 				shootingAnim = true;
 				timeSinceLastShot = 0;
 			} else {
@@ -240,31 +236,50 @@ define(["shot", "sprite_player", "sprites"], function (Shot) {
 				if (timeSinceLastShot > 30) shootingAnim = false;
 			}
 
-			if (left && !right) {
+			var movingDir = null;
+			if (keys.left && !keys.right) {
 				this.dir = Dir.LEFT;
+				movingDir = Dir.LEFT;
 				this.tryMove(-1,0);
-				animState = "running";
-			} else if (right && !left) {
+			} else if (keys.right && !keys.left) {
 				this.dir = Dir.RIGHT;
+				movingDir = Dir.RIGHT;
 				this.tryMove(1,0);
-				animState = "running";
-			} else {
-				animState = "standing";
 			}
 
 			//If you hit jump and hold it down, that hit gets queued.
-			if (jumpIsHit) {
+			if (keys.jumpIsHit) {
 				jumpIsQueued = true;
 			} else {
-				jumpIsQueued = jumpIsQueued && jumpIsHeld;
+				jumpIsQueued = jumpIsQueued && keys.jumpIsHeld;
 			}
 
 			getState().preupdate.call(this);
 
-			getState().update.call(this, jumpIsHeld);
+			getState().update.call(this, keys.jumpIsHeld);
 
 			if (this.isOnGround() || this.pos.y > this.groundedY) {
 				this.groundedY = this.pos.y;
+			}
+
+			if (this.state  === "grounded") {
+				if (movingDir === null) {
+					animState = "standing";
+				} else {
+					animState = "running";					
+				}
+			}
+
+			if (animState !== "running") {
+				animDelay = 0;
+				animFrame = 3; //first frame when we start running after landing\standing still
+			} else {
+				animDelay++;
+				if (animDelay >= 5) {
+					animDelay = 0;
+					animFrame++;
+					if (animFrame === 4) animFrame = 0;
+				}
 			}
 		}
 
