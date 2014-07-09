@@ -16,6 +16,12 @@ define(["dir"], function (Dir) {
         return Math.floor(Math.sqrt(xDiff * xDiff + yDiff * yDiff));
     }
 
+    Pos.prototype.distanceToXY = function (x, y) {
+        var xDiff = this.x - x;
+        var yDiff = this.y - y;
+        return Math.floor(Math.sqrt(xDiff * xDiff + yDiff * yDiff));
+    }
+
     Pos.prototype.clone = function () {
         return new Pos(this.x, this.y);
     }
@@ -68,11 +74,22 @@ define(["dir"], function (Dir) {
         return this;
     }
 
+    Pos.prototype.clampWithin = function(coords, size) {
+        if (this.x < coords.x) this.x = coords.x;
+        if (this.y < coords.y) this.y = coords.y;
+        var maxX = coords.x + size.x;
+        if (this.x > maxX) this.x = maxX;
+        var maxY = coords.y + size.y;
+        if (this.y > maxY) this.y = maxY;
+        return this;
+    }
+
     Pos.prototype.toData = function () {
         return {x:this.x, y:this.y};
     }
 
     Pos.fromData = function (data) {
+        if (data === null || data === undefined) return data;
         return new Pos(data.x, data.y);
     }
     return Pos;

@@ -1,24 +1,32 @@
 "use strict";
 require(["events", "colors", "network", "bridge", "playingstate",
-	"titlestate", "lib/peer"], 
-	function(Events, Colors, Network, Bridge, PlayingState, TitleState) {
+	"titlestate", "endlevelstate", "camera", "lib/peer"], 
+	function(Events, Colors, Network, Bridge, PlayingState,
+		TitleState, EndLevelState, Camera) {
 	var initGame = function () {
 
-		var playingState = new PlayingState();
-		var titleState = new TitleState();
-		var state = titleState;
-		Network.connectToServer(playingState.gotData);
+		var level = 0; //TODO: replicate?
 
-		var winTimer = 0; //TODO: move into game state
+		var state = new TitleState();
+		Network.connectToServer(function (data) {
+			if (state.gotData) {
+				state.gotData(data);
+			} else {
+				console.log("Got data but game is not running. Start it!");
+				state = new PlayingState(Events, camera, level);
+				state.gotData(data);
+			}
+		});
 
-		var update = function(keyboard, painter) {
+		var update = function(keyboard) {
 
 			if (state.transition === true) {
-				state = playingState;
-			}
-
-			if (Events.wonLevel) {
-				winTimer++;
+				if (state.endStats) {
+					state = new EndLevelState(state.endStats);
+					level++;
+				} else {
+					state = new PlayingState(Events, camera, level);	
+				}
 			}
 
 			var keys = {};
@@ -41,19 +49,15 @@ require(["events", "colors", "network", "bridge", "playingstate",
 					document.querySelector("#instructions").classList.add("hide");
 				}
 			}
-			state.update(keys, painter, Network, Events);
+			state.update(keys, Network, Events);
 		}
 
-		var draw = function (painter) {
+		var draw = function (painter, touch) {
 			painter.clear();
 
 			state.draw(painter);
-
-			if (winTimer > 0) {
-				var barHeight = Math.min(winTimer*2, 45);
-				var barY = winTimer * 2;
-				painter.drawAbsRect(0, pixelWindow.height/2-barY, pixelWindow.width, barHeight, Colors.good);
-				painter.drawAbsRect(0, pixelWindow.height/2+barY-barHeight, pixelWindow.width, barHeight, Colors.good);
+			if (state.showTouchButtons) {
+				touch.draw(painter);
 			}
 		};
 
@@ -64,9 +68,11 @@ require(["events", "colors", "network", "bridge", "playingstate",
 				}
 			});
 			Events.sounds.length = 0;
+			audio.update();
 		}
 
 	var pixelWindow = {width:192, height:104}; //I could fit 200 x 120 on Galaxy s3 at 4x pixel scale
+	var camera = new Camera(pixelWindow);
 	var scale = 4;
 
 	var desiredFps = 60;

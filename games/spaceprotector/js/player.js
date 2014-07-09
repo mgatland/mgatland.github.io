@@ -1,6 +1,6 @@
 "use strict";
-define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "util"], 
-	function (Shot, Events, Colors, WalkingThing, Sprites, Dir, Pos, Util) {
+define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "util", "spritedata"], 
+	function (Shot, Events, Colors, WalkingThing, Sprites, Dir, Pos, Util, SpriteData) {
 
 	var Player = function (level, x, y) {
 		var _this = this;
@@ -21,6 +21,7 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 		var currentCheckpoint = null; //The flag entity we last touched
 
 		var deadTimer = 0;
+		var hitPos = null;
 		var animFrame = 0;
 		var animDelay = 0;
 
@@ -42,6 +43,7 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			data.spawnPoint = spawnPoint.toData();
 			//currentCheckpoint
 			data.deadTimer = deadTimer;
+			data.hitPos = hitPos ? hitPos.toData() : null;
 			data.animFrame = animFrame;
 			data.animDelay = animDelay;
 			data.animState = animState;
@@ -64,6 +66,7 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			spawnPoint = Pos.fromData(data.spawnPoint);
 			//currentCheckpoint
 			deadTimer = data.deadTimer;
+			hitPos = Pos.fromData(data.hitPos);
 			animFrame = data.animFrame;
 			animDelay = data.animDelay;
 			animState = data.animState;
@@ -76,9 +79,11 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 
 		//Constants or not replicated
 		var maxDeadTime = 30;
-		var playerSpriteData = "v1.0:0011000000000010000000001111100000000010000000000101000000000101000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000000011000000000101000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000001111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000001111000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000000110000000000010000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000001111100000000010000000000010000000001101000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000011000000000010000000000011100000000010000000000101000000001001";
-		var playerSprites = Sprites.loadFramesFromData(playerSpriteData);
+		var playerSprites = Sprites.loadFramesFromData(SpriteData.player);
 		this.hidden = false;
+
+		//TODO: decide if replicated
+		var deaths = 0;
 
 		//functions
 
@@ -155,7 +160,6 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 		this.draw = function (painter) {
 			if (this.hidden) return;
 
-			var color = this.live === true ? Colors.good : Colors.highlight;
 			var frame;
 			if (animState === "standing") {
 				frame = 0;
@@ -170,7 +174,15 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			}
 			if (shootingAnim && frame === 0) frame = 6;
 			var img = playerSprites[frame];
-			painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, this.dir, img, color);
+			if (this.live) {
+				painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, 
+					this.dir, img, Colors.good);
+			} else {
+				var decay = (maxDeadTime - deadTimer) / maxDeadTime;
+				painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, 
+					this.dir, img, Colors.highlight, false, decay, hitPos);
+			}
+			
 		}
 
 		this.isOnGround = function () {
@@ -200,9 +212,12 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			}
 
 			this.collisions.forEach(function (other) {
+				if (_this.live === false) return; //so we can't die twice in this loop
 				if (other.killPlayerOnTouch) {
 					_this.live = false;
 					deadTimer = maxDeadTime;
+					hitPos = other.pos.clone().clampWithin(_this.pos, _this.size);
+					deaths++;
 					Events.playSound("pdead", null);
 				}
 				if (other.isCheckpoint && other !== currentCheckpoint) {
@@ -285,6 +300,10 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 
 		var getState = function () {
 			return states[_this.state];
+		}
+
+		this.getDeaths = function () {
+			return deaths;
 		}
 
 	}

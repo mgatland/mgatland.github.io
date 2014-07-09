@@ -1,40 +1,23 @@
 "use strict";
 define(["pos", "dir", "colors"], function (Pos, Dir, Colors) {
 	var Painter = function (ctx, pixelWindow, pixelSize) {
-		var pos = new Pos(0,0);
-		var noOffset = new Pos(0,0);
-
-		var cameraSlackX = pixelWindow.width/8;
-		var cameraSlackY = 0;
+		var noOffset = new Pos(0, 0);
+		var pos = new Pos(0, 0);
 
 		var currentColor = null;
 
 		ctx.font = (pixelSize * 10) + "px Star Perv";
 		ctx.textBaseline = "top";
 
+		this.setPos = function (cameraPos) {
+			pos.x = cameraPos.x;
+			pos.y = cameraPos.y;
+		}
+
 		var setColor = function(color) {
 			if (color === currentColor) return;
 			currentColor = color;
 			ctx.fillStyle = color;
-		}
-
-		var moveTowards1d = function(desired, slack, axis, slack2, slack3) {
-			var distance = desired - pos[axis];
-			var dir = distance ? distance < 0 ? -1:1:0;
-			var distanceAbs = Math.abs(distance);
-			if (distanceAbs > slack) pos[axis] += dir;
-			if (slack2 && distanceAbs > slack2) pos[axis] += dir;
-			if (slack3 && distanceAbs > slack3) pos[axis] += dir*4;
-		}
-
-		this.panTowards = function (x, y) {
-			moveTowards1d(x - pixelWindow.width/2, cameraSlackX, "x", cameraSlackX*2, cameraSlackX*4);
-			moveTowards1d(y - pixelWindow.height/2, cameraSlackY, "y", pixelWindow.height/2-12, pixelWindow.height);
-		}
-
-		this.jumpTo = function (x, y) {
-			pos.x = x - pixelWindow.width/2;
-			pos.y = y - pixelWindow.height/2
 		}
 
 		this.clear = function() {
@@ -110,16 +93,29 @@ define(["pos", "dir", "colors"], function (Pos, Dir, Colors) {
 			return x;
 		}
 
-		this.drawSprite2 = function (x, y, actualWidth, dir, sprite, color, absolute) {
+		this.drawSprite2 = function (x, y, actualWidth, dir, sprite, color, absolute, decay, decayPos) {
 			if (!absolute && !this.isOnScreen(x, y, sprite.width, sprite.width)) return;
 			setColor(color);
 			var n = 0;
 			var xOff = 0;
 			var yOff = 0;
 			while (n < sprite.length) {
-				if (sprite[n] === 1) drawPixel(
-					x + getX(xOff, dir, actualWidth),
-					y + yOff, color, absolute);
+				if (sprite[n] === 1) { 
+					var pX = x + getX(xOff, dir, actualWidth);
+					var pY = y + yOff;
+					var drawn = true;
+					if (decay) {
+						var dist = decayPos.distanceToXY(pX, pY)/sprite.width;
+						var odds;
+						if (dist < decay / 2) {
+							odds = 1;
+						} else {
+							odds = decay;
+						}
+						if (Math.random() < odds) drawn = false;
+					}
+					if (drawn) drawPixel(pX, pY, color, absolute);
+				}
 				if (xOff === sprite.width - 1) {
 					xOff = 0;
 					yOff++
@@ -128,6 +124,16 @@ define(["pos", "dir", "colors"], function (Pos, Dir, Colors) {
 				}
 				n++;
 			}
+		}
+
+		var maxBarHeight = 45;
+		var maxBarDistance = pixelWindow.height / 2 + maxBarHeight; //97
+		this.drawWinTransition = function (animPercent) {
+			var barHeight = Math.min(animPercent * 180, maxBarHeight);
+			var barY = animPercent * maxBarDistance;
+			this.drawAbsRect(0, pixelWindow.height / 2 - barY, pixelWindow.width, barY * 2, Colors.blank);
+			this.drawAbsRect(0, pixelWindow.height / 2 - barY, pixelWindow.width, barHeight, Colors.good);
+			this.drawAbsRect(0, pixelWindow.height / 2 + barY - barHeight, pixelWindow.width, barHeight, Colors.good);
 		}
 	};
 	return Painter;
