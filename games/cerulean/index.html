@@ -1,0 +1,36 @@
+---
+published: "true"
+title: Cerulean
+layout: none
+categories: 
+  - games
+description: 
+order: 7
+date: 2013-08-09
+icon: "cerulean/cerulean-icon.png"
+---
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/cerulean.css">
+	<script src="js/util.js"></script>
+	<script src="js/sylvester.js"></script>
+	<script src="js/renderer.js"></script>
+	<script src="js/cerulean.js"></script>
+	<script src="js/keyboard.js"></script>
+	<script src="js/worldgenerator.js"></script>
+	<script src="js/overlay.js"></script>
+	<script type="text/javascript" src="js/midi-synth/waveshaper.js"></script>
+	<script type="text/javascript" src="js/midi-synth/synth.js"></script>
+	{% include analytics.html %}
+</head>
+<body>
+<div id="gamecontainer">
+	<canvas id="gamescreen">Unfortunately, your browser cannot run this game because it does not support the HTML5 canvas element.</canvas>
+	<canvas id="hudoverlay"></canvas>
+</div>
+<div id="instructions">
+	<p>USE THE ARROW KEYS TO MOVE^MRELEASE SPACEBAR WHEN TARGET FLASHES^M</p>
+</div>
+</body>
+</html>
