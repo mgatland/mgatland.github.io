@@ -66,7 +66,7 @@ But maybe there's an audience out there somewhere who will discover this game an
 
 ### Links
 
-* [Play](/games/takedown/play/web/)
+* [Play](/games/takedown/play/)
 * [Feedback](https://mgatland.hackpad.com/Takedown-feedback-zAiAZphmA8u)
 * [Development diary](https://mgatland.hackpad.com/Game-5-TakeDown-port-to-JavaScript-SJaOnQoFBPy)
 * [Source code](http://www.github.com/mgatland/takedown/)

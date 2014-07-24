@@ -13,7 +13,7 @@ role of a 'Peacekeeper', the most elite soldier the world has ever seen. You
 are the first and final fighting force to protect the fabric of society from 
 those that seek to destroy it.
 
-<p>Play <a href="play/web">TakeDown</a></p>
+<p>Play <a href="play/">TakeDown</a></p>
 
 <img src="takedown-01.png" alt="a screenshot of TakeDown"/> 
  

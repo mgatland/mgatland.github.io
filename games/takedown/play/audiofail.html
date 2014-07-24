@@ -1,0 +1,59 @@
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+<script>
+window.AudioContext = window.AudioContext||window.webkitAudioContext;
+var context = new AudioContext();
+
+var play = function (buffer, loop) {
+	var source = context.createBufferSource();
+	source.buffer = buffer;
+	if (loop) source.loop = true;
+	source.connect(context.destination);
+	source.start(0);
+};
+
+var load = function (url, callback) {
+	//load sound
+	var request = new XMLHttpRequest();
+	request.open('GET', url, true);
+	request.responseType = 'arraybuffer';
+	// Decode asynchronously
+	request.onload = function() {
+	context.decodeAudioData(request.response, function(buffer) {
+		  callback(buffer);
+		}, null);
+	};
+	request.send();
+};
+
+var musicSound;
+var thudSound;
+load("res/snd/music0.wav", function (buffer) {
+	musicSound = buffer;
+});
+load("res/snd/thud0.wav", function (buffer) {
+	thudSound = buffer;
+});
+
+window.onload = function () {
+	document.getElementById("music").onclick = function (e) {
+		console.log("play music");
+		play(musicSound, true);
+		document.getElementById("music").style.display = "none";
+		e.preventDefault();
+	};
+	document.getElementById("sound").onclick = function (e) {
+		play(thudSound, false);
+		e.preventDefault();
+	};
+}
+
+</script>
+</head>
+<body>
+	<a href="#" id="music">start the music loop</a><br>
+	<a href="#" id="sound">play a one-off sound</a>
+	Playing the one-off sound makes the music get quieter for a few seconds.
+</body>
+</html>
