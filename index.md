@@ -54,7 +54,23 @@ Between projects, I visit schools to teach programming and promote technology ca
 
 New Zealand software companies provide great jobs, but are facing a huge skill shortage. Making students aware of the opportunities can help them into a great career, and help the industry keep growing.
 
-<!-- A talk at Mount Roskill Grammar School (ICT-Connect), Scratch workshop at Ponsonby Primary School (FutureInTech), a talk at Glendowie College (FIT), and gather workshops at Tamaki College, Howick College, Mount Roskill Grammar School, Westlake Girls' High School, Okaihau College-->
+<!--
+Talks:
+- Avondale College (FutureInTech) 2014-07-25
+- Mount Roskill Grammar School (ICT-Connect)
+- Glendowie College (FIT)
+
+Scratch workshops (Future In Tech):
+- Pt. England School 2014-08-08
+- Ponsonby Primary School
+- Epsom Primary School
+
+Gather HTML+CSS or Python workshops:
+- Tamaki College
+- Howick College
+- Mount Roskill Grammar School
+- Westlake Girls' High School
+- Okaihau College-->
 
 <hr>
 
