@@ -95,7 +95,7 @@ I recommend using 'qb45' (Qbasic 4.5) running inside DOSBox.
 
 I put pre-packaged versions for Windows and OS X on the [Code Club Auckland website](http://codeclubakl.github.io).
 
-For a web-based version, the best choice is Steve Hanov's [QBasic in JavaScript](http://stevehanov.ca/blog/index.php?id=92), but it's not very suitable for beginners. I will to to set up DOSBox + QBasic 4.5 for the web instead.
+For a web-based version, the best choice is Steve Hanov's [QBasic in JavaScript](http://stevehanov.ca/blog/index.php?id=92), but it's not very suitable for beginners. I will try to set up DOSBox + QBasic 4.5 for the web instead.
 
 This is how to install QBasic, but we have not yet proved that you would want to install it!
 
