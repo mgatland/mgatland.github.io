@@ -133,6 +133,7 @@ img {
 	background-color: #fff;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	max-width: 90%;
 }
 
 .leftside {
@@ -154,11 +155,36 @@ hr {
 .button {
 	display: block;
 	margin-bottom: 40px;
-	padding: 40px;
+	margin-right: 20px;
+	padding: 20px;
+	width: 280px;
+	float: left;
 }
 
 .button h2 {
-	margin-top:58px;
+	font-size: 24px;
+	line-height: 26px;
+
+	margin-top: 15px;
+	margin-bottom: 0px;
+	text-align: center;
+}
+
+@media all and (max-width: 712px){
+	.button {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.button img {
+	width: 105px;
+	height: 105px;
+}
+
+.button .leftside {
+	margin-right: 20px;
 }
 
 /*subtle link background for huge buttons */
@@ -212,4 +238,13 @@ blockquote {
 
 .w640 {
 	width: 640px;
+}
+
+.beside {
+	height: 210px;
+	min-width: 250px;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column; /* column | row */
 }
