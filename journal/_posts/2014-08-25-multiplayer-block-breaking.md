@@ -23,8 +23,12 @@ At Kiwijam, on university wifi, the game ran smoothly with five people playing. 
 
 At my home, it's not playable. I get latency of up to six seconds. You feel this when you shoot the walls: a hole doesn't appear until up to six seconds later.
 
-I guess the game is making me send more data than my internet connection can handle. Compressing the data that's send might fix this.
+I guess the game is making me send more data than my internet connection can handle. Compressing the data that's sent might fix this.
 
 The way you build and destroy blocks is confusing. The animations and controls are from a shooting game and don't make sense here.
 
-A good next step would be making a new animation that clearly shows the blocks being removed and re-added.
+next steps:
+
+* replace 'shooting' with something that clearly shows the blocks being removed and re-added
+* compress data and see if that fixes issues when playing at my house
+
