@@ -248,3 +248,13 @@ blockquote {
     align-content:center;
     flex-direction:column; /* column | row */
 }
+
+code {
+	display: inline-block;
+	white-space: pre;
+	background-color: #DFDFDF;
+	box-shadow: 2px 2px 4px #777;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 1px solid #ddd;
+}
