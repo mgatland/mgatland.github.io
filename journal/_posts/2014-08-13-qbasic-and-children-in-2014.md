@@ -1,6 +1,5 @@
 ---
 title: QBasic and children in 2014
-layout: normal
 ---
 
 Our Code Club took a break from Scratch to teach QBasic this week.

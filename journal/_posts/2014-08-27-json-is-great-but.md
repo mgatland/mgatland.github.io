@@ -1,6 +1,5 @@
 ---
 title: JSON is great but…
-layout: normal
 ---
 
 In the last post I talked about making Glimmerseed, a multiplayer platform game.

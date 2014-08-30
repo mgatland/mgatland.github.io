@@ -1,6 +1,5 @@
 ---
 title: Minecraft Story
-layout: normal
 ---
 
 Public Minecraft servers have the same raw energy that you used to find on a BBS. Crowds of people connecting to games, wandering around, asking how things work. Notes from the sysadmin everywhere, telling you how to move around, connect to a game, or buy premium items.

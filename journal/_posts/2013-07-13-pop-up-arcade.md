@@ -1,6 +1,5 @@
 ---
 title: Pop-up Indie Games Arcade!
-layout: normal
 ---
 
 [Gather](http://gathergather.co.nz/) is an unconference held in Auckland every year.

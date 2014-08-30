@@ -4,6 +4,13 @@ url: 'http://www.matthewgatland.com'
 title: Matthew Gatland
 description: Matthew Gatland's personal website
 markdown: kramdown
+defaults:
+  -
+    scope:
+      path: ""
+      type: "post"
+    values:
+      layout: "normal"
 prose:
   metadata:
     "journal/_posts": |

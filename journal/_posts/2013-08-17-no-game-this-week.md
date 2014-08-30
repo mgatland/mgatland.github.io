@@ -1,6 +1,5 @@
 ---
 title: No game this week
-layout: normal
 ---
 
 This week's game did not go well.

@@ -1,6 +1,5 @@
 ---
 title: Contracts, Paint, High School Websites
-layout: normal
 ---
 
 Hey! I haven't released a game for a while. What did I do all month?

@@ -1,6 +1,5 @@
 ---
 title: Posting from Prose.io
-layout: normal
 
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Gamedev Meetup
-layout: normal
 ---
 
 At last month's [game dev meetup](http://www.meetup.com/playmaker/), I was about to go full-time indie. Everyone said congratulations and I had a lot of fun.

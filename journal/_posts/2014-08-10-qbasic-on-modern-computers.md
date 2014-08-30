@@ -1,6 +1,5 @@
 ---
 title: QBasic on Modern Computers
-layout: normal
 ---
 
 I want to try teaching QBasic to our 11 and 12-year-old students at Code Club.

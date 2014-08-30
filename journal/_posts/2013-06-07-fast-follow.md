@@ -1,6 +1,5 @@
 ---
 title: Fast Follow
-layout: normal
 ---
 
 I woke up today at 1:06 PM, rolled over to look at my phone. One unread message:

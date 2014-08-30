@@ -1,6 +1,5 @@
 ---
 title: Multiplayer block-breaking
-layout: normal
 ---
 
 At this year's Kiwijam I combined [Space Protector](/games/spaceprotector)'s front end and [Let's be ducks](/games/ducks/)' server to make a multiplayer platform game.
