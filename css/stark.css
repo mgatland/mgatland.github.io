@@ -14,6 +14,8 @@ body {
 	margin: 0;
 }
 
+/*nav bar*/
+
 .bar {
 	display: block;
 	width: 100%;
@@ -39,53 +41,25 @@ nav {
 }
 
 nav a {
+	/*resets*/
 	background-color: transparent;
+	border: none;
+	color: inherit;
+	box-shadow: none;
+
 	color: white;
 	display: inline-block;
 	font-size: 20px;
-	padding: 0;
-	margin-top: 0;
-	margin-bottom: 0;
 	margin-left: 5px;
 	margin-right: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-right: 5px;
-	padding-left: 5px;
+	padding: 5px;
 	text-transform: uppercase;
-	box-shadow: none;
-	border: none;
 }
 
-nav a:hover, nav a:active {
-	background-color: transparent;
-}
-
-/*top bar on narrow screens*/
-@media all and (max-width: 849px){
-	.bar {
-		text-align: center;
-	}
-	.title {
-		display: block;
-		float: none;
-		margin-left: 0;
-		margin-right: 0;
-	}
-	nav {
-		text-align: center;
-		margin-right: 0;
-		margin-top: 0;
-	}
-}
-
+/*headers*/
 
 h1, h2, .title {
 	font-family: 'PT Serif', serif;
-}
-
-h3, .listOfPosts, .subtitle {
-/*	font-family: Helvetica, Arial, sans-serif; */
 }
 
 h1, h2, h3, .listOfPosts, .subtitle {
@@ -95,9 +69,29 @@ h1, h2, h3, .listOfPosts, .subtitle {
 	display: block;
 	/* never let long headings widen the page... */
 	word-wrap:break-word;
-
 }
 
+h1 {
+	font-size: 64px;
+	margin: 0;
+}
+
+.homepage h1 {
+	font-size: 86px;
+}
+
+h2 {
+	font-size: 90px;
+	margin-top: 90px;
+	margin-bottom: 9px;
+}
+
+h3, .listOfPosts {
+	font-size: 38px;
+	margin: 40px 0;	
+}
+
+/* use to put a subtitle below an h3 heading in a blogpost.*/
 .subtitle {
 	margin-top: -40px;
 	margin-left: 20px;
@@ -118,12 +112,6 @@ h1 a:hover, h2 a:hover, h3 a:hover, .listOfPosts a:hover, .title a:hover {
 	color: inherit;
 }
 
-/* partially hide links in the page header */
-header p a {
-	background-color: #f9f9f9;
-	color: black;
-}
-
 /*subtle messages like 'you have reached the last post in my journal' */
 .subtle {
 	color: #777;
@@ -142,34 +130,9 @@ header p a {
 	margin-left: 60px;
 }
 
-.homepage h1 {
-	font-size: 86px;
-}
-
-h1 {
-	font-size: 64px;
-	margin: 0;
-}
-
-h2 {
-	font-size: 90px;
-	margin-top: 90px
-}
-
-h3, .listOfPosts {
-	font-size: 38px;
-	margin: 40px 0;	
-}
-
 header {
 	margin: 70px 0;
 	text-align: center;
-}
-
-header p {
-	line-height: 1.4;
-	margin: 12px 0 0 0;
-	color: #444;
 }
 
 p {
@@ -178,11 +141,11 @@ p {
 }
 
 a {
-	background-color: #ddd;
+	text-decoration: none;
 	color: #19428A;
+	background-color: #ddd;
 	box-shadow: 2px 2px 4px #777;
 	border: 1px solid #D4D1D1;
-	text-decoration: none;
 	padding: 2px 4px;
 	transition-property: color;
 	transition-duration: 0.2s;
@@ -195,14 +158,14 @@ a:hover, a:active {
 	color: #BB4B00;
 }
 
-#content {
+.content {
 	max-width: 900px;
 	margin: 0 auto;
 	padding-left: 8px;
 	padding-right: 8px;
 }
 
-#content.homepage {
+.content.homepage {
 	max-width: 700px;
 }
 
@@ -232,14 +195,6 @@ hr {
 	background-color: #777;
 }
 
-.button {
-	display: block;
-	float: left;
-	padding: 20px;
-	text-align: center;
-	width: 310px;
-}
-
 .button h2 {
 	font-size: 24px;
 	line-height: 26px;
@@ -252,12 +207,21 @@ hr {
 	height: 210px; /*must override in situations where image resizes*/
 }
 
-/*links on huge buttons */
+/*links on huge buttons.*/
 a.button {
+	/*resets*/
 	background-color: transparent;
 	border: none;
 	color: inherit;
 	box-shadow: none;
+
+	/*buttonize*/
+	display: block;
+	float: left;
+	padding: 20px;
+	text-align: center;
+	width: 310px;
+
 	transition-property: background-color;
 	transition-duration: 0.4s;
 	/*for Safari 6.0: */
@@ -287,19 +251,8 @@ a.button:hover, a.button:active {
 	margin-bottom: 60px;
 }
 
-.journal h2 {
-	margin-bottom: 9px;
-}
-
 .disabled-link {
 	background-color: #ddd;
-	color: #bbb;
-	text-decoration: none;
-	padding: 2px 4px;
-}
-
-.subtle .disabled-link {
-	background-color: #f9f9f9;
 	color: #bbb;
 	text-decoration: none;
 	padding: 2px 4px;
@@ -367,5 +320,23 @@ Let's also shrink the body font size a little.
 	.beside {
 		text-align: center;
 		height: auto;
+	}
+}
+
+/*nav bar on narrow screens*/
+@media all and (max-width: 849px){
+	.bar {
+		text-align: center;
+	}
+	.title {
+		display: block;
+		float: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	nav {
+		text-align: center;
+		margin-right: 0;
+		margin-top: 0;
 	}
 }
