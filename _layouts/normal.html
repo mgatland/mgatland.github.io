@@ -1,17 +1,13 @@
 {% include part-above-body.html %}
 <body>
+  {% include header.html %}
 	<section id="content">
-  <header class="smallheader">
-    <span class="subtle"><a href="{{site.url}}/">{{site.title}}</a></span>
-  </header>
   <div class="journal">
 	{% include calculate-journal-links.html %}
-  	<hr>
     <div>
     	<h2>{{ page.title }}</h2>
     	<span class="subtle">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</span>
     </div>
-    <hr>
     {{ content }}
   </div>
 	<footer>

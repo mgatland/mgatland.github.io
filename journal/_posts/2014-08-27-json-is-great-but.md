@@ -1,10 +1,10 @@
 ---
-title: JSON is great but…
+title: JSON is great, but…
 ---
 
 In the last post I talked about making Glimmerseed, a multiplayer platform game.
 
-The network code worked great at univeristy, but not at home. I _assumed_ that I was sending too much data for my home internet connection.
+The network code worked great at university, but not at home. I _assumed_ that I was sending too much data for my home internet connection.
 
 So how much was I actually using?
 

@@ -17,14 +17,15 @@ We paint old computers, put games on them, and take them to festivals.
 
 [Pop-Up Arcade](http://popuparcade.co.nz)
 
-<hr>
 <h3>Code Club Auckland</h3>
 
 ![Teaching Scratch for FutureInTech](/images/workshops-futureintech.jpg)
 
 Code Club Auckland is a group of children and industry mentors who build stuff with code.
 
-I run the club with Orion Health and a team of volunteers. I also run coding workshops at high schools and primary schools through Futureintech and Gather Workshops.
+I run the club with Orion Health and a team of volunteers.
+
+I also volunteer for other organisations that teach programming at schools.
 
 ![Teaching HTML and CSS for Gather](/images/workshops-gather.jpg){:.w640}
 
@@ -35,6 +36,7 @@ Talks:
 - Glendowie College (FIT)
 
 Scratch workshops (Future In Tech):
+- Rosebank Road 2014-08-29
 - Epsom Normal Primary School (again) 2014-08-18
 - Pt. England School 2014-08-08
 - Ponsonby Primary School
@@ -48,7 +50,6 @@ Gather HTML+CSS or Python workshops:
 - Westlake Girls' High School
 - Okaihau College-->
 
-<hr>
 <h3>The Deadline Club</h3>
 
 ![Deadline Club #4](/images/deadline-club.jpg){:.w640}
@@ -59,7 +60,7 @@ Most importantly, we give you a weekly event to put on you calendar. Come along 
 
 The Deadline Club isn't running any more but it was pretty cool.
 
-<hr>
+<h3>More info</h3>
 
 You can find me on [twitter](http://twitter.com/mgatland) and [GitHub](http://www.github.com/mgatland) or read my [journal](/journal/).
 

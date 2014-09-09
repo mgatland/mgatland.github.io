@@ -11,35 +11,91 @@ body {
 	font-family: Tahoma, Verdana, Segoe, sans-serif;
 	color: #000;
 	line-height: 1.8;
+	margin: 0;
 }
 
-h1, h2, h3, .listOfPosts {
+.bar {
+	display: block;
+	width: 100%;
+	background-color: rgb(54, 33, 9);
+	text-align: right;
+	color: white;
+}
+
+.title {
+	display: inline-block;
+	margin-right: 90px;
+}
+
+nav {
+	display: inline-block;
+	text-align: left;
+	margin-right: 90px;
+
+}
+
+nav a {
+	background-color: transparent;
+	color: white;
+	display: inline-block;
+	font-size: 20px;
+	padding: 0;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	text-transform: uppercase;
+	box-shadow: none;
+	border: none;
+}
+
+nav a:hover, nav a:active {
+	background-color: transparent;
+}
+
+h1, h2, .title {
+	font-family: 'PT Serif', serif;
+}
+
+h3, .listOfPosts, .subtitle {
+/*	font-family: Helvetica, Arial, sans-serif; */
+}
+
+h1, h2, h3, .listOfPosts, .subtitle {
 	line-height: 1.1;
 	position: relative;
-	font-family: Helvetica, Arial, sans-serif;
-	/*letter-spacing:  -0.03em;*/
 	font-weight: normal;
 	display: block;
 }
 
+.subtitle {
+	margin-top: -40px;
+	margin-left: 20px;
+}
+
 /* always hide links in header */
-h1 a, h2 a, h3 a, .listOfPosts a {
-	background-color: transparent;
-	color: black;
-	padding: 5px 10px;
-	margin-left: -10px;
+h1 a, h2 a, h3 a, .listOfPosts a, .title a {
+	background-color: inherit;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	box-shadow: none;
+	border: none;
+}
+
+/* always hide links in header */
+h1 a:hover, h2 a:hover, h3 a:hover, .listOfPosts a:hover, .title a:hover {
+	color: inherit;
 }
 
 /* partially hide links in the page header */
 header p a {
 	background-color: #f9f9f9;
 	color: black;
-}
-
-.subtitle {
-	margin-top: -40px;
-	margin-left: 20px;
-	font-family: Helvetica, Arial, sans-serif;
 }
 
 /*subtle messages like 'you have reached the last post in my journal' */
@@ -50,7 +106,9 @@ header p a {
 }
 
 .subtle a {
-	background-color: #f9f9f9;	
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
 }
 
 .listOfPosts .date {
@@ -68,8 +126,8 @@ h1 {
 }
 
 h2 {
-	font-size: 48px;
-	margin: 28px 0;
+	font-size: 90px;
+	margin-top: 90px 0;
 }
 
 h3, .listOfPosts {
@@ -88,12 +146,6 @@ header p {
 	color: #444;
 }
 
-header.smallheader {
-	margin-top: 60px;
-	text-align: left;
-	margin-bottom: 0px;
-}
-
 p {
 	display: block;
 	margin: 30px 0;
@@ -101,20 +153,20 @@ p {
 
 a {
 	background-color: #ddd;
-	color: #555;
+	color: #19428A;
+	box-shadow: 2px 2px 4px #777;
+	border: 1px solid #D4D1D1;
 	text-decoration: none;
 	padding: 2px 4px;
-	border-radius: 3px;
-	transition-property: background-color;
-	transition-duration: 0.4s;
+	transition-property: color;
+	transition-duration: 0.2s;
 	/*for Safari 6.0: */
-	-webkit-transition-property: background-color;
-	-webkit-transition-duration: 0.4s;
+	-webkit-transition-property: color;
+	-webkit-transition-duration: 0.2s;
 }
 
 a:hover, a:active {
-	background-color: #444;
-	color: #eee;
+	color: #BB4B00;
 }
 
 #content {
@@ -200,11 +252,6 @@ a.button:hover, a.button:active {
 	color: #333;
 }
 
-.subtle a:hover, .subtle a:active {
-	background-color: #777;
-	color: #333;
-}
-
 .journal {
 	margin-bottom: 60px;
 }
@@ -218,7 +265,6 @@ a.button:hover, a.button:active {
 	color: #bbb;
 	text-decoration: none;
 	padding: 2px 4px;
-	border-radius: 3px;
 }
 
 .subtle .disabled-link {
@@ -226,7 +272,10 @@ a.button:hover, a.button:active {
 	color: #bbb;
 	text-decoration: none;
 	padding: 2px 4px;
-	border-radius: 3px;
+}
+
+footer {
+	margin-top: 25px;
 }
 
 blockquote {
