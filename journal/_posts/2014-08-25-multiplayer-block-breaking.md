@@ -2,7 +2,7 @@
 title: Multiplayer block-breaking
 ---
 
-At this year's Kiwijam I combined [Space Protector](/games/spaceprotector)'s front end and [Let's be ducks](/games/ducks/)' server to make a multiplayer platform game.
+At this year's Kiwijam I combined [Space Protector's](/games/spaceprotector) front end and [Let's be ducks'](/games/ducks/) server to make a multiplayer platform game.
 
 Space Protector already has multiplayer, but only for 2 players and not on iOS. (It's peer-to-peer using WebRTC, which isn't supported in iOS yet.)
 

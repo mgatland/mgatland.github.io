@@ -3,7 +3,7 @@ stark css by Matthew Gatland
 
 lifting many ideas from Ryan Tomayko ( http://tomayko.com ) 
 and Dave Perrett ( http://www.daveperrett.com/ )
-
+...but now modified beyond recognition
 */
 
 body {
@@ -25,13 +25,16 @@ body {
 .title {
 	display: inline-block;
 	margin-right: 90px;
+	padding-top: 15px;
+	margin-bottom: 15px;
 }
 
 nav {
 	display: inline-block;
 	text-align: left;
 	margin-right: 90px;
-
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 nav a {
@@ -40,8 +43,8 @@ nav a {
 	display: inline-block;
 	font-size: 20px;
 	padding: 0;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 0;
+	margin-bottom: 0;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding-top: 5px;
@@ -57,6 +60,22 @@ nav a:hover, nav a:active {
 	background-color: transparent;
 }
 
+/*top bar on narrow screens*/
+@media all and (max-width: 799px){
+	.bar {
+		text-align: center;
+	}
+	.title {
+		display: block;
+		margin-right: 0;
+	}
+	nav {
+		text-align: center;
+		margin-right: 0;
+	}
+}
+
+
 h1, h2, .title {
 	font-family: 'PT Serif', serif;
 }
@@ -70,6 +89,9 @@ h1, h2, h3, .listOfPosts, .subtitle {
 	position: relative;
 	font-weight: normal;
 	display: block;
+	/* never let long headings widen the page... */
+	word-wrap:break-word;
+
 }
 
 .subtitle {
@@ -127,7 +149,7 @@ h1 {
 
 h2 {
 	font-size: 90px;
-	margin-top: 90px 0;
+	margin-top: 90px
 }
 
 h3, .listOfPosts {
@@ -172,6 +194,8 @@ a:hover, a:active {
 #content {
 	max-width: 900px;
 	margin: 0 auto;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 #content.homepage {
@@ -306,4 +330,33 @@ code {
 	padding-left: 15px;
 	padding-right: 15px;
 	border: 1px solid #ddd;
+	max-width: 90%;
+	overflow-x: auto;
+}
+
+/*huge headings must shrink on narrow screens,
+or the long words don't fit on the screen! 
+
+Let's also shrink the body font size a little.
+*/
+@media all and (max-width: 499px){
+	.homepage h1 {
+		font-size: 66px;
+	}
+	h2 {
+		font-size: 50px;
+	}
+	body {
+		font-size: 18px;
+	}
+	/*home page layout, remove columns*/
+	.leftside {
+		display: block;
+		float: none;
+		margin: 0 auto;
+	}
+	.beside {
+		text-align: center;
+		height: auto;
+	}
 }
