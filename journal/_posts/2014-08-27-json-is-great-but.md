@@ -127,13 +127,13 @@ The player's name _never_ changes, so sending it 60 times per second is extremel
 
 Other values, like the player's respawn point, only change every few seconds at most. Sending these every frame is also wasteful.
 
-However, having parts of the message sometimes present and sometimes not present can get complicated... and it would only save a few bytes.
+However, if we have values we only send _sometimes_, we need a way to tell the reciever which bits of information are included and which are missing. This can get complicated, and adds its own overhead to the message size.
 
 ### That placeholder
 
 Most annoying is the 29 byte placeholder that socket.io adds. It makes up 25% of the data sent. To get rid of it, I need to stop using socket.io or stop using binary.
 
-Using a library that lets me send pure binary is the right solution. But also the most effort.
+Using a library that lets me send pure binary is the right solution, but also the most effort.
 
 A quick solution is to Base64-encode the binary data. This turns it into a string, which can go straight into the JSON without a placeholder -- but also makes the binary 33% larger.
 

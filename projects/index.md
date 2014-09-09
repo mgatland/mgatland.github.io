@@ -21,9 +21,7 @@ We paint old computers, put games on them, and take them to festivals.
 
 ![Teaching Scratch for FutureInTech](/images/workshops-futureintech.jpg)
 
-Code Club Auckland is a group of children and industry mentors who build stuff with code.
-
-I run the club with Orion Health and a team of volunteers.
+Each week, 20 high school students come to Code Club Auckland to make cool stuff with computers. I run the club with Orion Health and a team of volunteers.
 
 I also volunteer for other organisations that teach programming at schools.
 

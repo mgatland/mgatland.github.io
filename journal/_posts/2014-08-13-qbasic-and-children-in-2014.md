@@ -4,9 +4,13 @@ title: QBasic and children in 2014
 
 Our Code Club took a break from Scratch to teach QBasic this week.
 
-I wrote a [QBasic activity](http://codeclubakl.github.io/qbasic/), made easy installers for Windows and Mac and hacked together a web based version for Chromebook.
+![QBasic, still beautiful.](/journal/images/qbasic.png)
+
+I wrote a [QBasic activity,](http://codeclubakl.github.io/qbasic/) made easy installers for Windows and Mac and hacked together a web based version for Chromebook.
 
 Our club has about 20 children, aged 10 to 13 years old.
+
+How did it go?
 
 ### Install trouble
 
@@ -20,9 +24,7 @@ But asking beginners to install anything is best avoided - use a web-based versi
 
 ### QBasic online
 
-The [web version](http://codeclubakl.github.io/qbasic/online/) was easier to get started with -- just click a link.
-
-It had its own problems, though.
+The [web version](http://codeclubakl.github.io/qbasic/online/) was easier to get started with -- just click a link. Unfortunately, it introduced other problems.
 
 I discovered the night before that the plus and minus keys didn't work. We need those!
 
@@ -32,7 +34,7 @@ One big problem is that you can't save your work. It only exists while the DOS s
 
 Fix that, and this would be the best way to introduce QBasic.
 
-### The class
+### The activity
 
 After the slow setup, it went OK. Everyone progressed through the instructions.
 
@@ -58,6 +60,6 @@ This is a good lesson, but there might be better ways to teach it.
 
 (There's a game where you give students working code, and ask them to break it in a way that's hard to spot -- then challenge another student to find the mistake. I like this because it presents finding bugs as a fun challenge, rather than a frustration.)
 
-I wanted the activity to teach people about control flow and how programs run line-by-line -- concepts that I feel are obfuscated in the colourful, multithreaded OO world of Scratch. I have no idea if it succeeded? *shrug*
+I wanted the activity to teach people about control flow and how programs run line-by-line -- concepts that I feel are obfuscated in the colourful, multithreaded OO world of Scratch. I have no idea if it succeeded? *shrug*.
 
-At least two students were not pleased. "Can we do Scratch next week?" But someone else said they liked it more than Scratch, so... inconclusive.
+At least two students were not pleased. "Can we do Scratch next week?" But someone else said they liked it more than Scratch, and another one continued working with QBasic at home. So... inconclusive.
