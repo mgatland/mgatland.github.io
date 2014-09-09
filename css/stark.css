@@ -24,9 +24,10 @@ body {
 
 .title {
 	display: inline-block;
-	margin-right: 90px;
+	float: left;
+	margin-left: 80px;
+	margin-right: 80px;
 	padding-top: 15px;
-	margin-bottom: 15px;
 }
 
 nav {
@@ -61,17 +62,20 @@ nav a:hover, nav a:active {
 }
 
 /*top bar on narrow screens*/
-@media all and (max-width: 799px){
+@media all and (max-width: 849px){
 	.bar {
 		text-align: center;
 	}
 	.title {
 		display: block;
+		float: none;
+		margin-left: 0;
 		margin-right: 0;
 	}
 	nav {
 		text-align: center;
 		margin-right: 0;
+		margin-top: 0;
 	}
 }
 
@@ -230,50 +234,53 @@ hr {
 
 .button {
 	display: block;
-	margin-bottom: 40px;
-	margin-right: 20px;
-	padding: 20px;
-	width: 280px;
 	float: left;
+	padding: 20px;
+	text-align: center;
+	width: 310px;
 }
 
 .button h2 {
 	font-size: 24px;
 	line-height: 26px;
-
 	margin-top: 15px;
 	margin-bottom: 0px;
-	text-align: center;
-}
-
-@media all and (max-width: 712px){
-	.button {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-	}
 }
 
 .button img {
-	width: 105px;
-	height: 105px;
+	width: 210px;
+	height: 210px; /*must override in situations where image resizes*/
 }
 
-.button .leftside {
-	margin-right: 20px;
-}
-
-/*subtle link background for huge buttons */
+/*links on huge buttons */
 a.button {
-	background-color: #f4f4f4;
-	color: black;
+	background-color: transparent;
+	border: none;
+	color: inherit;
+	box-shadow: none;
+	transition-property: background-color;
+	transition-duration: 0.4s;
+	/*for Safari 6.0: */
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration: 0.4s;
 }
-
-/*the button's hover color is less intense, to compensate for it's huge size */
 
 a.button:hover, a.button:active {
 	background-color: #ccc;
 	color: #333;
+}
+
+@media all and (max-width: 732px){
+	.button {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		width: auto;
+	}
+	.button img {
+		/*images might resize their width, so height must change to match*/
+		height: auto;
+	}
 }
 
 .journal {
@@ -300,6 +307,7 @@ a.button:hover, a.button:active {
 
 footer {
 	margin-top: 25px;
+	margin-bottom: 15px;
 }
 
 blockquote {
@@ -323,15 +331,16 @@ blockquote {
 }
 
 code {
+	background-color: #DFDFDF;
+	border: 1px solid #ddd;
+	box-shadow: 2px 2px 4px #777;
 	display: inline-block;
 	white-space: pre;
-	background-color: #DFDFDF;
-	box-shadow: 2px 2px 4px #777;
 	padding-left: 15px;
 	padding-right: 15px;
-	border: 1px solid #ddd;
 	max-width: 90%;
 	overflow-x: auto;
+	font-size: 18px; /*so 80 characters fit on a line*/
 }
 
 /*huge headings must shrink on narrow screens,
