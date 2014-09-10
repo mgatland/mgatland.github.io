@@ -1,2 +1,4 @@
-{% include journal-link-newer.html %}
-{% include journal-link-older.html %}
+{% if plus_one or minus_one %}
+  {% include journal-link-newer.html %}
+  {% include journal-link-older.html %}
+{% endif %}
