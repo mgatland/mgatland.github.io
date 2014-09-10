@@ -235,7 +235,7 @@ a.button:hover, a.button:active {
 }
 
 @media all and (max-width: 732px){
-	.button {
+	a.button {
 		float: none;
 		margin-left: auto;
 		margin-right: auto;
@@ -311,6 +311,9 @@ Let's also shrink the body font size a little.
 	body {
 		font-size: 18px;
 	}
+}
+
+@media all and (max-width: 549px) {
 	/*home page layout, remove columns*/
 	.leftside {
 		display: block;
