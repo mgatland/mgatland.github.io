@@ -296,6 +296,10 @@ code {
 	font-size: 18px; /*so 80 characters fit on a line*/
 }
 
+.onlynarrow {
+	display: none;
+}
+
 /*huge headings must shrink on narrow screens,
 or the long words don't fit on the screen! 
 
@@ -310,6 +314,9 @@ Let's also shrink the body font size a little.
 	}
 	body {
 		font-size: 18px;
+	}
+	.onlynarrow {
+		display: inherit;
 	}
 }
 
