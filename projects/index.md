@@ -9,9 +9,9 @@ layout: normal
 
 ![Pop-Up Arcade](/images/pop-up-arcade.jpg){:.w640}
 
-Smooshing digital games into the local community.
+Sharing digital games with the local community.
 
-Most DIY videogames are only shared online. Our arcade gives these games a place in the real world.
+Most DIY videogames are only distributed online. Our arcade gives these games a place in the real world.
 
 We paint old computers, put games on them, and take them to festivals.
 
@@ -60,5 +60,5 @@ The Deadline Club isn't running any more but it was pretty cool.
 
 <h3>More info</h3>
 
-You can find me on [twitter](http://twitter.com/mgatland) and [GitHub](http://www.github.com/mgatland) or read my [journal](/journal/).
+You can find me on [twitter](http://twitter.com/mgatland) and [GitHub](http://www.github.com/mgatland), or email me: <support@matthewgatland.com>
 
