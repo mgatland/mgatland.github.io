@@ -198,13 +198,14 @@ hr {
 .button h2 {
 	font-size: 24px;
 	line-height: 26px;
-	margin-top: 15px;
+	margin-top: 0px;
 	margin-bottom: 0px;
 }
 
 .button img {
 	width: 210px;
 	height: 210px; /*must override in situations where image resizes*/
+	margin-bottom: 10px;
 }
 
 /*links on huge buttons.*/
