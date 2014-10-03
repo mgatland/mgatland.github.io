@@ -15,7 +15,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 		Util.extend(this, new Entity(new Pos(x, y), new Pos(10, 10)));
 		this.isEnd = true;
 		this.ignoreShots = true;
-		this.update = function () {}
+		this.update = function (gs) {}
 		this.draw = function (painter) {
 			painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, Dir.LEFT, endSprites[0], Colors.good);
 		};
@@ -40,170 +40,21 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 		this.fromData = function () {/*not replicated*/};
 	}
 
-	var walkerSprites = Sprites.loadFramesFromData(SpriteData.walker);
-	var walkerAnims = {
-		walk: {frames: [0,1], delay: 5},
-		stunned: {frames: [2], delay: 999},
-		run: {frames: [2, 3, 4, 5], delay: 3}
-	};
+	var springSprites = Sprites.loadFramesFromData(SpriteData.spring);
+	var Spring = function (level, x, y) {
+		Util.extend(this, new Entity(new Pos(x, y), new Pos(8, 3)));
 
-	var WalkMonster = function (level, x, y) {
-		var _this = this;
+		this.isSpring = true;
+		this.ignoreShots = true;
+		this.pos.moveXY(10-this.size.x, 10-this.size.y);
 
-		//constants
-		var initialHealth = 5;
-		var moveDelay = 5;
-		var fastMoveDelay = 0;
-		var maxAggro = 30;
-		var stunDuration = 20;
-
-		//state
-		var moveTimer = 0;
-		var aggro = 0; //includes stun time as well
-
-		var onHit = function (collisions) {
-			if (aggro === 0) {
-				aggro = maxAggro + stunDuration;
-				_this.startAnimation("stunned");
-			} else {
-				aggro = Math.max(aggro, maxAggro);
-			}
+		this.update = function () {
 		}
-
-		var ai = function () {
-			_this.tryMove(0,1); //gravity
-
-			if (aggro > 0) {
-				aggro--;
-				if (aggro === maxAggro) {
-					_this.startAnimation("run");
-					moveTimer = 0; //sync with animation
-				}
-				if (aggro === 0) {
-					_this.startAnimation("walk");
-					moveTimer = 0; //sync with animation
-				}
-			}
-
-			if (aggro > maxAggro) {
-				//I'm so angry I can't move.
-				return;
-			}
-			var delay = aggro > 0 ? fastMoveDelay : moveDelay
-			if (moveTimer >= delay) {
-				moveTimer = 0;
-				var couldWalk = _this.tryMove(_this.dir.x,0);
-				if (couldWalk === false) {
-					_this.dir = _this.dir.reverse;
-				} else if (_this.isAtCliff(_this.dir, 2)) {
-					_this.dir = _this.dir.reverse;
-				}
-			} else {
-				moveTimer++;
-			}
-		}
-
-		this.toData = function () {
-			var data = this.monsterToData();
-			data.moveTimer = moveTimer;
-			data.aggro = aggro;
-			return data;
-		}
-
-		this.fromData = function (data) {
-			this.monsterFromData(data);
-			moveTimer = data.moveTimer;
-			aggro = data.aggro;
-		}
-
-		Util.extend(this, new Monster(level, x, y, 9, 9, walkerSprites, walkerAnims, ai, initialHealth, onHit));
-		this.startAnimation("walk");
-	}
-
-	var shooterSprites = Sprites.loadFramesFromData(SpriteData.shooter);
-	var shooterAnims = {
-		walk: {frames: [0, 1, 2, 3], delay: 5}, 
-		shoot: {frames: [4, 5, 6, 7, 8], delay: 60/5} //refireDelay / frames.length
-	};
-
-	var ShootMonster = function (level, x, y) {
-		var _this = this;
-		//constants
-		var maxWalkingTime = 90;
-		var maxShotsInARow = 5;
-		var moveDelay = 5;
-		var refireDelay = 60;
-
-		//state TODO: Replicate
-		var refireTimer = refireDelay;
-		var action = "shooting";
-		var moveTimer = 0;
-		var shotsInARow = 0;
-		var walkingTime = 0;
-
-		var ai = function () {
-			_this.tryMove(0,1); //gravity
-
-			if (action === "walking") {
-				if (moveTimer === 0) {
-					moveTimer = moveDelay;
-					var couldWalk = _this.tryMove(_this.dir.x,0);
-					if (couldWalk === false) {
-						_this.dir = _this.dir.reverse;
-					} else if (_this.isAtCliff(_this.dir, 2)) {
-						_this.dir = _this.dir.reverse;
-					}
-				} else {
-					moveTimer--;
-				}
-				walkingTime++;
-				if (walkingTime > maxWalkingTime) {
-					action = "shooting";
-					refireTimer = refireDelay;
-					shotsInARow = 0;
-					_this.startAnimation("shoot");
-				}
-			}
-
-			if (action === "shooting") {
-				if (refireTimer === 0) {
-					Events.shoot(new Shot(level, _this.pos.clone().moveXY(0, _this.size.x/2), _this.dir, "monster"));
-					Events.playSound("mshoot", _this.pos.clone());
-					refireTimer = refireDelay;
-					shotsInARow++;
-					_this.startAnimation("shoot"); //force animation to stay in sync with actual firing.
-					if (shotsInARow === maxShotsInARow) {
-						action = "walking";
-						walkingTime = 0;
-						_this.startAnimation("walk");
-					}
-				} else {
-					refireTimer--;
-				}
-			}
-		}
-
-		this.toData = function () {
-			var data = this.monsterToData();
-			data.refireTimer = refireTimer;
-			data.action = action;
-			data.walkingTime = walkingTime;
-			data.shotsInARow = shotsInARow;
-			data.moveTimer = moveTimer;
-			return data;
-		}
-
-		this.fromData = function (data) {
-			this.monsterFromData(data);
-			refireTimer = data.refireTimer;
-			action = data.action;
-			walkingTime = data.walkingTime;
-			shotsInARow = data.shotsInARow;
-			moveTimer = data.moveTimer;
-		}
-
-		Util.extend(this, new Monster(level, x, y, 7, 9, shooterSprites, shooterAnims, ai, 1));
-		this.startAnimation("shoot");
+		this.draw = function (painter) {
+			painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, Dir.RIGHT, springSprites[0], Colors.good);
+		};
+		this.toData = function () { return null};
+		this.fromData = function () {/*not replicated*/};
 	}
 
 	var Monster = function (level, x, y, width, height, sprites, anims, ai, health, onHit) {
@@ -274,7 +125,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 			animDelay = 0;
 		}
 
-		this.update = function () {
+		this.update = function (gs) {
 			if (this.live === false) {
 				if (deadTime < maxDeadTime) deadTime++;
 				return;
@@ -289,7 +140,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 				}
 			}
 
-			if (ai) ai();
+			if (ai) ai(gs);
 
 			if (this.collisions.length > 0) {
 				this.health--;
@@ -318,17 +169,14 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 		};
 	};
 
-	Monster.create1 = function (level, x, y) {
-		return new ShootMonster(level, x, y);
-	};
-	Monster.create2 = function (level, x, y) {
-		return new WalkMonster(level, x, y);
-	};
 	Monster.createCrate = function (level, x, y) {
 		return new Monster(level, x, y, 10, 10, crateSprites, crateAnims, null, 1);
 	};
 	Monster.createFlag = function (level, x, y) {
 		return new Flag(level, x, y);
+	};
+	Monster.createSpring = function (level, x, y) {
+		return new Spring(level, x, y);
 	};
 	Monster.createEnd = function (level, x, y) {
 		return new End(level, x, y);

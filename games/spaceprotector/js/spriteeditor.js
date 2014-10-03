@@ -105,7 +105,7 @@ require(["sprites", "keyboard"], function (Sprites, Keyboard) {
 
 
 	var start = function () {
-		var size = 12;
+		var size = 10;
 		var maxFrames = 12;
 		var pixels = new Pixels(size);
 		var frames = [];
@@ -152,7 +152,7 @@ require(["sprites", "keyboard"], function (Sprites, Keyboard) {
 		}
 
 		var save = function (frames) {
-			var data = "v1.0:";
+			var data = "v2.0:";
 			frames.forEach(function (frame) {
 				frame.forEach(function (val) {
 					data = data + val;
@@ -163,7 +163,8 @@ require(["sprites", "keyboard"], function (Sprites, Keyboard) {
 
 		window.setInterval(function () {
 			clear();
-
+			keyboard.preUpdate();
+			
 			var data = pixels.getData();
 			frames[currentFrame] = data.slice(); //inefficient
 			for (var frameN = 0; frameN < frames.length; frameN++) {
@@ -204,6 +205,17 @@ require(["sprites", "keyboard"], function (Sprites, Keyboard) {
 				console.log("Frame " + currentFrame);
 			}
 
+			if (keyboard.isKeyHit(KeyEvent.DOM_VK_F)) {
+				console.log("flip");
+				var newData = [];
+				for (var y = 0; y < size; y++) {
+					for (var x = 0; x < size; x++) {
+						newData[x+y*size] = data[size-x-1+y*size];
+					}
+				}
+				pixels.setData(newData);
+			}
+
 			if (keyboard.isKeyHit(KeyEvent.DOM_VK_EQUALS)) {
 				currentFrame++;
 				if (currentFrame === maxFrames) currentFrame = 0;
@@ -227,8 +239,7 @@ require(["sprites", "keyboard"], function (Sprites, Keyboard) {
 			if (keyboard.isKeyHit(KeyEvent.DOM_VK_S)) {
 				save(frames);
 			}
-
-			keyboard.update();	
+			keyboard.postUpdate();
 		}, 1000/60);
 	}
 

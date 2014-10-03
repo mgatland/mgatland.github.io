@@ -1,6 +1,6 @@
 "use strict";
-define(["monster", "player", "events", "colors"],
-	function (Monster, Player, Events, Colors) {
+define(["monster", "player", "events", "colors", "walkmonster", "shootmonster", "blockmonster", "wasp"],
+	function (Monster, Player, Events, Colors, WalkMonster, ShootMonster, BlockMonster, Wasp) {
 	var Level = function(mapData, tileSize) {
 		var level = this; //for use in private methods
 		var map = [];
@@ -62,22 +62,37 @@ define(["monster", "player", "events", "colors"],
 				}
 				n++;
 			}
-			spawnEntities();
+			level.spawnEntities();
 		}
 
-		var spawnEntities = function () {
+		this.spawnEntities = function (overridePSpawn) {
 			spawners.forEach(function (s) {
 				if (s.type==="p") {
-					Events.player(new Player(level, s.x*tileSize, s.y*tileSize));
+					if (overridePSpawn) {
+						Events.player(new Player(level, 
+							overridePSpawn.x,
+							overridePSpawn.y));	
+					} else {
+						Events.player(new Player(level, s.x*tileSize, s.y*tileSize));	
+					}
 				}
 				if (s.type==="m") {
-					Events.monster(Monster.create1(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new ShootMonster(level, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="k") {
-					Events.monster(Monster.create2(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new WalkMonster(level, s.x*tileSize, s.y*tileSize));
+				}
+				if (s.type==="b") {
+					Events.monster(new BlockMonster(level, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="x") {
 					Events.monster(Monster.createCrate(level, s.x*tileSize, s.y*tileSize));
+				}
+				if (s.type==="w") {
+					Events.monster(new Wasp(level, s.x*tileSize, s.y*tileSize));
+				}
+				if (s.type==="s") {
+					Events.monster(Monster.createSpring(level, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="!") {
 					Events.monster(Monster.createFlag(level, s.x*tileSize, s.y*tileSize));
@@ -121,7 +136,7 @@ define(["monster", "player", "events", "colors"],
 			if (map[y][x] === 0) return false;
 			return true;
 		}
-		this.draw = function(painter) {
+		this.draw = function(painter, editMode) {
 			var bounds = painter.screenBounds();
 			var minX = Math.floor(bounds.minX / tileSize);
 			var minY = Math.floor(bounds.minY / tileSize);
@@ -129,30 +144,98 @@ define(["monster", "player", "events", "colors"],
 			var maxY = Math.floor(bounds.maxY / tileSize);
 			for (var y = minY; y <= maxY; y++) {
 				for (var x = minX; x <= maxX; x++) {
-					if (map[y] && map[y][x] === 1) {
-						drawTile(x, y, painter);	
+					var value = -1;
+					if (map[y]) {
+						if (map[y][x] === 1) {
+							value = 1;
+						} else if (map[y][x] === 0) {
+							value = 0;
+						}
+					}
+					if (editMode) {
+						if (value === 1) {
+							drawTile(x, y, painter);
+							painter.drawRect(x*tileSize, y*tileSize, 
+								tileSize, tileSize, Colors.background);
+						}	else if (value === 0) {
+							painter.drawRect(x*tileSize+4, y*tileSize+4,
+								tileSize-8, tileSize-8, Colors.background);
+						}
+					} else {
+						if (value === 1) {
+							drawTile(x, y, painter);
+						}
 					}
 				}
 			}
 		}
 
-		//for editor only
+		//--- editor commands ---
 		this.setCell = function(x, y, value) {
+			if (x < 0) return;
+			if (y < 0) return;
 			if (!map[y]) {
 				map[y] = [];
 			}
 			map[y][x] = value;
+			
+			//fill in possible gaps
+			for (var checkY = 0; checkY < map.length; checkY++) {
+				if (map[checkY] === undefined) {
+					map[checkY] = [];
+				}
+			}
 		}
 
-		//for editor only
 		this.getSpawners = function () {
 			return spawners;
 		}
 
-		//for editor only
 		this.setSpawners = function (newSpawners) {
 			spawners = newSpawners;
 		}
+
+		this.eraseAll = function () {
+			map = [];
+			for (var i = 0; i < 20; i++) {
+				map[i] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+			}
+			this.setSpawners([]);
+			this.setCell(5,5,0);
+			this.setCell(6,5,0);
+			spawners.push({x:5, y:5, type:"p"});
+			spawners.push({x:6, y:5, type:"p"});
+		}
+
+		this.toString = function () {
+			var output = [];
+			//get blocks from map
+			for (var y = 0; y < map.length; y++) {
+				var row = map[y];
+				output[y] = [];
+				for (var x = 0; x < row.length; x++) {
+					if (map[y][x]===0) {
+						output[y][x] = " ";	
+					} else {
+						output[y][x] = "O";
+					}
+				}
+			}
+			//insert spawners
+			spawners.forEach(function (s) {
+				output[s.y][s.x] = s.type;
+			});
+			var string = "";
+			output.forEach(function (row) {
+				if (row.length > 0) {
+					var rowString = row.join("");
+					string += "\"" + rowString + "\\n\" +\n"
+				}
+			});
+			string += "\"\";";
+			return string;
+		}
+		//--- end of editor commands ---
 
 		loadMap(mapData);
 	};

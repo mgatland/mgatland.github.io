@@ -1,6 +1,6 @@
 "use strict";
-define(["keyboard", "touch", "painter", "leveleditor"], 
-	function (Keyboard, Touch, Painter, LevelEditor) {
+define(["keyboard", "touch", "painter", "leveleditor", "audio"], 
+	function (Keyboard, Touch, Painter, LevelEditor, audio) {
 
 	//Bridge links the game to the browser.
 	//It deals with browser-related functionality like when the page is resized.
@@ -15,6 +15,8 @@ define(["keyboard", "touch", "painter", "leveleditor"],
 		var thisSecond = null;
 		var framesThisSecond = 0;
 		var borderThickness = 4;
+
+		var limitScreenSize = false;
 
 		console.log("initGame");
 
@@ -38,9 +40,9 @@ define(["keyboard", "touch", "painter", "leveleditor"],
 			return new Keyboard(touch); 
 		};
 
-		this.createLevelEditor = function (camera) {
+		this.createLevelEditor = function (camera, Events, keyboard) {
 			var canvas = document.getElementById('gamescreen');
-			return new LevelEditor(camera, canvas, scale);
+			return new LevelEditor(camera, Events, keyboard, canvas, scale);
 		}
 
 		this.resetWorstStats = function () {
@@ -56,7 +58,8 @@ define(["keyboard", "touch", "painter", "leveleditor"],
 				var newWidth = window.innerWidth;
 				var newHeight = window.innerHeight;
 
-				if (newWidth > pixelWindow.width * scale + borderThickness * 2
+				if (limitScreenSize 
+					&& newWidth > pixelWindow.width * scale + borderThickness * 2
 					&& newHeight > pixelWindow.height * scale + borderThickness * 2) {
 					//We're on a large screen. Draw at proper size.
 					newWidth = pixelWindow.width * scale + borderThickness * 2;
@@ -72,6 +75,10 @@ define(["keyboard", "touch", "painter", "leveleditor"],
 					}
 					gameArea.style.height = newHeight + 'px';
 					gameArea.style.width = newWidth + 'px';
+
+					//hide the border
+					var canvas = document.getElementById('gamescreen');
+					canvas.style.borderColor = "black";
 				}
 
 				//Center
@@ -83,7 +90,6 @@ define(["keyboard", "touch", "painter", "leveleditor"],
 				var fontSize = Math.floor(fontScale*18/scale/3)*3; 
 				if (fontSize < 6) fontSize = 6;
 				htmlBody.style.fontSize = fontSize + "px";
-
 			}
 
 			var logUpdateTime = function (duration) {
@@ -149,6 +155,10 @@ define(["keyboard", "touch", "painter", "leveleditor"],
 			gameArea.classList.remove("hide");
 			requestAnimationFrame(tick);
 
+			var muteButton = document.getElementById('mute-button');
+			var unmuteButton = document.getElementById('unmute-button');
+			muteButton.addEventListener('click', audio.mute);
+			unmuteButton.addEventListener('click', audio.unmute);
 
 		    //iOS Safari 7.1 has a bug, in full screen mode it lets you
 		    //scroll past the end of the page. Rotating can trigger it.

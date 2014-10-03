@@ -1,11 +1,13 @@
+"use strict";
 define(["keyboard", "painter", "level", "sprites", "spritedata", "colors"],
 	function (Keyboard, Painter, Level, Sprites, SpriteData, Colors) {
 
-	var LevelEditor = function (camera, canvas, pixelSize) {
+	var LevelEditor = function (camera, Events, keyboard, canvas, pixelSize) {
 
 		var level = null;
 		var tileSize = 10;
 		var mouseDown = false;
+		var camTarget = camera.getTargetPos();
 
 		var brushNum = 0;
 		var brushes = [];
@@ -17,12 +19,20 @@ define(["keyboard", "painter", "level", "sprites", "spritedata", "colors"],
 		brushes.push({code:"x", spriteData: SpriteData.crate});
 		brushes.push({code:"!", spriteData: SpriteData.flag});
 		brushes.push({code:"@", spriteData: SpriteData.end});
+		brushes.push({code:"b", spriteData: SpriteData.blockMonster});
+		brushes.push({code:"w", spriteData: SpriteData.wasp});
+		brushes.push({code:"s", spriteData: SpriteData.spring});
 
 		brushes.forEach(function (brush) {
 			if (brush.spriteData) {
 				brush.sprite = Sprites.loadFramesFromData(brush.spriteData)[0];
 			}
 		});
+
+		function setBrushNum (n) {
+			brushNum = n % brushes.length;
+			if (brushNum < 0) brushNum = brushes.length - 1;
+		}
 
 		function updateBrush (n) {
 			brushNum = (brushNum + n) % brushes.length;
@@ -46,6 +56,13 @@ define(["keyboard", "painter", "level", "sprites", "spritedata", "colors"],
 		    }	  
 		  } while(obj = obj.offsetParent );
 		  return {left: offsetLeft, top: offsetTop};
+		}
+
+		function getCanvasPosFromScreenPos(screenX, screenY) {
+			var canvasOffset = getDomElementOffset(canvas);
+			var x = Math.floor((screenX - canvasOffset.left) / pixelSize);
+			var y = Math.floor((screenY - canvasOffset.top) / pixelSize);
+			return {x:x, y:y};
 		}
 
 		function getMapPosFromScreenPos(screenX, screenY) {
@@ -73,24 +90,23 @@ define(["keyboard", "painter", "level", "sprites", "spritedata", "colors"],
 
 			console.log("spawner count: " + level.getSpawners().length);
 
-			/*lines = mapData.split("\n");
-
-			while (lines.length <= y) {
-				lines.push("");
-			}
-
-			if (lines[y] !== undefined) {
-				if (lines[y].length <= x) {
-					lines[y] = lines[y] + new Array(x-lines[y].length+1).join(" ");
-				}
-				lines[y] = lines[y].slice(0, x) + value + lines[y].slice(x+1);
-				mapData = lines.join("\n");
-				level = new Level(mapData, tileSize);
-			}*/
 		}
 
 		var paintAtEvent = function (event) {
 			event.preventDefault();
+
+			var screenPos = getCanvasPosFromScreenPos(event.clientX, event.clientY);
+
+			//are we clicking on the UI buttons?
+			if (screenPos.y < tileSize && mouseDown) {
+				//-1 for an off-by-one error, which we should really fix
+				//elsewhere as it probs affects every click and touch as well
+				var brushNum = Math.floor((screenPos.x - 1) / tileSize);
+				setBrushNum(brushNum);
+				return;
+			}
+
+			//otherwise, paint on the map
 
 			if (!mouseDown && !event.shiftKey) {
 				return;
@@ -116,17 +132,48 @@ define(["keyboard", "painter", "level", "sprites", "spritedata", "colors"],
 			level = newLevel;
 		}
 
-		this.update = function (keyboard) {
+		this.activated = function () {
+			camTarget = camera.getTargetPos();
+		}
+
+		this.deactivated = function () {
+			Events.restart();
+		}
+
+		this.update = function (keys) {
+			//ignore keys, use the more powerful keyboard
 			if (keyboard.isKeyHit(KeyEvent.DOM_VK_A)) {
 				updateBrush(-1);
 			}
 			if (keyboard.isKeyHit(KeyEvent.DOM_VK_D)) {
 				updateBrush(1);
 			}
+			if (keyboard.isKeyHit(KeyEvent.DOM_VK_S)) {
+				console.log(level.toString());
+			}
+
+			if (keyboard.isKeyHit(KeyEvent.DOM_VK_R)) {
+				level.eraseAll();
+			}
+
+			if (keyboard.isKeyDown(KeyEvent.DOM_VK_UP)) {
+				camTarget.y -= 5;
+			}
+			if (keyboard.isKeyDown(KeyEvent.DOM_VK_DOWN)) {
+				camTarget.y += 5;
+			}
+			if (keyboard.isKeyDown(KeyEvent.DOM_VK_LEFT)) {
+				camTarget.x -= 5;
+			}
+			if (keyboard.isKeyDown(KeyEvent.DOM_VK_RIGHT)) {
+				camTarget.x += 5;
+			}
+			camera.jumpTo(camTarget.x, camTarget.y);
 		}
 
 		this.draw = function (painter) {
 			if (!level) return;
+			level.draw(painter, true);
 			var spawners = level.getSpawners();
 			spawners.forEach(function (s) {
 				brushes.forEach(function (b) {
@@ -139,92 +186,22 @@ define(["keyboard", "painter", "level", "sprites", "spritedata", "colors"],
 				});
 			});
 
-			var brush = getBrush();
-			if (brush.sprite) {
-				painter.drawSprite2(0, 0, 12, null, 
-					brush.sprite, Colors.highlight, true);
-			} else if (brush.code === 0) {
-				painter.drawAbsRect(0, 0, 12, 12, Colors.highlight, 1);
-			} else if (brush.code === 1) {
-				painter.drawAbsRect(0, 0, 12, 12, Colors.highlight);
+			for (var i = 0; i < brushes.length; i++) {
+				var brush = brushes[i];
+				var color = (i === brushNum) ? Colors.highlight : Colors.good;
+				if (brush.sprite) {
+					painter.drawSprite2(i*tileSize, 0, 12, null, 
+						brush.sprite, color, true);
+				} else if (brush.code === 0) {
+					painter.drawAbsRect(i*tileSize, 0, 10, 10, color, 1);
+				} else if (brush.code === 1) {
+					painter.drawAbsRect(i*tileSize, 0, 10, 10, color);
+				}
 			}
 		}
-
 		updateBrush(0);
 	};
 
 	return LevelEditor;
 
-/*	mapData =
-		"OOOOO\n" +
-		"O   O\n" +
-		"O O O\n" +
-		"O   O\n" +
-		"OOOOO\n" +
-		"";
-
-	var level = new Level(mapData, tileSize);
-	var showCells = true;
-
-	var tick = function() {
-		if (keyboard.isKeyDown(KeyEvent.DOM_VK_LEFT)) cameraPos.x--;
-		if (keyboard.isKeyDown(KeyEvent.DOM_VK_RIGHT)) cameraPos.x++;
-		if (keyboard.isKeyDown(KeyEvent.DOM_VK_UP)) cameraPos.y--;
-		if (keyboard.isKeyDown(KeyEvent.DOM_VK_DOWN)) cameraPos.y++;
-
-		if (keyboard.isKeyHit(KeyEvent.DOM_VK_L)) {
-			loadMap();
-		}
-
-		if (keyboard.isKeyHit(KeyEvent.DOM_VK_S)) {
-			saveMap(mapData);
-		}
-
-		if (keyboard.isKeyHit(KeyEvent.DOM_VK_P)) showCells = !showCells;
-
-		var x = 0;
-		var y = 0;
-		for (var i = 0; i < mapData.length; i++) {
-			var c = mapData[i];
-			if (c === "\n") {
-				y++;
-				x = 0;
-			} else {
-				//find the appropriate brush
-				brushes.forEach(function (b) {
-					if (b.code === c && b.sprite) {
-					painter.drawSprite2(
-						x*tileSize,
-						y*tileSize,
-						12, null, b.sprite, Colors.good);
-					}
-				});
-				if (showCells && c === "O") {
-					painter.drawRect(x * tileSize, y * tileSize,
-						tileSize, tileSize, Colors.background);
-				}
-				x++;
-			}
-		}
-	}
-
-	function loadMap () {
-		var data = prompt("Enter map data: ");
-		if (data) {
-			mapData = data.replace(/\\n/g, "\n");
-			console.log(mapData + " loaded");
-			level = new Level(mapData, tileSize);
-		} else {
-			alert("Invalid data string.");
-		}
-	}
-
-	function saveMap () {
-		console.log(mapData + " saved");
-		setOutput(mapData.replace(/\n/g, "\\n"));
-	}
-
-	function setOutput(text) {
-		document.querySelector('.output').innerHTML = text;
-	}*/
 });

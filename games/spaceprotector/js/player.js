@@ -30,6 +30,8 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 		var timeSinceLastShot = 0;
 
 		var jumpIsQueued = false;
+		var isSpringed = false;
+		var respawnGlow = 0;
 
 		this.toData = function () {
 			var data = {};
@@ -50,6 +52,8 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			data.shootingAnim = shootingAnim;
 			data.timeSinceLastShot = timeSinceLastShot;
 			data.jumpIsQueued = jumpIsQueued;
+			data.isSpringed = isSpringed;
+			data.respawnGlow = respawnGlow;
 
 			WalkingThing.toData(this, data);
 			return data;
@@ -73,6 +77,8 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			shootingAnim = data.shootingAnim;
 			timeSinceLastShot = data.timeSinceLastShot;
 			jumpIsQueued = data.jumpIsQueued;
+			isSpringed = data.isSpringed;
+			respawnGlow = data.respawnGlow;
 
 			WalkingThing.fromData(this, data);
 		}
@@ -98,6 +104,8 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 				this.update = function (jumpIsHeld) {
 					animState = "jumping";
 					var phase = phases[this.jumpPhase];
+
+					if (isSpringed) jumpIsHeld = true; //forced by a spring.
 
 					var speed = phase.ySpeed;
 					var spaceAboveMe = this.tryMove(0, speed);
@@ -137,12 +145,11 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			grounded: new function () {
 				this.preupdate = function () {
 					if (jumpIsQueued) {
-						this.state = "jumping";
-						this.jumpTime = 0;
-						this.jumpPhase = 1;
+						beginJumpState();
 						jumpIsQueued = false;
 						Events.playSound("jump", this.pos.clone());
 					}
+					if (isSpringed) isSpringed = false;
 				};
 				this.update = function () {
 					if (!this.isOnGround()) {
@@ -173,10 +180,11 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 				console.log("Error animation state " + animState);
 			}
 			if (shootingAnim && frame === 0) frame = 6;
+			var color = respawnGlow > 0 ? Colors.highlight : Colors.good;
 			var img = playerSprites[frame];
 			if (this.live) {
 				painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, 
-					this.dir, img, Colors.good);
+					this.dir, img, color);
 			} else {
 				var decay = (maxDeadTime - deadTimer) / maxDeadTime;
 				painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, 
@@ -196,6 +204,12 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			Events.playSound("pshoot", this.pos.clone());
 		}
 
+		function beginJumpState() {
+			_this.state = "jumping";
+			_this.jumpTime = 0;
+			_this.jumpPhase = 1;
+		}
+
 		this.update = function (keys) {
 			
 			if (this.hidden) return;
@@ -205,20 +219,31 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 					this.live = true;
 					this.pos = spawnPoint.clone();
 					this.state = "falling";
+					isSpringed = false;
+					respawnGlow = 5;
 				} else {
 					deadTimer--;
 				}
 				return;
 			}
 
+			if (respawnGlow > 0) {
+				respawnGlow--;
+			}
+
 			this.collisions.forEach(function (other) {
 				if (_this.live === false) return; //so we can't die twice in this loop
 				if (other.killPlayerOnTouch) {
-					_this.live = false;
-					deadTimer = maxDeadTime;
-					hitPos = other.pos.clone().clampWithin(_this.pos, _this.size);
-					deaths++;
-					Events.playSound("pdead", null);
+					if (respawnGlow > 0) {
+						//A hack to hurt the monster. fixme use a hurt method
+						other.collisions.push(_this);
+					} else {
+						_this.live = false;
+						deadTimer = maxDeadTime;
+						hitPos = other.pos.clone().clampWithin(_this.pos, _this.size);
+						deaths++;
+						Events.playSound("pdead", null);
+					}
 				}
 				if (other.isCheckpoint && other !== currentCheckpoint) {
 					if (currentCheckpoint) currentCheckpoint.selected = false;
@@ -226,6 +251,11 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 					currentCheckpoint = other;
 					currentCheckpoint.selected = true;
 					Events.playSound("checkpoint", _this.pos.clone());
+				}
+				if (other.isSpring && !isSpringed) {
+					isSpringed = true;
+					Events.playSound("spring", _this.pos.clone());
+					beginJumpState();
 				}
 				if (other.isEnd) {
 					Events.winLevel();
@@ -260,6 +290,10 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 				this.dir = Dir.RIGHT;
 				movingDir = Dir.RIGHT;
 				this.tryMove(1,0);
+			}
+			if (isSpringed) {
+				var unblocked = this.tryMove(2,0);
+				if (!unblocked) isSpringed = false;
 			}
 
 			//If you hit jump and hold it down, that hit gets queued.
