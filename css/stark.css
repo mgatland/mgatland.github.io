@@ -9,7 +9,7 @@ and Dave Perrett ( http://www.daveperrett.com/ )
 body {
 	font-size: 24px;
 	font-family: Tahoma, Verdana, Segoe, sans-serif;
-	color: #000;
+	color: #382B45; /*almost black*/
 	line-height: 1.8;
 	margin: 0;
 }
@@ -19,7 +19,7 @@ body {
 .bar {
 	display: block;
 	width: 100%;
-	background-color: rgb(54, 33, 9);
+	background-color: #4D547C;
 	text-align: right;
 	color: white;
 }
@@ -30,6 +30,7 @@ body {
 	margin-left: 80px;
 	margin-right: 80px;
 	padding-top: 15px;
+
 }
 
 nav {
@@ -50,10 +51,15 @@ nav a {
 	color: white;
 	display: inline-block;
 	font-size: 20px;
+	line-height: 24px;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding: 5px;
 	text-transform: uppercase;
+}
+
+nav a:hover, nav a:active {
+	color: #FFC595;
 }
 
 /*headers*/
@@ -297,14 +303,12 @@ code {
 	font-size: 18px; /*so 80 characters fit on a line*/
 }
 
-.onlynarrow {
-	display: none;
-}
-
 /*huge headings must shrink on narrow screens,
 or the long words don't fit on the screen! 
 
 Let's also shrink the body font size a little.
+
+Also shrink navbar and introduce line-break in the links
 */
 @media all and (max-width: 499px){
 	.homepage h1 {
@@ -316,8 +320,11 @@ Let's also shrink the body font size a little.
 	body {
 		font-size: 18px;
 	}
-	.onlynarrow {
-		display: inherit;
+
+	/*navbar*/
+	nav a {
+		font-size: 14px;
+		margin: 0px;
 	}
 }
 
