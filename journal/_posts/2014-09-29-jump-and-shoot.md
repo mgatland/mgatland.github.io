@@ -8,7 +8,7 @@ I showed Space Protector Digital Nationz yesterday. Here's me trying to look app
 
 I gave players a gamepad which worked like this:
 
-![D-pad moves left and right, X jumps, Square shoots. Those are the only actions.](/journal/images/2014-09-29-space-protector-gamepad.png)
+![D-pad moves left and right, X jumps, Square shoots. Those are the only actions.](/journal/images/2014-09-29-space-protector-gamepad.jpg)
 
 I didn't tell people what the controls were. To my immense surprise, _many players never realised that you can shoot_.
 
