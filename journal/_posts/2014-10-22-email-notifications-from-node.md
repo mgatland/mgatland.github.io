@@ -2,9 +2,9 @@
 title: Email Notifications from Node
 ---
 
-Last night, I set up notifications so I'd know whenever someone logged into [Let's Be Ducks](www.matthewgatland.com/games/ducks/). It's a Node application hosted by AppFog.
+I wanted to be notified whenever someone logged into [Let's Be Ducks.](www.matthewgatland.com/games/ducks/) Ducks is a Node application hosted by AppFog.
 
-I looked into Twitter first, but after reading the twitter API docs, email just seemed a bit easier. Using [emailjs](https://github.com/eleith/emailjs) and Gmail, I had notifications working in less than an hour.
+I looked into Twitter first, but after reading the twitter API docs, email seemed a bit easier. Using [emailjs](https://github.com/eleith/emailjs) and Gmail, I had everything working in less than an hour.
 
 Step one: Create a Gmail account.
 
@@ -25,7 +25,7 @@ Step four: Add this code to the server:
 
     var mailserver  = email.server.connect({
        user:    "ducksalerts@gmail.com", 
-       password: "matthewrulz", 
+       password: process.env.emailpassword, 
        host:    "smtp.gmail.com", 
        ssl:     true
     });
@@ -37,16 +37,17 @@ Step four: Add this code to the server:
            to:      "support@matthewgatland.com",
            subject: "ducks"
         }, function(err, message) { console.log(err || message); });  
-    }
+    };
 
     sendEmail("Testing the email system.");
 {% endhighlight %}
 
-It's now working. If I start the server, I receive a test email.
+The password is set through an environment variable. In AppFog, there is a UI to configure these.
 
-There were three more little steps, to tidy it up:
+At this point, the app will send me emails.
 
-* Remove my password from the code. Instead, I created an environment variable in the AppFog UI, which I can access in JavaScript as `process.env.emailpassword`
+After that, I just had to configure my mailbox:
+
 * Make a Gmail filter to put a "notifyme" label on emails from Ducks Alerts
 * Configure Gmail on my phone to pop up a notification for email with the "notifyme" label.
 
