@@ -36,58 +36,58 @@ All the messages are sent in JSON, which is a beautiful but inefficient format.
 
 Here's the entire 401-byte player update:
 
-````
-{ "args" : [ { "player" : { 
-            "animDelay" : 0,
-            "animFrame" : 3,
-            "animState" : "standing",
-            "block" : 0,
-            "deadTimer" : 0,
-            "dir" : 2,
-            "fallingTime" : 0,
-            "groundedY" : 94,
-            "hitPos" : null,
-            "id" : 1,
-            "jumpIsQueued" : false,
-            "live" : true,
-            "loading" : 0,
-            "name" : "beta",
-            "pos" : { "x" : 79,
-                "y" : 94
+{% highlight js %}
+    { "args" : [ { "player" : { 
+                "animDelay" : 0,
+                "animFrame" : 3,
+                "animState" : "standing",
+                "block" : 0,
+                "deadTimer" : 0,
+                "dir" : 2,
+                "fallingTime" : 0,
+                "groundedY" : 94,
+                "hitPos" : null,
+                "id" : 1,
+                "jumpIsQueued" : false,
+                "live" : true,
+                "loading" : 0,
+                "name" : "beta",
+                "pos" : { "x" : 79,
+                    "y" : 94
+                  },
+                "shootingAnim" : false,
+                "shotThisFrame" : false,
+                "size" : { "x" : 5,
+                    "y" : 6
+                  },
+                "spawnPoint" : { "x" : 30,
+                    "y" : 90
+                  },
+                "state" : "grounded",
+                "timeSinceLastShot" : 221,
+                "vDir" : -1
               },
-            "shootingAnim" : false,
-            "shotThisFrame" : false,
-            "size" : { "x" : 5,
-                "y" : 6
-              },
-            "spawnPoint" : { "x" : 30,
-                "y" : 90
-              },
-            "state" : "grounded",
-            "timeSinceLastShot" : 221,
-            "vDir" : -1
-          },
-        "type" : "p"
-      } ],
-  "name" : "data"
-}
-````
+            "type" : "p"
+          } ],
+      "name" : "data"
+    }
+{% endhighlight %}
 
-Most of this message is the labels, not the data. For example, ````"animDelay" : 0```` uses 11 bytes for the label and only 1 byte for the value.
+Most of this message is the labels, not the data. For example, `"animDelay" : 0` uses 11 bytes for the label and only 1 byte for the value.
 
 Since we send the same values every time, we could remove the labels and use an array of values instead. We just remember the order: the first value is animDelay, the second value is animFrame, and so on.
 
 If we did that, the message would look like this:
 
-````
-{ "args" : [ { "player" : [0,3,"standing",0,0,2,0,94
-		,null,1,false,true,0,"beta",79,94,false,false,
-		5,630,90,"grounded",221,-1],
-        "type" : "p"
-      } ],
-  "name" : "data"
-}
-````
+{% highlight js %}
+    { "args" : [ { "player" : [0,3,"standing",0,0,2,0,94
+        ,null,1,false,true,0,"beta",79,94,false,false,
+        5,630,90,"grounded",221,-1],
+            "type" : "p"
+          } ],
+      "name" : "data"
+    }
+{% endhighlight %}
 
 This is now only 146 bytes -- 36% of the original. That's pretty awesome, and it's easy to do.
 
@@ -111,9 +111,9 @@ The first line shows the binary. (It seems to have grown a byte for some reason 
 
 Unfortunately, the JSON wrapper now gets a "_placeholder" object which is 29 bytes long. The placeholder is almost as big as the actual data!
 
-````
-["data",{"type":"p","id":1,"name":"bbb","player":{"_placeholder":true,"num":0}}]
-````
+{% highlight js %}
+    ["data",{"type":"p","id":1,"name":"bbb","player":{"_placeholder":true,"num":0}}]
+{% endhighlight %}
 
 The whole message was 115 bytes, which is only 29% as big as our original message. (It's 79% of our improved JSON-without-labels message).
 
@@ -139,10 +139,10 @@ A quick solution is to Base64-encode the binary data. This turns it into a strin
 
 The resulting message would look like this:
 
-````
-["data",{"type":"p","id":1,"name":"bbb",
-    "player":"AwAAAgAAA/8AXgAeAFoAAAAAAAADAAIAHgAeAF4ABQAGAAE="}]
-````
+{% highlight js %}
+    ["data",{"type":"p","id":1,"name":"bbb",
+        "player":"AwAAAgAAA/8AXgAeAFoAAAAAAAADAAIAHgAeAF4ABQAGAAE="}]
+{% endhighlight %}
 
 The binary data becomes 12 bytes larger, but we lose 29 bytes of placeholder so the total data sent is smaller.
 
