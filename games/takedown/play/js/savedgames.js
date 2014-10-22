@@ -1,4 +1,4 @@
-var SavedGames = function () {
+var SavedGames = function (defaultHealth) {
 
 	var supports_html5_storage = function () {
 	  try {
@@ -12,7 +12,7 @@ var SavedGames = function () {
 		this.level = 1;
 		this.flags = [];
 		this.notesCollected = [];
-		this.playerHealth = playerType.health;
+		this.playerHealth = defaultHealth;
 	}
 
 	this.newGame = function () {

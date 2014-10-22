@@ -1,4 +1,4 @@
-var Scripting = function () {
+var Scripting = function (Pos) {
 	var triggers = [];
 	var timers = [];
 	var flags;
@@ -274,4 +274,9 @@ var Scripting = function () {
 		updateTimers();
 		checkAllTriggers("tick", world);
 	}
+
+	var toInt = function (string) {
+	  return parseInt(string, 10);
+	}
+
 }

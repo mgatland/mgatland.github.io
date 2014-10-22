@@ -56,7 +56,7 @@ var toInt = function (string) {
   return parseInt(string, 10);
 }
 
-function CampaignLoader() {
+function CampaignLoader(World, createGrid, Pos) {
 
   var lines = [];
 
