@@ -3,10 +3,10 @@ define(["sprites", "spritedata", "util", "monster", "pos", "events"],
 	function (Sprites, SpriteData, Util, Monster, Pos, Events) {
 	var sprites = Sprites.loadFramesFromData(SpriteData.blockMonster);
 	var anims = {
-		idle: {frames: [0,1], delay: 60},
-		moving: {frames: [2], delay: 0},
-		recovering: {frames: [3], delay: 0},
-		preparing: {frames: [4], delay: 0},
+		idle: {frames: [0], delay: 0},
+		moving: {frames: [1], delay: 0},
+		recovering: {frames: [2], delay: 0},
+		preparing: {frames: [2], delay: 0},
 	};
 
 	var BlockMonster = function (level, x, y) {
