@@ -2,7 +2,7 @@
 title: Jump and Shoot
 ---
 
-I showed Space Protector Digital Nationz yesterday. Here's me trying to look approachable:
+I showed Space Protector at Digital Nationz yesterday. Here's me trying to look approachable:
 
 ![my Space Protector booth at Digital Nationz](/journal/images/2014-09-28-matthew-at-digital-nationz.jpg)
 
