@@ -2,10 +2,14 @@
 	/*font by Anna Anthropy*/
     font-family: 'Star Perv';
     src: url('StarPerv.ttf');
+	
 }
 
 html {
 	background-color: black;
+	/*cursor:none; 
+	used when exhibiting on my laptop, because closing the lid
+	moves the cursor to the center of the screen*/
 }
 
 body {

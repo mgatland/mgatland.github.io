@@ -1,6 +1,6 @@
 "use strict";
-define(["keyboard", "touch", "painter", "leveleditor", "audio"], 
-	function (Keyboard, Touch, Painter, LevelEditor, audio) {
+define(["keyboard", "touch", "painter", "leveleditor", "audio", "sprites"], 
+	function (Keyboard, Touch, Painter, LevelEditor, audio, Sprites) {
 
 	//Bridge links the game to the browser.
 	//It deals with browser-related functionality like when the page is resized.
@@ -20,6 +20,7 @@ define(["keyboard", "touch", "painter", "leveleditor", "audio"],
 
 		var limitScreenSize = false;
 
+		var debugDrawTimes = false;
 
 		var canvas = document.getElementById('gamescreen');
 
@@ -81,6 +82,7 @@ define(["keyboard", "touch", "painter", "leveleditor", "audio"],
 				htmlBody.style.fontSize = fontSize + "px";
 
 				painter.resize(scale);
+				Sprites.resize(scale);
 			}
 
 			var logUpdateTime = function (duration) {
@@ -90,7 +92,21 @@ define(["keyboard", "touch", "painter", "leveleditor", "audio"],
 				}
 			}
 
+			var drawTimes = [];
+			var drawTimeI = 0;
+			var drawSampleSize = 180;
 			var logDrawTime = function (duration) {
+				
+				if (debugDrawTimes) {
+					drawTimes[drawTimeI] = duration;
+					drawTimeI++;
+					if (drawTimeI === drawSampleSize) {
+						console.log("Avg draw: " + 
+							drawTimes.reduce(function(a, b) {return a + b;}) / drawSampleSize);
+						drawTimeI = 0;
+					}					
+				}
+
 				if (duration > worstDrawTime) {
 					worstDrawTime = duration;
 					console.log("Slowest draw: " + worstDrawTime + " ms");
