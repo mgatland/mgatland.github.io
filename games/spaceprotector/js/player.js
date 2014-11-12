@@ -97,8 +97,8 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 
 			jumping: new function () {
 				var phases = [];
-				phases[1] = {ySpeed: -2, normalDuration: 3};
-				phases[2] = {ySpeed: -1, normalDuration: 5, jumpHeldDuration: 15};
+				phases[1] = {ySpeed: -2, normalDuration: 0, jumpHeldDuration: 3};
+				phases[2] = {ySpeed: -1, normalDuration: 0, jumpHeldDuration: 15};
 				phases[3] = {ySpeed: 0, normalDuration: 6};
 				this.preupdate = function () {};
 				this.update = function (jumpIsHeld) {
@@ -202,7 +202,11 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 		}
 
 		this._shoot = function () {
-			Events.shoot(new Shot(level, this.pos.clone(), this.dir, "player"));
+			var pos = this.pos.clone();
+			if (animState === "standing") {
+				pos.moveXY(0, 1);
+			}
+			Events.shoot(new Shot(level, pos, this.dir, "player"));
 			Events.playSound("pshoot", this.pos.clone());
 		}
 
@@ -210,6 +214,26 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			_this.state = "jumping";
 			_this.jumpTime = 0;
 			_this.jumpPhase = 1;
+		}
+
+		var updateShooting = function(keys) {
+			if (_this.loading > 0) _this.loading--;
+
+			if (keys.shootHit || keys.shoot && _this.loading === 0) {
+				_this.loading = _this.refireRate;
+				_this._shoot();
+				_this.shotThisFrame = true;
+			} else {
+				_this.shotThisFrame = false;
+			}
+
+			if (keys.shoot) {
+				shootingAnim = true;
+				timeSinceLastShot = 0;
+			} else {
+				timeSinceLastShot++;
+				if (timeSinceLastShot > 30) shootingAnim = false;
+			}
 		}
 
 		this.update = function (keys) {
@@ -265,24 +289,6 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			});
 			this.collisions.length = 0;
 
-			if (this.loading > 0) this.loading--;
-
-			if (keys.shootHit || keys.shoot && this.loading === 0) {
-				this.loading = this.refireRate;
-				this._shoot();
-				this.shotThisFrame = true;
-			} else {
-				this.shotThisFrame = false;
-			}
-
-			if (keys.shoot) {
-				shootingAnim = true;
-				timeSinceLastShot = 0;
-			} else {
-				timeSinceLastShot++;
-				if (timeSinceLastShot > 30) shootingAnim = false;
-			}
-
 			var movingDir = null;
 			if (keys.left && !keys.right) {
 				this.dir = Dir.LEFT;
@@ -293,6 +299,9 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 				movingDir = Dir.RIGHT;
 				this.tryMove(1,0);
 			}
+
+			updateShooting(keys);
+
 			if (isSpringed) {
 				var unblocked = this.tryMove(2,0);
 				if (!unblocked) isSpringed = false;
