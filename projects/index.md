@@ -29,6 +29,7 @@ I also volunteer for other organisations that teach programming at schools.
 
 <!--
 Talks:
+- Te Atatu Intermediate (FutureInTech) 2014-11-03
 - Avondale College (FutureInTech) 2014-07-25
 - Mount Roskill Grammar School (ICT-Connect)
 - Glendowie College (FIT)
