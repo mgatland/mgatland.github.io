@@ -22,11 +22,11 @@ require(["events", "colors", "network", "bridge", "playingstate",
 
 			if (state.transition === true) {
 				if (state.endStats) {
-					if (level === 1) state.endStats.lastLevel = true;
 					state = new EndLevelState(state.endStats);
 					level++;
-				} else if (level === 2) {
-					document.location.reload();
+				} else if (state.restartAfterTransition === true) {
+					level = 0;
+					state = new TitleState(pixelWindow);
 				} else {
 					state = new PlayingState(Events, camera, level);	
 				}
@@ -43,6 +43,12 @@ require(["events", "colors", "network", "bridge", "playingstate",
 
 			keys.start = keyboard.isKeyHit(KeyEvent.DOM_VK_ENTER) || keyboard.isKeyDown(KeyEvent.DOM_VK_RETURN) || keyboard.isKeyHit(KeyEvent.DOM_VK_SPACE);
 			keys.esc = keyboard.isKeyHit(KeyEvent.DOM_VK_ESCAPE);
+
+			//cheats
+			window.mgskip = function(nextLevel) {
+				state.transition = true;
+				level = (nextLevel !== undefined) ? nextLevel : level + 1;
+			}
 
 			if (keys.esc) {
 				state.paused = !state.paused;
