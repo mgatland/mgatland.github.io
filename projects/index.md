@@ -7,15 +7,15 @@ layout: normal
 
 <h3>Pop-Up Arcade</h3>
 
-![Pop-Up Arcade](/images/pop-up-arcade.jpg){:.w640}
+![Hand-painted laptops at Pop-Up Arcade](/images/pop-up-arcade.jpg){:.w640}
 
-Sharing digital games with the local community.
+I started New Zealand's strangest games arcade. Appearing at festivals and in dark corners, we show locally-made games running on hand-painted computers.
 
-Most DIY videogames are only distributed online. Our arcade gives these games a place in the real world.
+Our goal is to bring DIY games out into the community, to get all kinds of people playing and making together.
 
-We paint old computers, put games on them, and take them to festivals.
+![A story on the wall at Pop-Up Arcade](/images/pop-up-arcade-2.jpg){:.w640}
 
-[Pop-Up Arcade](http://popuparcade.co.nz)
+
 
 <h3>Code Club Auckland</h3>
 
