@@ -9,7 +9,7 @@ layout: normal
 
 ![Hand-painted laptops at Pop-Up Arcade](/images/pop-up-arcade.jpg){:.w640}
 
-I started New Zealand's strangest games arcade. Appearing at festivals and in dark corners, we show locally-made games running on hand-painted computers.
+New Zealand's strangest games arcade. Appearing at festivals and in dark corners, we show locally-made games running on hand-painted computers.
 
 Our goal is to bring DIY games out into the community, to get all kinds of people playing and making together.
 
