@@ -11,19 +11,15 @@ layout: normal
 
 New Zealand's strangest games arcade. Appearing at festivals and in dark corners, we show locally-made games running on hand-painted computers.
 
-Our goal is to bring DIY games out into the community, to get all kinds of people playing and making together.
+Our goal is to bring DIY games out into the community, to get all kinds of people playing and making together. [Catch our next event.](http://popuparcade.co.nz)
 
-![A story on the wall at Pop-Up Arcade](/images/pop-up-arcade-2.jpg){:.w640}
-
-<h3>Code Club Auckland</h3>
+<h3>Tech Education</h3>
 
 ![Teaching Scratch for FutureInTech](/images/workshops-futureintech.jpg)
 
-Each week, 20 high school students come to Code Club Auckland to make cool stuff with computers. I run the club with Orion Health and a team of volunteers.
+Each week, 20 high school students come to Code Club Auckland to make cool stuff with computers. I started the club with Ruth James from Orion Health and a team of volunteers.
 
-I also volunteer for other organisations that teach programming at schools.
-
-![Teaching HTML and CSS for Gather](/images/workshops-gather.jpg){:.w640}
+I've designed workshops that teach programming, game making and web technologies for OMG Tech!, Auckland Libraries and FutureInTech.
 
 <!--
 Education work
@@ -71,6 +67,21 @@ Gather HTML+CSS or Python workshops (year 11\15-year-olds?):
 
 -->
 
+<h3>Wild Streets</h3>
+
+![Running around playing games outside](/images/wild-streets.jpg){:.w640}
+
+Wild Streets runs a festival full of games and playful activities in public spaces. Our events bring people together and encourage them to see their surroundings in a new way. [Find out more!](http://wildstreets.weebly.com/)
+
+<h3>Talks</h3>
+
+<p><strong>JavaScript is Good Now</strong> <a href="http://www.matthewgatland.com/javascriptisgoodnow/#/">(slides)</a> – NZ&nbsp;GDC&nbsp;2014</p>
+
+<p>Web technologies are changing fast, and JavaScript isn't what it was 6 months ago – especially on iOS. Could 2014 be the first year you can make a decent game in the browser?</p>
+
+<p><strong>A day in the life of a Software Engineer</strong> <a href="http://www.matthewgatland.com/talkforschools2/">(slides)</a> – 2014 onwards</p>
+
+<p>A careers talk for school students.</p>
 
 
 <h3>The Deadline Club</h3>
@@ -85,5 +96,5 @@ The Deadline Club isn't running any more but it was pretty cool.
 
 <h3>More info</h3>
 
-You can find me on [twitter](http://twitter.com/mgatland) and [GitHub](http://www.github.com/mgatland), or email me: <support@matthewgatland.com>
+Any questions? You can find me on [twitter,](http://twitter.com/mgatland) or email me: <hi@mgatland.com>
 

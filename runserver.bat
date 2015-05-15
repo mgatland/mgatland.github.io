@@ -1,1 +1,1 @@
-jekyll --auto --server --url="http://localhost:4000"
+jekyll serve --config _config.yml,_localconfig.yml
