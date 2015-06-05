@@ -17,14 +17,15 @@ Our goal is to bring DIY games out into the community, to get all kinds of peopl
 
 ![Teaching Scratch for FutureInTech](/images/workshops-futureintech.jpg)
 
-Each week, 20 high school students come to Code Club Auckland to make cool stuff with computers. I started the club with Ruth James from Orion Health and a team of volunteers.
+I started the first Code Club in Auckland, together with Ruth James from Orion Health and a team of volunteers. We teach programming and tech skills to children each week.
 
-I've designed workshops that teach programming, game making and web technologies for OMG Tech!, Auckland Libraries and FutureInTech.
+I also work with other organsations to teach coding and promote technology careers.
 
 <!--
 Education work
 
 Talks:
+- Waiheke High School (FutureInTech) 2015-05-22 * 6!
 - Selwyn College (FutureInTech) 2015-05-06
 - Epsom Girls Grammar School (FutureInTech) 2015-04-29
 - Survival Code launch event 2015-04-15
@@ -79,10 +80,21 @@ Wild Streets runs a festival full of games and playful activities in public spac
 
 <p>Web technologies are changing fast, and JavaScript isn't what it was 6 months ago – especially on iOS. Could 2014 be the first year you can make a decent game in the browser?</p>
 
-<p><strong>A day in the life of a Software Engineer</strong> <a href="http://www.matthewgatland.com/talkforschools2/">(slides)</a> – 2014 onwards</p>
+<p><strong>A day in the life of a Software Engineer</strong> <a href="http://www.matthewgatland.com/talkforschools2/">(slides)</a> – a careers talk for school students.</p>
 
-<p>A careers talk for school students.</p>
+<h3>Workshops</h3>
 
+<p><strong>Understanding Game Design</strong> <a href="http://www.matthewgatland.com/game-design-talk/">(slides)</a> – a beginner class, loosely based on Marc LeBlanc's famous GDC workshops. Made for Laneway Learning.</p>
+
+<p><strong>Game Making for Beginners</strong> <a href="https://www.youtube.com/watch?v=mfd0Utm7ePI/">(video)</a> – a super-accessible workshop for children as young as nine (and anyone older). I've run it more than 30 times.</p>
+
+<p><strong>The Newsroom</strong> – a rough one-off workshop at <a href="http://gathergather.co.nz/">Gather</a> about how we share critical tasks when under pressure. Participants were challenged to divide a writing and design task between 10 people, so they could "provide 5 person-hours worth of content in 30 minutes".</p>
+
+<h3>Appearances</h3>
+
+<p><strong>Collective Intelligence</strong> <a href="https://www.youtube.com/watch?v=4_ktMqNnXaQ">(video)</a> - an online panel at Freeplay 2015.</p>
+
+<p><strong>Frogscast</strong> <a href="https://www.youtube.com/channel/UCuUNiMLHjkNiaNgdhgNv_Uw">(videos)</a> a series about independent game development in New Zealand. I'm in episodes about Pop-Up Arcade, <a href="https://www.youtube.com/watch?v=BT4FsWm-hko">Wild Streets</a> and a few others.</p>
 
 <h3>The Deadline Club</h3>
 
@@ -97,4 +109,3 @@ The Deadline Club isn't running any more but it was pretty cool.
 <h3>More info</h3>
 
 Any questions? You can find me on [twitter,](http://twitter.com/mgatland) or email me: <hi@mgatland.com>
-
