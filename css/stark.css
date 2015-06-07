@@ -291,6 +291,12 @@ blockquote {
     flex-direction:column; /* column | row */
 }
 
+/*place on a <p>, below an image that's inside a <p>*/
+.caption {
+	margin-top: -55px;
+	font-size: 0.8em;
+}
+
 code {
 	color: #e6db74;
 	background-color: #2E2C2C;

@@ -74,27 +74,39 @@ Gather HTML+CSS or Python workshops (year 11\15-year-olds?):
 
 Wild Streets runs a festival full of games and playful activities in public spaces. Our events bring people together and encourage them to see their surroundings in a new way. [Find out more!](http://wildstreets.weebly.com/)
 
-<h3>Talks</h3>
+<h3>Talks and Workshops</h3>
+
+![The Newsroom workshop at Gather 2014](/images/2014-07-12-gather-newsroom-workshop-800x.jpg)
+
+<p class="caption">The Newsroom: ten people collaborate on a one–page document.</p>
+
+<p><strong>Game Making for Beginners</strong> <a href="https://www.youtube.com/watch?v=mfd0Utm7ePI/">(video)</a> – a super-accessible workshop for children as young as nine (and anyone older). I've run it more than 30 times.</p>
+
+<p><strong>Understanding Game Design</strong> <a href="http://www.matthewgatland.com/game-design-talk/">(slides)</a> – a beginner class, loosely based on Marc LeBlanc's famous GDC workshops. Made for Laneway Learning.</p>
+
+<p><strong>A day in the life of a Software Engineer</strong> <a href="http://www.matthewgatland.com/talkforschools2/">(slides)</a> – a careers talk for school students.</p>
 
 <p><strong>JavaScript is Good Now</strong> <a href="http://www.matthewgatland.com/javascriptisgoodnow/#/">(slides)</a> – NZ&nbsp;GDC&nbsp;2014</p>
 
 <p>Web technologies are changing fast, and JavaScript isn't what it was 6 months ago – especially on iOS. Could 2014 be the first year you can make a decent game in the browser?</p>
 
-<p><strong>A day in the life of a Software Engineer</strong> <a href="http://www.matthewgatland.com/talkforschools2/">(slides)</a> – a careers talk for school students.</p>
-
-<h3>Workshops</h3>
-
-<p><strong>Understanding Game Design</strong> <a href="http://www.matthewgatland.com/game-design-talk/">(slides)</a> – a beginner class, loosely based on Marc LeBlanc's famous GDC workshops. Made for Laneway Learning.</p>
-
-<p><strong>Game Making for Beginners</strong> <a href="https://www.youtube.com/watch?v=mfd0Utm7ePI/">(video)</a> – a super-accessible workshop for children as young as nine (and anyone older). I've run it more than 30 times.</p>
-
 <p><strong>The Newsroom</strong> – a rough one-off workshop at <a href="http://gathergather.co.nz/">Gather</a> about how we share critical tasks when under pressure. Participants were challenged to divide a writing and design task between 10 people, so they could "provide 5 person-hours worth of content in 30 minutes".</p>
 
 <h3>Appearances</h3>
 
-<p><strong>Collective Intelligence</strong> <a href="https://www.youtube.com/watch?v=4_ktMqNnXaQ">(video)</a> - an online panel at Freeplay 2015.</p>
+![Pop-Up Arcade interviewed by Alexey from Frogshark](/images/frogscast.jpg)
 
-<p><strong>Frogscast</strong> <a href="https://www.youtube.com/channel/UCuUNiMLHjkNiaNgdhgNv_Uw">(videos)</a> a series about independent game development in New Zealand. I'm in episodes about Pop-Up Arcade, <a href="https://www.youtube.com/watch?v=BT4FsWm-hko">Wild Streets</a> and a few others.</p>
+<p class="caption">Frogscast interviews Pop-Up Arcade. Image by Frogshark.</p>
+
+<p><strong>Freeplay 2015</strong> <a href="https://www.youtube.com/watch?v=4_ktMqNnXaQ">(video)</a> I'm on a panel discussion about game–making collectives.</p>
+
+<p><strong>Frogscast</strong> <a href="https://www.youtube.com/channel/UCuUNiMLHjkNiaNgdhgNv_Uw">(videos)</a> A series about independent game development in New Zealand. I'm in episodes about Pop-Up Arcade, <a href="https://www.youtube.com/watch?v=BT4FsWm-hko">Wild Streets</a> and a few others.</p>
+
+<p><strong>Radio New Zealand</strong> <a href="http://www.radionz.co.nz/national/programmes/nz-society/20150225">(audio or text)</a> A report on the NZ gaming scene by Sonia Sly in 2015.</p>
+
+<p><strong>TVNZ Media 7</strong> <a href="https://www.youtube.com/watch?v=2sZX9n0YC7w">(video)</a> My first TV appearance, showing one of my worst games ever in this 2010 report by José Barbosa.</p>
+
+
 
 <h3>The Deadline Club</h3>
 
