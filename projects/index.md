@@ -25,6 +25,7 @@ I also work with other organsations to teach coding and promote technology caree
 Education work
 
 Talks:
+- Te Atatu Intermediate (again) (FutureInTech) 2015-07-27
 - Waiheke High School (FutureInTech) 2015-05-22 * 6!
 - Selwyn College (FutureInTech) 2015-05-06
 - Epsom Girls Grammar School (FutureInTech) 2015-04-29
@@ -46,10 +47,11 @@ OMGTech running the coding activity (ages 6 to 16):
 - 2014-12-13 Edmonton Primary School
 - 2014-10-17 at GridAKL
 
-Game making workshops at City Center Library (with Scratch and Stencyl)
-- ages 13 and up 2015-04-16
-- ages 12 and under 2015-04-11
-- Library Staff 2015-04-02
+Game making workshops at City Center Library (with Scratch)
+- 20 workshops at 20 Libraries in July 2015! (I was only at 17 of them)
+- City Center Library - ages 13 and up 2015-04-16
+- City Center Library - ages 12 and under 2015-04-11
+- Library Staff 2015-04-02 (Stencyl, not Scratch)
 
 Other Scratch workshops, through Future In Tech, usually for 9-year-olds:
 - Rosebank Road 2014-08-29
@@ -58,8 +60,9 @@ Other Scratch workshops, through Future In Tech, usually for 9-year-olds:
 - Ponsonby Primary School
 - Epsom Normal Primary School 2014-06-23
 
-Gather HTML+CSS or Python workshops (year 11\15-year-olds?):
-- Kelston Girls' College 2014-08-15 
+Gather HTML+CSS or Python workshops (usually year 11\15-year-olds):
+- Kaitaia Abundant Life School 2015-08-17
+- Kelston Girls' College 2014-08-15
 - Tamaki College
 - Howick College
 - Mount Roskill Grammar School
