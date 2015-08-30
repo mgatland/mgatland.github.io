@@ -25,4 +25,4 @@ If it doesn't work, you may need to install these files from Microsoft:
 1. [Microsoft .NET Framework 4 Client Profile](http://www.microsoft.com/en-us/download/details.aspx?id=24872)
 2. [Microsoft XNA Framework Redistributable 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=20914)
 
-If it still doesn't work, you can email me at <support@matthewgatland.com>.
+If it still doesn't work, you can email me at <hi@mgatland.com>.
