@@ -4,7 +4,7 @@ layout: normal
 categories: [games]
 description: You strike with the pointy stick! A multiplayer quest from the turn of the century.
 icon: adventure/adventure-icon.png
-order: 1
+order: 3
 date: 2013-04-23
 ---
 Here is a game I made in high school (which feels like a long time ago).

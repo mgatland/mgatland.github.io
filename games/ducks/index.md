@@ -3,7 +3,7 @@ title: Let's Be Ducks
 layout: normal
 categories: [games]
 description: Multiplayer duck adventure.
-order: 6
+order: 27
 date: 2013-06-19
 icon: ducks/ducks-icon.png
 ---

@@ -3,7 +3,7 @@ title: Space Octopus Mono
 layout: normal
 categories: [games]
 description: Two-player shooter in shades of grey.
-order: 8
+order: 15
 date: 2013-09-30
 icon: som/som-icon.png
 ---

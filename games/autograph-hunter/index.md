@@ -3,7 +3,7 @@ title: Autograph Hunter
 layout: normal
 categories: [games]
 description:
-order: 12
+order: 31
 date: 2015-02-07
 icon: autograph-hunter/autograph-hunter-icon.jpg
 ---

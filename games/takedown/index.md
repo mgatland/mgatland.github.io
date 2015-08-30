@@ -3,7 +3,7 @@ title: TakeDown
 layout: normal
 categories: [games]
 description: Rebel forces want to destroy the computer that runs the world. We're here to stop them.
-order: 2
+order: 4
 date: 2013-04-24
 icon: takedown/takedown-icon.png
 ---
