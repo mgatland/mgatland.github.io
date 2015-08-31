@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+ <meta charset=utf-8>
+ 
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+ <script type="text/javascript" src="jquery.maphilight.min.js"></script>
+ <script type="text/javascript">$(function() {
+ $('.map').maphilight();
+ });
+ 
+ $.fn.maphilight.defaults = {
+ fill: true,
+ fillColor: 'ffffff',
+ fillOpacity: 0.1,
+ stroke: true,
+ strokeColor: 'ffffff',
+ strokeOpacity: 0.3,
+ strokeWidth: 1,
+ fade: true,
+ alwaysOn: false,
+ neverOn: false,
+ groupBy: false,
+ wrapClass: true,
+ shadow: false,
+ shadowX: 0,
+ shadowY: 0,
+ shadowRadius: 6,
+ shadowColor: '000000',
+ shadowOpacity: 0.8,
+ shadowPosition: 'outside',
+ shadowFrom: false
+ }
+ 
+ 
+ </script>
+ 
+</head>
+<body>
+ <div id="container">
+ <header>
+ <h1>Room Tour</h1>
+ </header>
+ <div id="photoandcaption">
+ <img class="map" src="sized510_2/drawers01.JPG" width="510" height="382" alt="" usemap="#imagemap" />
+ <map name="imagemap">
+ <area shape="poly" alt="drawer" title="drawer" coords="36,301,449,300,442,379,46,379" href="drawers_2.html" />
+ <area shape="poly" alt="drawer" title="drawer" coords="27,204,35,290,450,287,456,198" href="drawers_3.html" />
+ <area shape="poly" alt="drawer" title="drawer" coords="18,123,150,121,152,188,25,189" href="drawers_4.html" />
+ <area shape="poly" alt="drawer" title="drawer" coords="12,53,146,48,150,119,18,122" href="drawers_5.html" />
+ <area shape="poly" alt="drawer" title="drawer" coords="163,47,304,44,304,184,171,187" href="drawers_6.html" />
+ <area shape="poly" alt="drawer" title="drawer" coords="324,44,462,43,458,113,323,115" href="drawers_7.html" />
+ <area shape="poly" alt="drawer" title="drawer" coords="323,117,459,114,457,182,322,185" href="drawers_8.html" />
+ </map>
+ <div id="caption">
+ <p><a href="room03.html">Go back.</a></p>
+ </div>
+ </div>
+ </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-707544-6");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

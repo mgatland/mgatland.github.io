@@ -15,7 +15,7 @@ canonical games order:
 [x] 23 locked-away<!--2012-08-27-->
 [x] 22 alices-21st
 [x] 21 saprobiont
-20 room2011
+[x] 20 room2011
 19 cerulean (1)
 18 brotherhood
 17 catastrophe
