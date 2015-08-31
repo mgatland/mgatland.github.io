@@ -29,7 +29,7 @@ canonical games order:
 9  return-to-happytown
 8 adventure-again
 7 my-first-flash-game
-6 space-octopus-mono (original)
+[x] 6 space-octopus-mono (original)
 [x] 5 trail-bay
 [x] 4 takedown
 [x] 3 adventure
