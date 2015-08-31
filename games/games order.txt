@@ -1,26 +1,26 @@
 canonical games order:
 
 34 Flick Games
-33 Episode 12
-32 Scratch Games
-31 Autograph Hunter
-30 Space Protector
-29 Cerulean (2)
+[x] 33 Episode 12
+[x] 32 Scratch Games
+[x] 31 Autograph Hunter
+[x] 30 Space Protector
+[x] 29 Cerulean (2)
 ** somewhere around here: neptune 9
 28 Network
-27 Let's Be Ducks
-26 Tide
-25 Skate
-24 wearefrog<!--2012-10-14-->
-23 locked-away<!--2012-08-27-->
+[x] 27 Let's Be Ducks
+[x] 26 Tide
+[x] 25 Skate
+[x] 24 wearefrog<!--2012-10-14-->
+[x] 23 locked-away<!--2012-08-27-->
 22 alices-21st<!--2012-05-05-->
 21 saprobiont <!--2012-01-27-->
 20 room2011
-19 cerulean
+19 cerulean (1)
 18 brotherhood
 17 catastrophe
 16 improv
-15 space-octopus-mono-2010
+[x] 15 space-octopus-mono-2010
 14 space-hawk
 13 cave-flyer-green
 12 i-thought-we-had-a-thing
@@ -30,8 +30,8 @@ canonical games order:
 8 adventure-again
 7 my-first-flash-game
 6 space-octopus-mono (original)
-5 trail-bay
-4 takedown
-3 adventure
+[x] 5 trail-bay
+[x] 4 takedown
+[x] 3 adventure
 2 seekers-pack (to add)
 1 old-projects
