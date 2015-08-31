@@ -13,7 +13,7 @@ canonical games order:
 [x] 25 Skate
 [x] 24 wearefrog<!--2012-10-14-->
 [x] 23 locked-away<!--2012-08-27-->
-22 alices-21st<!--2012-05-05-->
+[x] 22 alices-21st
 21 saprobiont <!--2012-01-27-->
 20 room2011
 19 cerulean (1)
