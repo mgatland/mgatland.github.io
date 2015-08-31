@@ -6,8 +6,8 @@ canonical games order:
 [x] 31 Autograph Hunter
 [x] 30 Space Protector
 [x] 29 Cerulean (2)
-** somewhere around here: neptune 9
-28 Network
+[x] 28 neptune 9
+** somewhere around here: Network
 [x] 27 Let's Be Ducks
 [x] 26 Tide
 [x] 25 Skate
