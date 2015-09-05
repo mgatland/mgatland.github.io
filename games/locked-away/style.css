@@ -47,6 +47,7 @@ box-flex: 1;
 
 b {
  color: #CCFFFF;
+ cursor: pointer;
 }
 
 body {
