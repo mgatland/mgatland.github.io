@@ -4,7 +4,7 @@ layout: normal
 categories: [games]
 description: A game for Ludum Dare 21
 order: 19
-date: 
+date: 2011-08-22
 icon: cerulean-ld21/cerulean-ld21-icon.png
 ---
 
