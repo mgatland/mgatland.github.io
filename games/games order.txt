@@ -16,7 +16,7 @@ canonical games order:
 [x] 22 alices-21st
 [x] 21 saprobiont
 [x] 20 room2011
-19 cerulean (1)
+[x] 19 cerulean (1)
 18 brotherhood
 17 catastrophe
 16 improv
