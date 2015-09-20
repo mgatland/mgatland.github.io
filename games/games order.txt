@@ -21,7 +21,7 @@ canonical games order:
 [17] catastrophe
 [16] improv
 [x] 15 space-octopus-mono-2010
-14 space-hawk
+[14] space-hawk
 13 cave-flyer-green
 12 i-thought-we-had-a-thing
 11 oil-exploration
