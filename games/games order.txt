@@ -18,8 +18,8 @@ canonical games order:
 [x] 20 room2011
 [x] 19 cerulean (1)
 18 brotherhood
-17 catastrophe
-16 improv
+[17] catastrophe
+[16] improv
 [x] 15 space-octopus-mono-2010
 14 space-hawk
 13 cave-flyer-green
