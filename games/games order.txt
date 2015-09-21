@@ -20,13 +20,13 @@ canonical games order:
 18 brotherhood
 [17] catastrophe
 [16] improv
-[x] 15 space-octopus-mono-2010
+[15] space-octopus-mono-2010
 [14] space-hawk
-13 cave-flyer-green
-12 i-thought-we-had-a-thing
-11 oil-exploration
-10 cave-flyer-blue
-9  return-to-happytown
+[13] cave-flyer-green
+[12] i-thought-we-had-a-thing
+[11] oil-exploration
+[10] cave-flyer-blue
+[9]  return-to-happytown
 8 adventure-again
 7 my-first-flash-game
 [x] 6 space-octopus-mono (original)
