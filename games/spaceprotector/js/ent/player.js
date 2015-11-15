@@ -1,12 +1,12 @@
 "use strict";
-define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "util", "spritedata"], 
+define(["ent/shot", "events", "colors", "ent/walkingthing", "sprites", "dir", "pos", "util", "spritedata"], 
 	function (Shot, Events, Colors, WalkingThing, Sprites, Dir, Pos, Util, SpriteData) {
 
-	var Player = function (level, x, y) {
+	var Player = function (gs, x, y) {
 		var _this = this;
 		
 		var startPos = new Pos(x, y);
-		Util.extend(this, new WalkingThing(level, startPos, new Pos(5,6)));
+		Util.extend(this, new WalkingThing(gs, startPos, new Pos(5,6)));
 
 		//Replicated variables
 		this.state = "falling";
@@ -16,6 +16,9 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 		this.dir = Dir.RIGHT;
 		this.shotThisFrame = false;
 		this.groundedY = this.pos.y;
+
+		//todo replicated
+		this.jumpHeldCounter = 0; 
 
 		var spawnPoint = startPos.clone();
 		var currentCheckpoint = null; //The flag entity we last touched
@@ -97,9 +100,9 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 
 			jumping: new function () {
 				var phases = [];
-				phases[1] = {ySpeed: -2, normalDuration: 0, jumpHeldDuration: 3};
-				phases[2] = {ySpeed: -1, normalDuration: 0, jumpHeldDuration: 15};
-				phases[3] = {ySpeed: 0, normalDuration: 6};
+				phases[0] = {ySpeed: -2, normalDuration: 1, jumpHeldDuration: 4, jumpHoldMultiplier: [3,1,1,1]};
+				phases[1] = {ySpeed: -1, normalDuration: 1, jumpHeldDuration: 16};
+				phases[2] = {ySpeed: 0, normalDuration: 7};
 				this.preupdate = function () {};
 				this.update = function (jumpIsHeld) {
 					animState = "jumping";
@@ -107,20 +110,28 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 
 					if (isSpringed) jumpIsHeld = true; //forced by a spring.
 
+					if (this.jumpHeldCounter > 0) this.jumpHeldCounter -= 1;
+					if (jumpIsHeld) {
+						this.jumpHeldCounter += 
+							phase.jumpHoldMultiplier ? phase.jumpHoldMultiplier[this.jumpTime] : 1;
+					}
+
+					var jumpBoostActive = (this.jumpHeldCounter > 0);
+
 					var speed = phase.ySpeed;
-					var spaceAboveMe = this.tryMove(0, speed);
+					var spaceAboveMe = this.tryMove(0, speed, gs);
 
 					this.jumpTime++;
-					var duration = (jumpIsHeld && phase.jumpHeldDuration) ? phase.jumpHeldDuration : phase.normalDuration;
-					if (this.jumpTime > duration) {
+					var duration = (jumpBoostActive && phase.jumpHeldDuration) ? phase.jumpHeldDuration : phase.normalDuration;
+					if (this.jumpTime >= duration) {
 						this.jumpPhase++;
 						this.jumpTime = 0;
 					}
-					if (!spaceAboveMe && this.jumpPhase < 3) {
-						this.jumpPhase = 3;
+					if (!spaceAboveMe && this.jumpPhase < phases.length - 1) {
+						this.jumpPhase = phases.length - 1;
 						this.jumpTime = 0;
 					}
-					if (this.jumpPhase === 4) {
+					if (this.jumpPhase === phases.length) {
 						this.state = "falling";
 						this.fallingTime = 0;
 					}
@@ -137,7 +148,7 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 					} else {
 						this.fallingTime++;
 						var speed = this.fallingTime < 10 ? 1 : 2;
-						this.tryMove(0,speed);
+						this.tryMove(0,speed,gs);
 					}
 				};
 			},
@@ -200,14 +211,15 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			if (animState === "standing") {
 				pos.moveXY(0, 1);
 			}
-			Events.shoot(new Shot(level, pos, this.dir, "player"));
+			Events.shoot(new Shot(gs, pos, this.dir, "player"));
 			Events.playSound("pshoot", this.pos.clone());
 		}
 
 		function beginJumpState() {
 			_this.state = "jumping";
 			_this.jumpTime = 0;
-			_this.jumpPhase = 1;
+			_this.jumpPhase = 0;
+			_this.jumpHeldCounter = 0;
 		}
 
 		var updateShooting = function(keys) {
@@ -228,6 +240,22 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 				timeSinceLastShot++;
 				if (timeSinceLastShot > 30) shootingAnim = false;
 			}
+		}
+
+		this.hurt = function (_hitPos) {
+			_this.live = false;
+			deadTimer = maxDeadTime;
+			hitPos = _hitPos.clone().clampWithin(_this.pos, _this.size);
+			deaths++;
+			Events.playSound("pdead", null);
+		}
+
+		this.spring = function () {
+			if (this.live && !isSpringed) {
+				isSpringed = true;
+				Events.playSound("spring", _this.pos.clone());
+				beginJumpState();
+			}			
 		}
 
 		this.update = function (keys) {
@@ -258,11 +286,7 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 						//A hack to hurt the monster. fixme use a hurt method
 						other.collisions.push(_this);
 					} else {
-						_this.live = false;
-						deadTimer = maxDeadTime;
-						hitPos = other.pos.clone().clampWithin(_this.pos, _this.size);
-						deaths++;
-						Events.playSound("pdead", null);
+						_this.hurt(other.pos);
 					}
 				}
 				if (other.isCheckpoint && other !== currentCheckpoint) {
@@ -271,11 +295,6 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 					currentCheckpoint = other;
 					currentCheckpoint.selected = true;
 					Events.playSound("checkpoint", _this.pos.clone());
-				}
-				if (other.isSpring && !isSpringed) {
-					isSpringed = true;
-					Events.playSound("spring", _this.pos.clone());
-					beginJumpState();
 				}
 				if (other.isEnd) {
 					Events.winLevel();
@@ -287,17 +306,17 @@ define(["shot", "events", "colors", "walkingthing", "sprites", "dir", "pos", "ut
 			if (keys.left && !keys.right) {
 				this.dir = Dir.LEFT;
 				movingDir = Dir.LEFT;
-				this.tryMove(-1,0);
+				this.tryMove(-1,0,gs);
 			} else if (keys.right && !keys.left) {
 				this.dir = Dir.RIGHT;
 				movingDir = Dir.RIGHT;
-				this.tryMove(1,0);
+				this.tryMove(1,0,gs);
 			}
 
 			updateShooting(keys);
 
 			if (isSpringed) {
-				var unblocked = this.tryMove(2,0);
+				var unblocked = this.tryMove(2,0,gs);
 				if (!unblocked) isSpringed = false;
 			}
 

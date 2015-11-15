@@ -16,7 +16,7 @@ define(["keyboard", "painter", "level", "sprites", "spritedata", "colors"],
 		brushes.push({code:"p", spriteData: SpriteData.player});
 		brushes.push({code:"m", spriteData: SpriteData.shooter});
 		brushes.push({code:"k", spriteData: SpriteData.walker});
-		brushes.push({code:"x", spriteData: SpriteData.crate});
+		brushes.push({code:"x", spriteData: SpriteData.fallingPlatform});
 		brushes.push({code:"!", spriteData: SpriteData.flag});
 		brushes.push({code:"@", spriteData: SpriteData.end});
 		brushes.push({code:"b", spriteData: SpriteData.blockMonster});

@@ -1,6 +1,6 @@
 "use strict";
-define(["monster", "player", "events", "colors", "walkmonster", "shootmonster", "blockmonster", "wasp", "wolf", "lib/los"],
-	function (Monster, Player, Events, Colors, WalkMonster, ShootMonster, BlockMonster, Wasp, Wolf, LOS) {
+define(["ent/monster", "ent/player", "events", "colors", "ent/walkmonster", "ent/shootmonster", "ent/blockmonster", "ent/wasp", "ent/wolf", "ent/fallingplatform", "lib/los"],
+	function (Monster, Player, Events, Colors, WalkMonster, ShootMonster, BlockMonster, Wasp, Wolf, FallingPlatform, LOS) {
 	var Level = function(mapData, tileSize) {
 		var level = this; //for use in private methods
 		var map = [];
@@ -91,46 +91,46 @@ define(["monster", "player", "events", "colors", "walkmonster", "shootmonster", 
 				}
 				n++;
 			}
-			level.spawnEntities();
+			//level.spawnEntities();
 		}
 
-		this.spawnEntities = function (overridePSpawn) {
+		this.spawnEntities = function (gs, overridePSpawn) {
 			spawners.forEach(function (s) {
 				if (s.type==="p") {
 					if (overridePSpawn) {
-						Events.player(new Player(level, 
+						Events.player(new Player(gs, 
 							overridePSpawn.x,
 							overridePSpawn.y));	
 					} else {
-						Events.player(new Player(level, s.x*tileSize, s.y*tileSize));	
+						Events.player(new Player(gs, s.x*tileSize, s.y*tileSize));	
 					}
 				}
 				if (s.type==="m") {
-					Events.monster(new ShootMonster(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new ShootMonster(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="k") {
-					Events.monster(new WalkMonster(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new WalkMonster(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="b") {
-					Events.monster(new BlockMonster(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new BlockMonster(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="x") {
-					Events.monster(Monster.createCrate(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new FallingPlatform(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="w") {
-					Events.monster(new Wasp(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new Wasp(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="s") {
-					Events.monster(Monster.createSpring(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(Monster.createSpring(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="f") {
-					Events.monster(new Wolf(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(new Wolf(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="!") {
-					Events.monster(Monster.createFlag(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(Monster.createFlag(gs, s.x*tileSize, s.y*tileSize));
 				}
 				if (s.type==="@") {
-					Events.monster(Monster.createEnd(level, s.x*tileSize, s.y*tileSize));
+					Events.monster(Monster.createEnd(gs, s.x*tileSize, s.y*tileSize));
 				}
 			});
 		}

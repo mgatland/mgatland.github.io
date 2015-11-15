@@ -1,21 +1,17 @@
 "use strict";
-define(["shot", "events", "colors", "entity", "walkingthing", 
+define(["ent/shot", "events", "colors", "entity", "ent/walkingthing", 
 	"sprites", "spritedata", "dir", "pos", "util"], 
 	function (Shot, Events, Colors, Entity, WalkingThing, Sprites, 
 		SpriteData, Dir, Pos, Util) {
-	var crateSprites = Sprites.loadFramesFromData(SpriteData.crate);
-	var crateAnims = {
-		walk: {frames: [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2], delay: 45}
-	};
 
 	var flagSprites = Sprites.loadFramesFromData(SpriteData.flag);
 	var endSprites = Sprites.loadFramesFromData(SpriteData.end);
 
-	var End = function (level, x, y) {
+	var End = function (gs, x, y) {
 		Util.extend(this, new Entity(new Pos(x, y), new Pos(10, 10)));
 		this.isEnd = true;
 		this.ignoreShots = true;
-		this.update = function (gs) {}
+		this.update = function () {}
 		this.draw = function (painter) {
 			painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, Dir.LEFT, endSprites[0], Colors.good);
 		};
@@ -23,7 +19,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 		this.fromData = function () {/*not replicated*/};
 	}
 
-	var Flag = function (level, x, y) {
+	var Flag = function (gs, x, y) {
 		Util.extend(this, new Entity(new Pos(x, y), new Pos(10, 10)));
 
 		this.isCheckpoint = true;
@@ -41,14 +37,21 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 	}
 
 	var springSprites = Sprites.loadFramesFromData(SpriteData.spring);
-	var Spring = function (level, x, y) {
+	var Spring = function (gs, x, y) {
 		Util.extend(this, new Entity(new Pos(x, y), new Pos(8, 3)));
 
 		this.isSpring = true;
 		this.ignoreShots = true;
 		this.pos.moveXY(10-this.size.x, 10-this.size.y);
+		var sensor = new Entity(this.pos.clone().moveXY(0, this.size.y - 1), new Pos(this.size.x, 1));
 
 		this.update = function () {
+			//If my sensor is touching the player
+			gs.players.forEach(function (p) {
+				if (Entity.isColliding(p, sensor, true)) {
+					p.spring();
+				}
+			});
 		}
 		this.draw = function (painter) {
 			painter.drawSprite2(this.pos.x, this.pos.y, this.size.x, Dir.RIGHT, springSprites[0], Colors.good);
@@ -57,7 +60,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 		this.fromData = function () {/*not replicated*/};
 	}
 
-	var Monster = function (level, x, y, width, height, sprites, anims, ai, health, onHit) {
+	var Monster = function (gs, x, y, width, height, sprites, anims, ai, health, onHit) {
 
 		//constants
 		this.killPlayerOnTouch = true;
@@ -65,7 +68,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 		var maxDeadTime = 30;
 
 		//state
-		Util.extend(this, new WalkingThing(level, new Pos(x, y), new Pos(width, height)));
+		Util.extend(this, new WalkingThing(gs, new Pos(x, y), new Pos(width, height)));
 
 		this.isNetDirty = true;
 		this.health = health;
@@ -128,7 +131,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 			animDelay = 0;
 		}
 
-		this.update = function (gs) {
+		this.update = function () {
 			if (this.live === false) {
 				if (deadTime < maxDeadTime) deadTime++;
 				return;
@@ -145,7 +148,7 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 				}
 			}
 
-			if (ai) ai(gs);
+			if (ai) ai();
 
 			if (this.collisions.length > 0) {
 				this.health--;
@@ -180,17 +183,14 @@ define(["shot", "events", "colors", "entity", "walkingthing",
 		};
 	};
 
-	Monster.createCrate = function (level, x, y) {
-		return new Monster(level, x, y, 10, 10, crateSprites, crateAnims, null, 1);
+	Monster.createFlag = function (gs, x, y) {
+		return new Flag(gs, x, y);
 	};
-	Monster.createFlag = function (level, x, y) {
-		return new Flag(level, x, y);
+	Monster.createSpring = function (gs, x, y) {
+		return new Spring(gs, x, y);
 	};
-	Monster.createSpring = function (level, x, y) {
-		return new Spring(level, x, y);
-	};
-	Monster.createEnd = function (level, x, y) {
-		return new End(level, x, y);
+	Monster.createEnd = function (gs, x, y) {
+		return new End(gs, x, y);
 	};
 
 	return Monster;
