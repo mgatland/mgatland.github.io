@@ -7,7 +7,6 @@ rss: /journal/feed.xml
 {% for page in site.categories.journal limit:3 %}
 	{% include inline-journal.html %}
 	{% if forloop.last %}
-		{% include calculate-journal-links.html %}
 		{% include journal-link-older.html %}
 	{% else %}
 		<!--divider between journal entries-->

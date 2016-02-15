@@ -4,9 +4,9 @@ layout: bigtitle
 rss: /games/feed.xml
 ---
 
-{% comment %} We need to sort the pages, here's an awkward way to do it...{% endcomment %}
-{% for order in (1..100) reversed %}{% for post in site.pages %}{% if post.order == order %}{% capture niceurl %}{{ post.url | remove: 'index.html' }}{% endcapture %}{% if niceurl contains '/games/' and niceurl != '/games/' %}
+{% assign sorted_pages = site.pages | sort:"order" %}
+{% for post in sorted_pages reversed %}{% capture niceurl %}{{ post.url | remove: 'index.html' }}{% endcapture %}{% if niceurl contains '/games/' and niceurl != '/games/' and post.order > 0 %}
 {% include inlinegame.html %}
-{% endif %}{% endif %}{% endfor %}{% endfor %}
+{% endif %}{% endfor %}
 
 <div style="clear: both"></div>
