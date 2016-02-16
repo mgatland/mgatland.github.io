@@ -31,18 +31,18 @@ People say a good way to plan ahead, without railroading your players, is to pla
 
 I put together an evil plot, tying in the events from the messy pilot episode and a few player character backstories. It was very simple: the villain wanted to find three magical artifacts to summon a demon.
 
-I imagined a story where the heroes would try but fail to stop the villains get each artifact, becoming more and more desparate until the final confrontation at the demon summoning. That's how it works on The Vampire Diaries!
+I imagined a story where the heroes would try but fail to stop the villain get each artifact, becoming more and more desparate until the final confrontation at the demon summoning. That's how it works on The Vampire Diaries!
 
 ![Klaus, the villain who always wins in TVD](/journal/images/2016-02-16-tvd-s2e20-37m.jpg)
 <div class="caption">"I'm always one step ahead." – Klaus (who is a villain)</div>
 
-Unfortunately, the players stopped my villains from getting the first artifact. And then they destroyed the second one!
+Unfortunately, the players stopped my villain from getting the first artifact. And then they destroyed the second one!
 
 Wow. I was not ready for that.
 
-Once I mentally recovered, I course-corrected: the villains made alternative plans. And now they're angry! The tension can still rise towards Act 3, even if the heroes have been winning.
+Once I mentally recovered, I course-corrected: the villain made alternative plans. And now they're angry! The tension can still rise towards Act 3, even if the heroes have been winning.
 
-But these changes complicated the plot. I knew what the villains would do next, but the players didn't. And they didn't know how to find out.
+But these changes complicated the plot. I knew what the villain would do next, but the players didn't. And they didn't know how to find out.
 
 ### Player confusion was our biggest problem
 
@@ -56,7 +56,7 @@ _Lessons learned:_ Give the heroes clear direction, even if they have the freedo
 
 I designed the evil plot to develop over a week of in-game time, which I hoped would span the five episodes of our show.
 
-This was bad. Setting specific dates slowed down the game. The worst example is that I wanted to have the villains do something evil at a concert on Saturday, but I just couldn't get to Saturday fast enough. This left the players hanging around with no evil to react to.
+This was bad. Setting specific dates slowed down the game. The worst example is that I wanted to have the villain do something evil at a concert on Saturday, but I just couldn't get to Saturday fast enough. This left the players hanging around with no evil to react to.
 
 I eventually dealt with this in-universe. I made something happen that forced the baddies to act faster and abandon their original Saturday concert scheme.
 
