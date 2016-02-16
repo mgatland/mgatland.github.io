@@ -1,6 +1,5 @@
 ---
 title: Coding clubs in New Zealand
-layout: normal
 ---
 
 Before we started Code Club Auckland, I visited some other weekly coding clubs to learn how they did things.

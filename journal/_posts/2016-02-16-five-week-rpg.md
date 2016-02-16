@@ -1,6 +1,5 @@
 ---
 title: Five-Week RPG
-layout: normal
 ---
 
 ![Four fate dice](/journal/images/2016-02-16-fate-1.jpg)

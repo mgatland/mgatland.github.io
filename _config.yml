@@ -10,14 +10,11 @@ defaults:
   -
     scope:
       path: ""
-      type: "post"
+      type: "posts"
     values:
       layout: "normal"
 prose:
   metadata:
     "journal/_posts": |
       title: 
-      layout: normal
-    "writing/_posts": |
-      title:
       layout: normal
