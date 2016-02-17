@@ -6,10 +6,10 @@ title: Five-Week RPG
 
 A ran a tabletop RPG campaign last year. I've been a player in a game for a while, but this was my first time as Game Master and I had some special goals:
 
-* A short game's a good game. My few free evenings are too precious to give up for long. I decided that our game would run for five weekly sessions.
+* Keep it short. I decided we would do five sessions, have a nice ending, then everyone can go back to their normal lives.
 * Fast-moving plot. At the time I was watching The Vampire Diaries (TVD), and loved the show's relentless pace.
 * Minimal planning. Can I make up a world on the spot that feels solid to the players?
-* Total player freedom, like in Skyrim (or any Elder Scrolls video game). If the heroes want to go bowling instead of saving the world, let them.
+* Total player freedom, like in Skyrim (or any Elder Scrolls video game). If the heroes want to go dancing instead of saving the world, let them.
 
 ### Background
 
