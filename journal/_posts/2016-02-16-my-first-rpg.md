@@ -1,10 +1,10 @@
 ---
-title: Five-Week RPG
+title: My First RPG
 ---
 
 ![Four fate dice](/journal/images/2016-02-16-fate-1.jpg)
 
-A ran a tabletop RPG campaign last year. I've been a player in a game for a while, but this was my first time as Game Master and I had some special goals:
+I ran a tabletop RPG campaign last year. I've been a player in a game for a while, but this was my first time as Game Master and I had some special goals:
 
 * Keep it short. I decided we would do five sessions, have a nice ending, then everyone can go back to their normal lives.
 * Fast-moving plot. At the time I was watching The Vampire Diaries (TVD), and loved the show's relentless pace.
@@ -13,13 +13,9 @@ A ran a tabletop RPG campaign last year. I've been a player in a game for a whil
 
 ### Background
 
-We played [Fate Accelerated](http://fate-srd.com/fate-accelerated-fae-menu){:target="_blank"}, a light-weight game system that focusses on narrative rather than simulation. I wanted to tell a "TV-style" story, and encouraged the players to think this way. For example, you don't keep track of a character's exact bank balance on a TV show. They always have enough money unless a plot development means they don't.
+We played [Fate Accelerated](http://fate-srd.com/fate-accelerated-fae-menu){:target="_blank"}, a light-weight game system that focusses on narrative rather than simulation. I think it's good to know the rules before you break them, so I didn't use any house rules. However I did call our sessions "episodes" and the campaign a "season" because everyone likes TV.
 
-I called our sessions "episodes" and the campaign a "season". I like to think this helped the players get engaged, since TV is something we could all relate to.
-
-Apart from changing those terms, I didn't use any house rules.
-
-There were six of us, meaning five player characters (PCs). Fewer would have been easier!
+There were six of us, meaning five player characters (PCs).
 
 ### An Evil Plot Fails
 
@@ -50,19 +46,19 @@ I deliberately didn't plan what the heroes would do, but this left them flounder
 
 It would have worked better if I'd made the players collect artifacts, while the villains tried to stop _them_.
 
-_Lessons learned:_ Give the heroes clear direction, even if they have the freedom to ignore it. And remember that the players might win or lose any encounter, so you can't control the ups and downs the way a TV writer would.
+The lesson here is to give the heroes clear direction, even if they have the freedom to ignore it. And remember that the players might win or lose any encounter, so you can't control the ups and downs the way a TV writer would.
 
 ### Problems with Pace
 
-I designed the evil plot to develop over a week of in-game time, which I hoped would span the five episodes of our show.
+I set up the evil plot to develop over a week of in-game time, which I hoped would span the five episodes of our show.
 
 This was bad. Setting specific dates slowed down the game. The worst example is that I wanted to have the villain do something evil at a concert on Saturday, but I just couldn't get to Saturday fast enough. This left the players hanging around with no evil to react to.
 
 I eventually dealt with this in-universe. I made something happen that forced the baddies to act faster and abandon their original Saturday concert scheme.
 
-This awkward fix had side-effects: the plot grew more complicated, and the players were confused because they still thought the concert would become relevant. I'd spent a lot of energy foreshadowing the concert, and the players were invested in it too. All that energy led nowhere and was wasted.
+This awkward fix had side-effects: the plot grew more complicated, and the players were confused (does this sound familiar?) They still thought the concert would become relevant, so looked for non-existent leads. I'd spent a lot of energy foreshadowing the concert, and the players were invested in it too. All that energy led nowhere and was wasted.
 
-_Lessons learned:_ Maybe I was too eager to introduce an epic, multi-episode storyline. I should have ran [one-episode stories](http://tvtropes.org/pmwiki/pmwiki.php/Main/MonsterOfTheWeek){:target="_blank"} until I had a better sense of how to pace things.
+I think I was too eager to introduce an epic, multi-episode storyline. I should have used [one-episode stories](http://tvtropes.org/pmwiki/pmwiki.php/Main/MonsterOfTheWeek){:target="_blank"} until I had a better sense of how to pace things.
 
 ### Pilots are Always Bad
 
