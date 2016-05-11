@@ -26,6 +26,6 @@ Another recruiter just emailed me. I've been thinking.
 
 If you desperately need a job, you should consider what first impression your GitHub account makes.
 
-But for me, GitHub is my workshop. I'm in there every day, tinkering away, and I throw things around wherever it's convenient. I do not want to curate it. The thought of hiding 'bad' projects, or contributing to something because it _looks good_, or arranging nice commits like they're Intragram photos -- I do not have time for that.
+But for me, GitHub is my workshop. I'm in there every day, tinkering away, and I throw things around wherever it's convenient. I do not want to curate it. The thought of hiding 'bad' projects, or contributing to something because it _looks good_, or arranging nice commits like they're Instagram photos -- I do not have time for that.
 
 Maybe one day I'll run out of money. On that day I'll hide my worst projects, delete this post, and send impressive pull requests to Battle for Wesnoth. For now, I'd rather show the mess.
