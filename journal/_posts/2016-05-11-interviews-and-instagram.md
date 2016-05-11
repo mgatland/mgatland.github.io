@@ -14,9 +14,9 @@ But the third time Google approached me, I didn't pass the phone screen. (This i
 
 I understand where he was coming from. A GitHub profile is kind of like a CV, and my GitHub said "I only work on toy projects, lol!"
 
-But what is also kind of like a CV is a CV. Good engineers form hypotheses and then test them. This guy formed a hypothesis ("The candidate has no experience on large projects") but didn't ask me any questions to test it. Then when he saw contradictory evidence in my CV, I could literally hear the pause while his brain processed the new information, realised it didn't match his theory, and then decided to ignore it.
+But what is also kind of like a CV is a CV. Good engineers form hypotheses and then test them. This guy formed a hypothesis ("The candidate has no experience on large projects") but didn't ask me any questions to test it. Then when he saw contradictory evidence in my CV, I could literally hear the pause while he processed the new information, realised it didn't fit his theory, and then decided to ignore it.
 
-(He then asked if I'd heard of Battle for Wesnoth, the big open source game project. I have, it's older than Gmail, but thanks for hot tip. Have you heard of the Linux kernel?)
+(He then asked if I'd heard of Battle for Wesnoth, the big open source game project. I have, it's older than Gmail, but thanks for the hot tip. Have you heard of the Linux kernel?)
 
 I guess I'm still bitter about that.
 
