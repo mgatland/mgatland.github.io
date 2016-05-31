@@ -1,1 +1,1 @@
-jekyll serve --config _config.yml,_localconfig.yml
+jekyll serve --incremental --config _config.yml,_localconfig.yml
