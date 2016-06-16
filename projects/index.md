@@ -15,7 +15,7 @@ Programming is often presented as an antisocial, solitary profession. In reality
 
 [Alice](https://twitter.com/tangygrape) and I started Girl Code because we wanted a beginner's coding course that showed the social side of coding. [Girl Code](http://girlcode.co.nz/) is the result: a short, intense course where students learn what it's really like to build software together.
 
-Originally a private course for paying students, we now work with Microsoft and OMG Tech! to run Girl Code at schools in low socio-economic communities.
+Originally a private course for paying students, we now work with Microsoft and OMGTech! to run Girl Code at schools in low socio-economic communities.
 
 <h3>Pop-Up Arcade</h3>
 
@@ -63,7 +63,7 @@ Our goal is to bring DIY games out into the community, to get all kinds of peopl
 
 I've worked with lots of organisations that teach coding to children and promote technology careers.
 
-* I created and lead the coding activity at OMG Tech!.
+* I created and lead the coding activity at OMGTech!.
 * I co-hosted Auckland's first Code Club for two years, together with Ruth James from Orion Health (and a team of great volunteers).
 * I've given career talks and run game-making workshops at schools through FutureInTech.
 * Pop-Up Arcade ran a series of 20 game-making workshops for Auckland Libraries.
