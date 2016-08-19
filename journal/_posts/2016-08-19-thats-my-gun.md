@@ -1,0 +1,19 @@
+---
+title: my gun
+---
+
+>everyone else in the office is playing overwatch  
+I haven't been into multiplayer games for years...  
+but I have UT2004 installed hey there are still servers running!  
+>
+>I join a server it's full of weird silly custom powerups  
+pick up a random weapon and OMG this is MY GUN  
+>
+>this weapon mod i made ten years ago  
+> that i thought no-one even used  
+> has survived like a cockroach while all the big mods died  
+> and is live on a server in 2016
+
+It's not a prestigious mod collection. The server's custom config is full of fart jokes and dick jokes, the maps are chaotic and tiny and far too frantic to use my gun the way it was meant to be used. But it's amazing that this thing I made is still out there, long after I stopped paying attention.
+
+What else is floating around the internet?

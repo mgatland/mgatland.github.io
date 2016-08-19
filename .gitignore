@@ -2,3 +2,4 @@ _site/
 mgatland.sublime-project
 mgatland.sublime-workspace
 .DS_Store
+.jekyll-metadata
