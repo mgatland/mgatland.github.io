@@ -1,4 +1,5 @@
 canonical games order:
+[x] 36 Faithgame
 [x] 35 Caves
 [x] 34 Flick Games
 [x] 33 Episode 12
