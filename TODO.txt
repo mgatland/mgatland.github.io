@@ -1,6 +1,4 @@
 === The Future ===
-
-
 [ ] write some more content!
 [ ] migrate many more games
 [ ] I claim that I "make games and talk to people."
