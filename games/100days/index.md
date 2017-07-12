@@ -8,7 +8,7 @@ date: 2017-06-24
 icon: 100days/100days-icon.gif
 ---
 
-I set out to make a game every day for 100 days, as part of the [100 Days Project](https://100daysproject.co.nz/). I did not succeed -- in the end, I made 22 games over 30 days and decided to leave it there.
+I set out to make a game every day for 100 days, as part of the <a target="_blank" href="https://100daysproject.co.nz/">100 Days Project</a>. I did not succeed -- in the end, I made 22 games over 30 days and decided to leave it there.
 
 It was fun to try different ideas without making a big commitment to them. But it was exausting. Making some of the games took more than 5 hours. The quickest one was Snakeshed, at 40 minutes.
 
