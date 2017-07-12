@@ -103,8 +103,8 @@ h3, .listOfPosts {
 	margin-left: 20px;
 }
 
-/* always hide links in header */
-h1 a, h2 a, h3 a, .listOfPosts a, .title a {
+/* always hide links in header (or image links) */
+h1 a, h2 a, h3 a, .listOfPosts a, .title a, a.imagelink {
 	background-color: inherit;
 	color: inherit;
 	padding: 0;
@@ -200,6 +200,20 @@ img {
 hr {
 	border: 1px solid #777;
 	background-color: #777;
+}
+
+/* links that contain images */
+a.imagelink {
+	/*default a is reset elsewhere for this class*/
+	padding: 25px;
+  -webkit-transition-property: background-color;
+  -webkit-transition-duration: 0.4s;
+  display:block;
+  text-align:center;
+}
+
+a.imagelink:hover {
+	background-color: #ccc;
 }
 
 .button h2 {

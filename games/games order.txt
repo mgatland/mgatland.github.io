@@ -1,4 +1,6 @@
 canonical games order:
+[x] 37 100 Days
+** possibly some missing **
 [x] 36 Faithgame
 [x] 35 Caves
 [x] 34 Flick Games
