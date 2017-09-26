@@ -2,6 +2,10 @@
 title: Email Notifications from Node
 ---
 
+**Warning:** this is an old post and this method probably won't work any more. These days (in 2017), I use Sendgrid, a special automated email service, rather than trying to automatically send an email from Gmail.
+
+------
+
 I wanted to be notified whenever someone logged into [Let's Be Ducks.](www.matthewgatland.com/games/ducks/) Ducks is a Node application hosted by AppFog.
 
 I looked into Twitter first, but after reading the twitter API docs, email seemed a bit easier. Using [emailjs](https://github.com/eleith/emailjs) and Gmail, I had everything working in less than an hour.
