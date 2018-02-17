@@ -2,7 +2,7 @@
 title: Matthew's Dungeons of the Unforgiven
 layout: normal
 categories: [games]
-description: Matthew's Dungeons of the Unforgiven
+description: Matthew's Dungeons
 order: 38
 date: 2018-02-05
 icon: dungeons/dungeons.png
