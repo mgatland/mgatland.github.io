@@ -1,8 +1,8 @@
 ---
-title: Matthew's Dungeons of the Unforgiven
+title: Dungeons of the Unforgotten
 layout: normal
 categories: [games]
-description: Matthew's Dungeons
+description: Dungeons of the Unforgotten
 order: 38
 date: 2018-02-05
 icon: dungeons/dungeons.png
@@ -12,7 +12,7 @@ Exiled from your home, you must delve deeper into danger while avoiding death in
 
 Made in a weekend for the Global Game Jam 2018, but with lots of additional polish since then.
 
-<p>Play <a href="/ggj2018/">Matthew's Dungeons of the Unforgiven</a></p>
+<p>Play <a href="/ggj2018/">Matthew's Dungeons of the Unforgotten</a></p>
 
 By me, [Sergio Cornaga](https://twitter.com/corneaga) and [Chimeratio](https://soundcloud.com/chimeratio)
 
