@@ -2,7 +2,7 @@
 title: Learning JavaScript without JQuery
 ---
 
-I'm updating the [Girl Code](https://girlcode.co.nz) activities to no longer use jQuery. jQuery gets less cool and less popular every year, and we need to teach our students stuff that will help them look good when they talk to experienced developers.
+I'm updating the [Girl Code](https://girlcode.co.nz) activities to no longer use jQuery. jQuery is less trendy and popular every year, and we need to teach our students stuff that will help them look good when they talk to experienced developers.
 
 When we started, some simple tasks were just too complex without jQuery -- in particular, making a GET request went from this:
 
@@ -17,7 +17,7 @@ var xhr = new XMLHttpRequest();
 xhr.responseType = 'json';
 xhr.open('GET', '/report');
 xhr.onload = function() {
-	var jsonResponse = xhr.response;
+  var jsonResponse = xhr.response;
     processReport(jsonResponse);
 };
 xhr.send();
@@ -33,7 +33,7 @@ fetch("/report")
   .then(processReport);
 ```
 
-We can work with that. It's still as good as the jQuery way - it doesn't use the key word 'GET', and it introduces promises and JSON, concepts that we don't want to teach at this point. But it's short and inoffensive and it'll be fine.
+We can work with that. It's still not as good as the jQuery way -- it doesn't use the key word 'GET', and it introduces promises and JSON, concepts that we don't want to teach at this point. But it's short and inoffensive and it'll be fine.
 
 (Note that I'm not a JS expert, and there just the best examples I've found so far. Feel free to email me if you have something that's better! By better I mean: <i>it requires understanding fewer concepts</i>.)
 
@@ -82,7 +82,7 @@ function displayMessage3(message) {
 }
 ```
 
-Not sure if this is better or worse. I think it might be easier to explain what's weird about it: we create a temporary throwaway div element to build inside, then use its contents.
+Not sure if this is better or worse. I think it might be easier to explain what's weird about it: we create a temporary throwaway div element to build inside, then use its contents. Our students already have to learn what innerHTML does so it's not an additional load.
 
 ```javascript
 function displayMessage4(message) {
@@ -117,4 +117,8 @@ Like everything, this is a tradeoff. Template literals are very different from n
     '</div>'
 ```
 
-And now I'm looking back wistfully at the first example, where all the HTML was created with JavaScript commands, not a pointy bracket in sight...
+They'll make more mistakes with this version, but... good mistakes. You'll never regret becoming a string expert.
+
+I think my fav is version 5, with multiline strings but not template literals.
+
+Then later in the course, when we learn about using functions to avoid duplicate code, we could hide <code>document.createRange().createContextualFragment</code> inside a nicely named utility function.
