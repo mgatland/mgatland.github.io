@@ -119,6 +119,6 @@ Like everything, this is a tradeoff. Template literals are very different from n
 
 They'll make more mistakes with this version, but... good mistakes. You'll never regret becoming a string expert.
 
-I think my fav is version 5, with multiline strings but not template literals.
+I think my fav is version 5, but multiline strings instead of template literals.
 
 Then later in the course, when we learn about using functions to avoid duplicate code, we could hide <code>document.createRange().createContextualFragment</code> inside a nicely named utility function.
