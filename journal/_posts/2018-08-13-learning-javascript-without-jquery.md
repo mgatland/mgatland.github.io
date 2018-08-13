@@ -37,7 +37,7 @@ We can work with that. It's still not as good as the jQuery way -- it doesn't us
 
 (Note that I'm not a JS expert, and there just the best examples I've found so far. Feel free to email me if you have something that's better! By better I mean: <i>it requires understanding fewer concepts</i>.)
 
-So anyway, the most essential thing you'll ever want to do in JavaScript is create HTML and add it into a page. With vanilla JS, I haven't found a way to do this that I like. But I've found ways that are not too bad. Here are the alternatives I've come up with so far:
+So anyway, the most essential thing you'll ever want to do in JavaScript is create HTML and add it into a page. With vanilla JS, I haven't found a way to do this that I like. I've found ways that are not too bad. Here are the alternatives I've come up with so far:
 
 The step by step approach:
 
@@ -122,3 +122,22 @@ They'll make more mistakes with this version, but... good mistakes. You'll never
 I think my fav is version 5, but multiline strings instead of template literals.
 
 Then later in the course, when we learn about using functions to avoid duplicate code, we could hide <code>document.createRange().createContextualFragment</code> inside a nicely named utility function.
+
+### Update
+
+Alexey points out that you don't need to create an HTML element if you append plain text HTML to the parent node's inner HTML. That would come out like this:
+
+```javascript
+function displayMessage6(message) {
+  let postHtml = 
+    `
+    <div class="post">
+        <div class="message">${message}</div>
+    </div>
+    `;
+  let messageList = document.querySelector(".message-list");
+  messageList.innerHTML += postHtml;
+}
+```
+
+This is better. I didn't think of this because I was looking up way to "create an HTML element", which we don't explicitly do here. It has a few limitations, but it's simple and probably the best option for our course.
