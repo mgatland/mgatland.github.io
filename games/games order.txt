@@ -39,3 +39,4 @@ canonical games order:
 [x] 3 adventure
 2 seekers-pack (to add)
 1 old-projects
+	[1 is temporarily used for room tour 2003]
