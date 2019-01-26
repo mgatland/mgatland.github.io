@@ -221,6 +221,7 @@ a.imagelink:hover {
 	line-height: 26px;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	white-space: nowrap;
 }
 
 .button img {
