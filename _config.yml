@@ -1,6 +1,6 @@
 permalink: /:categories/:year-:month-:day-:title/
 google_analytics_id: UA-707544-6
-url: 'http://www.matthewgatland.com'
+url: 'https://www.matthewgatland.com'
 title: Matthew Gatland
 description: Matthew Gatland's personal website
 markdown: kramdown

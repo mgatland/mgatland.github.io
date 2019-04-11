@@ -1,7 +1,7 @@
   <div class="journal">
     <div>
     	<h2>{{ page.title }}</h2>
-    	<span class="subtle"><a href="{{site.url}}{{page.url}}">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</a></span>
+    	<span class="subtle"><a href="{{page.url}}">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</a></span>
     </div>
     {{ page.content }}
   </div>
