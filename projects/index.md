@@ -35,11 +35,11 @@ Our goal is to bring DIY games out into the community, to get all kinds of peopl
 
 <p><strong>Dungeons &amp; Dragons &amp; You</strong> – You always secretly wanted to try tabletop roleplaying, but it 0% suits your friends\free time\image. Come along and we'll run your first mini session! (A workshop at <a href="http://gathergather.co.nz/">Gather</a> 2015.)</p>
 
-<p><strong>Understanding Game Design</strong> <a href="http://www.matthewgatland.com/game-design-talk/">(slides)</a> – a beginner class, loosely based on Marc LeBlanc's famous GDC workshops. Made for Laneway Learning.</p>
+<p><strong>Understanding Game Design</strong> <a href="https://www.matthewgatland.com/game-design-talk/">(slides)</a> – a beginner class, loosely based on Marc LeBlanc's famous GDC workshops. Made for Laneway Learning.</p>
 
-<p><strong>A day in the life of a Software Engineer</strong> <a href="http://www.matthewgatland.com/talkforschools2/">(slides)</a> – a careers talk for school students.</p>
+<p><strong>A day in the life of a Software Engineer</strong> <a href="https://www.matthewgatland.com/talkforschools2/">(slides)</a> – a careers talk for school students.</p>
 
-<p><strong>JavaScript is Good Now</strong> <a href="http://www.matthewgatland.com/javascriptisgoodnow/#/">(slides)</a> – web technologies are changing fast, and JavaScript isn't what it was 6 months ago – especially on iOS. Are web browsers finally ready for your games? Find out in this talk, given at NZ GDC 2014.</p>
+<p><strong>JavaScript is Good Now</strong> <a href="https://www.matthewgatland.com/javascriptisgoodnow/#/">(slides)</a> – web technologies are changing fast, and JavaScript isn't what it was 6 months ago – especially on iOS. Are web browsers finally ready for your games? Find out in this talk, given at NZ GDC 2014.</p>
 
 <p><strong>The Newsroom</strong> – Are 10 heads better than one? You have 30 minutes to make me a short newsletter. Since there are 10 of you, that adds up to 5 person-hours of work. Plenty of time, right? This light-hearted workshop looks at how we divide up work in high-pressure situations. (A workshop at <a href="http://gathergather.co.nz/">Gather</a> 2014.)</p>
 
