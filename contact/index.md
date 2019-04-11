@@ -7,7 +7,7 @@ layout: normal
 
 <p>Feel free to contact me with any questions or comments.</p>
 
-<p>Twitter: <a href="http://twitter.com/mgatland">@mgatland</a></p>
+<p>Twitter: <a href="https://twitter.com/mgatland">@mgatland</a></p>
 
 <p>Email: <a href="mailto:hi@mgatland.com">hi@mgatland.com</a></p>
 
