@@ -1,4 +1,5 @@
 canonical games order:
+[x] 39 wizard school dropout / realm2
 [x] 38 Matthew's Dungeons of the Unforgiven
 [x] 37 100 Days
 ** possibly some missing **
