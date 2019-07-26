@@ -14,7 +14,7 @@ I had to make this in a hurry and ended up borrowing a lot of code and art from 
 
 This is slightly multiplayer. If someone else is playing at the same time as you, you will see them, but you are still each on your own individual quest for 10 rings.
 
-_This is the third game released with the support of my [anti-patreons](/anti-patreon)._
+_This is the third game released with the support of my [anti-patrons](/anti-patreon)._
 
 <p>Play <a href="https://flappyworld.herokuapp.com">Flappy World</a></p>
 

@@ -16,7 +16,7 @@ I probably should have spent less time on that, and focused on making it fun ins
 
 I hope you enjoy the game!
 
-_This is the first game released with the support of my [anti-patreons](/anti-patreon)._
+_This is the first game released with the support of my [anti-patrons](/anti-patreon)._
 
 <p>Play <a href="https://realm2.herokuapp.com">Wizard School Dropout</a></p>
 
