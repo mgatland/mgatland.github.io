@@ -8,7 +8,7 @@ date: 2016-01-31
 icon: faithgame/faithgame-icon.png
 ---
 
-By Sergio Cornaga, Matthew Gatland and Elliot Hayward. Based on flickgame by Stephen Lavelle.
+By Sergio Cornaga, Matthew Gatland and Ellie Hayward. Based on flickgame by Stephen Lavelle.
 
 ![faithgame](faithgame.png)
 
