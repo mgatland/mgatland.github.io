@@ -5,7 +5,7 @@ layout: normal
 
 {::options parse_block_html="true" /}
 
-<h3 class='link'>Not yet</h3>
+<h4 class='link'>Not yet</h4>
 
 <script>
 	const start = Date.parse('23 Aug 2019 16:00:00 GMT+12')
@@ -16,7 +16,7 @@ layout: normal
 		if (now > start) {
 			link.innerHTML = `<a href="https://realm2.herokuapp.com/">Click here to join</a>`
 		} else {
-			link.innerHTML = `starts in ${((start - now) / 1000 / 60)} minutes`
+			link.innerHTML = `starts in ${Math.floor((start - now) / 1000 / 60)} minutes`
 			setTimeout(updateLink, 1000)
 		}
 	}
