@@ -7,6 +7,8 @@ layout: normal
 
 <h4 class='link'>Not yet</h4>
 
+<img src="logo.gif">
+
 <script>
 	const start = Date.parse('23 Aug 2019 16:00:00 GMT+12')
 	const link = document.querySelector('.link')
