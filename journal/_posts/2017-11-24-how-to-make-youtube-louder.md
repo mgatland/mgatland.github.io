@@ -52,4 +52,14 @@ gainNode.gain.value = 3
 
 Imagine that the video was a physical object (like a phone), and it was connected to your speakers by a cable.
 
+![The video is directly connected to the speakers](/journal/images/2017-11-24-volume/circuit-1.png)
+
 We unplugged that cable and connected the video to a new object called a gain node. Then we plugged the gain node into your speakers. Sound flows from the video to the gain node to the speakers. The gain node has a volume dial on it, and we can adjust that dial to amplify the sound.
+
+![The video is now connected to a gain node, and the gain node is connected to the speakers. The gain node has an adjustable volume control which is set to 2.](/journal/images/2017-11-24-volume/circuit-2.png)
+
+### Bookmarklet
+
+I got an email from Andrew Morton who suggested putting this code in a bookmarklet. This is a bookmark that you can drag to your bookmarks bar. Clicking on the bookmark will then increase the volume on the page that you have open - so you can do it with one click.
+
+[increase volume](javascript:(function(){var videoElement = document.querySelector("video");var audioCtx = new AudioContext();var source = audioCtx.createMediaElementSource(videoElement);var gainNode = audioCtx.createGain();gainNode.gain.value = 2; /* double the volume */ source.connect(gainNode);gainNode.connect(audioCtx.destination);})();)
