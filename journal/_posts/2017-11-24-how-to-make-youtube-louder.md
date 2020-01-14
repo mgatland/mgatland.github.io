@@ -60,6 +60,8 @@ We unplugged that cable and connected the video to a new object called a gain no
 
 ### Bookmarklet
 
-I got an email from Andrew Morton who suggested putting this code in a bookmarklet. This is a bookmark that you can drag to your bookmarks bar. Clicking on the bookmark will then increase the volume on the page that you have open - so you can do it with one click.
+I got an email from Andrew Morton who suggested putting this code in a bookmarklet. I've added the bookmarklet below.
 
-[increase volume](javascript:(function(){var videoElement = document.querySelector("video");var audioCtx = new AudioContext();var source = audioCtx.createMediaElementSource(videoElement);var gainNode = audioCtx.createGain();gainNode.gain.value = 2; /* double the volume */ source.connect(gainNode);gainNode.connect(audioCtx.destination);})();)
+Drag this to your bookmarks bar: [volume up!](javascript:(function(){var videoElement = document.querySelector("video");var audioCtx = new AudioContext();var source = audioCtx.createMediaElementSource(videoElement);var gainNode = audioCtx.createGain();gainNode.gain.value = 3; /* triple the volume */ source.connect(gainNode);gainNode.connect(audioCtx.destination);})();)
+
+Clicking on the bookmark (in your bookmarks bar) will increase the volume on whatever page you have open - so you can make a YouTube video louder with a single click.
