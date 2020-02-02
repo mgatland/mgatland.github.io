@@ -101,9 +101,9 @@ PAL 0
 
 ROOM 3
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-0,0,0,0,0,0,0,0,0,0,0,0,0,29,c,c
-0,0,0,0,0,0,0,0,0,0,0,0,0,c,c,c
-0,0,0,0,0,0,0,0,0,0,0,0,0,c,c,c
+0,1j,0,1j,0,0,0,1j,0,1j,0,0,0,29,c,c
+0,1j,0,1j,0,0,0,1j,1k,1j,1l,0,0,c,c,c
+0,0,0,0,0,0,0,1j,0,0,0,0,0,c,c,c
 0,29,c,c,2a,0,0,29,c,c,2a,0,0,c,c,c
 0,c,c,c,c,0,0,c,c,c,c,0,0,c,c,c
 0,c,c,c,c,0,0,c,c,c,c,0,0,c,c,c
@@ -226,6 +226,7 @@ ITM 12 1,1
 ITM 13 14,2
 ITM 14 2,13
 ITM 15 15,14
+ITM 1k 8,5
 EXT 15,14 8 0,1
 PAL 0
 
@@ -277,8 +278,8 @@ ROOM 9
 NAME The end
 ITM 1d 9,6
 ITM 1e 4,6
-ITM 1f 10,10
-ITM 1h 13,14
+ITM 1i 5,14
+ITM 1j 6,14
 PAL 0
 
 TIL 10
@@ -1140,6 +1141,51 @@ SPR 16
 DLG SPR_f
 POS 5 7,13
 
+SPR 17
+00000000
+00011000
+00011000
+00001000
+00001000
+00001000
+00001000
+00001000
+DLG SPR_x
+POS 5 1,4
+
+SPR 18
+00000000
+00110000
+00110000
+00100000
+00100000
+00100000
+00100000
+00100000
+DLG SPR_y
+POS 5 3,6
+
+SPR 19
+00000000
+00011000
+00011000
+00001000
+00111000
+00101000
+00001000
+00000000
+>
+00000000
+00011000
+00011000
+01001000
+00111000
+00101000
+00001000
+00000000
+DLG SPR_z
+POS 5 9,6
+
 SPR A
 00001100
 00001100
@@ -1435,6 +1481,54 @@ SPR z
 01000000
 DLG SPR_q
 POS 5 0,4
+
+SPR 1a
+00000000
+00011000
+00011000
+00010000
+00010000
+00010000
+00010000
+00010000
+DLG SPR_10
+POS 5 10,6
+
+SPR 1b
+00000000
+00110000
+00110000
+00100000
+00100000
+00100000
+00100000
+00100000
+DLG SPR_11
+POS 7 8,15
+
+SPR 1c
+00000000
+00011000
+00011000
+00001000
+00001000
+00001000
+00001000
+00001000
+DLG SPR_12
+POS 7 11,15
+
+SPR 1d
+00000000
+00000000
+00000011
+00111111
+01111100
+01111100
+01111100
+01000100
+DLG SPR_13
+POS 7 0,15
 
 ITM 0
 10101001
@@ -1977,17 +2071,6 @@ ITM 1e
 00010000
 DLG ITM_1c
 
-ITM 1f
-11111111
-10000001
-10000001
-11111111
-00010000
-00010000
-00010000
-00010000
-DLG ITM_1d
-
 ITM 1g
 00000000
 00010000
@@ -1999,7 +2082,7 @@ ITM 1g
 00000000
 DLG ITM_1e
 
-ITM 1h
+ITM 1i
 11111111
 10000001
 10000001
@@ -2008,6 +2091,28 @@ ITM 1h
 00010000
 00010000
 00010000
+DLG ITM_1g
+
+ITM 1j
+11111111
+10000001
+10000001
+11111111
+00010000
+00010000
+00010000
+00010000
+DLG ITM_1d
+
+ITM 1k
+00000000
+00010000
+00000000
+00000000
+00000010
+00100000
+00000000
+00000000
 DLG ITM_1f
 
 DLG ITM_0
@@ -2148,7 +2253,7 @@ Mum: Can we take Alice's dinner to her at Mandy's accommodation?
 DLG SPR_l
 """
 Hotel woman: Of course! The owners are cousins so just leave
-the plate at Mandys' reception afterwards. They'll sort it out.
+the plate at Mandys' reception after and they'll sort it out.
 """
 
 DLG SPR_m
@@ -2178,8 +2283,9 @@ We take a break at this cafe.
 DLG ITM_n
 """
 Laurie and Greta's kids are both in the trailer. It's too heavy.
-People took turns to ride it but it's just way too much.
-We swap Mum's ebike onto the trailer, I get a regular bike.
+People took turns pulling it but it's just too much.
+We swap Mum's ebike onto the trailer instead.
+Dave takes the trailer, I take Dave's normal bike.
 """
 
 DLG ITM_o
@@ -2262,10 +2368,10 @@ I should have made a 3 page game, this story is too long...
 """
 
 DLG ITM_14
-It's the final day. Not much riding today.
+It's the final day. I ride with Dad the whole way, fairly fast.
 
 DLG ITM_15
-I ride with Dad today. We stop here to walk to the river.
+We stop here to walk to the river.
 
 DLG SPR_g
 """
@@ -2301,18 +2407,12 @@ Final thoughts
 
 DLG ITM_1b
 """
-It would be quite fun to come back in winter, with the snow.
-A big contrast from the 'wild west' way it looked this time.
+The hottest days were tough. I would prefer a different season
+or we could arrange to ride in the mornings and evenings only.
 """
 
 DLG ITM_1c
 It was a lot of fun! I would definitely come back again.
-
-DLG ITM_1d
-"""
-The heat is pretty tough without an ebike. I would avoid it.
-If you started at 7 AM you would avoid the heat. Hard though.
-"""
 
 DLG SPR_v
 Rory: what colour is nothing if there's nothing behind it?
@@ -2323,18 +2423,60 @@ Mum, who's driving down with Dad and our bikes.
 DLG ITM_1e
 The pub isn't very far away, so we walk. But walking is so slow!
 
-DLG ITM_1f
-"""
-come back in a month, maybe I will have updated this game
-with the story about choosing what to eat at each pub!
-"""
-
 DLG SPR_f
 """
 Farmer: This pub is for sale. We thought about buying it.
 No-one would stay in our cabins if the pub shut down.
 But if we buy a pub, we have to run a farm, cabins, AND a pub.
 """
+
+DLG SPR_x
+"""
+Dad: riding Dave's bike up that hill was was tough!
+At first, I thought the breaks were stuck on.
+"""
+
+DLG SPR_y
+"""
+Greta: We're going to eat our dinner here
+instead of taking the kids to the pub again.
+"""
+
+DLG SPR_z
+Michael is whittling a stick with a small knife.
+
+DLG SPR_10
+Sarah: we found some good op-shops today!
+
+DLG ITM_1g
+"""
+The most important part of this trip happened before it started:
+I went out and bought a bicycle! And started riding again.
+"""
+
+DLG ITM_1d
+"""
+I stopped riding 10 years ago after an accident.
+Preparing for this trip showed me that I still love cycling!
+"""
+
+DLG ITM_1f
+"""
+We've driven back half the distance we rode today!
+We could have just got off the bikes back here...
+"""
+
+DLG SPR_11
+"""
+Sarah: We went swimming in the river. It was extremely cold.
+Which I appreciate.
+"""
+
+DLG SPR_12
+Sam: come play cards!
+
+DLG SPR_13
+baaa!
 
 END 0
 Who is coming on the trip?
