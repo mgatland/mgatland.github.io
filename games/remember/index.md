@@ -8,7 +8,7 @@ date: 2020-02-25
 icon: remember/remember-icon.png
 ---
 
-_This is the 10th game released with the support of my [anti-patrons](/anti-patreon)._
+_This is the 11th game released with the support of my [anti-patrons](/anti-patreon)._
 
 <p>Play <a href="/remember/">Remember to pack everything</a></p>
 
