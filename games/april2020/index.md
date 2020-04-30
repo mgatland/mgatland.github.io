@@ -12,4 +12,4 @@ _This is the 13th game released with the support of my [anti-patrons](/anti-patr
 
 <p>Play <a href="https://scratch.mit.edu/projects/390529043/embed">April Quick</a></p>
 
-![](april2020.png)
+![](april-2020.png)
