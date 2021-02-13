@@ -4,7 +4,7 @@ title: Three Words
 
 ![Someone tweets: "You meet your 18 year old self- you can say 3 words- what are they?"](/journal/images/2021-02-13-three-words.png)
 
-This tweet is meant to prompt you to reflect on your youth in a sentimental way, but I can't resist seeing it as a puzzle. Let's nerd out about this!
+This tweet is meant to prompt you to reflect on your youth in a sentimental way, but I can't resist seeing it as a time travel puzzle. Let's nerd out about this!
 
 ### Prevent a bad decision
 
