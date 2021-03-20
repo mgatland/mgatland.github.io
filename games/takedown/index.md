@@ -29,6 +29,8 @@ You can also download the old, Windows only version of TakeDown:
 
 The Windows version has more features and spelling mistakes.
 
+[Read the old readme file](old-readme.html)
+
 [Read more](/journal/2013-08-05-rewriting-takedown/) about making TakeDown.
 
 <img src="takedown-02.png" alt="a screenshot of TakeDown"/>
