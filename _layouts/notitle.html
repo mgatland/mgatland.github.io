@@ -2,9 +2,6 @@
 <body>
 	{% include header.html %}
 	<section class="content">
-		<header class="smallheader">
-			<p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
-		</header>
 {{content}}
 {% include footer.html %}
 	</section>
