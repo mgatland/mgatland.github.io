@@ -12,8 +12,8 @@ icon: improv/improv-icon.jpg
 
 <p>A short first-person exploration game for Ludum Dare 19.</p>
 
-<p><a href="improv-ludumdare19.zip">Download Improv for Windows - (8 MB)</a></p>
-<p><a href="improv-ld19-source-small.zip">Download Improv source code - (10 MB)</a></p>
+<p><a href="improv-ludumdare19.zip">Download Improv for Windows</a> - (8 MB)</p>
+<p><a href="improv-ld19-source-small.zip">Download Improv source code</a> - (10 MB)</p>
 
 <p>Controls:</p> 
 

@@ -42,13 +42,8 @@ nav {
 }
 
 nav a {
-	/*resets*/
-	background-color: transparent;
-	border: none;
-	color: inherit;
-	box-shadow: none;
-
 	color: white;
+	text-decoration: none;
 	display: inline-block;
 	font-size: 20px;
 	line-height: 24px;
@@ -105,17 +100,14 @@ h3, .listOfPosts {
 
 /* always hide links in header (or image links) */
 h1 a, h2 a, h3 a, .listOfPosts a, .title a, a.imagelink {
-	background-color: inherit;
 	color: inherit;
-	padding: 0;
-	margin: 0;
-	box-shadow: none;
-	border: none;
+	text-decoration: inherit;
 }
 
 /* always hide links in header */
 h1 a:hover, h2 a:hover, h3 a:hover, .listOfPosts a:hover, .title a:hover {
 	color: inherit;
+	text-decoration: inherit;
 }
 
 /*subtle messages like 'you have reached the last post in my journal' */
@@ -123,12 +115,6 @@ h1 a:hover, h2 a:hover, h3 a:hover, .listOfPosts a:hover, .title a:hover {
 	color: #777;
 	font-size: 1em;
 	margin-top: 40px;
-}
-
-.subtle a {
-	background-color: transparent;
-	border: none;
-	box-shadow: none;
 }
 
 .listOfPosts .date {
@@ -148,21 +134,15 @@ p {
 }
 
 a {
-	text-decoration: none;
 	color: #19428A;
-	background-color: #ddd;
-	box-shadow: 2px 2px 4px #777;
-	border: 1px solid #D4D1D1;
-	padding: 2px 4px;
-	transition-property: color;
+	transition-property: color, text-decoration-color;
 	transition-duration: 0.2s;
-	/*for Safari 6.0: */
-	-webkit-transition-property: color;
-	-webkit-transition-duration: 0.2s;
+	text-decoration-color: #9fc0f9;
 }
 
 a:hover, a:active {
 	color: #BB4B00;
+	text-decoration-color: #ffab72;
 }
 
 .content {
@@ -205,11 +185,12 @@ hr {
 /* links that contain images */
 a.imagelink {
 	/*default a is reset elsewhere for this class*/
-	padding: 25px;
-  -webkit-transition-property: background-color;
-  -webkit-transition-duration: 0.4s;
+  padding: 25px;
+  transition-property: background-color;
+  transition-duration: 0.4s;
   display:block;
   text-align:center;
+  text-decoration: none;
 }
 
 a.imagelink:hover {
@@ -233,10 +214,8 @@ a.imagelink:hover {
 /*links on huge buttons.*/
 a.button {
 	/*resets*/
-	background-color: transparent;
-	border: none;
+	text-decoration: inherit;
 	color: inherit;
-	box-shadow: none;
 
 	/*buttonize*/
 	display: block;
@@ -247,9 +226,6 @@ a.button {
 
 	transition-property: background-color;
 	transition-duration: 0.4s;
-	/*for Safari 6.0: */
-	-webkit-transition-property: background-color;
-	-webkit-transition-duration: 0.4s;
 }
 
 a.button:hover, a.button:active {
@@ -275,15 +251,16 @@ a.button:hover, a.button:active {
 }
 
 .disabled-link {
-	background-color: #ddd;
 	color: #bbb;
-	text-decoration: none;
-	padding: 2px 4px;
 }
 
 footer {
 	margin-top: 25px;
 	margin-bottom: 15px;
+}
+
+.breadcrumbs a {
+	text-decoration: none;
 }
 
 blockquote {

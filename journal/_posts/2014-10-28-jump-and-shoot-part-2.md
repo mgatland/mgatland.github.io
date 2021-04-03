@@ -10,7 +10,7 @@ The booth and TV were provided for free by the NZGDA. All I had to do was turn u
 
 About 150 people played.
 
-[Last time,](/journal/2014-09-29-jump-and-shoot/) many players didn't realise that you could shoot. It was good to see that the new level design fixes that problem.
+[Last time](/journal/2014-09-29-jump-and-shoot/), many players didn't realise that you could shoot. It was good to see that the new level design fixes that problem.
 
 There is still a serious usabilty problem, though. This time, it's around jumping.
 

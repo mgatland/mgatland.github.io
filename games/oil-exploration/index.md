@@ -16,7 +16,7 @@ Play [Oil Exploration](play/)
 
 Made for Ludum Dare 16.
 
-More info at the [Ludum Dare page.](http://ludumdare.com/compo/ludum-dare-16/?action=preview&uid=1113)
+More info at the [Ludum Dare page](http://ludumdare.com/compo/ludum-dare-16/?action=preview&uid=1113).
 
 Some things that might not be obvious: 
 

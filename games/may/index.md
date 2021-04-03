@@ -10,7 +10,7 @@ icon: may/may-icon.png
 
 Deliver party invitations as a speedy snail.
 
-This was an attempt to make a game in the style of Sylvie [(love-game.net)](http://love-game.net/), whose work I have enjoyed and admired for a long time.
+This was an attempt to make a game in the style of Sylvie ([love-game.net](http://love-game.net/)), whose work I have enjoyed and admired for a long time.
 
 _This is the second game released with the support of my [anti-patrons](/anti-patreon)._
 

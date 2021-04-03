@@ -16,5 +16,5 @@ Use enemies as weapons in this cave exploration game.
 
 Made for Ludum Dare 18.
 
-More info at the [Ludum Dare page.](http://ludumdare.com/compo/ludum-dare-18/comment-page-1/?action=preview&uid=1113)
+More info at the [Ludum Dare page](http://ludumdare.com/compo/ludum-dare-18/comment-page-1/?action=preview&uid=1113).
 

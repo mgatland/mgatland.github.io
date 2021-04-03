@@ -25,7 +25,7 @@ Controls:
 This is very unfinished but should be playable. You can’t win, 
 though.
 
-More info at the [Ludum Dare page.](http://ludumdare.com/compo/ludum-dare-15/?action=preview&uid=1113)
+More info at the [Ludum Dare page](http://ludumdare.com/compo/ludum-dare-15/?action=preview&uid=1113).
 
 Made with:
 

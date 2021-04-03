@@ -6,7 +6,7 @@ Our Code Club took a break from Scratch to teach QBasic this week.
 
 ![QBasic, still beautiful.](/journal/images/qbasic.png)
 
-I wrote a [QBasic activity,](http://codeclubakl.github.io/qbasic/) made easy installers for Windows and Mac and hacked together a web based version for Chromebook.
+I wrote a [QBasic activity](http://codeclubakl.github.io/qbasic/), made easy installers for Windows and Mac and hacked together a web based version for Chromebook.
 
 Our club has about 20 children, aged 10 to 13 years old.
 

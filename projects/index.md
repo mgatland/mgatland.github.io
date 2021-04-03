@@ -23,7 +23,7 @@ Originally a private course for paying students, we now work with Microsoft and 
 
 New Zealand's strangest games arcade. Appearing at festivals and in dark corners, we show locally-made games running on hand-painted computers.
 
-Our goal is to bring DIY games out into the community, to get all kinds of people playing and making together. [Catch our next event.](http://popuparcade.co.nz)
+Our goal is to bring DIY games out into the community, to get all kinds of people playing and making together. [Catch our next event](http://popuparcade.co.nz).
 
 <h3>Talks and Workshops</h3>
 
@@ -31,15 +31,15 @@ Our goal is to bring DIY games out into the community, to get all kinds of peopl
 
 <p class="caption">The Newsroom: ten people collaborate on a one–page document.</p>
 
-<p><strong>Game Making for Beginners</strong> <a href="https://www.youtube.com/watch?v=mfd0Utm7ePI/">(video)</a> – a super-accessible workshop for children as young as nine (and anyone older). I've run it more than 30 times.</p>
+<p><strong>Game Making for Beginners</strong> (<a href="https://www.youtube.com/watch?v=mfd0Utm7ePI/">video</a>) – a super-accessible workshop for children as young as nine (and anyone older). I've run it more than 30 times.</p>
 
 <p><strong>Dungeons &amp; Dragons &amp; You</strong> – You always secretly wanted to try tabletop roleplaying, but it 0% suits your friends\free time\image. Come along and we'll run your first mini session! (A workshop at <a href="http://gathergather.co.nz/">Gather</a> 2015.)</p>
 
-<p><strong>Understanding Game Design</strong> <a href="https://www.matthewgatland.com/game-design-talk/">(slides)</a> – a beginner class, loosely based on Marc LeBlanc's famous GDC workshops. Made for Laneway Learning.</p>
+<p><strong>Understanding Game Design</strong> (<a href="https://www.matthewgatland.com/game-design-talk/">slides</a>) – a beginner class, loosely based on Marc LeBlanc's famous GDC workshops. Made for Laneway Learning.</p>
 
-<p><strong>A day in the life of a Software Engineer</strong> <a href="https://www.matthewgatland.com/talkforschools2/">(slides)</a> – a careers talk for school students.</p>
+<p><strong>A day in the life of a Software Engineer</strong> (<a href="https://www.matthewgatland.com/talkforschools2/">slides</a>) – a careers talk for school students.</p>
 
-<p><strong>JavaScript is Good Now</strong> <a href="https://www.matthewgatland.com/javascriptisgoodnow/#/">(slides)</a> – web technologies are changing fast, and JavaScript isn't what it was 6 months ago – especially on iOS. Are web browsers finally ready for your games? Find out in this talk, given at NZ GDC 2014.</p>
+<p><strong>JavaScript is Good Now</strong> (<a href="https://www.matthewgatland.com/javascriptisgoodnow/#/">slides</a>) – web technologies are changing fast, and JavaScript isn't what it was 6 months ago – especially on iOS. Are web browsers finally ready for your games? Find out in this talk, given at NZ GDC 2014.</p>
 
 <p><strong>The Newsroom</strong> – Are 10 heads better than one? You have 30 minutes to make me a short newsletter. Since there are 10 of you, that adds up to 5 person-hours of work. Plenty of time, right? This light-hearted workshop looks at how we divide up work in high-pressure situations. (A workshop at <a href="http://gathergather.co.nz/">Gather</a> 2014.)</p>
 
@@ -49,13 +49,13 @@ Our goal is to bring DIY games out into the community, to get all kinds of peopl
 
 <p class="caption">Frogscast interviews Pop-Up Arcade. Image by Frogshark.</p>
 
-<p><strong>Freeplay 2015</strong> <a href="https://www.youtube.com/watch?v=4_ktMqNnXaQ">(video)</a> I'm on a panel discussion about game–making collectives.</p>
+<p><strong>Freeplay 2015</strong> (<a href="https://www.youtube.com/watch?v=4_ktMqNnXaQ">video</a>) I'm on a panel discussion about game–making collectives.</p>
 
-<p><strong>Frogscast</strong> <a href="http://frogshark.com/podcast-2/">(videos)</a> A series about independent game development in New Zealand. I'm in episodes about <a href="http://frogshark.com/2015/06/podcast-05-pop-up-arcade/">Pop-Up Arcade</a>, <a href="https://www.youtube.com/watch?v=BT4FsWm-hko">Wild Streets</a> and a few others.</p>
+<p><strong>Frogscast</strong> (<a href="http://frogshark.com/podcast-2/">videos</a>) A series about independent game development in New Zealand. I'm in episodes about <a href="http://frogshark.com/2015/06/podcast-05-pop-up-arcade/">Pop-Up Arcade</a>, <a href="https://www.youtube.com/watch?v=BT4FsWm-hko">Wild Streets</a> and a few others.</p>
 
-<p><strong>Radio New Zealand</strong> <a href="http://www.radionz.co.nz/national/programmes/nz-society/20150225">(audio or text)</a> A report on the NZ gaming scene by Sonia Sly in 2015.</p>
+<p><strong>Radio New Zealand</strong> (<a href="http://www.radionz.co.nz/national/programmes/nz-society/20150225">audio or text</a>) A report on the NZ gaming scene by Sonia Sly in 2015.</p>
 
-<p><strong>TVNZ Media 7</strong> <a href="https://www.youtube.com/watch?v=2sZX9n0YC7w">(video)</a> My first TV appearance, showing one of my worst games ever in this 2010 report by José Barbosa.</p>
+<p><strong>TVNZ Media 7</strong> (<a href="https://www.youtube.com/watch?v=2sZX9n0YC7w">video</a>) My first TV appearance, showing one of my worst games ever in this 2010 report by José Barbosa.</p>
 
 <h3>Tech Education</h3>
 
@@ -138,4 +138,4 @@ The Deadline Club isn't running any more but it was pretty cool.
 
 <h3>More info</h3>
 
-Any questions? You can find me on [twitter,](http://twitter.com/mgatland) or email me: <hi@mgatland.com>
+Any questions? You can find me on [twitter](http://twitter.com/mgatland) or email me: <hi@mgatland.com>

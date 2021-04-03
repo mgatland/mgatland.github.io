@@ -16,7 +16,7 @@ icon: catastrophe/catastrophe-icon.jpg
 
 <p>Catastrophe was made during the 2011 Global Game Jam. The 3D models and textures were by Thomas Campbell and Benjamin James Dawson.</p>
 
-<p>Get more details from the <a href="http://globalgamejam.org/2011/catastrophe">Catastrophe Global Game Jam page.</a></p>
+<p>Get more details from the <a href="http://globalgamejam.org/2011/catastrophe">Catastrophe Global Game Jam page</a>.</p>
 
 <img src="catastrophe-2.jpg">
 <img src="catastrophe-3.jpg">

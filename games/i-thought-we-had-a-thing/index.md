@@ -18,5 +18,5 @@ Click on the game once to get focus, then use the arrow keys to move and the '1'
 
 Made for Ludum Dare 17.
 
-More info at the [Ludum Dare page.](http://ludumdare.com/compo/ludum-dare-17/?action=preview&uid=1113)
+More info at the [Ludum Dare page](http://ludumdare.com/compo/ludum-dare-17/?action=preview&uid=1113).
 

@@ -6,7 +6,7 @@ title: Email Notifications from Node
 
 ------
 
-I wanted to be notified whenever someone logged into [Let's Be Ducks.](www.matthewgatland.com/games/ducks/) Ducks is a Node application hosted by AppFog.
+I wanted to be notified whenever someone logged into [Let's Be Ducks](www.matthewgatland.com/games/ducks/). Ducks is a Node application hosted by AppFog.
 
 I looked into Twitter first, but after reading the twitter API docs, email seemed a bit easier. Using [emailjs](https://github.com/eleith/emailjs) and Gmail, I had everything working in less than an hour.
 

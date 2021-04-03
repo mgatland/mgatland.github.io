@@ -28,7 +28,7 @@ I could use a pop-up message saying "Press Square to shoot!" but that's lazy des
 
 Why are players getting stuck, instead of pressing the shoot button?
 
-###A theory
+### A theory
 
 ![path to the shoot test](/journal/images/2014-09-29-space-protector-start.png)
 

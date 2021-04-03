@@ -28,7 +28,7 @@ Note: You will need to create your own version of the Celeb Guide with photos of
 * Props: book, butterfly net, mug, shovel.
 * Prizes: I used small plastic diamonds.
 * Five staff in total: four 'celebs' plus the host.
-* A large play area like a park of convention.
+* A large play area like a park or convention.
 
 ![Diamonds for prizes](diamonds.jpg)
 
