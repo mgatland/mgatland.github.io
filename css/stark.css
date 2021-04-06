@@ -17,28 +17,27 @@ body {
 /*nav bar*/
 
 .bar {
-	display: block;
+	display: flex;
 	width: 100%;
 	background-color: #4D547C;
-	text-align: right;
 	color: white;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 81px;
+	padding-right: 81px;
 }
 
 .title {
-	display: inline-block;
-	float: left;
-	margin-left: 80px;
-	margin-right: 80px;
-	padding-top: 15px;
-
+	display: block;
+	text-align: center;
 }
 
 nav {
 	display: inline-block;
-	text-align: left;
-	margin-right: 90px;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	text-align: center;
 }
 
 nav a {
@@ -147,8 +146,8 @@ a:hover, a:active {
 .content {
 	max-width: 900px;
 	margin: 0 auto;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding-left: 32px;
+	padding-right: 32px;
 }
 
 .content.homepage {
@@ -163,13 +162,6 @@ img {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	max-width: 90%;
-}
-
-.leftside {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	float: left;
-	margin-right: 40px;
 }
 
 .listOfPosts {
@@ -232,17 +224,10 @@ a.button:hover, a.button:active {
 	color: #333;
 }
 
-@media all and (max-width: 732px){
-	a.button {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-		width: auto;
-	}
-	.button img {
-		/*images might resize their width, so height must change to match*/
-		height: auto;
-	}
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .journal {
@@ -273,13 +258,13 @@ blockquote {
 	width: 640px;
 }
 
-.beside {
-	height: 210px;
-	min-width: 250px;
-    display: flex;
-    justify-content:center;
-    align-content:center;
-    flex-direction:column; /* column | row */
+.sidebyside {
+	display: flex;
+	align-items: center;
+}
+
+.sidebyside p {
+	margin-left: 40px;
 }
 
 /*place on a <p>, below an image that's inside a <p>*/
@@ -311,12 +296,10 @@ pre code {
 	font-size: 18px; /*so 80 characters fit on a line*/
 }
 
-/*huge headings must shrink on narrow screens,
+/* huge headings must shrink on narrow screens,
 or the long words don't fit on the screen! 
 
-Let's also shrink the body font size a little.
-
-Also shrink navbar and introduce line-break in the links
+Let's also shrink the body font size and navbar.
 */
 @media all and (max-width: 499px){
 	.homepage h1 {
@@ -332,41 +315,34 @@ Also shrink navbar and introduce line-break in the links
 	/*navbar*/
 	nav a {
 		font-size: 14px;
-		margin: 0px;
+	}
+
+	.content {
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 }
 
-@media all and (max-width: 549px) {
-	/*home page layout, remove columns*/
-	.leftside {
-		display: block;
-		float: none;
-		margin: 0 auto;
-	}
-	.beside {
-		text-align: center;
-		height: auto;
-	}
-}
-
-/*nav bar on narrow screens*/
-@media all and (max-width: 849px){
+/* single column header on narrow screens */
+@media all and (max-width: 860px) {
 	.bar {
-		text-align: center;
+		flex-direction: column;
+		padding-left: 0px;
+		padding-right: 0px;
 	}
-	.title {
-		display: block;
-		float: none;
-		margin-left: 0;
-		margin-right: 0;
+	/* The home page layout also changes to single column. */
+	/* This isn't needed until 549px but I felt like using the same breakpoint. */
+	.sidebyside {
+		flex-direction: column;
+		align-items: center;
 	}
-	nav {
+
+	.sidebyside p {
 		text-align: center;
-		margin-right: 0;
-		margin-top: 0;
+		margin-left: 20px;
+		margin-right: 20px;
 	}
 }
-
 
 @font-face {
 	/*Override font for special characters that show as empty boxes in most of our fonts*/
