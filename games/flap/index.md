@@ -6,6 +6,7 @@ description: Flappy World (June)
 order: 41
 date: 2019-06-30
 icon: flap/flap-icon.png
+tags: browser
 ---
 
 A short game where you must collect ten magic rings.

@@ -6,6 +6,7 @@ description:
 order: 31
 date: 2015-02-07
 icon: autograph-hunter/autograph-hunter-icon.jpg
+tags: best
 ---
 
 A non-digital game created for the [Wild Streets](http://wildstreets.weebly.com) festival in February 2015.

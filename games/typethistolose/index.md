@@ -6,6 +6,7 @@ description:
 order: 43
 date: 2019-08-31
 icon: typethistolose/typethistolose-icon.png
+tags: browser
 ---
 
 A typing game.

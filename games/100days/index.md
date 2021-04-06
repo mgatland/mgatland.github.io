@@ -6,6 +6,7 @@ description: 100 Days
 order: 37
 date: 2017-06-24
 icon: 100days/100days-icon.gif
+tags: best browser phone
 ---
 
 I set out to make a game every day for 100 days, as part of the <a target="_blank" href="https://100daysproject.co.nz/">100 Days Project</a>. I did not succeed -- in the end, I made 22 games over 30 days and decided to leave it there.

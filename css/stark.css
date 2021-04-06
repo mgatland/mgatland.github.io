@@ -203,14 +203,13 @@ a.imagelink:hover {
 }
 
 /*links on huge buttons.*/
-a.button {
+.button {
 	/*resets*/
 	text-decoration: inherit;
 	color: inherit;
 
 	/*buttonize*/
 	display: block;
-	float: left;
 	padding: 20px;
 	text-align: center;
 	width: 310px;
@@ -219,7 +218,7 @@ a.button {
 	transition-duration: 0.4s;
 }
 
-a.button:hover, a.button:active {
+.button:hover, .button:active {
 	background-color: #ccc;
 	color: #333;
 }
@@ -267,11 +266,52 @@ blockquote {
 	margin-left: 40px;
 }
 
-/*place on a <p>, below an image that's inside a <p>*/
+/* place on a <p>, below an image that's inside a <p> */
+
 .caption {
 	margin-top: -55px;
 	font-size: 0.8em;
 }
+
+/* filter */
+
+.filter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	color: #777;
+	flex-wrap: wrap;
+}
+
+.filter input {
+	display: none;
+}
+
+.filter label {
+	display: block;
+	margin: 20px;
+	text-align: center;
+	transition-property: color, text-decoration-color;
+	transition-duration: 0.4s;
+	text-decoration: underline;
+	text-decoration-color: rgba(255, 255, 255, 0);
+}
+
+.filter label:hover {
+	text-decoration-color: #999;
+}
+
+.filter [type=radio]:checked + label {
+	color: #333;
+	text-decoration-color: #999;
+}
+
+.filtertags {
+	display: none;
+}
+
+/* end of filter */
 
 code {
 	color: #e6db74;

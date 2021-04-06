@@ -6,6 +6,7 @@ description: Snail & Co Courier Service
 order: 40
 date: 2019-05-31
 icon: may/may-icon.png
+tags: best browser
 ---
 
 Deliver party invitations as a speedy snail.

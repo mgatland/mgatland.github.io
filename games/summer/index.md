@@ -6,6 +6,7 @@ description:
 order: 51
 date: 2020-05-31
 icon: summer/summer-icon.png
+tags: browser phone
 ---
 
 Summer is a sequel to the game Winter from my 100 days project in 2017.

@@ -6,6 +6,7 @@ description:
 order: 44
 date: 2019-09-30
 icon: september/september-icon.png
+tags: browser
 ---
 
 hey it's a game for september

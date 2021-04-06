@@ -6,6 +6,7 @@ description: Wizard School Dropout
 order: 39
 date: 2019-04-30
 icon: wizardschool/wizardschool-icon.png
+tags: best browser
 ---
 
 An unfinished bullet-hell MMO.

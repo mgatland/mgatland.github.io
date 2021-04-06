@@ -6,6 +6,7 @@ description: Caves
 order: 35
 date: 2016-07-20
 icon: caves/caves-icon.png
+tags: best
 ---
 
 Forced underground by a devastating attack, you must explore a hidden world and build to survive. But these caves are not empty – the more you expand, the more you'll come into conflict with the strange creatures and communities around you.

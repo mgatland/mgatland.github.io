@@ -6,6 +6,7 @@ description:
 order: 32
 date: 2015-08-31
 icon: scratch/scratch-icon.png
+tags: browser
 ---
 
 Scratch is a beginner programming tool made by MIT. I've taught over 40 Scratch workshops for Auckland Libraries, OMG Tech, and FutureInTech.

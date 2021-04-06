@@ -6,6 +6,7 @@ description:
 order: 47
 date: 2019-12-31
 icon: crossword/crossword-icon.png
+tags: browser phone
 ---
 
 A crossword game made with my sister during our summer break. Somewhat influenced by a popular phone app.

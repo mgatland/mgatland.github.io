@@ -7,6 +7,7 @@ order: 4
 date: 2013-04-24
 icon: takedown/takedown-icon.png
 cardimage: games/takedown/takedown-01.png
+tags: best browser
 ---
 TakeDown is a 2D game of action and strategy, taking elements from traditional 
 arcade style games and modern, story driven strategy games. You take on the 

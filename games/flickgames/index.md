@@ -6,6 +6,7 @@ description: Game made with flickgame
 order: 34
 date: 2015-08-31
 icon: flickgames/flickgames-icon.png
+tags: browser
 ---
 
 flickgame is a quick-and-easy game creation tool by Increpare. It's great when you want to make a game _fast_.

@@ -6,6 +6,7 @@ description: You strike with the pointy stick! A multiplayer quest from the turn
 icon: adventure/adventure-icon.png
 order: 3
 date: 2013-04-23
+tags: best
 ---
 Here is a game I made in high school (which feels like a long time ago).
 

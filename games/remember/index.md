@@ -6,6 +6,7 @@ description:
 order: 48
 date: 2020-02-25
 icon: remember/remember-icon.png
+tags: best browser phone
 ---
 
 _This is the 11th game released with the support of my [anti-patrons](/anti-patreon)._

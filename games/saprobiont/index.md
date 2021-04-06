@@ -6,6 +6,7 @@ description: A board game designed at the Global Game Jam
 order: 21
 date: 2012-01-27
 icon: saprobiont/saprobiont-icon.jpg
+tags: best
 ---
 
 <img src="saprobiont-1.png"/>

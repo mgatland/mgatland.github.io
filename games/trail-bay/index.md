@@ -6,6 +6,7 @@ description: Explore eighty mazes as you piece together the key to secret treasu
 order: 5
 date: 2013-05-05
 icon: trail-bay/trail-bay-icon.jpg
+tags: best
 ---
 
 This is a puzzle game where you move a fiery glowing ball around a maze, with photos of New Zealand in the background.

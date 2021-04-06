@@ -6,6 +6,7 @@ description: Multiplayer duck adventure.
 order: 27
 date: 2013-06-19
 icon: ducks/ducks-icon.png
+tags: best browser phone
 ---
 
 

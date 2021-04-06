@@ -1,6 +1,7 @@
   <div>
   	<a href="{{ post.url | remove: 'index.html' }}" class="button">
   		<img src="{{ post.icon }}" alt="">
-	    <h2>{{ post.title }}</h2>
+		<h2>{{ post.title }}</h2>
+		<div class="filtertags">all {{ post.tags }}</div>
 	</a>
   </div>

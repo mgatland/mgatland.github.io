@@ -7,6 +7,7 @@ description: Tour my room
 order: 1
 date: 2003-10-14
 icon: "room2003/room2003-icon.jpg"
+tags: best browser
 ---
 
 Explore my 2003 bedroom via linked photographs.
