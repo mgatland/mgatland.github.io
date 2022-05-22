@@ -18,7 +18,7 @@ But Not Me!
 
 My Time Travel Story was going to be hard sci-fi, with time travel that didn't rely on authorial tricks. It would follow consistent rules in an uncaring world.
 
-But the problem was this: once I gave my characters a time machine, I didn't have anything of them to _do_. There was the mystery of figuring out how time travel worked, but that could be solved by making a few 5-minute jumps into the past and future inside a lab. I didn't know what my characters would do after that.
+But the problem was this: once I gave my characters a time machine, I didn't have anything for them to _do_. There was the mystery of figuring out how time travel worked, but that could be solved by making a few 5-minute jumps into the past and future inside a lab. I didn't know what my characters would do after that.
 
 So
 

@@ -30,7 +30,7 @@ I think the shooter posted about their plans on a public website before the atta
 
 ### Get rich
 
-Of course getting rich the easy one: "Netflix shares 2020".
+Of course getting rich is the easy one: "Netflix shares 2020".
 
 I think young-me would correctly understand that that date was the time to sell, and that I could buy at any point up until then and expect gains.
 
