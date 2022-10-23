@@ -13,7 +13,7 @@ By Sergio Cornaga, Matthew Gatland and Ellie Hayward. Based on flickgame by Step
 
 ![faithgame](faithgame.png)
 
-[Perform the ritual](http://faithgame.onrender.com) or [contemplate the canon](http://faithgame.onrender.com/gallery.html)
+[Perform the ritual](http://faithgame.mgatland.com) or [contemplate the canon](http://faithgame.mgatland.com/gallery.html)
 
 Faithgame is a game-making ritual. By following strict constraints, our games become closer to perfection -- as do we.
 
