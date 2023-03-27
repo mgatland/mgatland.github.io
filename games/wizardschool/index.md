@@ -1,8 +1,8 @@
 ---
-title: Wizard School Dropout
+title: Wizard School Survivors
 layout: normal
 categories: [games]
-description: Wizard School Dropout
+description: Wizard School Survivors
 order: 39
 date: 2019-04-30
 icon: wizardschool/wizardschool-icon.png
@@ -19,6 +19,8 @@ I hope you enjoy the game!
 
 _This is the first game released with the support of my [anti-patrons](/anti-patreon)._
 
-<p>Play <a href="https://realm2.herokuapp.com">Wizard School Dropout</a></p>
+_Update 2023-03-27: This game was originally titled 'Wizard School Dropout' and later titled and exhibited as 'Witches Expelled'. It's now called 'Wizard School Survivors'._
+
+<p>Play <a href="https://witches3.azurewebsites.net">Wizard School Survivors</a></p>
 
 ![](1.png)
