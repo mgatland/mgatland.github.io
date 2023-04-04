@@ -164,6 +164,25 @@ img {
 	max-width: 90%;
 }
 
+video {
+	max-width: 100%;
+}
+
+.video-caption {
+	color: #777;
+	margin-top: -10px;
+	font-size: 0.8em;
+}
+
+.video-caption a {
+	color: #777;
+	text-decoration-color: #777;
+}
+
+.video-caption a:hover {
+	text-decoration-color: #ffab72;
+}
+
 .listOfPosts {
 	text-align: center;
 }
