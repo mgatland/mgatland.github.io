@@ -14,7 +14,7 @@ A multiplayer world where everyone is a duck.
 
 Can you discover the mysteries of Ducktown?
 
-<div>Play <a href="http://letsbeducks.herokuapp.com/" onClick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">Let's Be Ducks</a></div>
+<div>Play <a href="https://letsbeducks.mgatland.com/" onClick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">Let's Be Ducks</a></div>
 
 <img src="ducks-screenshot.png">
 

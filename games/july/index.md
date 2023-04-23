@@ -15,6 +15,6 @@ Made during Kiwijam 2019 and changed a bit afterwards.
 
 _This is the fourth game released with the support of my [anti-patrons](/anti-patreon)._
 
-<p>Play <a href="https://julygame.herokuapp.com">July</a></p>
+<p>Play <a href="https://july.mgatland.com">July</a></p>
 
 ![](1.png)
