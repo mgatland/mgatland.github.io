@@ -17,6 +17,6 @@ This is slightly multiplayer. If someone else is playing at the same time as you
 
 _This is the third game released with the support of my [anti-patrons](/anti-patreon)._
 
-<p>Play <a href="https://flappyworld.herokuapp.com">Flappy World</a></p>
+<p>Play <a href="https://flappyworld.mgatland.com">Flappy World</a></p>
 
 ![](1.png)
