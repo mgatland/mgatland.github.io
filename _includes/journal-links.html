@@ -1,4 +1,4 @@
-{% if page.next or page.previous %}
-  {% include journal-link-newer.html %}
-  {% include journal-link-older.html %}
+{% assign previousPost = collections.journal | getPreviousCollectionItem %}{% assign nextPost = collections.journal | getNextCollectionItem %}{% if nextPost or previousPost %}
+  {% include 'journal-link-newer.html' %}
+  {% include 'journal-link-older.html' %}
 {% endif %}

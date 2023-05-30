@@ -1,0 +1,30 @@
+Differences:
+
+[x] static files... maybe fixed.
+[x] fixed the footer \ breadcrumbs
+[ ] the games homepage... then we're pretty close 
+[ ] lots of small markdown incompatibilities. Maybe fix case-by-case.
+
+[ ] https://github.com/11ty/eleventy/issues/913
+    this has tips on fixing my old-school html urls 
+
+
+404 page is different, analytics, footer, title 
+
+ignore the README.MD
+
+Looseleafgames sites have lost their analytics
+
+todo:
+tips - https://savjee.be/blog/migrating-this-blog-from-jekyll-to-eleventy/
+haven't read yet - https://www.carteakey.dev/moving-my-site-from-jekyll-to-eleventy-part-ii/
+
+
+https://github.com/valeriangalliat/markdown-it-anchor
+
+
+
+git diff --no-index -w --ignore-blank-lines .\_site_reference\ .\_site\ > diff-2023-05-29.diff 
+
+/////////////
+flash game pages are completely gone?

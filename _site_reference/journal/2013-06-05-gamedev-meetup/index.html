@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Gamedev Meetup</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Gamedev Meetup</h2>
+    	<div class="subtle">June&nbsp;05,&nbsp;2013</div>
+    </div>
+    <p>At last month’s <a href="http://www.meetup.com/playmaker/">game dev meetup</a>, I was about to go full-time indie. Everyone said congratulations and I had a lot of fun.</p>
+
+<p>But this month was even better, because everyone said: It’s been a month; what have you done? And I showed them my games, and they gave lots of feedback.</p>
+
+<p>I don’t always agree with the feedback. But I note it anyway, knowing that I might agree with it tomorrow.</p>
+
+<hr />
+
+<p>Chris W asked why I’m making one-week games. What’s the business plan? How will this turn into money?</p>
+
+<p>Good question. I don’t know how it will turn into money.</p>
+
+<p>But most of the indies I admire have released a lot of games; the plan is to be like them… I’ll find money later.</p>
+
+<hr />
+
+<p>I’m making a simple multiplayer game – more like a chatroom – using node.js, with websockets.</p>
+
+<p>I thought I could host it on Heroku, but I found out today <a href="https://devcenter.heroku.com/articles/nodejs">from a beautiful tutorial</a> that websockets are not supported.</p>
+
+<p>(A competing service, <a href="http://nodester.com/">Nodester</a>, offered websocket support, but they were acquired by AppFog and shut down. The <a href="http://blog.nodester.com/post/30434216604/nodester-joins-appfog">blog post</a> about the acquisition specifically mentions Nodester’s websocket support, as if AppFog were eager to incorporate that technology into their own product, but they haven’t yet. Frustrating.)</p>
+
+<p>Anyway, the beautiful Heroku tutorial also told me that in the node world, it’s best practice to <a href="http://www.futurealoof.com/posts/nodemodules-in-git.html">check your dependencies into source control</a>.</p>
+
+<p>That’s the opposite of what I learned working in enterprise Java – but it’s an appealing idea, based on the principle of making development environments and production environments as similar as possible. No surprises when you deploy. Now I’m reading <a href="http://www.12factor.net/dependencies">The Twelve Factor App</a> to see what other new ideas I can find.</p>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2013-06-07-fast-follow/" title="Fast Follow">Newer</a> &nbsp; 
+  <a href="/journal/2013-06-03-minecraft-story/" title="Minecraft Story">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Gamedev Meetup</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

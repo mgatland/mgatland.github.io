@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplayer block-breaking</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Multiplayer block-breaking</h2>
+    	<div class="subtle">August&nbsp;25,&nbsp;2014</div>
+    </div>
+    <p>At this year’s Kiwijam I combined <a href="/games/spaceprotector">Space Protector</a>’s front end and <a href="/games/ducks/">Let’s be ducks</a>’ server to make a multiplayer platform game.</p>
+
+<p><img src="/journal/images/2014-08-25-glimmerseed.png" alt="Glimmerseed test" /></p>
+
+<p>Space Protector already has multiplayer, but only for 2 players and not on iOS. (It’s peer-to-peer using WebRTC, which isn’t supported in iOS yet.)</p>
+
+<p>Adding a server lets me use websockets, which work in all major browsers. It also makes it easy to support more players.</p>
+
+<p><a href="http://glimmerseed.herokuapp.com/">Play Glimmerseed</a></p>
+
+<h3 id="testing-on-the-internet">Testing on the internet</h3>
+
+<p>I changed the game so that players can modify the level. Your shots now alternately remove and add squares to the level.</p>
+
+<p>(I’m slightly obsessed with the multiplayer building game Growtopia, so wanted to make a building game of my own.)</p>
+
+<p>At Kiwijam, on university wifi, the game ran smoothly with five people playing. This is good news.</p>
+
+<p>At my home, it’s not playable. I get latency of up to six seconds. You feel this when you shoot the walls: a hole doesn’t appear until up to six seconds later.</p>
+
+<p>I guess the game is making me send more data than my internet connection can handle. Compressing the data that’s sent might fix this.</p>
+
+<p>The way you build and destroy blocks is confusing. The animations and controls are from a shooting game and don’t make sense here.</p>
+
+<p>next steps:</p>
+
+<ul>
+  <li>replace ‘shooting’ with something that clearly shows the blocks being removed and re-added</li>
+  <li>compress data and see if that fixes issues when playing at my house</li>
+</ul>
+
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2014-08-27-json-is-great-but/" title="JSON is great, but…">Newer</a> &nbsp; 
+  <a href="/journal/2014-08-13-qbasic-and-children-in-2014/" title="QBasic and children in 2014">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Multiplayer block-breaking</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

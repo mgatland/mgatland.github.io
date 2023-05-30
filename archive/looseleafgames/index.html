@@ -47,7 +47,7 @@
 	
 				<h1>Trail Bay is out now!</h1>
 
-{% include looseleafgames/games/trailbay/short.txt %}
+{% include 'looseleafgames/games/trailbay/short.txt' %}
 
 <h2>Latest news</h2>
 
@@ -55,10 +55,10 @@
 
 <p>You can see more great games at our <a href="games.html">games</a> page.</p>
 
-{% include looseleafgames/newsletter.txt %}
+{% include 'looseleafgames/newsletter.txt' %}
 
 			</div>
-      {% include looseleafgames/sidebar.html %}
+      {% include 'looseleafgames/sidebar.html' %}
 
 	</div>
 		
@@ -68,6 +68,6 @@
 				<p><a href="privacy.html">Privacy Policy</a></p>
 		</div>
 </div>
-{% include analytics.html %}
+{% include 'analytics.html' %}
 </body>
 </html>

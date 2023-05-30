@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Notifications from Node</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Email Notifications from Node</h2>
+    	<div class="subtle">October&nbsp;22,&nbsp;2014</div>
+    </div>
+    <p><strong>Warning:</strong> this is an old post and this method probably won’t work any more. These days (in 2017), I use Sendgrid, a special automated email service, rather than trying to automatically send an email from Gmail.</p>
+
+<hr />
+
+<p>I wanted to be notified whenever someone logged into <a href="www.matthewgatland.com/games/ducks/">Let’s Be Ducks</a>. Ducks is a Node application hosted by AppFog.</p>
+
+<p>I looked into Twitter first, but after reading the twitter API docs, email seemed a bit easier. Using <a href="https://github.com/eleith/emailjs">emailjs</a> and Gmail, I had everything working in less than an hour.</p>
+
+<p>Step one: Create a Gmail account.</p>
+
+<p>Step two: Add emailjs to the <code class="language-plaintext highlighter-rouge">package.json</code> file:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">    <span class="dl">"</span><span class="s2">dependencies</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">emailjs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.3.12</span><span class="dl">"</span>
+    <span class="p">}</span></code></pre></figure>
+
+<p>Step three: run <code class="language-plaintext highlighter-rouge">npm install</code>.</p>
+
+<p>Step four: Add this code to the server:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">    <span class="kd">var</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./node_modules/emailjs/email</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">mailserver</span>  <span class="o">=</span> <span class="nx">email</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">connect</span><span class="p">({</span>
+       <span class="na">user</span><span class="p">:</span>    <span class="dl">"</span><span class="s2">ducksalerts@gmail.com</span><span class="dl">"</span><span class="p">,</span> 
+       <span class="na">password</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">emailpassword</span><span class="p">,</span> 
+       <span class="na">host</span><span class="p">:</span>    <span class="dl">"</span><span class="s2">smtp.gmail.com</span><span class="dl">"</span><span class="p">,</span> 
+       <span class="na">ssl</span><span class="p">:</span>     <span class="kc">true</span>
+    <span class="p">});</span>
+
+    <span class="nx">sendEmail</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">mailserver</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+           <span class="na">text</span><span class="p">:</span>    <span class="nx">message</span><span class="p">,</span> 
+           <span class="na">from</span><span class="p">:</span>    <span class="dl">"</span><span class="s2">Ducks Alerts &lt;ducksalerts@gmail.com&gt;</span><span class="dl">"</span><span class="p">,</span> 
+           <span class="na">to</span><span class="p">:</span>      <span class="dl">"</span><span class="s2">support@matthewgatland.com</span><span class="dl">"</span><span class="p">,</span>
+           <span class="na">subject</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ducks</span><span class="dl">"</span>
+        <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span> <span class="o">||</span> <span class="nx">message</span><span class="p">);</span> <span class="p">});</span>  
+    <span class="p">};</span>
+
+    <span class="nx">sendEmail</span><span class="p">(</span><span class="dl">"</span><span class="s2">Testing the email system.</span><span class="dl">"</span><span class="p">);</span></code></pre></figure>
+
+<p>The password is set through an environment variable. In AppFog, there is a UI to configure these.</p>
+
+<p>At this point, the app will send me emails.</p>
+
+<p>After that, I just had to configure my mailbox:</p>
+
+<ul>
+  <li>Make a Gmail filter to put a “notifyme” label on emails from Ducks Alerts</li>
+  <li>Configure Gmail on my phone to pop up a notification for email with the “notifyme” label.</li>
+</ul>
+
+<p>Done! Note that Gmail limits you to 99 emails a day using this method.</p>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2014-10-28-jump-and-shoot-part-2/" title="Jump and Shoot, part two">Newer</a> &nbsp; 
+  <a href="/journal/2014-09-29-jump-and-shoot/" title="Jump and Shoot">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Email Notifications from Node</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

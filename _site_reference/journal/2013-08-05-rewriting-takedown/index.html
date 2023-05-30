@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Rewriting Takedown</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Rewriting Takedown</h2>
+    	<div class="subtle">August&nbsp;05,&nbsp;2013</div>
+    </div>
+    <p>I wrote Takedown while I was at high school.</p>
+
+<p>It only worked in Windows. These days, I often don’t have a Windows computer nearby. I thought it would be fun to rewrite the game in Javascript, so that it can run on anything.</p>
+
+<h3 id="what-went-right">What went right</h3>
+
+<p>It <em>was</em> fun rewriting my old code. It was a bit like peer-programming with my younger self – a person who was endlessly enthusiastic, though extremely inexperienced.</p>
+
+<p>Reusing old assets and content led to some satisfying moments of rapid progress – like when I got the level loader working, and suddenly had 10 levels to play with.</p>
+
+<h3 id="changing-things">Changing things</h3>
+
+<p>Initially, I wanted the new version to be identical to the original. It uses the original art, sound effects, levels and storyline.</p>
+
+<p>But I did allow a few changes. The original control scheme was terrible; you could move in any direction, and fired in the whatever direction you last moved in, unless you were holding shift which locked your rotation – it was complicated and no-one liked it.</p>
+
+<p>I replaced those controls with a 2-stick shooter style setup where your movement direction and attack direction are independent.</p>
+
+<p>I also couldn’t resist fixing spelling mistakes, making the hardest missions easier, and adding autosave. Do you remember when games didn’t autosave? It wasn’t just me and Takedown – even the triple-A games of the time didn’t have autosave.</p>
+
+<p>Despite the autosave, it still mostly looks and feels like a Visual Basic game from 2002 by a 16-year-old.</p>
+
+<p>Cool! That was the goal.</p>
+
+<h3 id="what-went-wrong">What went wrong</h3>
+
+<p>It took a <em>really</em> long time.</p>
+
+<p>After a week, I started to feel depressed. <em>Why am I doing this? This isn’t helping my business. This isn’t making me a better designer.</em></p>
+
+<p>My younger self added a lot of features to Takedown. If I’m 10 times faster, I’m also 12 times less patient. I left out any feature that wasn’t used in the main campaign – then also left out a few that were used.</p>
+
+<p>This means the Javascript game will never be a full remake of the original game. The missing features include:</p>
+
+<ul>
+  <li>Weapon upgrades</li>
+  <li>Being able to order your teammates to follow you around</li>
+  <li>Enemies say things like “Good shot!” or “Follow me” to each other</li>
+</ul>
+
+<h3 id="scripting">Scripting</h3>
+
+<p>I made the new game compatible with the <a href="https://github.com/mgatland/takedown/blob/cbee0ef23787000dc3df97391a1d0893412b33d2/web/res/01.tdm">original mission file format</a>. This forced me to support all my old ideas about mission scripting.</p>
+
+<p>For example, there’s no concept of a collectable item in Takedown. Instead, you simulate it as follows:</p>
+
+<ul>
+  <li>place a non-interactive item-shaped decoration on the ground.</li>
+  <li>add a trigger that fires when the player steps in the same square as the decoration.</li>
+  <li>The trigger sets a flag (saved between levels), hides the decoration, and pops up a “mission briefing” which says “You found an item!”</li>
+  <li>Actually, a trigger can only perform 2 actions, so you’ll need 2 triggers to do all that.</li>
+</ul>
+
+<p>It’s cool that the new game supports the original mission files. But if I rewrote the mission scripts, I could get rid of a lot of awkward scripting hacks.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>I’m happy that Takedown lives on the internet now and everyone (who uses Chrome) can play it.</p>
+
+<p>I feel guilty about spending so much time on this, and embarrassed that I don’t have any other new games to show people.</p>
+
+<p>But maybe there’s an audience out there somewhere who will discover this game and enjoy it. Maybe people who are nostalgic about awkward, early Windows games?</p>
+
+<p>(Whatever happened to Comet Busters, anyway?)</p>
+
+<h3 id="links">Links</h3>
+
+<ul>
+  <li><a href="/games/takedown/play/">Play</a></li>
+  <li><a href="https://mgatland.hackpad.com/Takedown-feedback-zAiAZphmA8u">Feedback</a></li>
+  <li><a href="https://mgatland.hackpad.com/Game-5-TakeDown-port-to-JavaScript-SJaOnQoFBPy">Development diary</a></li>
+  <li><a href="http://www.github.com/mgatland/takedown/">Source code</a></li>
+</ul>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2013-08-17-no-game-this-week/" title="No game this week">Newer</a> &nbsp; 
+  <a href="/journal/2013-08-04-wdncz/" title="WDCNZ and other conferences">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Rewriting Takedown</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

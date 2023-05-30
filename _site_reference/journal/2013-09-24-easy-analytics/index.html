@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Easy analytics</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Easy analytics</h2>
+    	<div class="subtle">September&nbsp;24,&nbsp;2013</div>
+    </div>
+    <p>Tide was mentioned on <a href="http://indiegames.com/2013/09/browser_pick_tide.html">indiegames.com</a>. The link brought a few hundred visitors, which is more than I’ve ever had before.</p>
+
+<p><img src="/journal/images/2013-09-30-site-traffic.png" alt="Visits increase from about zero per day to nearly 300 on September 19." /></p>
+
+<p>I wanted to see what these players were doing in the game, so I added some event tracking code. I recorded:</p>
+
+<ul>
+  <li>Each time the game starts.</li>
+  <li>Each time a new level starts (except level 1).</li>
+  <li>Each time the player loses.</li>
+  <li>Each time the player restarts, after losing.</li>
+</ul>
+
+<h3 id="the-results">The results</h3>
+
+<p><img src="/journal/images/2013-09-30-tide-overview.png" alt="Screenshot of data discussed below" /></p>
+
+<p>The Unique Events column only counts one event of each type from each device. Someone who starts the game many times will only be counted once in that column.</p>
+
+<ul>
+  <li>473 people started the game.</li>
+  <li>438 (93%) finished at least one level.</li>
+  <li>Only 375 (79%) ever lost. The others must have quit before they lost.</li>
+</ul>
+
+<p>The last result surprised me. I thought everyone would keep playing until they lost at least once.</p>
+
+<p>The next image shows how many times each level was played.</p>
+
+<p><img src="/journal/images/2013-09-30-tide-level-stats.png" alt="Level 2 was reached 738 times. The numbers drop off for higher levels. Level 16 and 17 were only reached once." /></p>
+
+<p>(Ignore the percentages on this chart and the next one, they are not meaningful.)</p>
+
+<ul>
+  <li>The first level was played 738 times.</li>
+  <li>Higher levels were reached fewer times.</li>
+  <li>The highest level ever reached was level 17.</li>
+</ul>
+
+<p>The next image shows how many players restarted after losing.</p>
+
+<p><img src="/journal/images/2013-09-30-tide-restart-stats.png" alt="There were 203 restarts after losing once, 83 after losing twice, 33 after losing 3 times. The numbers decrease rapidly." /></p>
+
+<p>This event is recorded if a player restarts after losing a game. The number on the left is the number of times they have already played.</p>
+
+<ul>
+  <li>Most players didn’t restart at all.</li>
+  <li>203 (43%) restarted after their first game.</li>
+  <li>Far fewer players restarted after subsequent games.</li>
+</ul>
+
+<h3 id="whats-next">What’s next?</h3>
+
+<p>I thought Tide was a hard, arcade style game that people would replay to try to improve their high score.</p>
+
+<p>That is not happening. Most people only play once.</p>
+
+<p>If players only want to play once, maybe I should make Tide progress more like a modern-style game:</p>
+
+<ul>
+  <li>When you lose, you can continue from the current level instead of restarting the whole game.</li>
+  <li>There is a limited number of levels.</li>
+  <li>Levels are hand-made, not random, and more interesting.</li>
+  <li>When you finish all the levels you get a nice victory screen.</li>
+</ul>
+
+<p>On the other hand, I could encourage replays by making Tide a better arcade-style game:</p>
+
+<ul>
+  <li>Make it much harder, so beginners lose in the first few seconds.</li>
+  <li>Show the player’s score more clearly.</li>
+  <li>Have a high score table.</li>
+</ul>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2014-02-27-mining-games/" title="Mining Games">Newer</a> &nbsp; 
+  <a href="/journal/2013-09-22-contracts-paint-high-school/" title="Contracts, Paint, High School Websites">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Easy analytics</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

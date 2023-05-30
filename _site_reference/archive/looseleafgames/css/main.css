@@ -1,0 +1,258 @@
+/* Loose Leaf Games layout by Matthew Gatland */
+/* This design is inspired by 'Mint Chocolate Chip' by Andrew Strojny */
+/* Only use headings down to h4 */
+/*--------------------------------*/
+
+/* Layout */
+
+#header {
+	padding-top: 10px;
+	}
+
+#page {
+	width : 770px;
+	text-align : left ;
+	margin-left : auto ;
+	margin-right : auto ;
+	}
+
+body {
+	text-align : center;
+	background-color: #8eb282;
+	min-width : 770px ;
+	}
+
+#content {
+	float: left;
+	width : 770px;
+	background: url(../images/container.png) repeat-y;
+	}
+
+#post {
+	float: left;
+	width: 375px;
+	padding: 0 0 10px 40px;
+	}
+
+#sidebarout {
+	float: right;
+	padding: 30px 0 0 0;
+	}
+	
+#sidebar {
+	width: 250px;
+	margin: 0 40px 0 0;
+	padding: 10px 10px 10px 10px;
+	background: #f7fdf7;
+	border: 1px solid #8eb282;
+	}
+
+#footer {
+	clear:both;
+	text-align: center;
+	color: #5e7656;
+	font-size: .9em;
+	}
+
+/*not used*/
+#padding {
+	clear: both;
+	padding: 30px 0 0 0;
+	}
+
+/* Navigation */
+/*--------------------------------*/
+
+
+#navout {
+	float: left;
+	padding: 0 0 2px 13px;
+	margin: 0;
+	}
+	
+#navigation {
+	float: left;
+	width: 743px;
+	background: #addd9a;
+	border-top: 2px solid #8eb282;
+	border-bottom: 2px solid #8eb282;
+	}
+	
+#navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 26px;
+	}
+	
+#navigation li {
+	float: left;
+	margin: 0;
+	padding: 0 10px 0 0;
+	}
+	
+#navigation li a {
+	float: left;
+	text-align: center;
+	margin: 9px 0 0 0;
+	padding: 4px 12px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #e9f5e9;
+	border: 2px solid #8eb282;
+	border-bottom: 0px;
+	
+	}
+	
+#navigation li a:hover {
+	color: #FFFFFF;
+	background: #8eb282;
+	border-left: 2px solid #5e7656;
+	border-right: 2px solid #5e7656;
+	border-top: 2px solid #5e7656;
+	}
+	
+#navigation li a.active {
+	/*Should be the same as navigation a:hover*/
+	color: #FFFFFF;
+	background: #8eb282;
+	border-left: 2px solid #5e7656;
+	border-right: 2px solid #5e7656;
+	border-top: 2px solid #5e7656;
+	}
+	
+
+/* Formatting */
+/*--------------------------------*/
+
+body {
+	font: small Verdana, Sans-serif;
+	line-height: 1.6em;
+	color: #404139;
+	}
+
+h1 {
+	margin: 1em 0;
+	font-size: 1.2em;
+	color:#333726
+	}
+
+h2 {
+	font-size: 1.1em;
+	color: #333726;
+	}
+
+h3 {
+	font-size: 1.2em;
+	color: #333726;
+	}
+
+h4 {
+	font-size: 0.9em;
+	color: #333726;
+	}
+
+#sidebar p {
+	margin-left: 10px;
+	padding: 0 10px 0 10px;
+	/*border-left: 1px solid #333726;*/
+	font-size: .8em;
+	line-height: 1.2em;
+	}
+
+#sidebar h1 {
+	margin-left: 6px;	
+	}
+
+#sidebar h2 {
+	margin-left: 6px;	
+	}
+
+#sidebar h3 {
+	margin-left: 6px;	
+	}
+
+#sidebar h4 {
+	margin-left: 6px;	
+	}
+
+
+
+/* Special - Sales*/
+/*--------------------------------*/
+
+/*This hasn't been made cross-broswery yet: buylinks has smaller top and bottom padding on IE than Firefox.*/
+
+img.gameicon {
+  position:relative;
+  top:-96px; /*should be -100 but that leaves a gap in IE*/
+  left:350px;
+  margin-right:-178px;
+  margin-bottom:-178px;
+  margin-top:0px;
+  margin-left:0px;
+}
+
+div.gamepanel {
+  float:left;
+  display:block;
+  padding-right:150px;
+  margin-bottom: 2.5em;
+}
+
+div.buylinks {
+  position:relative;
+  top:78px;
+  left:250px;
+  background: #f7fdf7;
+  border: 1px solid #8eb282;
+  padding: 10px 10px 10px 10px;
+  display:block;
+  width:300px;
+  margin-right:-300px;
+  margin-bottom:-5em;
+  margin-top:0px;
+  margin-left:0px;
+}
+
+/* links */
+/*--------------------------------*/
+
+a {
+	color: #5e7656;
+	}
+
+a:visited {
+	color: #333726;
+	}
+
+a:hover {
+	color: #333726;
+	}
+
+/*extra to colour image links in IE*/
+
+a img { border-color: #5e7656;  }
+a:hover img { border-color: #333726;  }
+
+a:visited img { border-color: #333726;  }
+a:active img { border-color: #333726;  }
+
+
+/* Credit text*/
+/*--------------------------------*/
+
+.credit {
+	font-size: 0.7em;
+}
+
+.credit a {
+	text-decoration: none;
+	}
+
+.credit a:visited {
+	color: #5e7656;
+	}
+
+.credit a:hover {
+	color: #5e7656;
+	}

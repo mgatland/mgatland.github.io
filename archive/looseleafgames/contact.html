@@ -64,10 +64,10 @@ Type your comment here.</textarea></p>
 <p><input type="SUBMIT" value="Send Message" onClick="alert('Sorry, this form does not work any more. If you want to contact me, please search for me on twitter.'); return false;"></p>
 </form>
 
-{% include looseleafgames/newsletter.txt %}
+{% include 'looseleafgames/newsletter.txt' %}
 
 			</div>
-      {% include looseleafgames/sidebar.html %}
+      {% include 'looseleafgames/sidebar.html' %}
 
 	</div>
 		
@@ -77,6 +77,6 @@ Type your comment here.</textarea></p>
 				<p><a href="privacy.html">Privacy Policy</a></p>
 		</div>
 </div>
-{% include analytics.html %}
+{% include 'analytics.html' %}
 </body>
 </html>

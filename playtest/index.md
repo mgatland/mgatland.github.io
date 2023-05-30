@@ -1,9 +1,7 @@
 ---
 title: Playtest
-layout: normal
+layout: normal.html
 ---
-
-{::options parse_block_html="true" /}
 
 <h4 class='link'>Not yet</h4>
 

@@ -1,6 +1,6 @@
 ---
 title: Adventure
-layout: normal
+layout: normal.html
 categories: [games]
 description: You strike with the pointy stick! A multiplayer quest from the turn of the century.
 icon: adventure/adventure-icon.png

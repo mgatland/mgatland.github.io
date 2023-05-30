@@ -1,6 +1,6 @@
 ---
 title: Alice's 21st - the game!
-layout: normal
+layout: normal.html
 categories: [games]
 description: A treasure hunt
 order: 22

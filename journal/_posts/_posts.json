@@ -1,0 +1,5 @@
+{
+    "layout": "normal.html",
+    "tags": ["journal"],
+    "permalink": "journal/{{ page.date | date: '%Y-%m-%d-' }}{{ title | slugify }}/index.html"
+}

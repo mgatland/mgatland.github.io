@@ -1,6 +1,6 @@
 ---
 title: Remember to pack everything
-layout: normal
+layout: normal.html
 categories: [games]
 description:
 order: 48

@@ -1,6 +1,6 @@
 ---
 title: TakeDown
-layout: normal
+layout: normal.html
 categories: [games]
 description: Rebel forces want to destroy the computer that runs the world. We're here to stop them.
 order: 4

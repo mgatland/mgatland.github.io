@@ -1,6 +1,6 @@
 ---
 title: Summer
-layout: normal
+layout: normal.html
 categories: [games]
 description:
 order: 51

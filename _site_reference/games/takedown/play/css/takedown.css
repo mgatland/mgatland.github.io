@@ -1,0 +1,123 @@
+body {
+	background-color: black;
+	color: white;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 18px;
+}
+
+#gamecontainer {
+	position: relative;
+	width:750px;
+	height:510px;
+}
+
+#gamescreen {
+	position: absolute;
+}
+
+.popover {
+	width: 660px;
+	height: 490px;
+	border: solid 2px white;
+	background-color: black;
+	position: absolute;
+	margin-left: 25px;
+	margin-top: 20px;
+	padding: 20px;
+}
+
+.popover div {
+	margin-bottom: 20px;
+}
+
+button {
+	height: 40px;
+	font-size: 32px;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	margin: 20px;
+}
+
+.option {
+	width: 600px;
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+}
+
+#continueButton {
+	position: absolute;
+	top: 455px;
+	left: 0px;	
+}
+
+#back {
+	position: absolute;
+	top: 455px;
+	left: 0px;
+}
+
+#forward {
+	position: absolute;
+	top: 455px;
+	left: 130px;
+}
+
+#close {
+	position: absolute;
+	top: 455px;
+	left: 350px;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: lightgreen;
+}
+
+.blue {
+	color: lightblue;
+}
+
+#mainmenu .sidebar {
+	width:180px;
+	float:left;
+	height:490px;
+}
+
+#mainmenu button {
+	margin: 5px;
+	width: 170px;
+}
+
+#mainmenu img {
+	width: 170px;
+	height: 170px;
+	margin: 5px;
+	border: 1px solid white;
+}
+
+#mainmenu div {
+	margin: 15px;
+	font-size: 23px;
+}
+
+.menuCloseButton {
+	position: absolute;
+	top: 455px;
+	left: 0px;
+}
+
+.small.popover {
+	width: 706;
+	height: 20;
+	margin-top: 510px;
+	margin-left: 0px;
+}
+
+.small.popover #continueButton {
+	top: 0px;
+	margin-top: 10px;
+	left: 440px;
+}

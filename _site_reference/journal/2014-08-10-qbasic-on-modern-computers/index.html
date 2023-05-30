@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>QBasic on Modern Computers</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>QBasic on Modern Computers</h2>
+    	<div class="subtle">August&nbsp;10,&nbsp;2014</div>
+    </div>
+    <p>I want to try teaching QBasic to our 11 and 12-year-old students at Code Club.</p>
+
+<p>Several of the older programmers I meet think that QBasic is “still the best way to start programming”.</p>
+
+<p>I don’t know if it’s true – Python and Scratch are widely considered to be the best beginner languages today.</p>
+
+<p>But I think it’s worth trying. I particularly like the idea of learning how to use GOTO and one-line statements before starting on blocks, loops, and functions (which students often find confusing.)</p>
+
+<p>The first hurdle is getting Basic running on everyone’s computers. Here are the alternatives I looked at:</p>
+
+<h3 id="freebasic-and-fbide">FreeBasic and FBIde</h3>
+
+<p>There’s an <a href="http://fbide.freebasic.net/">FBIde</a> installer that includes <a href="http://www.freebasic.net/">FreeBasic</a>. This is nice and easy, but only supports Windows. We need a cross-platform solution.</p>
+
+<h3 id="qbasic-45">QBasic 4.5</h3>
+
+<p>The old DOS program, available from various <a href="http://www.qbasic.net/en/qbasic-downloads/">old websites</a>. Won’t run on my Windows computer so that’s not an option.</p>
+
+<h3 id="qb64">QB64</h3>
+
+<p>This is <a href="http://www.qb64.net/">a more modern remake of QBasic</a>.</p>
+
+<p>The Windows version is distributed in a 7Zip archive. This means you have to install and learn to use 7Zip before you can use QB64.</p>
+
+<p>We can’t afford to spend code club time on that, but we could repackage it as a .zip file. Then it would be fine on Windows.</p>
+
+<p>The new GL version is incomplete. The old SDL version is better - in particular, because it can go full-screen.</p>
+
+<p>On OS X, you have to install Apple’s developer tools. (It uses the C++ compiler.)</p>
+
+<p>Then you have to run setup.command to - I think - compile the project before you can use it. Then you run a different command to run it.</p>
+
+<p>That’s too much setup time for a 1-hour class. Maybe we could package our own pre-compiled version, but that doesn’t sound fun.</p>
+
+<p>I’m going to say QB64 is out for now.</p>
+
+<h3 id="dosbox--qbasic-45">DOSBox + QBasic 4.5</h3>
+
+<p><a href="http://www.dosbox.com/">DOSBox</a> is a cross-platform DOS emulator. It runs the old QB45 without any trouble, on every platform.</p>
+
+<p>Configuring DOSBox to run something is too much work, but can we make a pre-configured package that automatically runs QB45?</p>
+
+<p>Yes – it’s easy. I’ve made a .zip file that users can download. They must extract it then run a .bat file (on Windows) or .command file (on OS X) to start QBasic inside DOSBox.</p>
+
+<p>This is by far the best option so far.</p>
+
+<p>Two extra changes were needed:</p>
+
+<ol>
+  <li>DOSBox locks the mouse pointer inside its window, which is super annoying. Fortunately, it can be pre-configured it to disable this feature.</li>
+  <li>DOSBox puts a big notice in the command prompt, which reappears when you run your first QBasic program. It’s confusing. To work around this, I started all the example QBasic programs with a CLS command to clear the screen.</li>
+</ol>
+
+<h3 id="what-about-chromebooks">What about Chromebooks?</h3>
+
+<p>Some of our students use Chromebooks. You can’t install anything on a Chromebook, you need a web-based version. Let’s look around again…</p>
+
+<h4 id="qb64-qloud">QB64 Qloud</h4>
+
+<p>The <a href="http://www.qb64.net/">QB64 website</a> says they provide a ‘Qloud’ cloud based QBasic compiler, but it’s currently down.</p>
+
+<h4 id="compileonline">CompileOnline</h4>
+
+<p><a href="http://compileonline.com/">CompileOnline</a> has a QBasic page, but it didn’t work with my example programs. Worse, the error messages were C errors, not QBasic errors, making it super confusing. Nope.</p>
+
+<h4 id="steve-hanov">Steve Hanov</h4>
+
+<p>Steve Hanov wrote a <a href="http://stevehanov.ca/blog/index.php?id=92">QBasic implementation in JavaScript</a>. It’s not complete, but works for our examples.</p>
+
+<p>It has some problems:</p>
+
+<ul>
+  <li>Console input is always converted to uppsercase. This breaks our examples.</li>
+  <li>It doesn’t say “press any key to continue” when a program terminates</li>
+  <li>Like CompileOnline, it gives long, unhelpful errors in a different language when there are any syntax errors in the code.</li>
+  <li>It’s embedded into a blog post, so there’s lots of visual noise all around the QBasic terminal.</li>
+  <li>It starts off with the code of Nibbles preloaded, which has to be deleted before you can start.</li>
+</ul>
+
+<p>I wouldn’t use it with beginners in its current state. However, it’s open source and we could easily fix all the problems except the error messages. That would be Ok.</p>
+
+<h4 id="dosbox-online">DOSBOX online</h4>
+
+<p>DOSBox can be compiled into JavaScript using Emscripten. <a href="https://github.com/dreamlayers/em-dosbox/">Someone’s already made it work</a>, so “all we have to do” is set it up to run QBasic and host it on our website.</p>
+
+<p>It looks like DOSBox is the best option again. It will give our Chromebook users the same experience as our Windows and Mac users.</p>
+
+<p>But I haven’t got it working yet. If you want something that works right now, Steve Hanov’s JavaScript implementation is the only option I found.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>I recommend using ‘qb45’ (Qbasic 4.5) running inside DOSBox.</p>
+
+<p>I put pre-packaged versions for Windows and OS X on the <a href="http://codeclubakl.github.io">Code Club Auckland website</a>.</p>
+
+<p>For a web-based version, the best choice is Steve Hanov’s <a href="http://stevehanov.ca/blog/index.php?id=92">QBasic in JavaScript</a>, but it’s not very suitable for beginners. I will try to set up DOSBox + QBasic 4.5 for the web instead.</p>
+
+<p>This is how to install QBasic, but we have not yet proved that you would want to install it!</p>
+
+<ul>
+  <li>Do children want to use a low-res UI that doesn’t support familiar keyboard shortcuts?</li>
+  <li>Is making a text-only game fun?</li>
+  <li>Will teaching them GOTO ruin their brains forever?</li>
+</ul>
+
+<p>Find out next week!</p>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2014-08-13-qbasic-and-children-in-2014/" title="QBasic and children in 2014">Newer</a> &nbsp; 
+  <a href="/journal/2014-06-24-old-games/" title="Old Games">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">QBasic on Modern Computers</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

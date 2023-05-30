@@ -1,0 +1,75 @@
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/takedown.css">
+	<link rel="icon" type="img/ico" href="favicon.ico">
+	<script src="js/takedown.js"></script>
+	<script src="js/loader.js"></script>
+	<script src="js/keyboard.js"></script>
+	<script src="js/audio.js"></script>
+	<script src="js/scripting.js"></script>
+	<script src="js/savedgames.js"></script>
+	
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+<div id="gamecontainer">
+	<canvas id="gamescreen"></canvas>
+	<div id="briefing" class="popover" style="display: none">
+		<div id="briefingText"></div>
+		<button id="option0" class="option">Continue</button>
+		<button id="option1" class="option">Continue</button>
+		<button id="continueButton">Continue</button>
+	</div>
+	<div id="notes" class="popover" style="display: none">
+		<div id="notesText"></div>
+		<button id="back">Back</button>
+		<button id="forward">Forward</button>
+		<button id="close">Close</button>
+	</div>
+	<div id="mainmenu" class="popover" style="display: none">
+		<div class="sidebar">
+			<img src="res/gfx/menu.png">
+			<button id="mainmenu_newgame" >New Game</button>
+			<button id="mainmenu_continue">Continue</button>
+			<button id="mainmenu_help">Help</button>
+			<button id="mainmenu_options">Options</button>
+		</div>
+		<div>&lt;TAKEDOWN&gt;</div>
+        <div>In the year 2170, man has finally triumphed. With the combined power of the entire world, the UNITY has ended famine, disease and war.</div>
+        <div>But some resist. Hungry for power, factions have formed to throw mankind back into conflict.</div>
+        <div>Stall have declared themselves independent from the UNITY and are arming themselves with illegal equipment.</div>
+        <div>Peace is no longer an option. The rebel uprising must be taken down.
+		</div>
+		<div>Copyright &copy; 2002 Matthew Gatland</div>
+	</div>
+	<div id="helpscreen" class="popover" style="display: none">
+		<div>Arrow keys &mdash; Move<br>
+		W, A, S, D &mdash; Shoot in different directions<br>
+		Shift &mdash; hold down while firing to use secondary fire mode<br>
+		X &mdash; Show Notes<br>
+		Esc &mdash; Main menu</div>
+		<div>Damage taken is displayed as a green bar.</div>
+		<div>Your weapon's heat is shown to the right. Firing too rapidly or taking damage will make it overheat. While your weapon is above 100% heat it will not be able to fire.</div>
+		<div>On the bottom left of the screen you may be given information helping you to complete the mission.</div>
+		<div>Avoiding projectiles is an important skill. When dodging, concentrate on the area around yourself and carefully move out of the way of incoming projectiles.</div>
+		<button id="closeHelp" class="menuCloseButton">Back</button>
+	</div>
+	<div id="optionsscreen" class="popover" style="display: none">
+		<span>Play music</span><input id="musicCheckbox" type="checkbox">
+		<button id="closeOptions" class="menuCloseButton">Back</button>
+	</div>
+</div>
+</body>
+</html>

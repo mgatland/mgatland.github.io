@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gatlandland server control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <h1>Gatlandland server control</h1>
+        <div class="buttons">
+            <button class="start">Start server</button>
+            <button class="stop">stop server</button>
+        </div>
+        <p>
+            Address: 20.198.6.176<br>
+            Status: <span class="serverStatus"></span><br>
+            Players: <span class="playerCount"></span>
+        </p>
+        <hr>
+        <p>Hints: The server takes a minute to start up. The player count takes a few minutes to update.</p>
+        <script>
+            document.querySelector(".start").addEventListener("click", () => {
+                console.log('start')
+                fetch('https://minecraft-india-2-functions.azurewebsites.net/api/minecraft-start', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ "action": "start" })
+                })
+                .then(response => response.json())
+                .then(response => console.log(response))
+            })
+            document.querySelector(".stop").addEventListener("click", () => {
+                console.log('stop')
+                fetch('https://minecraft-india-2-functions.azurewebsites.net/api/minecraft-start', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ "action": "stop" })
+                })
+                .then(response => response.json())
+                .then(response => console.log(response))
+            })
+            const serverStatusEl = document.querySelector(".serverStatus")
+            const playerCountEl = document.querySelector(".playerCount")
+            function updatePlayerCount() {
+                fetch('https://mcapi.us/server/status?ip=20.198.6.176')
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response)
+                    playerCountEl.innerHTML = response.players.now
+                    serverStatusEl.innerHTML = (response.online) ? "Online" : "Offline"
+                    serverStatusEl.classList.toggle('red', !response.online)
+                })
+            }
+            updatePlayerCount()
+            setInterval(updatePlayerCount, 1000*60)
+        </script>
+    </body>
+</html>

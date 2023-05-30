@@ -2,12 +2,17 @@
 title: Journal
 layout: notitle
 rss: /journal/feed.xml
+pagination:
+  data: collections.journal
+  size: 3
+  alias: journal
+  reverse: true
 ---
 
-{% for page in site.categories.journal limit:3 %}
-	{% include inline-journal.html %}
+{% for page in journal %}
+	{% include 'inline-journal.html' %}
 	{% if forloop.last %}
-	<span class="disabled-link">Newer</span> &nbsp; {% include journal-link-older.html %}
+	<span class="disabled-link">Newer</span> &nbsp; {% include 'journal-link-older.html' %}
 	{% else %}
 		<!--divider between journal entries-->
 	{% endif %}

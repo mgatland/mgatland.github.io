@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Idea for a game installation</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Idea for a game installation</h2>
+    	<div class="subtle">June&nbsp;23,&nbsp;2013</div>
+    </div>
+    <p>Hi, here’s an idea for a game for <a href="http://rabbleroom.co.nz/">Rabble Room Arcade</a>.</p>
+
+<p><em>edit: they’re not going to use this; I guess it’s too elaborate or expensive. I’ve also proposed a much simpler project which I hope will get in.</em></p>
+
+<p>It’s basically a clone of the iPhone game <a href="https://itunes.apple.com/us/app/spaceteam/id570510529?mt=8">Space Team</a>, but… in real life.</p>
+
+<p>This is just an idea, I haven’t made anything yet.</p>
+
+<p><em>1. What’s your role (i.e. programmer, artist, etc.)? Is anyone else is involved?</em></p>
+
+<p>I’m a programmer. No-one else involved yet.</p>
+
+<p><em>2. What’s the game called?</em></p>
+
+<p>Power Station</p>
+
+<p><em>3. What’s it all about, and how is it played? (sketches / artwork / demo would be appreciated)</em></p>
+
+<p>The players are a team of workers at a power station. They must work together to keep it running.</p>
+
+<p>Each player has a control panel and a display.</p>
+
+<p><img src="http://a5.mzstatic.com/us/r1000/083/Purple/v4/e0/f1/18/e0f118c9-d022-9414-93b1-4bc3b9b52398/mzl.rkckofxw.320x480-75.jpg" alt="Space Team screenshot" /></p>
+
+<p>(That’s a screenshot from Space Team. The top picture shows the team’s progress. Below that is an instruction and a green bar that acts as a countdown timer. Below that is the control panel.)</p>
+
+<p>The display can show an instruction, e.g. “Set Shiftsanitizer to 1”, and a countdown timer.</p>
+
+<p>The control panel has some controls - maybe 4 controls, e.g. a dial, switch, button and slider. These are labelled. Every player’s controls have different labels.</p>
+
+<p>When the game starts, each player is shown an instruction, and their countdown starts from 10 seconds.</p>
+
+<p>The instruction must be followed before the timer expires. If it is, the team progresses one step towards winning. If it isn’t, the team loses a life.</p>
+
+<p>The instruction might be for a different player’s control panel, so the players must talk to teach other.</p>
+
+<p>A central display shows the team’s progress and lives. They win if their progress reaches a certain value. They lose if they run out of lives.</p>
+
+<p>Here’s an idea for the central display: the number rings that are glowing indicates the team’s progress. (This photo is from a game at the Tech museum in San Hose.)</p>
+
+<p><img src="http://www.thegomom.com/wp-content/uploads/2012/09/Tech-Museum-Power-Tower.jpg" alt="Tower of glowing red rings" /></p>
+
+<p><em>4. Are there some major themes in the game? (and what are they?)</em></p>
+
+<p>Cooperation under pressure. Trust.</p>
+
+<p>It’s important to be aware of everyone, even the quietest or youngest player!</p>
+
+<p><em>5. What development environment and operating system would the game run on?</em></p>
+
+<p>I’m most comfortable with Java, which runs on Windows, Linux, or OS X.</p>
+
+<p><em>6. How many people can play the game, and is it co-op or competitive?</em></p>
+
+<p>Co-op. 3 players, or more but it would require more hardware.</p>
+
+<p><em>7. What sort of player control / interface do you imagine? (don’t be afraid to throw out weird and wonderful ideas, the more we have the more we can play with)</em></p>
+
+<p>Well, something like this would be really cool!</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/en/0/0d/TARDIS_console_1983.jpg" alt="Hexagonal control panel in the TARDIS" /></p>
+
+<p>But maybe something less elaborate…</p>
+
+<p>I imagine the players standing around the central display.</p>
+
+<p>Each player has their control panel (maybe on a lectern, or maybe they’re all on a small table.)</p>
+
+<p><img src="/journal/images/2013-06-23-rabble-room-2.jpg" alt="drawing of control panels on a table with lights in the middle" /></p>
+
+<p>This has 4 controls (dials, switches, push-buttons) and an LCD display which can show the instruction and the count-down timer.</p>
+
+<p><img src="/journal/images/2013-06-23-rabble-room-1.jpg" alt="drawing of control panel with LCD display and 4 control knobs or buttons" /></p>
+
+<p>The central display that all players can see shows the team’s progress. A tower of glowing rings like in the photo above would be awesome – a cheaper option could just 5 LEDs in a row, with more turning on as the team progresses.</p>
+
+<p>The team’s limited lives could be shown with 3 big red lights; one turns on each time the team loses a life.</p>
+
+<p>There’ll be a computer running this whole thing. It will need to be able to tell what value each of the 12 controls is set to, and set the message that appears on each of the 3 digital displays.</p>
+
+<p>For three players, we would need</p>
+
+<ul>
+  <li>12 controls (e.g. 3 buttons, 3 dials, 3 sliders, 3 switches)</li>
+  <li>3 LCD displays that can each fit at least 26 characters</li>
+  <li>3 big life indicator lights that can be turned off and on</li>
+  <li>5 or more lights to indicate progress</li>
+  <li>Speakers for sound</li>
+</ul>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2013-07-05-3-things/" title="Three things">Newer</a> &nbsp; 
+  <a href="/journal/2013-06-22-lets-be-ducks/" title="Let's Be Ducks">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Idea for a game installation</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

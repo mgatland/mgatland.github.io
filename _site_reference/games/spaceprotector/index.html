@@ -1,0 +1,44 @@
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/game.css">
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui' name='viewport' />
+		<script data-main="js/game" src="js/require.js"></script>
+		<link rel="manifest" href="manifest.json">
+		
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+	</head>
+	<body>
+		<div class="gamecontainer hide">
+			<canvas id="gamescreen">Unfortunately, your browser cannot run this game because it does not support the HTML5 canvas element.</canvas>
+			<div id="instructions" class="hide">
+				<p>Space Protector by Matthew Gatland.</p>
+				<p>
+					Keyboard controls: Left, Right, Z, X.
+				</p>
+				<a id="mute-button" href="#">audio off</a>
+				<a id="unmute-button" href="#">audio on</a>
+				<p>Multiplayer (beta):<br><span id="netinfo">A second player can connect with this code: <b id="netcode">...</b></span>
+				</p>
+				<div id="connection-options" class="hide">
+					To join someone else's game, enter their code here.
+					<input id="connect-host-input" maxlength="5">
+					<a id="connect-button" href="#">Connect</a>
+				</div>
+				<p>Inspired by <a href="http://vacuumflowers.com/star_guard/">Star Guard</a>.</p>
+				<p id="alerts"></p>
+			</div>
+		</div>
+	</body>
+</html>

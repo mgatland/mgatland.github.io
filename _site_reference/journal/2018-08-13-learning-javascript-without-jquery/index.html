@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning JavaScript without JQuery</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Learning JavaScript without JQuery</h2>
+    	<div class="subtle">August&nbsp;13,&nbsp;2018</div>
+    </div>
+    <p>I’m updating the <a href="https://girlcode.co.nz">Girl Code</a> activities to no longer use jQuery. jQuery is less trendy and popular every year, and we need to teach our students stuff that will help them look good when they talk to experienced developers.</p>
+
+<p>When we started, some simple tasks were just too complex without jQuery – in particular, making a GET request went from this:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/report</span><span class="dl">"</span><span class="p">,</span> <span class="nx">processReport</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>to this:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/report</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">jsonResponse</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">response</span><span class="p">;</span>
+    <span class="nx">processReport</span><span class="p">(</span><span class="nx">jsonResponse</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>What a mess! For a student who’s trying to remember what ‘GET’ and ‘POST’ mean, the jQuery example is so much better.</p>
+
+<p>But the web has matured, and in most browsers a GET request can now look like this:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">/report</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">processReport</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>We can work with that. It’s still not as good as the jQuery way – it doesn’t use the key word ‘GET’, and it introduces promises and JSON, concepts that we don’t want to teach at this point. But it’s short and inoffensive and it’ll be fine.</p>
+
+<p>(Note that I’m not a JS expert, and there just the best examples I’ve found so far. Feel free to email me if you have something that’s better! By better I mean: <i>it requires understanding fewer concepts</i>.)</p>
+
+<p>So anyway, the most essential thing you’ll ever want to do in JavaScript is create HTML and add it into a page. With vanilla JS, I haven’t found a way to do this that I like. I’ve found ways that are not too bad. Here are the alternatives I’ve come up with so far:</p>
+
+<p>The step by step approach:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">displayMessage1</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">postElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">postElement</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">post</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="kd">let</span> <span class="nx">messageElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageElement</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageElement</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
+
+  <span class="nx">postElement</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">messageElement</span><span class="p">);</span>
+
+  <span class="kd">let</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message-list</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageList</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">postElement</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>I personally like this, because it forces students to think of HTML as a tree instead of text. But it’s a bit unfair to make them construct HTML in such an abstract way when they’ve only just learned how to write it the normal way.</p>
+
+<p>Using a DOMParser:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">displayMessage2</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">postElement</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DOMParser</span><span class="p">().</span><span class="nx">parseFromString</span><span class="p">(</span><span class="dl">'</span><span class="s1">&lt;div class="post"&gt;&lt;div class="message"&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">message</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/div&gt;&lt;/div&gt;</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">text/html</span><span class="dl">'</span><span class="p">).</span><span class="nx">body</span><span class="p">;</span>
+
+  <span class="kd">let</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message-list</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageList</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">postElement</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is pretty good. It’s a shame you have to construct a new DOMParser, specify “text/html”, and add “.body” to get the actual element. It would be perfect without those three oddities.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">displayMessage3</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">&lt;div class="post"&gt;&lt;div class="message"&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">message</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/div&gt;&lt;/div&gt;</span><span class="dl">'</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message-list</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageList</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Not sure if this is better or worse. I think it might be easier to explain what’s weird about it: we create a temporary throwaway div element to build inside, then use its contents. Our students already have to learn what innerHTML does so it’s not an additional load.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">displayMessage4</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">postElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createRange</span><span class="p">().</span><span class="nx">createContextualFragment</span><span class="p">(</span><span class="dl">'</span><span class="s1">&lt;div class="post"&gt;&lt;div class="message"&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">message</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/div&gt;&lt;/div&gt;</span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message-list</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageList</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">postElement</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>My favourite so far. It avoids any “.firstChild” weirdness and returns the element we asked for. It unfortunately introduces a bunch of nonsense words (range? contextual fragment?!?) but it’s all on one line, so we can handwave it and say “it makes some HTML”.</p>
+
+<p>Any of these will be better with template literals (template strings), so we can have line breaks in the HTML template:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">displayMessage5</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">postElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createRange</span><span class="p">().</span><span class="nx">createContextualFragment</span><span class="p">(</span>
+    <span class="s2">`
+    &lt;div class="post"&gt;
+        &lt;div class="message"&gt;</span><span class="p">${</span><span class="nx">message</span><span class="p">}</span><span class="s2">&lt;/div&gt;
+    &lt;/div&gt;
+    `</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message-list</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageList</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">postElement</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Like everything, this is a tradeoff. Template literals are very different from normal strings, and teaching beginners both too closely together will add cognitive load. Should we use normal strings instead, broken into multiple lines?</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="dl">'</span><span class="s1">&lt;div class="post"&gt;</span><span class="dl">'</span> <span class="o">+</span>
+    <span class="dl">'</span><span class="s1">    &lt;div class="message"&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">message</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/div&gt;</span><span class="dl">'</span> <span class="o">+</span>
+    <span class="dl">'</span><span class="s1">&lt;/div&gt;</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<p>They’ll make more mistakes with this version, but… good mistakes. You’ll never regret becoming a string expert.</p>
+
+<p>I think my fav is version 5, but multiline strings instead of template literals.</p>
+
+<p>Then later in the course, when we learn about using functions to avoid duplicate code, we could hide <code>document.createRange().createContextualFragment</code> inside a nicely named utility function.</p>
+
+<h3 id="update">Update</h3>
+
+<p>Alexey points out that you don’t need to create an HTML element if you append plain text HTML to the parent node’s inner HTML. That would come out like this:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">displayMessage6</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">postHtml</span> <span class="o">=</span> 
+    <span class="s2">`
+    &lt;div class="post"&gt;
+        &lt;div class="message"&gt;</span><span class="p">${</span><span class="nx">message</span><span class="p">}</span><span class="s2">&lt;/div&gt;
+    &lt;/div&gt;
+    `</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">.message-list</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">messageList</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">postHtml</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is better. I didn’t think of this because I was looking up way to “create an HTML element”, which we don’t explicitly do here. It has a few limitations, but it’s simple and probably the best option for our course.</p>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2020-11-30-week-1/" title="Weekly thoughts - 1&nbsp;of&nbsp;6">Newer</a> &nbsp; 
+  <a href="/journal/2018-01-04-no-tv/" title="No TV">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Learning JavaScript without JQuery</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

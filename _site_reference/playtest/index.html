@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Playtest</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Playtest</h2>
+    	<div class="subtle"></div>
+    </div>
+    
+<h4 class="link">Not yet</h4>
+
+<p><img src="logo.gif" /></p>
+
+<script>
+	const start = Date.parse('23 Aug 2019 16:00:00 GMT+12')
+	const link = document.querySelector('.link')
+	updateLink()
+	function updateLink() {
+		const now = new Date()
+		if (now > start) {
+			link.innerHTML = `<a href="https://realm2.herokuapp.com/">Click here to join</a>`
+		} else {
+			link.innerHTML = `starts in ${Math.floor((start - now) / 1000 / 60)} minutes`
+			setTimeout(updateLink, 1000)
+		}
+	}
+</script>
+
+
+  </div>
+	<footer>
+	
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Playtest</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

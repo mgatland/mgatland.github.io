@@ -12,9 +12,9 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "normal"
+      layout: "normal.html"
 prose:
   metadata:
     "journal/_posts": |
       title: 
-      layout: normal
+      layout: normal.html

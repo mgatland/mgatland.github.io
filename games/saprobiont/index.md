@@ -1,6 +1,6 @@
 ---
 title: Saprobiont
-layout: normal
+layout: normal.html
 categories: [games]
 description: A board game designed at the Global Game Jam
 order: 21

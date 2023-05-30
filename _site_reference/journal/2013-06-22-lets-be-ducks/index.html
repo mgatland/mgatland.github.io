@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Let's Be Ducks</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Let's Be Ducks</h2>
+    	<div class="subtle">June&nbsp;22,&nbsp;2013</div>
+    </div>
+    <p><a href="/games/ducks">Let’s Be Ducks</a> is my third game prototype.</p>
+
+<p>The concept was simple: Make a clone of <a href="http://distractionware.com/blog/2012/01/chatchat-2/">ChatChat</a> (a game by Terry Cavanagh), using HTML, CSS and JavaScript.</p>
+
+<h3 id="playtesting">Playtesting</h3>
+
+<p>It’s fun launching a multiplayer game, because I can see everyone come and play. I was logged in all day, saying hi when people arrived and watching them look around. It felt a little bit like I was showing my work at an exhibition :)</p>
+
+<p>The game intentionally doesn’t have any real gameplay – if you could earn points or go up levels, that would distract you from exploring and making your own fun.</p>
+
+<p>Players generally did what I expected. They wandered around, napped, quacked, looked at things.</p>
+
+<p>Players only found one of the three secrets. I guess I made the others too obscure.</p>
+
+<p>One screen has a treasure chest and a hint telling you how to quack. Players assume that quacking will let them interact with the chest somehow – but the ‘quacking’ secret is actually at the opposite end of the world. No-one ever tried quacking over there.</p>
+
+<p>I like having well-hidden secrets, but the game needs some more obvious secrets. Maybe ‘surprises’ is a better term: interesting things for people to find as soon as they join the game.</p>
+
+<h3 id="latency">Latency</h3>
+
+<p>Ducks was my first real-time networked game. I’ve been interested in how networked games work since I started modding <abbr title="Unreal Tournament">UT</abbr> in 1999. Lag compensation, client-side simulation, untrusted clients – these subjects have been on my mind for 14 years. It was exciting to finally code them for myself.</p>
+
+<p>A character in Ducks can move once every 250 milliseconds. I ran some crude performance tests on a lot of different <abbr title="Platform as a Service">PaaS</abbr> providers before finding one that had a ping time that was <em>usually</em> less than 250 ms.</p>
+
+<p>When you press an arrow key, your character appears to move instantly. This is a client-side prediction. Your move is also sent to the server, where it really happens and then is relayed to everyone (including you).</p>
+
+<p>If your ping is less than 250 milliseconds, then the server will confirm your move before you move again. If it’s higher, then bad things happen. You could move twice before the server responds to your first move. When it does respond, it will appear to cancel your second move, making you jump backwards one square.</p>
+
+<p>The lag annoyed me and it annoyed players. Next time, I’ll do more to hide it. However, most of the time the server replies within 250 ms and there are no visible lag effects.</p>
+
+<h3 id="speed-hacks">Speed hacks</h3>
+
+<p>One player hacked their client to let them move ultra-fast. It’s a classic trick. I anticipated this, and don’t let them – they can move fast on their client, but won’t on the server or for the other players.</p>
+
+<p>I have a system which queues a player’s moves for later if they happen to arrive too quickly. (Because of random variations in latency, a player moving every 250 ms might appear to be trying to move a few milliseconds too early. I can’t let them move early, but it’s rude to just cancel that move. So I queue it up and replay it when it’s the right time.)</p>
+
+<p>This system queued up thousands of moves from the speed-hacked player. This meant that his ducks continued to roam around the map even after he had logged out and logged back in as a new user.</p>
+
+<p>Seeing him apparently control two ducks at the same time made me very confused :)</p>
+
+<h3 id="touchscreen-support">Touchscreen Support</h3>
+
+<p>The world has changed and touchscreens are everywhere. I wanted Ducks to work on touchscreens, but did not get there in time.</p>
+
+<p>Making the game work on Chrome for Android was an impossible game of whack-a-mole. The browser zooms in when you select an input field, hiding most of the game. Disabling zooming fixes that, but stops the code that zooms the page to the correct size initially. The player is left unable to zoom, with the game locked to the wrong zoom.</p>
+
+<p>I’m sure there is a solution, but it was not easy or obvious.</p>
+
+<h3 id="project-management">Project Management</h3>
+
+<p>This was meant to be a one-week project, but it actually took 18 days.</p>
+
+<p>I’m OK with this, because:</p>
+
+<ul>
+  <li>everyone says multiplayer games take much longer. Now I can say I know from experience :)</li>
+  <li>I spent a few days learned about Node, networking, and testing PaaS provders.</li>
+  <li>and I’m still learning JavaScript.</li>
+</ul>
+
+<p>I wrote a lot of bad code in Ducks, which sometimes caught me out. Sloppy code creates tricky bugs.</p>
+
+<p>There were things I did right, though. Sharing code between the client and server was an early and very wise decision.</p>
+
+<p>The code that determines whether a move is legal or not is all shared. This means I can add a new movement rule on the server (like “it takes one move to wake up from a nap”) and the client will automatically know how to simulate that movement.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>Multiplayer games take a lot more work than single-player games.</p>
+
+<p>But they’re really fun! I love being able to see people play my game and talk to them about it.</p>
+
+<p>If I’m sticking with JavaScript, I should learn the right way to write it.</p>
+
+<p>Ducks are cute.</p>
+
+<p>If you put a treasure chest in a room, players will go crazy trying to open it.</p>
+
+<h3 id="whats-next">What’s next?</h3>
+
+<p>Something awesome.</p>
+
+<h3 id="links">Links</h3>
+
+<ul>
+  <li><a href="/games/ducks">Play</a></li>
+  <li><a href="https://mgatland.hackpad.com/Ducks-feedback-bMBCM057s5j">Feedback</a></li>
+  <li><a href="https://mgatland.hackpad.com/9KP1gS2rLxg#Game-3">Development diary</a></li>
+  <li><a href="http://www.github.com/mgatland/ducks/">Source code</a></li>
+</ul>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2013-06-23-rabble-room-idea/" title="Idea for a game installation">Newer</a> &nbsp; 
+  <a href="/journal/2013-06-14-okaihau-college/" title="Okaihau College">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Let's Be Ducks</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

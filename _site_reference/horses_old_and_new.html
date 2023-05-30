@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>horses old and new</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-weight: inherit;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 400px;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin: 20px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.graph {
+  border: 2px solid grey;
+}
+p {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.button {
+  border: 1px solid rgba(0, 0, 255, 0.9);
+  cursor:default;
+  padding: 5px;
+  display: inline-block;
+  
+}
+.button:hover {
+  color: rgba(0, 0, 255, .8);
+}
+.big {
+  font-size: 24px;
+}
+img {
+  width: 64px;
+}
+a {
+  color: black;
+}
+    </style>
+</head>
+
+<body>
+  <h1>Proposed fix for <a href="https://bugs.mojang.com/browse/MC-16533">MC-16533</a></h1>
+  <h2>Tell us about the Parent horses:</h2>
+  <div class="vertical">
+    <div class="horseInfo horizontal">
+      <img src="https://gamepedia.cursecdn.com/minecraft_gamepedia/thumb/5/5d/Creamy_Horse_with_White_Stockings.png/72px-Creamy_Horse_with_White_Stockings.png?version=3addf583c4701f4af947cbb02f3ece32">
+      <input data-id="0" type="range" min="0.1125" max="0.3375" value="0.225" step="0.0005" class="slider" id="myRange"><div style="color:darkgoldenrod">Goldie's speed: <span class="speed"></span></div>
+    </div>
+    <div class="horseInfo horizontal">
+      <img src="https://gamepedia.cursecdn.com/minecraft_gamepedia/thumb/7/7d/Gray_Horse_with_White_Spots.png/72px-Gray_Horse_with_White_Spots.png?version=afffd0636e42d8668b82d41e95ae906f">
+      <input data-id="1" type="range" min="0.1125" max="0.3375" value="0.225" step="0.0005" class="slider" id="myRange"><div style="color:darkblue">Stormborn's speed: <span class="speed"></span></div>
+    </div>
+  <h2>Or try a preset:</h2>
+  <div>
+  <div class="button" onclick="scenario(0.48, 0.5)">Two average parents</div>
+  <div class="button" onclick="scenario(0.85, 0.89)">Two quite fast parents 😢</div>
+  <div class="button" onclick="scenario(1, 1)">Perfect parents </div>
+  <div class="button" onclick="scenario(0.0, 1.0)">Best horse + worst horse 🤔</div>
+</div>
+  <h2>Let's breed 2000 children:</h2>
+  <canvas class="graph"></canvas>
+  <h2>How many babies were faster than both of their parents?</h2>
+  <p class="big">Current rules: <span class="faster0"></span></p>
+  <p class="big">Proposed rules: <span class="faster1"></span></p>
+  <h2>What's the point?</h2>
+  <p>Under the currrent rules, the children of fast horses will always be slower than their fastest parent. This means you can't use breeding to get better horses, which is sad. </p>
+  <p>Under the new rules, you can always use breeding to improve the quality of your horses. If both parents have exactly the same speed, then half their children will be faster and half will be slower.</p>
+
+    <script type="text/javascript">
+
+      const simulations = 2000
+      const minSpeed = 0.1125
+      const maxSpeed = 0.3375
+      let xFactor = 15
+
+      const canvas = document.querySelector(".graph")
+      const ctx = canvas.getContext('2d');
+      const width = 1000;
+      const height = 300;
+      canvas.width = width
+      canvas.height = height
+      canvas.style.width = width + "px"
+      canvas.style.height = height + "px"
+
+      const horseSpeedEls = document.querySelectorAll('.horseInfo input')
+      const speeds = []
+      const names = ['Goldie', 'Stormborn']
+      for (horseSpeedEl of horseSpeedEls) {
+        horseSpeedEl.addEventListener('input', e => onChange(e.target))
+      }
+
+      function onChange(el) {
+        el.parentElement.querySelector('.speed').innerHTML = el.value
+        const id = parseInt(el.dataset.id)
+        speeds[id] = parseFloat(el.value)
+        calcuateChildren()
+      }
+
+      function calcuateChildren() {
+        // calculating
+
+        
+        // create the buckets for the histogram
+        const buckets = [[], []]
+        const bucketCount = 100
+        const bucketRange = (maxSpeed - minSpeed) / bucketCount
+        for (let i = 0; i < bucketCount; i++) {
+          buckets[0][i] = 0
+          buckets[1][i] = 0
+        }
+
+        const howManyFaster = [0, 0]
+        for (let i = 0; i < simulations; i++) {
+          const babySpeed = getBabySpeed()
+          const bucket = Math.floor((babySpeed - minSpeed) / bucketRange)
+          buckets[0][bucket]++
+          if (babySpeed > speeds[0] && babySpeed > speeds[1]) howManyFaster[0]++
+
+          const newBabySpeed = getNewBabySpeed()
+          const bucket2 = Math.floor((newBabySpeed - minSpeed) / bucketRange)
+          buckets[1][bucket2]++
+          if (newBabySpeed > speeds[0] && newBabySpeed > speeds[1]) howManyFaster[1]++
+        }
+
+
+        // drawing
+        ctx.clearRect(0, 0, width, height)
+        ctx.fillStyle = "black"
+        ctx.font = '24px Roboto'
+        ctx.textAlign = "center"
+        const badColor = "rgba(255, 0, 0, 0.4)"
+        const goodColor = "rgba(0, 0, 255, 0.4)"
+        const graphYZero = height - 50
+        const graphxMargin = 80
+        const graphWidth = width - graphxMargin * 2
+
+        //Draw the axis
+        ctx.fillRect(graphxMargin, graphYZero, graphWidth, 1)
+        ctx.fillText("Slowest", graphxMargin, height - 25)
+        ctx.fillText("Fastest", graphxMargin + graphWidth, height - 25)
+
+        // Labels
+        ctx.textAlign = "left"
+        ctx.fillText("Current rules", 50, 30)
+        ctx.fillText("Proposed rules", 50, 30 + 30)
+        ctx.fillStyle = badColor
+        ctx.fillRect(20, 13, 20, 20)
+        ctx.fillStyle = goodColor
+        ctx.fillRect(20, 13 + 30, 20, 20)
+        ctx.fillStyle = "black"
+        ctx.textAlign = "center"
+
+        // Draw the parents
+        for (let i = 0; i < 2; i++) {
+          const x = (speeds[i] - minSpeed) * graphWidth / (maxSpeed - minSpeed) + graphxMargin
+          ctx.fillStyle = "rgba(255, 255, 255, 0.9)" // blank out line under text
+          ctx.fillRect(x - 60, graphYZero + -160 + 5 + 30 * i, 120, -25)
+          ctx.fillStyle =  i == 0 ? "DarkGoldenrod" : "DarkBlue"
+          ctx.fillRect(x, graphYZero, 2, -160 + 5 + 30 * i)
+          ctx.fillText(names[i], x, graphYZero - 160 + 30 * i)
+          ctx.fillStyle = "black"
+        }
+
+        ctx.fillStyle = badColor
+        for (let i = 0; i < bucketCount; i++) {
+          const height = buckets[0][i]
+          ctx.fillRect(graphxMargin + (graphWidth / bucketCount) * i, graphYZero, graphWidth / bucketCount, -height/2)
+        }
+
+        ctx.fillStyle = goodColor
+        for (let i = 0; i < bucketCount; i++) {
+          const height = buckets[1][i]
+          ctx.fillRect(graphxMargin + (graphWidth / bucketCount) * i, graphYZero, graphWidth / bucketCount, -height/2)
+        }
+
+        writeHowManyFaster(0, howManyFaster[0])
+        writeHowManyFaster(1, howManyFaster[1])
+
+      }
+
+      function getBabySpeed() {
+        const randomSpeed = (0.45 + Math.random() * 0.3 + Math.random() * 0.3 + Math.random() * 0.3) * 0.25;
+        return (speeds[0] + speeds[1] + randomSpeed) / 3
+      }
+
+      function getNewBabySpeed() {
+        // the 'x factor' - how much better can a baby be than its parents?
+        xFactor = 15
+        const average = (speeds[0] + speeds[1]) / 2
+
+        let extraRange = (xFactor / 100) * (maxSpeed - minSpeed) 
+        const babyMin = Math.min(speeds[0], speeds[1]) - extraRange
+        const babyMax = Math.max(speeds[0], speeds[1]) + extraRange
+        
+        let range = babyMax - babyMin;
+        //how good is this baby -0.5 to 0.5
+        const goodness = (Math.random() + Math.random() + Math.random()) / 3 - 0.5
+
+        // If the bell curve goes out of bounds, we scale it down.
+        let speed = average + range * goodness
+        if (speed > maxSpeed) {
+          const difference = speed - maxSpeed
+          speed = maxSpeed - difference
+        }
+        if (speed < minSpeed) {
+          const difference = minSpeed - speed
+          speed = minSpeed + difference
+        }
+        return speed
+      }
+
+      scenario(0.48, 0.5)
+      // hack: redraw a second later once fonts load
+      setTimeout(() => scenario(0.48, 0.5), 100)
+
+      function scenario(speed1, speed2) {
+        horseSpeedEls[0].value = minSpeed + (maxSpeed - minSpeed) * speed1
+        horseSpeedEls[1].value = minSpeed + (maxSpeed - minSpeed) * speed2
+        for (let el of horseSpeedEls) {
+          onChange(el)
+        }
+      }
+
+      function writeHowManyFaster(i, howMany) {
+        const percent = Math.floor(howMany / simulations * 100)
+        const percentString = percent == 0 && Math.max(speeds[0], speeds[1]) < maxSpeed ? percent + "% 😢" : percent + "%"
+        document.querySelector(".faster" + i).innerHTML = percentString
+      }
+
+    </script>
+</body>
+
+</html>

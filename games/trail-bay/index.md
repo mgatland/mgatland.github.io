@@ -1,6 +1,6 @@
 ---
 title: Trail Bay
-layout: normal
+layout: normal.html
 categories: [games]
 description: Explore eighty mazes as you piece together the key to secret treasure.
 order: 5

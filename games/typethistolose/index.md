@@ -1,6 +1,6 @@
 ---
 title: Type This to Lose
-layout: normal
+layout: normal.html
 categories: [games]
 description:
 order: 43

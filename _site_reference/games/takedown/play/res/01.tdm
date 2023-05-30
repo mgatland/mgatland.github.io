@@ -1,0 +1,768 @@
+TakeDown: First episode
+
+FLAGS
+29 -   128 GB Storage Disk from MISS 1
+28 -   128 GB Storage Disk DECRYPTED
+27 -   Peacekeeper 2 is with the player, alive
+
+
+INFORMATION
+
+Setting: May 3rd, 2170
+
+Message Colours: White = Supervisor. Green = help. Blue = Event. Red = transmiss-ion
+
+"Stall appear very structured but are actually informal and relaxed. Not formal."
+"friendly and understanding and work together on tasks."
+"Stall are most heavily fortified around the bottom of the island above (sectors 9, 8 and 6)"
+"On this island, 10, 13, slightly into 16 and 11. 14 is a weak spot in their defences."
+
+STALL HIRACHY
+Technical crews 1 to 6
+T1 - T3 weapons		(T3: VEIL almost ready)
+T4 on radio unjamming	(Almost ready)
+T5 on biodefence
+T6 evalutating defences
+
+50 squads of 10 men = 500 men | each squad has a unique name and a number
+HQ - main command., Section Command x 5 (a group of 4 commanders who made decisions when out" 
+of contact with HQ itself) - one SC in each sector: 10, 11, 13, 14, 16
+
+Davis K is a commander in sector 18
+Harpin N is the first commander the player fights.
+Each commander has 10 men?
+
+UNITY HIRACHY
+4 peacekeepers: sectors they approach:
+"PK1: 11, 14, 13"
+"PK2: 17, 14, 13, destroy stall facotories ect"
+"PK3: 18, 15, 12, THE PLAYER - make sure Stall is not expanding. Don't let them spread. Then sweep in closer and closer."
+
+S.V. Andrew Lambed
+
+==================================================================================
+"     4       5         _6_       The island above - _ underscore marks Stall forces"
+"~~~~~7~~~~~_8_~~~~~~~~~_9_~~~~"
+
+
+"       The island - Foundation island?                                                    "
+"~~~~10_~~~~~~~~~~~~~~~~~~~~~~~      ~ = water                                           "
+"~~******~~~11_~~~~~~~12~~~~~~~      : = grass (ground : 3 = smoothdark,                 "
+"~*********##**************~~~~               ' 5 = light+flowers, ; 6 = pale bluey     "
+"~********#####*#***;;;;;;**~~~      # = thick (groud: 4)                                "
+"13_********##14##**;;;15;;*~~~East  * = Sand  ( 1 = bright,  2 = dark           "
+"~~~~~:::******#####;;;;;;;**~~                                            "
+"~''':::::::::;;;;;;;;::::''*~~                                            "
+"~''16_'':::::~~::::::::''''**~                                            "
+"~~'''''''~~~~~~~~'''''''''*~~~                                            "
+"~~~~~~~~~~~~17~~~~~~~~~18~~~~~                                            "
+===========================================================================================
+
+STORYLINE: (out of date now)
+-Mission 1: Can find Disk
+-Mission 4: Peacekeeper 2's repair unit is destroyed. The player must make sure no enemies get too close to him.
+-Mission 5: Reports show Stall is researching. Meet a Commander.
+-Mission 6: Find out that Tech4 are doing jamming. MAY decrypt disk - find that tech3 have almost made stealth and tech 4 have almost finished their project (radio jamming)
+-Mission 7: Snipers. Find out that fuel virus didn't work.
+-Mission 8: Veil is used to surprise the player. This was K Davis's plan.
+            PK 1 and 4 die. PK 2 in trouble again.
+-Mission 9: Rescue PK2
+
+MISSION STYLES:
+1 				easy
+2 				easy
+3 				easy
+4  reinforcements		HARD
+5- sabotage			easy?
+6- commando kill		HARD
+7  snipers			easy
+8  defend			VERY HARD
+9  rescue			easy
+10
+
+[notes]
+"^gBACKGROUND INFORMATION 1/3: Political^2Peacekeepers - You are Peacekeeper 3 (PK3). The Peacekeeper unit has 4 members and exists exclusively to combat Stall. ^1UNITY - This name represents the actual governmental computer herself and the associated committees.^1Supervisor - A supervisor will direct your movement and provide a link with UNITY, as well as monitoring your performance and safety. Your supervisor is Andrew Lambed.^1Stall - The faction who aim to shatter the UNITY and reduce humankind to its primitive, militaristic state. This group has set up base on two reserved islands.^2Your initial assignment is to stop Stall from spreading further over the Eastern side of Foundation Island."
+"^gBACKGROUND INFORMATION 2/3: Technical^2-Armour^1Standard impact resistant armour is easy to manufacture. It can defend against almost any physical pressure.^1Energy-resistance is more complicated. Peacekeepers are equipped with the most advanced light armour available, but even this will only withstand a few energy hits.^2-Projectiles^1Energised carbon projectiles are currently the only light weapon that can penetrate armour effectively. Most Stall weapons fire cold red-burning projectiles. Peacekeeper weaponry produces efficient blue-white projectiles with a visible trail. They burn at roughly twice the efficiency (and are twice as powerful) as the red projectiles.^1Lastest advances allow Peacekeepers to fire supercharged projectiles which travel at higher speeds and cause huge amounts of damage. Firing such a projectile causes kickback that slows movement."
+"^gBACKGROUND INFORMATION 3/3: Technical^2-Peacekeeper capabilities^1-A helicopter flown by the supervisor will transport you between missions. It has a cable that has limited functionality for recalling you when there are still hostiles present. The helicopter is unarmed and unarmoured. It interfaces with your suit and can repair any damage you take on the field in under 30 minutes.^1-Your suit has a direct link with your supervisor who will provide any neccessary information. The suit can also receive transmissions from other sources, however UNITY currently has communications jamming in place on Foundation Island so no transmissions should be received."
+"^gCONTROL REFERENCE^1Arrow keys - Movement^1W,A,S,D - Shoot^1SHIFT - Fire charged shots^1X - Show notes^1Esc - Main menu"
+"^bNEWS REPORT:^105-03-70^2Today the four Peacekeepers are being deployed on the Stall-occupied Foundation Island. Over the next few weeks these specialists will be trying to evaluate and limit the threat of Stall. We'll keep you up to date as these warriors move out into the island.^2This deployment has been made possibly because of UNITY's dramatic removal of the Military Advance Act, which prevented the deliberate movement of equipment or personal for the purpose of creating a confrontation.^2Mrs. Janelle Brown, 34 year-old doctor, died in a fatal crash today in New York City. The cause of the crash is unknown and under investigation. A road was blocked for 13 minutes. The total world cost of the accident was $2,381."
+"^bNEWS REPORT:^105-04-70^2The Peacekeepers' successful arrival on Foundation Island has led to UNITY reducing Stall's crisis rating from 65 to 57 yesterday. Because all of the combat equipment and strategies in use are experimental, the rating should continue to drop as the effectiveness of the Peacekeeper unit becomes more certain.^1A full report of the mission so far and the damage done to either side is available on the World Statistics website.^2School tests today confirm that the Average World Intelligence has increased from last year. The average RIQ rating has grown from 123.724 to 124.016 since the end of last year. The increase is largely due to improved educational facilities in South Africa, China and Australia."
+"^bNEWS REPORT:^105-06-70^2In an unprecedented move UNITY has passed an act allowing information to be withheld from the public in order to 'increase the effectiveness of the anti-Stall campaign'. The act, effective from 2 a.m. this morning, allows UNITY to withhold any information if doing so will increase the mission's effectiveness. This act will allow the Peacekeeper forces to take Stall by surprise. The fact that Stall could provoke such extreme legislation has brought home to the general public the message of how dangerous the group is.^2Scientists are enthusiastic that new growth acceleration technology will allow them to increase world food production by 2% in the next six months. A new designer gene should improve the growth-rates of most food-producing bacteria and may have other uses outside the food market. Scientists hope this will help lead towards an increase in the maximum sustainable population."
+""
+""
+""
+"^wITEM:^2128 GB Storage Disk^1contents are encrypted"
+"^wITEM:^2128 GB Storage Disk^1Contents:^1To DAVIS_K^1From SCMD^1714034^105-02-2170^2Technical-3 will have the Veil completed by 5\6. You have permission to prepare your plan.^2Technical-4 have also nearly completed their project. If they are successful, we will begin upgrading our bases as soon as possible."
+""
+""
+""
+"^wITEM:^2Notes Cartridge^1Contents:^1May^11: The keepers are coming. There will be fighting. We've been taught to pull triggers, but none of us have ever killed a man.^12: Disorganized. SC is sending my group to sector 18, where one of these guys is going to land.^13: Our keeper's killed Mark and Tial. Testing his weapons, apparently. We've set up camp. I'm going to send this with the next runner."
+"^wITEM:^2Notes Cartridge^1Contents: From Sun Tzu's 'Art of War':^212. The onset of troops is like the rush of a torrent which will even roll stones along in its course.^113. The quality of decision is like the well-timed swoop of a falcon which enables it to strike and destroy its victim.^114.Therefore the good fighter will be terrible in his onset, and prompt in his decision.^218. All warfare is based on deception.^119. Hence, when able to attack, we must seem unable; when using our forces, we must seem inactive; when we are near, we must make the enemy believe we are far away; when far away, we must make him believe we are near.^120. Hold out baits to entice the enemy. Feign disorder, and crush him.^2(Davis makes his men read this crap. btw, an encrypted message to him was left where the keeper landed. They'll probably send another copy, but can someone go pick it up?)"
+"^wITEM:^2Notes Cartridge^1Contents:^1The 'peacekeepers' have arrived on our little Foundation Isle. The latest reports estimate that we have lost 70 men so far, and have not found a way to stop the attack. Davis says that the tech teams can do something about it. He's a fool. He'll get us all killed.^1Now I'm stationed with Commander Harpin. He's one of the first to wear the new commander outfit. It's bright red - tech don't think camo will do any good against peacekeepers with scanners. Tech don't think much at all. This is a war, it won't be solved with gadgets."
+"^wITEM:^2Notes Cartridge^1Contents:^1John, no-one's supposed to know but something big is going to happen. Soon. I can't say much more, but Section Command have been talking with everyone and HQ has been sending messages. Just try to hang in there a while longer, and don't lose hope.^1Liam.^2Previous message:^1Just when we managed to take Peacekeeper 2 out of action I got reassigned to Sector 11, where Keeper 1 is carving his way into our installations. I'm afraid. No-one has gone up against him and survived. I believe in the cause, but I don't want to die in vain.^1We managed to get some news over here. Runners are taking it around. I guess it'll arrive before this message. UNITY is smashing up all the peace laws so it can fight us. It's reviewing the human rights. But no-one blames UNITY, they blame us. They can't see what's happening to them.^1John"
+"^wITEM:^2Notes Cartridge^1Contents:^1May^13: Fine day. Peacekeepers have landed. Moving quickly; many dead.^14: Cloudy. Constant alert. There are 4 keepers, 1 near here. very advanced.^15: Fine day. cmdr Harpin killed this morning. I've been reassigned to Davis, just arrived. Something funny going on here. Far more men than listed on the roster.^16: Fine day. More arriving here - Troops and Techs - near the base that was bombed. Davis says to be ready."
+[]
+
+"training mission - sector 18 - f0 training activated - f1 nothing - May 3rd, 2170"
+[MISSION 1] 
+28,20
+"      5      155    *        "
+" *    5       55555  55555555"
+"     *  *     55    *        "
+"5555555      *55         *   "
+"   5555555555 55    * *      "
+"  *   *      *   *   2       "
+"   555                *      "
+"   5 * **          1     *   "
+"   5  3           * *        "
+"  *6   *    1                "
+"   5 *   *   *    *    *     "
+"   5    4             2      "
+"   5   * *  132 *      *     "
+"   56555555555555565555555555"
+"  *      * *      *     *    "
+"          3                  "
+"     *   * *    *    *       "
+"                             "
+"                             "
+"  *    *    *     *     *    "
+"                             "
+5
+
+0,2,4
+[enemy]
+0,4,5,1,"standing",1,none
+1,13,14,1,"standing",1,none
+[]
+[trigger]
+0,0,and,newlev,0,0,0,flag,0,0,+?,briefing,"^gMOVEMENT^2Use the arrow keys to move.^2Use W, A, S and D to shoot.","","",text,"Movement: arrow keys","Firing: W, A, S, D","Go East when ready"
+1,0,and,playerxy,7,2,0,flag,0,0,+?,briefing,"^gCOMBAT^2Hold Shift while firing to fire a charged shot.^2Standard shots are most versatile and cause less heat. Charged shots stop you from moving and create more heat. However, they move quickly and cause more damage. They are best used at long range.^1You CAN NOT fire while overheated. Firing excessively or taking damage will increase your heat.","","",text,"Charged shots - hold shift","Watch your heat indicator","Go South when ready"
+2,0,and,playerxy,13,3,0,flag,0,0,+?,briefing,"^gThere is an enemy soldier out here. He does not know that you are near. Because he is boxed in, he will not be able to dodge if you fire at him quickly.","","",text,"-Fire at the enemy and kill him","",""
+3,0,and,kills,1,0,0,flag,0,0,+?,briefing,"^gAfter a fight, check your damage (Green\red bar) and heat (Percentage display). If you take too much damage you will die. If you have been hit or have been firing excessively, you will overheat.^2If your heat is high, wait until you cool before continuing. You cannot fire while your heat is above 100%.","","",text,"-Kill the remaining enemy","",""
+4,0,and,playerxy,3,5,0,flag,0,0,+?,briefing,"^gEnemies are easier to kill when they are not aware of you. Try not to let an enemy see you, any projectiles or other enemies who are already aware of you. Keep behind objects if possible. You are also harder to detect by an enemy who is facing away from you.","","",null,0,0,0
+5,0,and,kills,2,0,0,true,0,0,0,endmission,50,1,0,null,0,0,0
+6,0,and,playerxy,21,12,0,true,0,0,0,dec,0,0,0,briefing,"^b-Object Recovered:^2-128GB Storage Disk-^2Contents encrypted","^gYou have found an item! The disk is encrypted, so you can't do anything with it at the moment, but it may come in handy later. Always look out for items to take.",""
+7,0,and,playerxy,21,12,0,true,0,0,0,flag_setval,29,1,0,mistxt,10,0,0
+8,0,and,win,0,0,0,flag,29,0,-+,briefing,"^gMission complete. Remember what you have learnt. Dodging and controlling your temperature are important skills.","^wYour next stop is a small outpost North of here.","",null,0,0,0
+9,0,and,win,0,0,0,flag,29,0,++,briefing,"^gMission complete. Remember what you have learnt. Dodging and controlling your temperature are important skills.^2It is also important to examine your situation and not rely totally on the instructions given to you. You demonstrated this skill by finding the Storage Disk. Your Supervisor will aid you but you must be able to make decisions on your own.","^wYour next stop is a small outpost North of here.","",null,0,0,0
+10,0,and,win,0,0,0,flag,0,0,-?,briefing,"^wMission complete.","","",null,0,0,0
+'
+11,0,and,newlev,0,0,0,true,0,0,0,mistxt,0,0,0,mistxt,1,0,0
+12,0,and,newlev,0,0,0,true,0,0,0,mistxt,2,0,0,mistxt,3,0,0
+[]
+[misc]
+dec,21,12,3,0
+[]
+[brief]
+"^wThis is Andrew Lambed, the new Supervisor that has been assigned to you. I'm here to keep you on track down there and provide a link with UNITY.^2I'm just testing out your communications - Things are a bit jittery with the jamming around here. Check that this text is a white font - a black screen with white font is a message directly from me, and can always be trusted." ,"^wMake sure you fimiliarize yourself with the most recent modificatons to your combat suit before approaching any enemy troopers.^2There are two Stall soldiers in this area for you to dispatch. We'll be watching your vital signs as you fight, making sure you do not experience any nausia while killed the troopers. You should have no trouble.","^gDo you want to activate the tutorial for this mission to explain how to play TakeDown?^[0Yes - use tutorial^00]^[1No - I know how to do this!^01]"
+10
+[]
+
+"Here we teach the player to sneak - 18 - May 4, 2170?"
+[MISSION 2]
+24,16
+"     * ` *    *    * *   "
+"  ~ ~   2           4    "
+"   1   ~ * ~ *    *``*   "
+"  * ~ *     3      2     "
+"           * ~    ~ ~    "
+"       4    *    *   *   "
+"        *    5555 555    "
+"   * *       5   *  5    "
+"    1        5      6 ~ ~"
+"     *  ~   * *     5  2 "
+" ~ *         5      5*~ ~"
+"  2     ~ ~  5      5    "
+" ~ ~     5   55556555    "
+"     *  ~ * *   *   ~**  "
+"        43 2         1   "
+"   *   *  1 *      *  ~  "
+"         * ~             "
+5
+
+10,16,1
+[enemy]
+0,8,0,1,standing,1,norm
+1,14,7,1,waiting,1,norm
+2,21,9,1,standing,1,norm
+3,16,5,1,waiting,1,norm
+[]
+[trigger]
+0,0,and,newlev,0,0,0,true,0,0,0,flag_setval,0,0,0,null,0,0,0
+1,0,and,kills,4,0,0,true,0,0,0,endmission,50,1,0,null,0,0,0
+2,0,and,win,0,0,0,playerhealth,4,10,0,briefing,"^wOk, good work, lets get going. I want you to clean out one more outpost before we head deeper into STALL territory.","","",null,0,0,0
+3,0,and,win,0,0,0,playerhealth,0,4,0,briefing,"^wOk, That wasn't too bad, but you cut it a little close. Lets get going. I want you to clean out one more outpost before we head deeper into STALL territory.","","",null,0,0,0
+4,0,and,win,0,0,0,flag,0,0,+?,briefing,"^wOne other thing: In that battle several enemies became aware of you at one time. You should try to take on the enemies one at a time, without alerting the others.","","",null,"","",""
+5,0,and,aware,any,0,3,true,0,0,0,flag_setval,0,1,0,null,0,0,0
+[]
+[misc]
+[]
+[brief]
+"^wUNITY has just finished with the results from your first battle. You're well within all the safety thresholds, and seem totally desensitized to the idea of killing. Apart from minor equipment checks, you and your equipment are working exactly as planned. Considering how long it's been since we last used soldiers, it's amazing that we've so quickly redeveloped the concept.^2You've now arrived at a small camp of Stall troopers. I want you to take them all out. Because they're spread out, you should be able to take them down one at a time if you use a stealthy approach.^wTry not to fire stray shots where other enemies will see them.^2Good luck.","^gTo avoid detection, stay out of sight. If you must move past an enemy, wait until he is facing directly away from you.","^gUse the X key to open your digital notes. Important information will be added to your notes when you discover it."
+10
+[]
+
+"Revise sneaking and teach the player about bottlenecks and campers - 18 - May 4, 2170?"
+[MISSION 3]
+24,16
+"  * *         2      3   "
+"  41     * *   *    * *  "
+"    *     4        1     "
+"         * 21     * *    "
+" *  *      * *           "
+"  3  2      23   *    *  "
+"   * 4               2   "
+"         1     555       "
+" *          * *    *  *  "
+"    * *      555555555   "
+"     2       5       5   "
+"    *   *  * 5   *   5   "
+"         55 55       5 * "
+" *      * **  *      5   "
+"  1      5 555       5   "
+"    *    5 5  *      5  4"
+"5555555555 55555555555555"
+3
+
+10,16,1
+[enemy]
+0,8,14,1,standing,1,dude
+1,13,13,5,standing,1,dude
+2,21,8,1,waiting,1,dude2
+3,22,8,1,waiting,1,dude2
+[]
+[trigger]
+0,0,and,kills,4,0,0,true,0,0,0,endmission,50,1,0,null,0,0,0
+1,0,and,win,0,0,0,true,0,0,0,briefing,"^wOk, lets get going. We've got a real mission for you next.","","",null,0,0,0
+2,0,and,playerxy,19,14,0,true,0,0,0,dec,0,0,0,briefing,"^b-Object Recovered:^2-Notes Cartridge^2Contents added to notes (Press X to view)","",""
+3,0,and,playerxy,19,14,0,true,0,0,0,null,0,0,0,mistxt,18,0,0
+[]
+[misc]
+dec,19,14,3,0
+[]
+[brief]
+"^wThere are four troopers here. Once again, try to avoid alerting too many enemies to your presence at one time, because they are more dangerous in groups.","^gPay attention to bottlenecks. If you are trapped between two walls, you are unable to dodge. Try to avoid being pinned down and try to force your enemies through bottlenecks so they are easier to hit.",""
+10
+[]
+
+" - EASY Teach the player about enemy reinforcements - 17/18 - plot development - May 4, 2170? or 5"
+[MISSION 4]
+24,16
+"         2         2     "
+"         3         1     "
+"  1      4               "
+"           121 1         "
+"     214   2    2        "
+"           4     1431    "
+"     4                   "
+"     3         1         "
+"           124 32   4    "
+"             1   1   2   "
+"       1                 "
+"       2                 "
+" 42         1            "
+"         34 2        41  "
+"     13             2    "
+"  4   24                 "
+"         1               "
+3
+
+5,16,3
+[enemy]
+0,-1,-1,1,standing,1,arrive
+[]
+[trigger]
+0,0,and,delay,50,-1,0,true,0,0,0,text,"1 enemy approaching from EAST","","",null,0,0,0
+1,0,and,delay,110,-1,0,true,0,0,0,enemy,0,24,8,e_patrolto,1,west8,seek
+3,0,and,delay,280,-1,0,true,0,0,0,text,"1 enemy approaching from NORTH","","",null,0,0,0
+4,0,and,delay,337,-1,0,true,0,0,0,enemy,0,13,0,e_patrolto,2,south13,seek
+5,0,and,delay,500,-1,0,true,0,0,0,text,"1 enemy approaching from NORTH","","",null,0,0,0
+6,0,and,delay,565,-1,0,true,0,0,0,enemy,0,14,0,e_patrolto,3,south13,seek
+8,0,and,delay,730,-1,0,true,0,0,0,text,"1 enemy approaching from EAST","","",null,0,0,0
+9,0,and,delay,780,-1,0,true,0,0,0,enemy,0,24,8,e_patrolto,4,west8,seek
+10,0,and,kills,4,0,0,true,0,0,0,endmission,50,1,0,text,"Area Secure","",""
+11,0,and,win,0,0,0,true,0,0,0,briefing,"^wOk, that's all of them for now.^2Peacekeeper 2 is still having trouble so we need to keep an eye out for enemies heading his way.","","",null,0,0,0
+[]
+[misc]
+keysq,0,8,west8
+keysq,0,10,west10
+keysq,13,16,south13
+keysq,16,16,south16
+[]
+[brief]
+"^wSeveral Stall troopers are travelling through this area to reach Sector 17, where Peacekeeper 2 is working. His repair unit is out, so he needs to be kept safe until it's working again.^2Ambush the troopers as they pass.","^gWhen fighting at long range, use your rifle (Shift) to pick off opponents. At closer range, you will have to use your pistol as the rifle's kickback will prevent you from dodging attacks.^2Try to snipe the enemies as soon as they enter your area, if possible.",""
+10
+[]
+
+
+" - fuel sabotage - flags 0-3 patrols 4 - virus uploaded - 5=download info 6=noise               - May 6, 2170?"
+[MISSION 5 - Sneaking.]
+24,16
+"                         "
+"  *    *   *      *  *   "
+"   555555555555555 55    "
+"   7 *    *  *    * 5   5"
+" * 7    5  7   5    5  * "
+"   7 *  5  7   5    5    "
+"   55 555  7   555555    "
+"  *  *   * 5  *  *    *  "
+"          * *     5      "
+"   5   *    5    * *  *  "
+"  *         5            "
+"   *      * 555555 * 5   "
+"    555555           5   "
+"    7    5   *   *   5   "
+" *  7    5    5      5   "
+"    7   * *    *     5   "
+"    5    5          * *  "
+3
+
+18,0,3
+[enemy]
+0,-1,-1,7,seeking,1,arrive
+1,1,11,3,standing,1,def
+2,20,12,3,standing,1,def
+3,5,8,3,standing,1,def
+4,11,8,3,standing,1,def
+[]
+[trigger]
+0,0,and,newlev,0,0,0,true,0,0,0,e_patrolto,1,topleft,standing,e_patrolto,2,midright,standing
+1,0,and,newlev,0,0,0,true,0,0,0,e_patrolto,3,newsroom,standing,e_patrolto,4,doorway,standing
+2,0,and,newlev,0,0,0,true,0,0,0,timer_set,0,150,down,timer_set,1,150,down
+3,0,and,newlev,0,0,0,true,0,0,0,timer_set,2,210,down,timer_set,3,250,down
+4,0,and,newlev,0,0,0,true,0,0,0,flag_setval,0,0,0,flag_setval,1,0,0
+5,0,and,newlev,0,0,0,true,0,0,0,flag_setval,2,0,0,flag_setval,3,0,0
+'
+4,1,and,timer_ch,0,225,0,flag,0,0,-?,e_patrolto,1,lowleft,standing,flag_setval,0,1,0
+5,1,and,timer_ch,0,0,0,flag,0,0,+?,e_patrolto,1,topleft,standing,flag_setval,0,0,0
+6,1,and,timer_ch,0,0,0,true,0,0,0,timer_set,0,450,down,null,0,0,0
+'
+7,1,and,timer_ch,1,175,0,flag,1,0,-?,e_patrolto,2,topright,standing,flag_setval,1,1,0
+8,1,and,timer_ch,1,0,0,flag,1,0,+?,e_patrolto,2,midright,standing,flag_setval,1,0,0
+9,1,and,timer_ch,1,0,0,true,0,0,0,timer_set,1,350,down,null,0,0,0
+'
+10,1,and,timer_ch,2,175,0,flag,2,0,-?,e_patrolto,3,newsroom,standing,flag_setval,2,1,0
+11,1,and,timer_ch,2,0,0,flag,2,0,+?,e_patrolto,3,leftcourt,standing,flag_setval,2,0,0
+12,1,and,timer_ch,2,0,0,true,0,0,0,timer_set,2,350,down,null,0,0,0
+'
+13,1,and,timer_ch,3,160,0,flag,3,0,-?,e_patrolto,4,middle,standing,flag_setval,3,1,0
+14,1,and,timer_ch,3,0,0,flag,3,0,+?,e_patrolto,4,doorway,standing,flag_setval,3,0,0
+15,1,and,timer_ch,3,0,0,true,0,0,0,timer_set,3,320,down,null,0,0,0
+'
+16,0,and,newlev,0,0,0,true,0,0,0,flag_setval,4,0,0,text,"1. Find the FUEL CONTROL panel","2. Go to the extraction point (Blue Beacon)",""
+17,0,and,playerxy,5,14,0,true,0,0,0,flag_setval,4,1,0,briefing,"^b-Fuel Control Terminal-^2Virus accepted. Trace files cleared.","^gNow go to the blue beacon to be extracted.",""
+18,0,and,playerxy,10,0,0,flag,4,0,+?,briefing,"^wMission Complete! If the virus works, we'll see the effects on Stall over the next few days.","","",endmission,1,1,0
+19,0,and,aware,any,0,1,true,0,0,0,timer_set,4,300,down,null,0,0,0
+20,0,and,timer_ch,4,150,0,true,0,0,0,enemy,0,0,8,enemy,0,0,9
+21,0,and,timer_ch,4,0,0,true,0,0,0,enemy,0,24,1,enemy,0,24,2
+'
+22,0,and,playerxy,12,5,0,flag,29,0,-?,briefing,"^b-R.E.D. Terminal-^2-No media found. Access denied-","^gThis is the wrong terminal.","",null,0,0,0
+23,0,and,playerxy,4,4,0,true,0,0,0,briefing,"^b-Communications Terminal-^2-No channels responding-^2[Guys, Tech-4 are working on cracking the UNITY jamming but no luck so far. Ask me if you need to get a message out. We've managed to retrieve some recent news broadcasts, read them over if you're not busy - It's disturbing stuff.^1-Commander K.Davis]^[0Download archived news^05]^[1Close terminal^06]","","",null,0,0,0
+24,0,and,playerxy,12,5,0,flag,29,0,+?,briefing,"^b-R.E.D. Terminal-","^gThis is a Recording\Encryption\Decryption Terminal. It is not the fuel control terminal that you need to find, but it can decrypt the data disk that you found previously.","^gThe message on the disk is now in your notes. Press X to view your notes.",flat_setval,28,1,0
+25,0,and,playerxy,12,5,0,flag,29,0,+?,mistxt,11,0,0,mistxt,10,-1,0
+'
+26,0,and,newlev,0,0,0,true,0,0,0,flag_setval,5,0,0,flag_setval,6,0,0
+27,0,and,flag,5,0,+?,true,0,0,0,mistxt,4,0,0,mistxt,5,0,0
+28,0,and,flag,5,0,+?,true,0,0,0,mistxt,6,0,0,null,0,0,0
+'
+29,0,and,timer_ch,4,250,0,true,0,0,0,briefing,"^wYou've been spotted! Look out, several troopers are approaching your position. Hurry up and finish the mission.","","",null,0,0,0
+'
+30,0,and,playerxy,20,14,0,true,0,0,0,dec,4,0,0,briefing,"^b-Object Recovered:^2-Notes Cartridge^2Contents added to notes (Press X to view)","",""
+31,0,and,playerxy,20,14,0,true,0,0,0,null,0,0,0,mistxt,16,0,0
+[]
+[misc]
+dec,4,14,6,0
+dec,10,0,11,0
+dec,11,5,6,0
+dec,3,4,6,0
+dec,20,14,3,0
+keysq,2,1,topleft
+keysq,2,12,lowleft
+keysq,23,0,topright
+keysq,20,12,midright
+keysq,8,15,doorway
+keysq,13,7,middle
+keysq,5,3,newsroom
+keysq,5,9,leftcourt
+[]
+[brief]
+"^wThis is one of the temporary bases that Stall technical crews seem to use. UNITY reports that one of the consoles here directly controls Stall fuel supplies.^2Find that control panel and I'll unload a virus onto it. Then return to the blue marker and I can recall you.^2Crippling the fuel distribution will help us split Stall up and prevent central communication.","^wTry to avoid combat. There are a lot of troopers around this area.^2Sneak past the guards without detection.","^gPress X to check your digital notes. You can use the Next and Previous buttons to cycle through the different pages."
+10
+[]
+
+"flag 0: Commander is dead - a flag shouldn't be used her, fix it later" - - May 5, 2170?
+"commando kill"
+[MISSION 6] 
+48,18
+"    555555555555555555555555555555555555555555555"
+"    5         5                 5                "
+"* * 5                *  5      *     *       5   "
+" 1  5    *   *5  *      5 *     5          * 5   "
+"* *  *        555 5555555 55555555555555555  5555"
+"              5  *        *   5 *     5    *     "
+"    5         5                      * *         "
+"2   5         5    *     *    5 *     5    *     "
+"    555555555555555  55555555555  555555555  5555"
+"   *  *     *      *      5      *   5     *     "
+"     2          1      *  5          5           "
+"*  * 1    * *         3   5          5           "
+"  1        43        * *  5    *     5           "
+" *     4      * *         5         * *    *     "
+"      *        2          5                      "
+"    3                   *  *         5           "
+"    4    *          12    5          5           "
+"   * *        *      *  * 5          5           "
+"                          55555555555555555555555"
+3
+
+18,16,1
+[enemy]
+0,35,1,7,standing,1,commander
+1,7,4,1,waiting,0,others
+2,30,14,3,waiting,0,others
+3,27,17,5,waiting,0,others
+4,42,18,1,waiting,0,others
+5,36,9,3,standing,0,others
+[]
+[trigger]
+0,0,and,newlev,0,0,0,true,0,0,0,text,"1. Kill the commander","2. Return to blue marker","",timer_set,0,45,down
+1,0,and,newlev,0,0,0,true,0,0,0,flag_setval,0,0,0,null,0,0,0
+2,0,and,kills,1,0,0,true,0,0,0,briefing,"^wGood. We've collected data about his capibilities. Now return to the blue marker.","","",flag_setval,0,1,0
+3,0,and,playerxy,19,16,0,flag,0,0,+?,briefing,"^wI've got you. The recall equipment is working as planned. Let's go.","","",endmission,1,1,0
+4,0,and,newlev,0,0,0,true,0,0,0,e_attitude,group,commander,2,e_attitude,group,others,1
+5,0,and,aware,group,commander,1,true,0,0,0,alarm,0,0,0,speech,0,0,0
+6,0,none,enemylives,others,1,0,false,0,0,0,null,0,0,0,e_attitude,group,commander,0
+7,1,none,timer_ch,0,0,-1,false,0,0,0,screenxy,32,0,0,null,0,0,0
+8,0,and,playerxy,35,17,0,true,0,0,0,dec,1,0,0,briefing,"^b-Object Recovered:^2-Notes Cartridge^2Contents added to notes (Press X to view)","",""
+9,0,and,playerxy,35,17,0,true,0,0,0,null,0,0,0,mistxt,17,0,0
+[]
+[misc]
+dec,19,16,11,0
+dec,35,17,4,0
+[]
+[brief]
+"^wReports have shown that Stall is devoting most of its resources to the development of combat technology. UNITY has located a commander who has been fitted with new prototype equpiment. You are to investigate the capabilities of this equipment by killing the commander.","^wI will be ready to recall you - just head back to the blue marker. UNITY doesn't need you to kill all of the troopers at the base. If possibly, just take out the commander and leave.","^gIf you overheat, try to break out of combat and cool down under cover. Stall weapons do not overheat, so you lose your advantage in sustained combat. Be prepared to retreat if you have to."
+10
+[]
+
+"snipers                             - - May 7, 2170?"
+[MISSION 7] 
+24,16
+"   * *    *  *        *  "
+" *  43     3    *        "
+"1  *        4       *    "
+"      4      1    * 73   "
+"  *      77      1    *  "
+"   24             *      "
+"  *   65    *   *    34  "
+" 1    57    6     *      "
+"       3         2   *   "
+"        *       *1*      "
+"   * *       *       7   "
+"    23        4      7   "
+"   *         * *     *   "
+"     *  *      55        "
+"   55 1        55    55  "
+"  *55  2   *  *   *  55  "
+"     *  *   31           "
+5
+
+0,8,4
+[enemy]
+0,24,12,11,seeking,1,group
+1,24,14,11,seeking,1,group
+2,24,15,11,seeking,1,group
+[]
+[trigger]
+0,0,and,newlev,0,0,0,true,0,0,0,text,"Kill the enemies","","",null,0,0,0
+1,0,and,kills,3,0,0,true,0,0,0,briefing,"^wWe've never seen anything like that before. Those projectiles were moving faster than the speed of sound.^2UNITY technology can't propel anything powerful enough to penetrate armour at half that speed. It looks like Stall has some technology far beyond our own.","^wThings get worse. The fuel control virus we uploaded appears to be ineffective. Their computer system managed to stop it before it could replicate.","",endmission,50,1,0
+[]
+[misc]
+[]
+[brief]
+"^wA taskforce of Stall troopers armed with experimental weapons have started heading towards sector 17. They may have been attempting to find and kill Peacekeeper 2, who is still heavily damaged. However, they've now spotted our approach and are approaching your position.^2Be careful - we don't know what kind of weapons these guys might have.","",""
+10
+[]
+
+"For some relaxation, try to fend off unrelenting attackers!                  - - May 7, 2170?"
+[MISSION 8]
+24,33
+"   5      *     *   5    "
+"   5  *   *5        5    "
+"   5     1 5        5    "
+"   5    2  5        5    "
+"   5     5  3   *     *  "
+"   5     5 5        5    "
+"   5     5* 8       5    "
+"   5     5  6       5    "
+"  *   *  5  5   *     *  "
+"   5     2 65       5    "
+"   5    1  55555555555555"
+"   5    5 *     *   5    "
+"555555555   3       5    "
+"   5 *    *5    *     *  "
+"   5  555555        5    "
+"   52 5     *     555    "
+"   5  555555555555555    "
+"   5 *    *  *      5    "
+"*  5555 55 5        5 *  "
+"   5*  2 4 5        5    "
+"   5  1*  *5        5    "
+"   5     1  3   *     *  "
+"   5    3  3        8    "
+"   5   * 4  5       5    "
+"   5    4 *8        5    "
+"*   *    1 4     *    *  "
+"   5     4 2        5    "
+"   5     5 5        5    "
+"   5     8 5        5    "
+"   555558  5777777775    "
+"   5     5* 877   * 5  * "
+"*  5     5 57777    5    "
+"   5    * *         5    "
+"   5555555 5555555555    "
+5
+
+10,8,1
+[enemy]
+0,-1,-1,1,seeking,1,grunt
+1,-1,-1,3,seeking,1,armoured
+[]
+[trigger]
+0,0,and,delay,40,-1,0,true,0,0,0,briefing,"^wThis looks like a trap. I'm seeing troopers appear out of nowhere. Abort the mission - try to hold off the attack while I move into position to extract you.^2When I get close, go South to the marker. Just hold them back until then.","","",text,"Mission aborted","Hold back attackers",""
+28,0,and,delay,40,-1,0,true,0,0,0,dec,0,1,0,null,0,0,0
+'
+1,0,and,delay,45,-1,0,true,0,0,0,enemy,0,10,0,enemy,0,11,0
+2,0,and,delay,55,-1,0,true,0,0,0,enemy,0,0,8,enemy,0,0,9
+'
+3,0,and,delay,75,-1,0,true,0,0,0,enemy,0,24,5,enemy,0,24,6
+4,0,and,delay,113,-1,0,true,0,0,0,enemy,0,24,7,enemy,0,24,8
+'
+5,0,and,delay,150,-1,0,true,0,0,0,enemy,0,24,5,enemy,0,24,6
+6,0,and,delay,200,-1,0,true,0,0,0,enemy,0,24,7,enemy,0,24,8
+'
+7,0,and,delay,300,-1,0,true,0,0,0,enemy,1,0,7,enemy,1,0,8
+8,0,and,delay,400,-1,0,true,0,0,0,enemy,0,24,6,enemy,0,24,8
+'
+9,0,and,delay,450,-1,0,true,0,0,0,enemy,0,8,0,enemy,0,7,0
+10,0,and,delay,550,-1,0,true,0,0,0,enemy,0,24,12,enemy,0,24,13
+'
+11,0,and,delay,600,-1,0,true,0,0,0,enemy,0,24,10,enemy,0,24,11
+12,0,and,delay,700,-1,0,true,0,0,0,enemy,0,0,4,enemy,0,0,5
+'
+13,0,and,delay,1050,-1,0,true,0,0,0,enemy,1,24,5,enemy,0,0,11
+14,0,and,delay,1100,-1,0,true,0,0,0,enemy,0,0,0,enemy,0,1,0
+'
+15,0,and,delay,1200,-1,0,true,0,0,0,enemy,0,11,0,enemy,0,9,0
+16,0,and,delay,1375,-1,0,true,0,0,0,enemy,0,0,24,enemy,0,0,25
+'
+17,0,and,delay,1450,-1,0,true,0,0,0,enemy,0,24,20,enemy,0,24,23
+18,0,and,delay,1500,-1,0,true,0,0,0,enemy,0,24,21,enemy,0,24,22
+'
+19,0,and,delay,200,-1,0,true,0,0,0,text,"Extraction in 200","","",null,0,0,0
+20,0,and,delay,700,-1,0,true,0,0,0,text,"Extraction in 150","","",null,0,0,0
+21,0,and,delay,1200,-1,0,true,0,0,0,text,"Extraction in 100","","",null,0,0,0
+22,0,and,delay,1700,-1,0,true,0,0,0,text,"Extraction in 50","GET NEAR BLUE BEACON","",null,0,0,0
+23,0,and,delay,1800,-1,0,true,0,0,0,text,"Extraction in 40","","",null,0,0,0
+24,0,and,delay,1900,-1,0,true,0,0,0,text,"Extraction in 30","","",null,0,0,0
+25,0,and,delay,2000,-1,0,true,0,0,0,text,"Extraction in 20","","",null,0,0,0
+26,0,and,delay,2100,-1,0,true,0,0,0,text,"Extraction in 10","GET IN POSITION","",null,0,0,0
+'
+27,0,and,delay,2200,-1,0,playerxy,19,30,0,briefing,"^wLet's get the hell out of here! Stall hadn't abandoned the fort at all - They've got some kind of stealth. I'm seeing more and more troopers swarm out of nowhere.","Peacekeepers One and Four just broke contact. PK2 is alive, but he's been driven into sector 14. Get ready - we're going to try and pull him out.","",endmission,1,1,0
+29,0,+-,delay,2330,-1,0,playerxy,19,30,0,briefing,"^wWhere the hell were you? I needed you on that blue beacon! There are about fifty troopers swarming in, there's no way I can fly back in there.","^gYour situation is hopeless.^2Mission failed","",losemission,200,0,0
+'
+30,0,and,delay,5,-1,0,true,0,0,0,speech,-1,1,0,null,0,0,0
+'
+31,0,and,delay,1800,-1,0,true,0,0,0,enemy,0,0,25,enemy,0,0,24
+32,0,and,delay,1850,-1,0,true,0,0,0,enemy,0,24,20,enemy,0,24,23
+33,0,and,delay,1900,-1,0,true,0,0,0,enemy,0,0,23,enemy,0,0,22
+34,0,and,delay,1950,-1,0,true,0,0,0,enemy,1,24,21,enemy,1,24,22
+35,0,and,delay,2000,-1,0,true,0,0,0,enemy,1,0,25,enemy,1,24,23
+36,0,and,delay,2100,-1,0,true,0,0,0,enemy,0,0,26,enemy,1,0,27
+37,0,and,delay,2150,-1,0,true,0,0,0,enemy,1,24,20,enemy,0,24,21
+'
+38,0,and,playerxy,8,21,0,true,0,0,0,dec,1,0,0,briefing,"^b-Object Recovered:^2-Notes Cartridge^2Contents added to notes (Press X to view)","",""
+39,0,and,playerxy,8,21,0,true,0,0,0,null,0,0,0,mistxt,19,0,0
+[]
+[misc]
+dec,19,30,11,-1
+dec,8,21,3,0
+dec,8,5,15,0
+dec,9,6,16,0
+dec,10,7,17,0
+dec,14,7,0,0
+dec,16,9,15,0
+dec,9,24,16,0
+dec,12,25,17,0
+dec,14,30,0,0
+dec,15,30,15,0
+dec,16,31,16,0
+[]
+[brief]
+"^wStall abandoned this fort recently. UNITY suspects that they may have left important information. Explore the fort and look for records.","",""
+10
+[]
+
+"Rescue on May 7 2170 - sector 14 (thick undergrowth) - set flag 27 (pk2 is alive) to true"
+[MISSION 9] 
+24,16
+"           *      * *    "
+" * *    43         14    "
+"  1     * 2     *   *    "
+"   4           3         "
+"     2          *   32   "
+"  58* *   55   55    *   "
+"  55  1        56        "
+" *   3   2    *  *   *   "
+"    *          2    4    "
+"23    * *     *      *   "
+"    55    4 *   12    1  "
+"  * 55 3                 "
+"      * *    *     * *   "
+"              2     1    "
+" *1          *     * *   "
+"  4    *                 "
+" * *                     "
+4
+
+10,0,3
+[enemy]
+0,14,14,13,seeking,0,friend
+1,11,10,1,seeking,3,enemy
+2,12,10,1,seeking,3,enemy
+3,13,9,1,seeking,3,enemy
+4,14,10,1,seeking,3,enemy
+5,11,11,1,seeking,3,enemy
+6,12,12,1,seeking,3,enemy
+7,13,11,1,seeking,3,enemy
+8,14,12,1,seeking,3,enemy
+9,15,12,1,seeking,3,enemy
+10,16,11,1,seeking,3,enemy
+[]
+[trigger]
+0,0,and,newlev,0,0,0,true,0,0,0,text,"Rescue Peacekeeper 2","","",flag_setval,27,1,0
+1,0,+-,enemylives,friend,1,0,enemylives,enemy,1,0,briefing,"^wStall troopers are rallying to the surrounding area. We better move.","^wI can repare Peacekeeper 2's systems but it'll mean taking a component from yours. Your repair unit will be working at 50% efficiency - you will only be able to repair up to 50% of your total armour between missons.","",endmission,50,1,0
+2,0,+-,true,0,0,0,enemylives,friend,1,0,briefing,"^wHe's dead!","","",losemission,1,0,0
+[]
+[misc]
+[]
+[brief]
+"^rTransmission:^2I need backup! I can't take this much fire! ","^wDraw fire away from Peacekeeper 2 and help him kill the troopers. Keep him alive.",""
+10
+[]
+
+"- May 8, 2170 - sector 14 (thick undergrowth)  - kill arriving enemies with PK2  - (flag 27 = PK2 is alive)"
+"From hereon, flag 0 will be used in the menu to say that the player wants to abort if PK2 dies."
+"flag 1 will be empty (garbage from the menu)"
+[MISSION 10]
+24,16
+"   *      *         5    "
+"    3    2     12   5    "
+"   * 1    * *       6  * "
+" 1         23       8 4  "
+"      42    *       5    "
+"*   *   *        *  5    "
+" 568555   58       56    "
+"*   *    *  *     *  *   "
+"      1     3            "
+"          *        3     "
+"  77    55     *5555 555 "
+"  77    55 2    5        "
+"   *      *   1 5    *   "
+"    55       4  5 77     "
+"    55 4        5 77     "
+"  1  *  *      *         "
+"       2           1     "
+4
+
+14,0,3
+[enemy]
+0,-1,-1,13,seeking,0,friend
+1,-1,-1,5,seeking,1,arrive
+2,-1,-1,11,seeking,1,arrive
+3,-1,-1,1,seeking,1,arrive
+4,-1,-1,1,seeking,1,arrive
+[]
+[trigger]
+0,0,and,newlev,0,0,0,flag,27,0,+?,enemy,0,13,0,null,0,0,0
+1,0,and,newlev,0,0,0,true,0,0,0,flag_setval,0,0,0,null,0,0,0
+2,0,+-,flag,27,0,+?,enemylives,friend,1,0,flag_setval,27,0,0,briefing,"^gPeacekeeper two is down.^[0Continue game^01]^[1Restart mission^00]","",""
+3,0,and,flag,0,0,+?,true,0,0,0,losemission,1,0,0,null,0,0,0
+'
+4,0,and,newlev,0,0,0,true,0,0,0,upgscreen,0,0,0,null,0,0,0
+5,0,and,delay,50,-1,0,true,0,0,0,text,"4 enemies approaching from SOUTH","","",null,0,0,0
+6,0,and,delay,130,-1,0,true,0,0,0,enemy,1,10,16,null,0,0,0
+7,0,and,delay,153,-1,0,true,0,0,0,enemy,3,12,16,null,0,0,0
+9,0,and,delay,267,-1,0,true,0,0,0,enemy,1,11,16,enemy,4,10,16
+10,0,and,delay,380,-1,0,true,0,0,0,text,"2 enemies approaching from WEST","","",null,0,0,0
+11,0,and,delay,435,-1,0,true,0,0,0,enemy,2,0,9,enemy,4,0,10
+12,0,and,delay,500,-1,0,true,0,0,0,text,"1 enemy approaching from SOUTH","","",null,0,0,0
+13,0,and,delay,580,-1,0,true,0,0,0,enemy,2,9,16,null,0,0,
+14,0,and,kills,7,0,0,flag,0,0,-?,endmission,50,1,0,text,"Area Secure","",""
+15,0,and,win,0,0,0,flag,0,0,-?,briefing,"^wGood work. From here on, there's going to be a significant change of plan. UNITY has run an evaluation and found that somehow Stall is learning of or even anticipating UNITY's decisions.^2The only way we can proceed from here is by breaking contact with the UNITY processor. From here on, there will be no transmissions to or from UNITY. The tracking devices attached to our equipment are being disabled. We will operate independent of any outside influence until such time as the source of Stall's intelligence can be identified and destroyed.^2We are completely on our own from here on in.","","",null,0,0,0
+[]
+[misc]
+[]
+[brief]
+"^wWe've got enemies approaching all over the place. Fight them off.^2UNITY is having trouble calculating a course of action. Stall isn't following any recorded behaviour pattern. Their movements seem totally unpredictable.","^wNumber two managed to access some key information about Stall technology during his mission. Now that we've got that info, he's expendable. Try to keep him alive while you can.",""
+5
+[]
+
+"- May 8, 2170 - sector 14 (thick undergrowth) but indoors - Stealth - (flag 27 = PK2 is alive)"
+[MISSION 11]
+48,16
+"55555555555555555555555555555555555555555555555555"
+"5                                                5"
+"5                                                5"
+"5  55555555 55  5555  555555555  55555555555555  5"
+"5  5    5    5  5        5             5      5  5"
+"5            5  5        5                    5  5"
+"5  5    5    5  5        5                    5  5"
+"5  5    5    5  5        5             5      5  5"
+"   55555555555  555555555555555  5555555      5  5"
+"   5            5        5         5          5  5"
+"5  5556      5  5                  5          5  5"
+"5    56      5  5                  5          5  5"
+"5    56      5  5        5         5          5  5"
+"5    55555  55  555555555555  55555555555555555  5"
+"5                                                5"
+"5                                                5"
+"55555555555555555555555555555555555555555555555555"
+0
+
+14,1,3
+[enemy]
+0,-1,-1,13,seeking,0,friend
+1,4,7,1,waiting,1,none
+2,5,7,1,waiting,1,none
+3,4,11,5,waiting,1,none
+4,4,12,1,waiting,1,none
+5,9,10,1,waiting,1,none
+6,13,14,1,waiting,1,none
+'
+7,18,9,1,waiting,1,none
+8,20,9,1,waiting,1,none
+'
+9,21,5,1,waiting,1,none
+'
+10,27,4,5,waiting,1,none
+'
+11,43,4,1,waiting,1,none
+12,43,11,1,waiting,1,none
+13,44,11,1,waiting,1,none
+[]
+[trigger]
+0,0,and,newlev,0,0,0,flag,27,0,+?,enemy,0,13,1,null,0,0,0
+1,0,and,newlev,0,0,0,true,0,0,0,flag_setval,0,0,0,null,0,0,0
+2,0,+-,flag,27,0,+?,enemylives,friend,1,0,flag_setval,27,0,0,briefing,"^gPeacekeeper two is down.^[0Continue game^01]^[1Restart mission^00]","",""
+3,0,and,flag,0,0,+?,true,0,0,0,losemission,1,0,0,null,0,0,0
+'
+4,0,and,newlev,0,0,0,true,0,0,0,upgscreen,0,0,0,null,0,0,0
+[]
+[misc]
+[]
+[brief]
+"^wWe will need intelligence before we can safely move. I'm dropping you into a building that may have terminal access to maps showing Stall's forces. Because of the UNITY's radio jamming, everything will be stored locally. You should have no trouble retrieving the information.^2Go back to the blue beacon when you've finished.","^gThis mission is unfinished, and this is the end of the campaign. Congratulations, you win!^2But you can't win this mission, it has no ending.",""
+5
+[]
+

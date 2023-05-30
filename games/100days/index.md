@@ -1,6 +1,6 @@
 ---
 title: 100 Days
-layout: normal
+layout: normal.html
 categories: [games]
 description: 100 Days
 order: 37

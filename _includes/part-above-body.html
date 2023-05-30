@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
+  <title>{{ title }}</title>
   {% if page.rss %}<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ page.rss }}" />{% endif %}
   <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/stark.css" />
@@ -12,8 +12,8 @@
   {% if page.cardimage %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@mgatland">
-  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:title" content="{{ page.data.title }}">
   <meta name="twitter:image" content="{{ site.url }}/{{ page.cardimage }}">
   {% endif %}
-{% include analytics.html %}
+{% include 'analytics.html' %}
 </head>

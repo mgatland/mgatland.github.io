@@ -1,17 +1,18 @@
-{% include part-above-body.html %}
+{% include 'part-above-body.html' %}
 <body>
-  {% include header.html %}
+  {% include 'header.html' %}
 	<section class="content">
   <div class="journal">
     <div>
-    	<h2>{{ page.title }}</h2>
-    	<div class="subtle">{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}</div>
+    	<h2>{{ title }}</h2>
+    	<div class="subtle">{% unless hideDate %}{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}{% endunless %}</div>
     </div>
-    {{ content }}
+    
+{{ content }}
   </div>
 	<footer>
-	{% include journal-links.html %}
-	{% include footer.html %}
+	{% include 'journal-links.html' %}
+	{% include 'footer.html' %}
 	</footer>
 </section>
 </body>

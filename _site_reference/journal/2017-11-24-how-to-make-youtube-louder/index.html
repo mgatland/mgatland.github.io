@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>How to make YouTube (or other video websites) louder</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/stark.css" />
+  <link rel="stylesheet" href="/css/pygment.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>How to make YouTube (or other video websites) louder</h2>
+    	<div class="subtle">November&nbsp;24,&nbsp;2017</div>
+    </div>
+    <p>Sometimes I find a YouTube video of a conference talk that’s just too quiet. Even when it’s set to maximum volume, with Windows set to maximum volume, it’s still too quiet.</p>
+
+<p><img src="/journal/images/2017-11-24-volume/youtube-volume.png" alt="The YouTube volume slider set to maximum" /></p>
+
+<p><img src="/journal/images/2017-11-24-volume/windows-volume.png" alt="The Windows volume slider set to maximum" /></p>
+
+<p>You can easily fix this with JavaScript!</p>
+
+<p>First, open your web browser’s JavaScript console. In Chrome, click on the menu button, then ‘more tools’, then ‘Developer Tools’ to open the developer tools.</p>
+
+<p><img src="/journal/images/2017-11-24-volume/open-dev-tools.png" alt="Opening the developer tools as described above" /></p>
+
+<p>In the Developer Tools, click on the <em>Console</em> tab.</p>
+
+<p><img src="/journal/images/2017-11-24-volume/open-console.png" alt="Open the console" /></p>
+
+<p>Click in the empty white space after the &gt; symbol. Now you can type or paste code into the console.</p>
+
+<p><img src="/journal/images/2017-11-24-volume/click-console.png" alt="Click on the console" /></p>
+
+<p>Copy this code and paste it into the console.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var videoElement = document.querySelector("video")
+var audioCtx = new AudioContext()
+var source = audioCtx.createMediaElementSource(videoElement)
+var gainNode = audioCtx.createGain()
+gainNode.gain.value = 2 // double the volume
+source.connect(gainNode)
+gainNode.connect(audioCtx.destination)
+</code></pre></div></div>
+
+<p>It will look like this once you paste it in:</p>
+
+<p><img src="/journal/images/2017-11-24-volume/pasted-code.png" alt="The code, as it will appear in the console." /></p>
+
+<p>Press enter to send the code to your browser. The video should immediately get louder.</p>
+
+<p>If you want to make it even louder, copy this line, paste it in and press enter. You can change the number to a higher value to make it even louder.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gainNode.gain.value = 3
+</code></pre></div></div>
+
+<p><img src="/journal/images/2017-11-24-volume/pasted-code-2.png" alt="The code, as it will appear in the console." /></p>
+
+<h3 id="what-just-happened">What just happened?</h3>
+
+<p>Imagine that the video was a physical object (like a phone), and it was connected to your speakers by a cable.</p>
+
+<p><img src="/journal/images/2017-11-24-volume/circuit-1.png" alt="The video is directly connected to the speakers" /></p>
+
+<p>We unplugged that cable and connected the video to a new object called a gain node. Then we plugged the gain node into your speakers. Sound flows from the video to the gain node to the speakers. The gain node has a volume dial on it, and we can adjust that dial to amplify the sound.</p>
+
+<p><img src="/journal/images/2017-11-24-volume/circuit-2.png" alt="The video is now connected to a gain node, and the gain node is connected to the speakers. The gain node has an adjustable volume control which is set to 2." /></p>
+
+<h3 id="bookmarklet">Bookmarklet</h3>
+
+<p>I got an email from Andrew Morton who suggested putting this code in a bookmarklet. I’ve added the bookmarklet below.</p>
+
+<p>Drag this to your bookmarks bar: <a href="javascript:(function(){var videoElement = document.querySelector(&quot;video&quot;);var audioCtx = new AudioContext();var source = audioCtx.createMediaElementSource(videoElement);var gainNode = audioCtx.createGain();gainNode.gain.value = 3; /* triple the volume */ source.connect(gainNode);gainNode.connect(audioCtx.destination);})();">volume up!</a></p>
+
+<p>Clicking on the bookmark (in your bookmarks bar) will increase the volume on whatever page you have open - so you can make a YouTube video louder with a single click.</p>
+
+  </div>
+	<footer>
+	
+  <a href="/journal/2018-01-04-no-tv/" title="No TV">Newer</a> &nbsp; 
+  <a href="/journal/2017-07-04-how-to-recycle-cfl-bulbs-auckland/" title="How to recycle CFL bulbs in Auckland">Older</a>
+
+	
+	<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">How to make YouTube (or other video websites) louder</span>
+	
+		</div>
+	</footer>
+
+	</footer>
+</section>
+</body>
+</html>

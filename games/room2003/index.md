@@ -1,6 +1,6 @@
 ---
 title: Room Tour 2003
-layout: normal
+layout: normal.html
 categories: 
   - games
 description: Tour my room

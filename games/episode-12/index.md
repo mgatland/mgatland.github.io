@@ -1,6 +1,6 @@
 ---
 title: Episode 12 (Chain Game 2)
-layout: normal
+layout: normal.html
 categories: [games]
 description: 
 order: 33

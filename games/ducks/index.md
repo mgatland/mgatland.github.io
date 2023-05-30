@@ -1,6 +1,6 @@
 ---
 title: Let's Be Ducks
-layout: normal
+layout: normal.html
 categories: [games]
 description: Multiplayer duck adventure.
 order: 27

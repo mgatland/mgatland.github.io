@@ -1,9 +1,7 @@
 ---
 title: Projects
-layout: normal
+layout: normal.html
 ---
-
-{::options parse_block_html="true" /}
 
 What happens when I'm not making games? Here are some of my current and previous projects.
 

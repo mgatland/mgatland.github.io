@@ -1,0 +1,26 @@
+body {
+	background: black;
+	color: #555;
+	text-align: center;
+}
+
+html, body {
+	height: 90%;
+}
+
+#container {
+	width:90%;
+}
+
+#game {
+	position: relative;
+	margin: 30px auto;
+}
+
+#overlay {
+	position: absolute; 
+}
+
+a {
+	color: #555;
+}
