@@ -1,11 +1,16 @@
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const xmlFiltersPlugin = require('eleventy-xml-plugin')
 
 module.exports = function (eleventyConfig) {
 
   const markdownLib = markdownIt({html: true, typographer: true});
   //markdownLib.use(markdownItFootnote).use(markdownItAnchor);
   eleventyConfig.setLibrary("md", markdownLib);
+
+  //for 'xml_escape' liquid filter
+  eleventyConfig.addPlugin(xmlFiltersPlugin)
+
 
   // Enable syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -20,20 +25,14 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("games/*/*.md");
   });
 
-  //Copy these files unmodified as assets
-  //todo: make this just match everything except 11ty files like .md
-  // eleventyConfig.addPassthroughCopy("!(_*)/**/*.js");
-  // eleventyConfig.addPassthroughCopy("!(_*)/**/*.swf");
-  // eleventyConfig.addPassthroughCopy("!(_*)/**/*.png");
-  // eleventyConfig.addPassthroughCopy("!(_*)/**/*.jpg");
-  // eleventyConfig.addPassthroughCopy("!(_*)/**/*.css");
-  // eleventyConfig.addPassthroughCopy("!(_*)/**/*.html");
-  // eleventyConfig.addPassthroughCopy("!(_*)/**/*.tdm");
-  // wav, ogg, ...
-  eleventyConfig.addPassthroughCopy("!(_*|.*)/**/*.!(md|eleventy.js)")
-
-
-
+  //Copy everything except .md and eleventy.js files over without modification
+  //From all folders except the special hidden folders
+  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/*.!(md|eleventy.js|html)")
+  //Also files in the root, with some exceptions
+  eleventyConfig.addPassthroughCopy("!(_*|.*|diff-2023-05-29.diff|package.json|package-lock.json).!(md|eleventy.js|html)")
+  // Special case to get files with no extension (i.e. CNAME)
+  eleventyConfig.addPassthroughCopy("!(_*|.*|diff-2023-05-29.diff|package.json|package-lock.json|*.*)")
+  
   return {
     dir: {
       layouts: "_layouts"
