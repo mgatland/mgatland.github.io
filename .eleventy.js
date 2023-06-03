@@ -1,10 +1,12 @@
-const markdownIt = require("markdown-it");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const markdownIt = require("markdown-it")
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const xmlFiltersPlugin = require('eleventy-xml-plugin')
+const markdownItNamedHeadings = require("markdown-it-named-headings")
 
 module.exports = function (eleventyConfig) {
 
-  const markdownLib = markdownIt({html: true, typographer: true});
+  //FIXME: for markdownIt consider using {breaks: true, linkify: true}
+  const markdownLib = markdownIt({html: true, typographer: true}).use(markdownItNamedHeadings)
   //markdownLib.use(markdownItFootnote).use(markdownItAnchor);
   eleventyConfig.setLibrary("md", markdownLib);
 
