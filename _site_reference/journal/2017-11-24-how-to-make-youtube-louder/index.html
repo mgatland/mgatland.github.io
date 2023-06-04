@@ -5,9 +5,9 @@
   <title>How to make YouTube (or other video websites) louder</title>
   
   <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/css/stark.css" />
-  <link rel="stylesheet" href="/css/pygment.css" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/css/stark.css">
+  <link rel="stylesheet" href="/css/pygment.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width">
   
 
@@ -42,23 +42,23 @@
     </div>
     <p>Sometimes I find a YouTube video of a conference talk that’s just too quiet. Even when it’s set to maximum volume, with Windows set to maximum volume, it’s still too quiet.</p>
 
-<p><img src="/journal/images/2017-11-24-volume/youtube-volume.png" alt="The YouTube volume slider set to maximum" /></p>
+<p><img src="/journal/images/2017-11-24-volume/youtube-volume.png" alt="The YouTube volume slider set to maximum"></p>
 
-<p><img src="/journal/images/2017-11-24-volume/windows-volume.png" alt="The Windows volume slider set to maximum" /></p>
+<p><img src="/journal/images/2017-11-24-volume/windows-volume.png" alt="The Windows volume slider set to maximum"></p>
 
 <p>You can easily fix this with JavaScript!</p>
 
 <p>First, open your web browser’s JavaScript console. In Chrome, click on the menu button, then ‘more tools’, then ‘Developer Tools’ to open the developer tools.</p>
 
-<p><img src="/journal/images/2017-11-24-volume/open-dev-tools.png" alt="Opening the developer tools as described above" /></p>
+<p><img src="/journal/images/2017-11-24-volume/open-dev-tools.png" alt="Opening the developer tools as described above"></p>
 
 <p>In the Developer Tools, click on the <em>Console</em> tab.</p>
 
-<p><img src="/journal/images/2017-11-24-volume/open-console.png" alt="Open the console" /></p>
+<p><img src="/journal/images/2017-11-24-volume/open-console.png" alt="Open the console"></p>
 
 <p>Click in the empty white space after the &gt; symbol. Now you can type or paste code into the console.</p>
 
-<p><img src="/journal/images/2017-11-24-volume/click-console.png" alt="Click on the console" /></p>
+<p><img src="/journal/images/2017-11-24-volume/click-console.png" alt="Click on the console"></p>
 
 <p>Copy this code and paste it into the console.</p>
 
@@ -73,7 +73,7 @@ gainNode.connect(audioCtx.destination)
 
 <p>It will look like this once you paste it in:</p>
 
-<p><img src="/journal/images/2017-11-24-volume/pasted-code.png" alt="The code, as it will appear in the console." /></p>
+<p><img src="/journal/images/2017-11-24-volume/pasted-code.png" alt="The code, as it will appear in the console."></p>
 
 <p>Press enter to send the code to your browser. The video should immediately get louder.</p>
 
@@ -82,17 +82,17 @@ gainNode.connect(audioCtx.destination)
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gainNode.gain.value = 3
 </code></pre></div></div>
 
-<p><img src="/journal/images/2017-11-24-volume/pasted-code-2.png" alt="The code, as it will appear in the console." /></p>
+<p><img src="/journal/images/2017-11-24-volume/pasted-code-2.png" alt="The code, as it will appear in the console."></p>
 
 <h3 id="what-just-happened">What just happened?</h3>
 
 <p>Imagine that the video was a physical object (like a phone), and it was connected to your speakers by a cable.</p>
 
-<p><img src="/journal/images/2017-11-24-volume/circuit-1.png" alt="The video is directly connected to the speakers" /></p>
+<p><img src="/journal/images/2017-11-24-volume/circuit-1.png" alt="The video is directly connected to the speakers"></p>
 
 <p>We unplugged that cable and connected the video to a new object called a gain node. Then we plugged the gain node into your speakers. Sound flows from the video to the gain node to the speakers. The gain node has a volume dial on it, and we can adjust that dial to amplify the sound.</p>
 
-<p><img src="/journal/images/2017-11-24-volume/circuit-2.png" alt="The video is now connected to a gain node, and the gain node is connected to the speakers. The gain node has an adjustable volume control which is set to 2." /></p>
+<p><img src="/journal/images/2017-11-24-volume/circuit-2.png" alt="The video is now connected to a gain node, and the gain node is connected to the speakers. The gain node has an adjustable volume control which is set to 2."></p>
 
 <h3 id="bookmarklet">Bookmarklet</h3>
 
