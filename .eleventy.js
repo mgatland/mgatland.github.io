@@ -33,8 +33,18 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("games", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("games/*/*.md");
+    return collectionApi.getFilteredByGlob("games/*/index.*");
   });
+
+  function sortByOrder(values) {
+    // from https://github.com/11ty/eleventy/issues/898
+    let vals = values.filter(x => x.data.order !== undefined)
+    const sorted = vals.sort((a, b) => Math.sign(a.data.order - b.data.order))
+    // debug list all games and their order
+    debug("mgatland", sorted.map(x => x.data.order + " " + x.data.title))
+    return sorted
+  }
+eleventyConfig.addFilter("sortByOrder", sortByOrder);
 
   //Copy everything except .md and eleventy.js files over without modification
   //From all folders except the special hidden folders
