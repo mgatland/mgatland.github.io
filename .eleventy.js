@@ -38,7 +38,8 @@ module.exports = function (eleventyConfig) {
 
   //Copy everything except .md and eleventy.js files over without modification
   //From all folders except the special hidden folders
-  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/*.!(md|eleventy.js|html)")
+  // (i have io.md for the special case where I used a . earlier in the file name, it's a hack, fix this to only use the last '.' in the filename!)
+  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/*.!(io.md|md|eleventy.js|html)")
   //Also files in the root, with some exceptions
   eleventyConfig.addPassthroughCopy("!(_*|.*|diff-2023-05-29.diff|package.json|package-lock.json).!(md|eleventy.js|html)")
   // Special case to get files with no extension (i.e. CNAME)
