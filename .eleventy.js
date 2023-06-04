@@ -1,19 +1,22 @@
-const markdownIt = require("markdown-it")
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+const markdownIt = require('markdown-it')
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const xmlFiltersPlugin = require('eleventy-xml-plugin')
-const markdownItNamedHeadings = require("./markdown-it-named-headings-2.js")
-const debug = require("debug")("mgatland")
+const markdownItNamedHeadings = require('./markdown-it-named-headings-2.js')
+const markdownItAttrs  = require('markdown-it-attrs')
+const markdownItAbbr  = require('markdown-it-abbr')
+const debug = require('debug')('mgatland')
 
 module.exports = function (eleventyConfig) {
 
   //run this to debug: 
   //>$env:DEBUG="*mgatland*"; npx @11ty/eleventy --serve
   debug("mgatland", "hi hi")
-  const markdownItOptions = {slugify: function (input_string, used_headers) {
-    return 'hihihi'
-  }}
-  const markdownLib = markdownIt({html: true, typographer: true}).use(markdownItNamedHeadings, markdownItOptions)
-  //markdownLib.use(markdownItFootnote).use(markdownItAnchor);
+  const markdownLib = markdownIt({html: true, typographer: true})
+    .use(markdownItNamedHeadings)
+    .use(markdownItAttrs, {leftDelimiter: '{:'})
+    .use(markdownItAbbr)
+
+  //examples: markdownLib.use(markdownItFootnote).use(markdownItAnchor);
   eleventyConfig.setLibrary("md", markdownLib);
 
   //for 'xml_escape' liquid filter
