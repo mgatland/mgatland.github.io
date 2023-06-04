@@ -1,5 +1,8 @@
-var kebabcase = require('lodash.kebabcase')
-var unidecode = require('unidecode')
+const makeUrlSafe = function (string) {
+  return string.toLowerCase().replace(/[_ ]/g, '-').replace(/[^\d\w-]/g, '')
+}
+const unidecode = require('unidecode')
+const debug = require("debug")("mgatland")
 
 module.exports = function plugin (md, options) {
   md.core.ruler.push('named_headings', namedHeadings.bind(null, md))
@@ -11,7 +14,10 @@ function namedHeadings (md, state) {
   state.tokens.forEach(function (token, i) {
     if (token.type === 'heading_open') {
       var text = md.renderer.render(state.tokens[i + 1].children, md.options)
-      var id = kebabcase(unidecode(text))
+      //remove tags like <a href='...> and </a>. mgatland had to add this, it wasn't handled by markdown-it-named-headings on npm.
+      const plainText = text.replace(/<[^>]+>/g, '')
+      //debug("mgatland", plainText)
+      var id = makeUrlSafe(unidecode(plainText))
       var uniqId = uncollide(ids, id)
       ids[uniqId] = true
       setAttr(token, 'id', uniqId)

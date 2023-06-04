@@ -1,2 +1,1 @@
-{% assign previousPost = collections.journal | getPreviousCollectionItem %}
-{% if previousPost %}<a href="{{previousPost.url}}" title="{{previousPost.data.title}}">Older</a>{% else %}<span class="disabled-link">Older</span>{% endif %}
+{% assign previousPost = collections.journal | getPreviousCollectionItem %}{% if previousPost %}<a href="{{previousPost.url}}" title="{{previousPost.data.title}}">Older</a>{% else %}<span class="disabled-link">Older</span>{% endif %}

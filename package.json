@@ -15,6 +15,6 @@
   "dependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "eleventy-xml-plugin": "github:sentience/eleventy-xml-plugin#dist",
-    "markdown-it-named-headings": "^1.1.0"
+    "unidecode": "^0.1.8"
   }
 }

@@ -1,6 +1,6 @@
 ---
 title: Posting from Prose.io
-
+permalink: "journal/2013-04-22-posting-from-prose.io/"
 ---
 
 For me, "the cloud" is about websites that talk to each other directly.
