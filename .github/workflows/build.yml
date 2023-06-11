@@ -48,10 +48,12 @@ jobs:
           # caching node_modules
           path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          # (these restore-keys for partial matches are useless if I use 'npm ci' because 
+          # npm ci is not incremental, it deletes existing node_modules)
+          ## restore-keys: |
+          ## ${{ runner.os }}-build-${{ env.cache-name }}-
+          ##  ${{ runner.os }}-build-
+          ##  ${{ runner.os }}-
 
       - name: Install node_modules
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
