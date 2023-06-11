@@ -49,18 +49,21 @@ eleventyConfig.addFilter("sortByOrder", sortByOrder);
   //Copy everything except .md and eleventy.js files over without modification
   //From all folders except the special hidden folders
   // (i have io.md for the special case where I used a . earlier in the file name, it's a hack, fix this to only use the last '.' in the filename!)
-  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/*.!(io.md|md|eleventy.js|html|gitignore)")
+  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules|talk2)/**/*.!(io.md|md|eleventy.js|html|gitignore)")
   //Also files in the root, with some exceptions
   eleventyConfig.addPassthroughCopy("!(_*|.*|package.json|package-lock.json).!(md|eleventy.js|html)")
-  // Special case to get files with no extension (i.e. CNAME)
+  // Special case to get root files with no extension (i.e. CNAME)
   eleventyConfig.addPassthroughCopy("!(_*|.*|package.json|package-lock.json|*.*)")
 
-  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/README.md")
+  // more ugly special cases
+  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules|talk2)/**/README.md")
+  eleventyConfig.addPassthroughCopy("talk2/**/*")
 
   return {
     dir: {
       layouts: "_layouts"
-    }//,
+    }
+    //,
     //FIXME: removing html from here wasn't such a good idea, i DO want html to get preprocessed and just want to set the layout to a blank one
     // I think I just need the site's default template for HTML to be blank...
     // maybe 

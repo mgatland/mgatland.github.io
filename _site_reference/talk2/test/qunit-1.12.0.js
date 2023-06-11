@@ -1903,7 +1903,7 @@ QUnit.jsDump = (function() {
 				return type;
 			},
 			separator: function() {
-				return this.multiline ?	this.HTML ? "<br>" : "\n" : this.HTML ? "&nbsp;" : " ";
+				return this.multiline ?	this.HTML ? "<br />" : "\n" : this.HTML ? "&nbsp;" : " ";
 			},
 			// extra can be a number, shortcut for increasing-calling-decreasing
 			indent: function( extra ) {

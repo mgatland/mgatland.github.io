@@ -6,6 +6,28 @@ and Dave Perrett ( http://www.daveperrett.com/ )
 ...but now modified beyond recognition
 */
 
+/*prism default style overrides
+because i migrated from pygment to prism highlighting and it broke some stuff 
+*/
+
+pre[class*="language-"] {
+	padding: inherit;
+	margin: inherit;
+	overflow: auto;
+	border-radius: inherit;
+  }
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+	background: none;
+  }
+
+code[class*="language-"] {
+	background: #272822;
+	font-size: 18px;
+}
+
+/*end prims hacks*/
+
 body {
 	font-size: 24px;
 	font-family: Arrows, Tahoma, Verdana, Segoe, sans-serif;

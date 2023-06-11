@@ -1,6 +1,7 @@
 ---
 title: Projects
 layout: normal.html
+hideDate: true
 ---
 
 What happens when I'm not making games? Here are some of my current and previous projects.
