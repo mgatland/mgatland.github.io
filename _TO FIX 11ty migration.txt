@@ -1,23 +1,24 @@
-Differences:
-
+Work to do:
 [x] code highlighting 
 [x] then i'm ready to ship 
-[ ] fix looseleafgames archive urls being broken
-[ ] separate source/processed and static folders a bit better, so I don't need so many exceptions 
+[x] fix looseleafgames archive urls being broken
 
+[ ] need to check all RSS feeds and make sure I haven't messed up the formatting of ampersands in particular
+[ ] 11ty displays dates in my local timezone, messing everything up by 2 hours. There's some documentation on how to fix it. It's gross though!
+[ ] use a subfolder for source, so I don't have to spefically ignore files like .gitignore
+
+[ ] Cache node_modules like so: https://gist.github.com/rupeshtiwari/44ebec690f2c01bf1df9b1d215a0e723
 [ ] takedown... center it on screen. Make the buttons more traditional Windows XP-looking. Maybe add a windows XP window around it.
-
 [ ] move my game .zips and .exes somewhere else... that will speed up the build process a lot.
     maybe a new assets repository.
-
-[ ] 11ty displays dates in my local timezone, messing everything up by 2 hours. There's some documentation on how to fix it. It's gross though!
-[ ] need to check all RSS feeds and make sure I haven't messed up the formatting of ampersands in particular
+    i already have one called 'files'
+        add /games/ and put the installers there.
 
 [ ] I have added many files that contain this:
     "permalink": "{{ page.filePathStem }}.html" }
     But it's possible that I can set this at the top level for all folders instead of hand-setting it in each.
     And override it in journal, but maybe nowhere else?
-    Some other examples of permalink may disappear too 
+    Some other examples of permalink may disappear too. I have some inconsistencies here.
     including ones in non json format, so search for peramlink without quotes 
 
 [ ] I have had to set 'layout: null' in many index.html files.
