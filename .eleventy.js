@@ -49,12 +49,14 @@ eleventyConfig.addFilter("sortByOrder", sortByOrder);
   //Copy everything except .md and eleventy.js files over without modification
   //From all folders except the special hidden folders
   // (i have io.md for the special case where I used a . earlier in the file name, it's a hack, fix this to only use the last '.' in the filename!)
-  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/*.!(io.md|md|eleventy.js|html)")
+  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/*.!(io.md|md|eleventy.js|html|gitignore)")
   //Also files in the root, with some exceptions
-  eleventyConfig.addPassthroughCopy("!(_*|.*|diff-2023-05-29.diff|package.json|package-lock.json).!(md|eleventy.js|html)")
+  eleventyConfig.addPassthroughCopy("!(_*|.*|package.json|package-lock.json).!(md|eleventy.js|html)")
   // Special case to get files with no extension (i.e. CNAME)
-  eleventyConfig.addPassthroughCopy("!(_*|.*|diff-2023-05-29.diff|package.json|package-lock.json|*.*)")
-  
+  eleventyConfig.addPassthroughCopy("!(_*|.*|package.json|package-lock.json|*.*)")
+
+  eleventyConfig.addPassthroughCopy("!(_*|.*|node_modules)/**/README.md")
+
   return {
     dir: {
       layouts: "_layouts"

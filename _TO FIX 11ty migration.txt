@@ -1,5 +1,15 @@
 Differences:
 
+[ ] I have added many files that contain this:
+    "permalink": "{{ page.filePathStem }}.html" }
+    But it's possible that I can set this at the top level for all files.
+    And override it in journal, but maybe nowhere else?
+    Some other examples of permalink may disappear too 
+    including ones in non json format, so search for peramlink without quotes 
+
+[ ] I have had to set 'layout: null' in many index.html files.
+    I want to make this the default for html files. Maybe! Check.
+
 [x] static files... maybe fixed.
 [x] fixed the footer \ breadcrumbs
 [x] lots of small markdown incompatibilities. Maybe fix case-by-case.

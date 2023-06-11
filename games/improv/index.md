@@ -8,7 +8,7 @@ date: 2010-12-20
 icon: improv/improv-icon.jpg
 ---
 
-<img src="improv-banner.jpg" />
+<p><img src="improv-banner.jpg"></p>
 
 <p>A short first-person exploration game for Ludum Dare 19.</p>
 
@@ -22,6 +22,6 @@ icon: improv/improv-icon.jpg
 <p>Known Issues: </p>
 <p>The ending is unreliable. If it isn't working, or is working very slowly, try leaving and coming back, and jumping. It will work eventually :)</p>
 
-<!-- this just duplicates the banner at the top <img src="../ludumdare/ld19/improv-2.png" width="512px" height="384px"/> -->
-<img src="improv-3.png" />
-<img src="improv-4.png" />
+<!-- this just duplicates the banner at the top <img src="../ludumdare/ld19/improv-2.png" width="512px" height="384px"> -->
+<p><img src="improv-3.png">
+<img src="improv-4.png"></p>

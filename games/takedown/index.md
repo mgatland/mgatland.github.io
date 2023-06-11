@@ -17,7 +17,7 @@ those that seek to destroy it.
 
 <p>Play <a href="play/">TakeDown</a></p>
 
-<img src="takedown-01.png" alt="a screenshot of TakeDown"/> 
+<p><img src="takedown-01.png" alt="a screenshot of TakeDown"></p>
  
 That's how I described it in 2002, anyway. I was 16 years old and thought TakeDown was my magnum opus.
 
@@ -27,7 +27,7 @@ You can play TakeDown in your web browser using the link above. That version was
 
 You can also download the old, Windows only version of TakeDown:
 
-<p><a href="takedown-install-1.2.exe" onClick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">TakeDown 1.2</a> (2 MB, Windows only)</p>
+<p><a href="takedown-install-1.2.exe" onclick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">TakeDown 1.2</a> (2 MB, Windows only)</p>
 
 The Windows version has more features and spelling mistakes.
 
@@ -35,5 +35,5 @@ The Windows version has more features and spelling mistakes.
 
 [Read more](/journal/2013-08-05-rewriting-takedown/) about making TakeDown.
 
-<img src="takedown-02.png" alt="a screenshot of TakeDown"/>
-<img src="takedown-03.png" alt="a screenshot of TakeDown"/>
+<p><img src="takedown-02.png" alt="a screenshot of TakeDown">
+<img src="takedown-03.png" alt="a screenshot of TakeDown"></p>

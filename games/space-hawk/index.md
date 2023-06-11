@@ -22,7 +22,7 @@ More info:
 
 Screenshots:
 
-<img src="space-hawk-1.jpg"/>
-<img src="space-hawk-2.jpg"/>
+<p><img src="space-hawk-1.jpg">
+<img src="space-hawk-2.jpg"></p>
 
 

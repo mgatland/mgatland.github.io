@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="/css/pygment.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width">
-  {% if page.cardimage %}
+  {% if cardimage %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@mgatland">
-  <meta name="twitter:title" content="{{ page.data.title }}">
-  <meta name="twitter:image" content="{{ site.url }}/{{ page.cardimage }}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:image" content="{{ site.url }}/{{ cardimage }}">
   {% endif %}
 {% include 'analytics.html' %}
 </head>

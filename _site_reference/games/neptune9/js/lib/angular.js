@@ -805,10 +805,10 @@ function isLeafNode (node) {
  <file name="index.html">
  <div ng-controller="Controller">
  <form novalidate class="simple-form">
- Name: <input type="text" ng-model="user.name" /><br>
- E-mail: <input type="email" ng-model="user.email" /><br>
+ Name: <input type="text" ng-model="user.name" /><br />
+ E-mail: <input type="email" ng-model="user.email" /><br />
  Gender: <input type="radio" ng-model="user.gender" value="male" />male
- <input type="radio" ng-model="user.gender" value="female" />female<br>
+ <input type="radio" ng-model="user.gender" value="female" />female<br />
  <button ng-click="reset()">RESET</button>
  <button ng-click="update(user)">SAVE</button>
  </form>
@@ -1293,7 +1293,7 @@ function getNgAttribute(element, ngAttr) {
        </div>
 
        <div ng-controller="GoodController2">
-           Name: <input ng-model="name"><br>
+           Name: <input ng-model="name"><br />
            Hello, {{name}}!
 
            <p>This renders because the controller does not fail to
@@ -15692,12 +15692,12 @@ var htmlAnchorDirective = valueFn({
  * in links and their different behaviors:
     <example>
       <file name="index.html">
-        <input ng-model="value" /><br>
-        <a id="link-1" href ng-click="value = 1">link 1</a> (link, don't reload)<br>
-        <a id="link-2" href="" ng-click="value = 2">link 2</a> (link, don't reload)<br>
-        <a id="link-3" ng-href="/{{'123'}}">link 3</a> (link, reload!)<br>
-        <a id="link-4" href="" name="xx" ng-click="value = 4">anchor</a> (link, don't reload)<br>
-        <a id="link-5" name="xxx" ng-click="value = 5">anchor</a> (no link)<br>
+        <input ng-model="value" /><br />
+        <a id="link-1" href ng-click="value = 1">link 1</a> (link, don't reload)<br />
+        <a id="link-2" href="" ng-click="value = 2">link 2</a> (link, don't reload)<br />
+        <a id="link-3" ng-href="/{{'123'}}">link 3</a> (link, reload!)<br />
+        <a id="link-4" href="" name="xx" ng-click="value = 4">anchor</a> (link, don't reload)<br />
+        <a id="link-5" name="xxx" ng-click="value = 5">anchor</a> (no link)<br />
         <a id="link-6" ng-href="{{value}}">link</a> (link, change location)
       </file>
       <file name="protractor.js" type="protractor">
@@ -18505,7 +18505,7 @@ var ngModelDirective = function() {
  *     <div ng-controller="Controller">
  *       <input type="checkbox" ng-model="confirmed" ng-change="change()" id="ng-change-example1" />
  *       <input type="checkbox" ng-model="confirmed" id="ng-change-example2" />
- *       <label for="ng-change-example2">Confirmed</label><br>
+ *       <label for="ng-change-example2">Confirmed</label><br />
  *       <tt>debug = {{confirmed}}</tt><br/>
  *       <tt>counter = {{counter}}</tt><br/>
  *     </div>
@@ -18777,10 +18777,10 @@ var ngValueDirective = function() {
           <input type="text" name="userName"
                  ng-model="user.name"
                  ng-model-options="{ updateOn: 'blur' }"
-                 ng-keyup="cancel($event)" /><br>
+                 ng-keyup="cancel($event)" /><br />
 
           Other data:
-          <input type="text" ng-model="user.data" /><br>
+          <input type="text" ng-model="user.data" /><br />
         </form>
         <pre>user.name = <span ng-bind="user.name"></span></pre>
       </div>
@@ -18830,7 +18830,7 @@ var ngValueDirective = function() {
           <input type="text" name="userName"
                  ng-model="user.name"
                  ng-model-options="{ debounce: 1000 }" />
-          <button ng-click="userForm.userName.$cancelUpdate(); user.name=''">Clear</button><br>
+          <button ng-click="userForm.userName.$cancelUpdate(); user.name=''">Clear</button><br />
         </form>
         <pre>user.name = <span ng-bind="user.name"></span></pre>
       </div>
@@ -21292,7 +21292,7 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
  * Just remember to include the important flag so the CSS override will function.
  *
  * <div class="alert alert-warning">
- * **Note:** Here is a list of values that ngShow will consider as a falsy value (case insensitive):<br>
+ * **Note:** Here is a list of values that ngShow will consider as a falsy value (case insensitive):<br />
  * "f" / "0" / "false" / "no" / "n" / "[]"
  * </div>
  *
@@ -21466,7 +21466,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * Just remember to include the important flag so the CSS override will function.
  *
  * <div class="alert alert-warning">
- * **Note:** Here is a list of values that ngHide will consider as a falsy value (case insensitive):<br>
+ * **Note:** Here is a list of values that ngHide will consider as a falsy value (case insensitive):<br />
  * "f" / "0" / "false" / "no" / "n" / "[]"
  * </div>
  *
