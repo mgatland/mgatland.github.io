@@ -1,9 +1,8 @@
 ---
 title: Contact Me
-layout: normal
+layout: normal.html
+hideDate: true
 ---
-
-{::options parse_block_html="true" /}
 
 <p>Feel free to contact me with any questions or comments.</p>
 

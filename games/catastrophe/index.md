@@ -1,6 +1,6 @@
 ---
 title: Catastrophe
-layout: normal
+layout: normal.html
 categories: [games]
 description: 
 order: 17

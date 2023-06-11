@@ -1,0 +1,7 @@
+_artsource/
+_site/
+_site_reference/
+node_modules/
+README.md
+**/README.md
+talk2/

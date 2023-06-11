@@ -1,6 +1,6 @@
 ---
 title: Flappy World (June)
-layout: normal
+layout: normal.html
 categories: [games]
 description: Flappy World (June)
 order: 41

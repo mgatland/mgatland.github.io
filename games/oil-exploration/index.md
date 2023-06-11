@@ -1,6 +1,6 @@
 ---
 title: Oil Exploration
-layout: normal
+layout: normal.html
 categories: [games]
 description: 
 order: 11

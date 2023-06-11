@@ -1,6 +1,6 @@
 ---
 title: Dungeons of the Unforgotten
-layout: normal
+layout: normal.html
 categories: [games]
 description: Dungeons of the Unforgotten
 order: 38

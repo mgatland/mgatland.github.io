@@ -1,6 +1,6 @@
 ---
 title: My First Flash Game
-layout: normal
+layout: normal.html
 categories: [games]
 description: 
 order: 7

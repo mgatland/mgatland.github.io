@@ -24,7 +24,7 @@ Click in the empty white space after the > symbol. Now you can type or paste cod
 
 Copy this code and paste it into the console.
 
-~~~~
+```js
 var videoElement = document.querySelector("video")
 var audioCtx = new AudioContext()
 var source = audioCtx.createMediaElementSource(videoElement)
@@ -32,7 +32,7 @@ var gainNode = audioCtx.createGain()
 gainNode.gain.value = 2 // double the volume
 source.connect(gainNode)
 gainNode.connect(audioCtx.destination)
-~~~~
+```
 
 It will look like this once you paste it in:
 
@@ -42,9 +42,9 @@ Press enter to send the code to your browser. The video should immediately get l
 
 If you want to make it even louder, copy this line, paste it in and press enter. You can change the number to a higher value to make it even louder.
 
-~~~~
+```js
 gainNode.gain.value = 3
-~~~~
+```
 
 ![The code, as it will appear in the console.](/journal/images/2017-11-24-volume/pasted-code-2.png)
 
@@ -62,6 +62,6 @@ We unplugged that cable and connected the video to a new object called a gain no
 
 I got an email from Andrew Morton who suggested putting this code in a bookmarklet. I've added the bookmarklet below.
 
-Drag this to your bookmarks bar: [volume up!](javascript:(function(){var videoElement = document.querySelector("video");var audioCtx = new AudioContext();var source = audioCtx.createMediaElementSource(videoElement);var gainNode = audioCtx.createGain();gainNode.gain.value = 3; /* triple the volume */ source.connect(gainNode);gainNode.connect(audioCtx.destination);})();)
+<p>Drag this to your bookmarks bar: <a href="javascript:(function(){var videoElement = document.querySelector('video');var audioCtx = new AudioContext();var source = audioCtx.createMediaElementSource(videoElement);var gainNode = audioCtx.createGain();gainNode.gain.value = 3; /* triple the volume */ source.connect(gainNode);gainNode.connect(audioCtx.destination);})();">volume up!</a></p>
 
 Clicking on the bookmark (in your bookmarks bar) will increase the volume on whatever page you have open - so you can make a YouTube video louder with a single click.

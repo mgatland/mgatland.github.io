@@ -1,0 +1,8 @@
+Eleventy config:
+
+https://alexpearce.me/2020/06/jekyll-to-eleventy/
+
+
+Debugging:
+
+$env:DEBUG="Eleventy*"; npx @11ty/eleventy

@@ -1,6 +1,6 @@
 ---
 title: Rockstormers 2
-layout: normal
+layout: normal.html
 categories: [games]
 description:
 order: 45

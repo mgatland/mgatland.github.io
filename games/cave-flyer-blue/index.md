@@ -1,6 +1,6 @@
 ---
 title: Cave Flyer (Blue)
-layout: normal
+layout: normal.html
 categories: [games]
 description: 
 order: 10

@@ -1,0 +1,6 @@
+{
+    "layout": "normal.html",
+    "tags": ["journal"],
+    "categories": ["journal"],
+    "permalink": "journal/{{ page.date | date: '%Y-%m-%d-' }}{{ page.fileSlug }}/index.html"
+}

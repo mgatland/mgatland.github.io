@@ -1,6 +1,6 @@
 ---
 title: Snail & Co Courier Service
-layout: normal
+layout: normal.html
 categories: [games]
 description: Snail & Co Courier Service
 order: 40

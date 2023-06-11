@@ -1,17 +1,15 @@
-{% if page.hidebreadcrumbs == nil %}
-	<footer>
+{% unless hidebreadcrumbs %}	<footer>
 		<div class="breadcrumbs">
-	{% if page.categories.size > 0 %}
+	{% if categories.size > 0 %}
 			<a href="/">Home</a>
 			<span class="subtle">&rarr;</span> 
-			<a href="/{{ page.categories[0] }}/">{{ page.categories[0] | capitalize }}</a>
+			<a href="/{{ categories[0] }}/">{{ categories[0] | capitalize }}</a>
 			<span class="subtle">&rarr;</span> 
-			<span class="subtle">{{page.title}}</span>
+			<span class="subtle">{{title}}</span>
 	{% else %}
 			<a href="/">Home</a>
 			<span class="subtle">&rarr;</span> 
-			<span class="subtle">{{page.title}}</span>
+			<span class="subtle">{{title}}</span>
 	{% endif %}
 		</div>
-	</footer>
-{% endif %}
+	</footer>{% endunless %}

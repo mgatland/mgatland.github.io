@@ -1,6 +1,6 @@
 ---
 title: Let's Be Ducks
-layout: normal
+layout: normal.html
 categories: [games]
 description: Multiplayer duck adventure.
 order: 27
@@ -14,7 +14,7 @@ A multiplayer world where everyone is a duck.
 
 Can you discover the mysteries of Ducktown?
 
-<div>Play <a href="https://letsbeducks.mgatland.com/" onClick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">Let's Be Ducks</a></div>
+<div>Play <a href="https://letsbeducks.mgatland.com/" onclick="_gaq.push(['_trackEvent','Download','Game',this.href]);; ">Let's Be Ducks</a></div>
 
 <img src="ducks-screenshot.png">
 
