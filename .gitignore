@@ -1,4 +1,5 @@
 _site/
+node_modules/
 mgatland.sublime-project
 mgatland.sublime-workspace
 .DS_Store
