@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Matthew Gatland</title>
+		<description>Matthew Gatland's personal website</description>
+		<link>https://www.matthewgatland.com</link>
+		<atom:link href="https://www.matthewgatland.com/feed.xml" rel="self" type="application/rss+xml" />
+		
+		
+			<item>
+				<title>A few lines for April Fools</title>
+				<description>&lt;p&gt;Mojang recently released an April Fools version of Minecraft: Java Edition. The April Fools releases are special and strange variations of Minecraft that are developed with a low budget and explore ideas that are too outrageous to be in the main game. This year’s concept was to have in-game voting where players could enable and disable different rules on their server, with many of the rules having unexpected twists.&lt;/p&gt;
+&lt;p&gt;A core group within Mojang built the voting system and managed the release. Everyone else at the studio was invited to add some individual rules that players could vote on.&lt;/p&gt;
+&lt;p&gt;I wanted to participate but did not have much time available for side-project shenenanigns. I decided to come up with some simple rules that I could code quickly and that would hopefully be memorable and fun for players. Maximum impact, minimum effort! Here’s what I came up with:&lt;/p&gt;
+&lt;h3 id=&quot;prevent-floating-trees&quot;&gt;“Prevent floating trees”&lt;/h3&gt;
+&lt;p&gt;In Minecraft, gravity does not apply to most blocks. One of the first actions a player takes in a new world is to collect wood by breaking a block from a tree trunk. This leaves the top of the tree floating in the air.&lt;/p&gt;
+&lt;p&gt;Many players consider floating trees ugly and communities often make it a rule that players must remove the floating parts before they move on. It’s a hot topic!&lt;/p&gt;
+&lt;p&gt;The comedy in this rule comes from wondering how it’s going to work and then being surprised when you find out. You could imagine the floating part of the tree falling down – that would be fancy! Or perhaps the floating part would automatically break. But here’s what actually happens:&lt;/p&gt;
+&lt;video src=&quot;https://user-images.githubusercontent.com/364886/229846421-4f915e7b-d473-4282-a84f-6a5a58e931a8.mp4&quot; controls=&quot;controls&quot;&gt;
+&lt;/video&gt;
+&lt;p class=&quot;video-caption&quot;&gt;&lt;a href=&quot;https://twitch.tv/ulraf&quot;  target=&quot;_blank&quot;&gt;Ulraf&lt;/a&gt; breaks a tree trunk&lt;/p&gt;
+&lt;!--
+ffmpeg -i .\aprilfools-ulraf.mp4 -ss 01:21:57 -to 01:22:39 &quot;prevent-floating-trees-original-size.mp4&quot;
+ffmpeg -i .\prevent-floating-trees-original-size.mp4 -vcodec libx264 -crf 26 prevent-floating-trees.mp4
+--&gt;
+&lt;p&gt;This was about 20 lines of code.&lt;/p&gt;
+&lt;h3 id=&quot;buff-fishing&quot;&gt;“Buff fishing”&lt;/h3&gt;
+&lt;p&gt;Fishing is popular in the game and there’s a lot of discussion around how much loot it should give. Is fishing overpowered? Should we let players fish AFK? The &lt;em&gt;buff fishing&lt;/em&gt; rule promises to make fishing more rewarding. You might expect it to improve the loot table or tweak the timing, but no: it turns your fishing bobber into an infinite fountain of ocean loot.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Warning: flashing lights&lt;/em&gt;&lt;/p&gt;
+&lt;video src=&quot;https://user-images.githubusercontent.com/364886/229846396-53b067f0-d968-44ca-b5fa-e4f48d19d800.mp4&quot; controls=&quot;controls&quot;&gt;
+&lt;/video&gt;
+&lt;p class=&quot;video-caption&quot;&gt;&lt;a href=&quot;https://www.twitch.tv/pixlriffs&quot; target=&quot;_blank&quot;&gt;Pixlriffs&lt;/a&gt; goes fishing with Ulraf and Bruno&lt;/p&gt;
+&lt;!--
+ffmpeg -i .\aprilfools-pixlriffs.mp4 -ss 02:23:12 -to 02:23:56 &quot;buff-fishing-original-size.mp4&quot;
+ffmpeg -i .\buff-fishing-original-size.mp4 -vcodec libx264 -crf 20 buff-fishing.mp4
+--&gt;
+&lt;p&gt;This one was basically 1 line of code. I think it works pretty well!&lt;/p&gt;
+&lt;p&gt;In the video above, the players have also enabled the rule &lt;em&gt;polluted oceans&lt;/em&gt; (not created by me) which changes the fishing rewards to include all possible items. It’s a fun rule, and it synergizes very well with &lt;em&gt;buff fishing&lt;/em&gt;! But if we had had a bit more time to coordinate I would have suggested nerfing this combo because it’s a little too good. Having a quick source of every possible item can spoil content from some of the other game rules. (And I think we could have nerfed it in a way that let us include another good joke.)&lt;/p&gt;
+&lt;p&gt;Overall, I was happy that I was able to make some people laugh with just a few lines of code and a few minutes of work.&lt;/p&gt;
+&lt;p&gt;Going cheap isn’t always the right approach, and it was important that other devs added rules with a lot more depth than my ones. But… jokes are good too! It’s useful to think about all the tools we have to make a feature interesting and not overuse complexity. These two rules used popular community topics to set up the players’ expectations and then did something unexpected to surprise them.&lt;/p&gt;
+&lt;p&gt;You can see the official page for the April Fools snapshot at &lt;a href=&quot;https://www.minecraft.net/en-us/article/vote-update&quot;&gt;minecraft.net&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- comment 
+// comments: 
+
+Video syncronization: when Ulraf says &quot;OK lets jump in&quot; and they go into the game
+aprilfools-pixlriffs.mp4: 19:00
+aprilfools-ulraf.mp4:  14:00 (-5:00)
+aprilfools-bruno.mp4: 16:40 (-2:20)
+
+1h:27m talks about my april fools &apos;floating trees&apos; rule 
+    uralf timestamp from 1:21:57 to 1:22:39 &lt; --- this is good, clip it!
+    and then 1:23:02 to 1:23:53 for the follow up joke 
+
+2h21:50 my other game rule, the fishing one
+    Pixl timestamp: 2:23:12 to 2:24:04
+        (I trimmed this down to end at 2:23:56 for the blog post, cut some of the Warden fun but not all of it)
+    Uralf: 2:18:15 to 2:18:51
+    Bruno 2:20:46 to 2:21:35
+--&gt;
+</description>
+				<pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2023-04-04-a-few-lines-for-april-fools/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2023-04-04-a-few-lines-for-april-fools/</guid>
+			</item>
+		
+			<item>
+				<title>200 Bugs</title>
+				<description>&lt;p&gt;Imagine you are a developer whose job is to work on a large software project. In this case ‘large’ means that there are so many bugs that it’s impossible to fix them all.&lt;/p&gt;
+&lt;p&gt;Different bugs impact different amounts of users. Some bugs affect one person, while others affect 100 or even 1000. Of course bugs also have different severity – some bugs are minor annoyances while others cause serious problems – but let’s consider a group of bugs that all have similar severity (and similar cost-to-fix) and the only major difference is how many users are affected by them.&lt;/p&gt;
+&lt;p&gt;Here are two ways to work in this environment:&lt;/p&gt;
+&lt;p&gt;Option 1: You spend every day fixing a bug that affects one user. At the end of the year, you have fixed about 200 bugs and made life a little better for about 200 users.&lt;/p&gt;
+&lt;p&gt;Option 2: You spend one day fixing a bug that affects 1000 users, and then spend the rest of the year goofing off, watching TV at work, and rearranging your desktop icons.&lt;/p&gt;
+&lt;p&gt;The second choice is better. In fact, a developer who chooses the second choice is five times more productive than a developer who chooses the first. They have five times the impact because five times as many users are affected by their work.&lt;/p&gt;
+&lt;p&gt;Of course there are more choices than the two options above, but I’m comparing these two specific options to make a point:&lt;/p&gt;
+&lt;p&gt;‘Option 1’ is not a good choice. It is not useful or noble or heroic to come to work every day and do work that doesn’t matter. It doesn’t make you a good developer or even above average. It is a waste of company time.&lt;/p&gt;
+&lt;p&gt;In my experience, in large companies, a lot of developers choose something like option 1.&lt;/p&gt;
+&lt;p&gt;These companies end up moving very slowly. Users feel like bugs never get fixed, because the same frustrating bugs remain year after year – despite hundreds of users asking for improvements. These companies grow, hiring more developers to increase speed, but the speed never comes. The additional developers are working hard, fixing issues every day, but the users don’t seem to notice any difference.&lt;/p&gt;
+&lt;p&gt;To create real impact, we must focus on work that matters.&lt;/p&gt;
+&lt;p&gt;How do we do that?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Spend more time understanding the users and the product. Get to know what people are asking for and why. This leaves less time for actually fixing bugs and that’s OK. Remember that it’s better to fix one high-impact bug than 200 low-impact bugs.&lt;/li&gt;
+&lt;li&gt;Be wary of metrics. It’s easy to attach importance to a number – “I fixed 200 bugs this year! Cool!” Making that number go up might not represent actual benefit for the product or its users. If you &lt;em&gt;must&lt;/em&gt; track a number, find a number that your customers think is important.&lt;/li&gt;
+&lt;li&gt;Be transparent. If it’s possible to tell your users what you are working on each week, do so. They will tell you when you’re wasting your time on low-impact work. If it’s not possible to be that open, you can use your imagination instead. Ask yourself: if our users knew what I was working on today, would they be happy? Or would they suggest something else?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Learning about the product and the users’ needs lets a developer be more effective. Working hard on unimportant tasks is no better than goofing off. By focussing on what matters, we can delight our users and move much faster than we could before.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2022-08-07-200-bugs/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2022-08-07-200-bugs/</guid>
+			</item>
+		
+			<item>
+				<title>Story Engine</title>
+				<description>&lt;p&gt;A few years ago I read an article about the NBC TV series “Timeless”. I don’t remember anything else from the article but the term “Story Engine” stuck in my brain.&lt;/p&gt;
+&lt;p&gt;The “Story Engine” was the thing that made it easy for writers to come up with a new story for each episode each week. In a medical drama, this could be a new patient arriving. In a “moster of the week” format this would be a new supernatural monster. In any case, it gives the writers’ room an easy way to start writing each episode.&lt;/p&gt;
+&lt;p&gt;I used to fantasize about writing my own time travel story.&lt;/p&gt;
+&lt;p&gt;Most time-travel stories don’t work when you think about it. They have themes and morals and work as stories, but when you actually think about what’s happening on a physical level it always breaks down.&lt;/p&gt;
+&lt;p&gt;One example is a Star Trek movie where a character takes a pair of antique glasses back in time and leaves them behind. It’s implied that the glasses will stay in that timeline and that they become the same glasses that the character had at the start of the story. It’s a loop, see? This doesn’t make physical sense because objects age over time. A pair of 100-year-old glasses that is left on a planet for 100 more years becomes a pair of &lt;em&gt;200-year-old&lt;/em&gt; glasses. These can no longer be the 100-year-old glasses we saw at the start of the story because they are not 100 years old.&lt;/p&gt;
+&lt;p&gt;If it was a baby left for 100 years instead of a pair of glasses, it would be easy for the viewer to see how silly the concept is. But we’re not as good at judging  the age of a pair of glasses, so the idea of immortal glasses makes “story sense” and the viewer accepts it.&lt;/p&gt;
+&lt;p&gt;But Not Me!&lt;/p&gt;
+&lt;p&gt;My Time Travel Story was going to be hard sci-fi, with time travel that didn’t rely on authorial tricks. It would follow consistent rules in an uncaring world.&lt;/p&gt;
+&lt;p&gt;But the problem was this: once I gave my characters a time machine, I didn’t have anything for them to &lt;em&gt;do&lt;/em&gt;. There was the mystery of figuring out how time travel worked, but that could be solved by making a few 5-minute jumps into the past and future inside a lab. I didn’t know what my characters would do after that.&lt;/p&gt;
+&lt;p&gt;So&lt;/p&gt;
+&lt;p&gt;The concept of a “story engine” blew my mind. Timeless was designed so that it would be easy to come up with new adventures. From memory, the premise is that the villian time-travels to a Major Historical Event every week and the heros go there and try to stop them. And they meet a famous historical figure and save the day. Easy! And then in Season 2 the premise very slightly changes, to keep things fresh. Cool!&lt;/p&gt;
+&lt;p&gt;So yeah. Everything I know about writing network TV shows, I learned from that one article about &lt;a href=&quot;https://www.businessinsider.com/nbc-timeless-interview-showrunners-2016-10?r=US&amp;amp;IR=T&quot;&gt;the story engine in Timeless&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 22 May 2022 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2022-05-22-story-engine/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2022-05-22-story-engine/</guid>
+			</item>
+		
+			<item>
+				<title>Three Words</title>
+				<description>&lt;p&gt;&lt;img src=&quot;/journal/images/2021-02-13-three-words.png&quot; alt=&quot;Someone tweets: &amp;quot;You meet your 18 year old self- you can say 3 words- what are they?&amp;quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This tweet is meant to prompt you to reflect on your youth in a sentimental way, but I can’t resist seeing it as a time travel puzzle. Let’s nerd out about this!&lt;/p&gt;
+&lt;h3 id=&quot;prevent-a-bad-decision&quot;&gt;Prevent a bad decision&lt;/h3&gt;
+&lt;p&gt;The best answer I saw on twitter was “Don’t marry him.” This answer respects the intention of the tweet but is a good literal answer too. I would recommend putting someone’s name in there instead of “him” to prevent any misunderstandings!&lt;/p&gt;
+&lt;p&gt;Personally, I don’t think many of my bad choices could be prevented with just three words. Maybe we could prevent me from cycling at night in the city without lights on my bike. “Lights on bicycle” might be enough to get the message through. Or “Unlit bicycle accident!”&lt;/p&gt;
+&lt;h3 id=&quot;prevent-a-random-accident&quot;&gt;Prevent a random accident&lt;/h3&gt;
+&lt;p&gt;It should be easy to prevent a random accident if you know when it will happen. If it was a car accident you could ask the driver stay home, or force them to, or even just delay them for a few minutes to change up the random events of the day.&lt;/p&gt;
+&lt;p&gt;The problem is that you only have three words. If a whole date was one word, I think “Sam crashes 2010-02-13” would be a very effective message! But that doesn’t look like three words to me. I think three words would only get you to “Sam crashes 2010”, which is enough information to make your 18-year-old self extremely stressed but probably not enough to save a life.&lt;/p&gt;
+&lt;p&gt;I’m having trouble with this one. Even if the accident was tied to a unique event - i.e. your friend Sam had a car crash while going to see the premier of Captain America: Civil War - this is still really hard. “Captain America accident?” I can’t see this working. Sorry.&lt;/p&gt;
+&lt;h3 id=&quot;save-a-lot-of-people&quot;&gt;Save a lot of people&lt;/h3&gt;
+&lt;p&gt;At the risk of getting too serious for a silly post, it would be nice to prevent the 2019 Christchurch attack. This was a mass shooting done by one person. If we could somehow tip off the police, we could prevent the whole thing. But… how?&lt;/p&gt;
+&lt;p&gt;Just saying the shooter’s name uses up two words. There is no one word that would tell my younger self to wait a dozen years and then ask the police to investigate this guy.&lt;/p&gt;
+&lt;p&gt;I think the shooter posted about their plans on a public website before the attack. Maybe I could do “[name-of-website] [day] [month]” to get my younger self to check that website on that day every year. Then &lt;em&gt;maybe&lt;/em&gt; young-me would see the post, recognise its importance, and contact the police. But there are so many posts, and so many years, and I wouldn’t have any clue about what I was looking for. I don’t think it’s going to work.&lt;/p&gt;
+&lt;h3 id=&quot;get-rich&quot;&gt;Get rich&lt;/h3&gt;
+&lt;p&gt;Of course getting rich is the easy one: “Netflix shares 2020”.&lt;/p&gt;
+&lt;p&gt;I think young-me would correctly understand that that date was the time to sell, and that I could buy at any point up until then and expect gains.&lt;/p&gt;
+&lt;p&gt;Being unable to send an exact date is annoying, as there are a few years where Netflix peaks in the middle of the year but comes down again at the end. I could try “Netflix June 2018” but young-me is more likely to look out for some TV to watch than assume I’m sending investment advice.&lt;/p&gt;
+&lt;p&gt;If the investment was more obviously an investment, I could leave out the second word and put a month in instead. For example: “Bitcoin December 2018”. Bitcoin didn’t exist when I was 18 but past-me would probably connect the dots when he heard about it a few years later.&lt;/p&gt;
+&lt;p&gt;It’s sad that we started out trying to save lives and make the world better, and now we’re planning to invest in a planet-destroying cryptocurrency. But… being a multi-millionaire wouldn’t be too bad.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2021-02-13-three-words/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2021-02-13-three-words/</guid>
+			</item>
+		
+			<item>
+				<title>Winter thoughts - 6&amp;nbsp;of&amp;nbsp;6</title>
+				<description>&lt;p&gt;In the past, every player started every Fortnite match with nothing. It was a clean state, giving everyone an equal opportunity to win.&lt;/p&gt;
+&lt;p&gt;This season added a new currency called gold bars. Gold bars can be earned as you play, and can be spent to buy powerful weapons and other upgrades. Having gold bars gives you a strong advantage over other players. And: your gold bars carry over from one match to the next.&lt;/p&gt;
+&lt;p&gt;That means that in this season, some players still land with nothing. Others may land with thousands of gold bars, allowing them to instantly buy powerful weapons and gain an advantage.&lt;/p&gt;
+&lt;p&gt;This is really unfair! Why did Epic do this?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I played a few hours of Star Wars Battlefront II last week. (It was free in the Epic Games Store.) I’m not very good at the game but I think I understand the basic idea: it’s all about taking turns being powerful.&lt;/p&gt;
+&lt;p&gt;It’s fun to be a jedi, killing tonnes of stormtroopers and turning the tide of the battle. But that only works if other players are being useless stormtroopers. The fantasy would fall apart if everyone was as powerful as you are.&lt;/p&gt;
+&lt;p&gt;Battlefront solves this problem by having a currency, battle points, which you spend to become a hero character. You earn battle points by playing as a normal stormtrooper or rebel soldier. Once you’ve fought and died a few times in a basic role, you will have enough battle points to buy your turn as a hero character. You get your moment in the spotlight. When you die as a hero, you’ll have to go back to being a solider and earn more points again.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I suppose that Fortnite’s gold bars are meant to create the same kind of cycle. You might spend a few matches gathering currency, which takes up precious time and makes you less likely to win those matches. After a while, you’ll have a lot of bars and can spend them to get a powerful item that lets you perform better than you normally do. You get the fun of being a big hero, taking out other players who are still scrambling to get equipment.&lt;/p&gt;
+&lt;p&gt;A normal Fortnite match has 100 players and only 1 winner, which means winning can be very difficult. I think the Fortnite developers are always trying to find ways to let more players experience that moment, and the gold bar system is their latest attempt.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2021-02-07-week-6/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2021-02-07-week-6/</guid>
+			</item>
+		
+			<item>
+				<title>Winter thoughts - 5&amp;nbsp;of&amp;nbsp;6</title>
+				<description>&lt;p&gt;Tonight I wanted to learn about creative collaboration and how to do it better. I thought about writers’ rooms - they do this all the time, right? Brainstorming, stitching ideas together, cutting the bad stuff. How does a writers room work? Let’s find out.&lt;/p&gt;
+&lt;p&gt;I watched a YouTube show called Reboot Rewind where four men come up with ideas to reboot famous movies. It’s not a real writers’ room but it must be similar: they have ideas and they disagree and fight and those fights usually lead to everyone saying what they really think and then making it work. I watched one actual episode and one ‘rewind’ episode where they reflected on their process.&lt;/p&gt;
+&lt;p&gt;One of the creators described the moment he realised he had to let go of the Star Wars story he wanted to tell in order to make the best possible story with this group of people. I like that. They also talked about how it takes more energy to “yes, and” than it takes to shoot down an idea. Interesting.&lt;/p&gt;
+&lt;p&gt;I saw a few minutes of a documentary about South Park that showed a writers’ room. It seems like their process has people rant about things that are bothering them, and then these rants are exaggerated and turned into storylines. This feels very specific to South Park’s style - I don’t think you can build game features around “Isn’t it weird that nobody reads the iTunes terms of service?”&lt;/p&gt;
+&lt;p&gt;There was a good line on editing and how it’s about replacing “this &lt;em&gt;and&lt;/em&gt; this &lt;em&gt;and&lt;/em&gt; this” with “this &lt;em&gt;therefore&lt;/em&gt; this &lt;em&gt;but&lt;/em&gt; this”, so you end up with a series of connected ideas.&lt;/p&gt;
+&lt;p&gt;From all the videos I watched, I haven’t made any huge revelations but I do feel like this is useful. I want to see more footage of people doing creative work together.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2021-01-23-week-5/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2021-01-23-week-5/</guid>
+			</item>
+		
+			<item>
+				<title>Winter thoughts - 4&amp;nbsp;of&amp;nbsp;6</title>
+				<description>&lt;p&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/dHoFyhBFXoY&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;</description>
+				<pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2021-01-16-week-4/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2021-01-16-week-4/</guid>
+			</item>
+		
+			<item>
+				<title>Winter thoughts - 3&amp;nbsp;of&amp;nbsp;6</title>
+				<description>&lt;p&gt;I tried to play video games over the break but none of them stuck.&lt;/p&gt;
+&lt;p&gt;In Hitman (2016) I found myself getting bored as I walked around a lavish location looking for murder opportunities.&lt;/p&gt;
+&lt;p&gt;In Monster Hunter: World I enjoyed the premise and the cute cat companions but lost interest when I had to run around the map.&lt;/p&gt;
+&lt;p&gt;Genshin Impact was beautiful and I enjoyed playing through a tutorial quest but I felt like I had seen enough. You use lightning attacks when the enemies are standing in water - I get it, I like it, but I don’t see any reason to spend more time on this.&lt;/p&gt;
+&lt;p&gt;I did enjoy and finish Wide Ocean Big Jacket. It’s really good. It’s an hour long narrative game.&lt;/p&gt;
+&lt;p&gt;I think this shows my state of mind right now. I’m sure I could fall in love with any of these games at the right time. Currently, I seem to have little interest in exploring virtual spaces, no matter how beautiful, or learning combat mechanics. I am enjoying narratives and character-driven stuff.&lt;/p&gt;
+&lt;p&gt;I play Fortnite every day, but that’s a routine now and doesn’t really count. I want to earn a Battle Pass without paying for it, which will require almost a year of playing every day.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Our Swedish classes have started up again. Swedish class is the hardest thing I do. It’s 1 hour 30 minutes long, and I find myself looking at the clock and wishing it over. Our teacher is amazing, and the class is really good - but it drains my energy, similar to exercise I guess. It shows how easy the rest of my life is; I’m sure many people spend more than 1 hour 30 minutes each week watching the clock.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;One of my old indie game-dev friends tweeted that he wants to do no programming this year except at his job. I like the idea and I can see how it would lead to a more balanced lifestyle, but I don’t think I could do that myself.&lt;/p&gt;
+&lt;p&gt;I want to do &lt;em&gt;something&lt;/em&gt; outside of work this year. There’s a lot of constraints: it can’t involve physically meeting people, and I don’t want to buy objects that will make it harder to move house. Doing something on my computer would definitely be the easiest answer. Hmmm.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2021-01-10-week-3/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2021-01-10-week-3/</guid>
+			</item>
+		
+			<item>
+				<title>Winter thoughts - 2&amp;nbsp;of&amp;nbsp;6</title>
+				<description>&lt;p&gt;Whoops, these were supposed to be weekly. It’s been a month since the last one. That’s OK.&lt;/p&gt;
+&lt;p&gt;I’m coming up to the end of a three-week holiday. I didn’t do much except sleep, and that’s OK too.&lt;/p&gt;
+&lt;p&gt;The best thing about this holiday is that I stopped thinking about work. I was thinking about work a lot. I would often wake up in the middle of the night and send myself an email because I had an Important Work Thought.&lt;/p&gt;
+&lt;p&gt;I don’t want to do that any more. 2021: the year of not working as much.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I listened to an episode of the &lt;a href=&quot;https://thespelunkyshowlike.libsyn.com/&quot;&gt;Eggplant podcast&lt;/a&gt; where they interviewed Chevy Ray Johnston about his magic school game Ikenfell. I like magic school settings and have an unfinished magic school game of my own, so I was keen to listen.&lt;/p&gt;
+&lt;p&gt;It’s a great interview, with some interesting ideas on how to balance special abilities vs normal damage-dealing attacks. But most importantly, Chevy recommended two magic school stories: the novel &lt;a href=&quot;https://www.rainbowrowell.com/carry-on&quot;&gt;Carry On&lt;/a&gt; and the web series &lt;a href=&quot;https://www.youtube.com/playlist?list=PLbvYWjKFvS5rX2yv-k5AJ8oxPoZ9zHcpe&quot;&gt;Carmilla&lt;/a&gt;. I started watching the web series today. It’s fun!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I watched a lot of TV this year. If I’m going to continue watching a lot of TV, I wonder if I can make better choices about what to watch.&lt;/p&gt;
+&lt;p&gt;A lot of the shows I watch don’t really give me much in return for my time. I watched every episode of Star Trek: Discovery and I don’t remember any episode that “spoke to me” or made me feel something. Same with Chilling Adventures of Sabrina, which dropped a new season yesterday. I’m going to watch it anyway, but I’m not sure why?&lt;/p&gt;
+&lt;p&gt;Maybe trying to make my TV habits &lt;em&gt;enriching&lt;/em&gt; is missing the point. I don’t know. I don’t want to overthink my hobbies and turn them into jobs. But I also don’t want to spend a thousand hours watching bad TV if watching good TV would leave me feeling better.&lt;/p&gt;
+</description>
+				<pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2021-01-01-week-2/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2021-01-01-week-2/</guid>
+			</item>
+		
+			<item>
+				<title>Weekly thoughts - 1&amp;nbsp;of&amp;nbsp;6</title>
+				<description>&lt;p&gt;I took 4 days off work, which is the most time I’ve taken off work since work began. I am bad at this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Day 1: sleeping.&lt;/li&gt;
+&lt;li&gt;Day 2: in the work Slack, discussing \ arguing about the feature I’m working on - this is just work.&lt;/li&gt;
+&lt;li&gt;Day 3: watching the community respond to our new update - this is also just work.&lt;/li&gt;
+&lt;li&gt;Day 4: mostly a blur, but I definitely did not clean my kitchen, play a new video game, or spend any real time outside.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;On the latest Crate and Crowbar podcast, the hosts discussed how Destiny 2 removed a whole lot of content from the game. Maybe half of the game. Wow. I think it’s great. Similar vibes to the Fortnite reset where they threw the map into a black hole and started again. Why not?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I have to return a product and I am super stressed about it. I need to print a return form and tape it to the box, then take the box to a post center. It’s the kind of task that I would comfortably do in a lunch break in my old life. Things feel more difficult now.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I started reading a good She-Ra fanfic. It has the characters talking out all their feelings that were unresolved when the show ended. It’s very cathartic.&lt;/p&gt;
+&lt;p&gt;I don’t read much fanfic but maybe I should; I would enjoy similar epilogues for other stories too. I remember getting to the end of Harry Potter and being outraged that the story leapt forward in time as soon as the battle was over. I wanted to see Harry and Ginny catch up after their year apart! Instead I got to see them as boring adults, putting their kids on a train.&lt;/p&gt;
+&lt;p&gt;When I read the ending of Harry Potter, I was just a few years older than the protagonists. Leaving high school and saying goodbye to everyone was a significant, recent memory for me. University was my whole world. It seemed unbelievable that J K Rowling would skip over everything that mattered to me show banal parenting.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I used to publish journal posts like this every day. One day I realised they were a liability and I took them all offline.&lt;/p&gt;
+&lt;p&gt;As a special end-of-2020 celebration, I’m doing it again - just once a week this time. See you next week!&lt;/p&gt;
+</description>
+				<pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+				<link>https://www.matthewgatland.com/journal/2020-11-30-week-1/</link>
+				<guid isPermaLink="true">https://www.matthewgatland.com/journal/2020-11-30-week-1/</guid>
+			</item>
+		
+	</channel>
+</rss>

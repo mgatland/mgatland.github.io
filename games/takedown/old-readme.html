@@ -1,0 +1,284 @@
+<html>
+
+<head>
+<title>TakeDown</title>
+</head>
+
+<body bgcolor="#006600" text="#FFFFFF" link="#00FF00" vlink="#00FF00" alink="#FFFF00">
+
+<p><font size="4"><b>TakeDown </b></font>Version 0.5</p>
+
+<p>TakeDown is a 2D game of action and strategy, taking elements from traditional 
+  arcade style games and modern, story driven strategy games. You take on the 
+  role of a 'Peacekeeper', the most elite soldier the world has ever seen. You 
+  are the first and final fighting force to protect the fabric of society from 
+  those that seek to destroy it.</p>
+
+<p>Please read the installation instructions before attempting to run TakeDown.</p>
+<p>&nbsp;</p>
+<p><font size="4">Manual Installation</font></p>
+
+<p>The .zip file that TakeDown is distributed should put the resource files in 
+the correct subdirectories. The file must be extracted with paths enabled. However, these files must be manually 
+moved to the correct destinations:</p>
+<blockquote>
+  <ul>
+    <li><b>Wavemix32.dll</b> - Windows system folder, usually <b>C:\Windows\System\</b> 
+    (or C:\Windows\System32\ if it's there.)</li>
+    <li><b>hatten.ttf </b>- Windows fonts folder, usually <b>C:\Windows\Fonts</b></li>
+  </ul>
+
+</blockquote>
+
+<p>If you are using Windows XP or experience problems with sound in TakeDown, 
+you will also need to install the following file:</p>
+<blockquote>
+  <ul>
+    <li><b>Wavemix32.ini</b> - Windows main folder, usually <b>C:\Windows\</b></li>
+  </ul>
+<p><b>If you already have a newer version of any of these files, do not 
+overwrite your newer version.</b></p>
+
+</blockquote>
+
+<p>All the files you have to move will be automatically placed in a subdirectory 
+called <b>Temp</b> so that you can find them easily. The other files should be in the following directories:</p>
+
+<blockquote>
+  <ul>
+    <li>(Main TakeDown Directory)<b>\Resources</b>&nbsp;&nbsp; - All <b>.bmp</b> files </li>
+    <li>(Main TakeDown Directory)<b>\Sounds&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    - All <b>.wav</b> files </li>
+    <li>(Main TakeDown Directory)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    - <b>All other files </b></li>
+  </ul>
+</blockquote>
+
+<p>TakeDown requires a Visual Basic runtime file called '<b>msvbvm60.dll</b>'.
+<b>You probably have the file already</b>. If you don't, TakeDown will tell you 
+when you try to run it. The file belongs in your Windows System32 or System 
+directory and can be found all over the internet - try these sites:
+<a href="http://www.dll-files.com/dllindex/dll-files.shtml?msvbvm60">1</a>,
+<a href="http://www.milori.com/developer/runtimes/">2</a>. </p>
+
+<p>&nbsp;</p>
+
+<p><font size="4">Interface</font></p>
+
+<p>Double-click the file TakeDown.exe. This will bring you to the main menu with the
+following options:</p>
+
+<p>New Game - Begin a new game of TakeDown at the start of any episode.</p>
+
+<p>Continue - Continue the game that you are currently playing or have just loaded.</p>
+
+<p>Load/Save - Save your current game so that you can continue it later OR load a game you
+have previously saved.</p>
+
+<p>Help - Gameplay and control instructions .</p>
+
+<p>Options - Not currently implemented</p>
+
+<p>Exit Game - Exits the game.</p>
+<p>&nbsp;</p>
+
+<p><font size="4">Playing</font></p>
+
+<p>For game play and control instructions, click the Help button in the main menu.</p>
+
+<p>When you are killed or you choose to exit during a mission, you will return to the main
+menu. Clicking Continue will return you to the last level that you were playing.</p>
+
+<p>You can only continue a game from the start of a level. When you load a saved 
+  game, you will return to the start of the level that the game was saved on.</p>
+<p>&nbsp;</p>
+
+<p><b><font size="4">Troubleshooting</font></b></p>
+
+<p>If you experience problems running TakeDown, try the following steps:</p>
+<ul>
+  <li><u>File locations.</u> Check the manual install instructions above and 
+  make sure you have all the required files, and that they are all in the 
+  correct place.</li>
+  <li><u>Make sure your screen resolution is at 800x600 or above.</u> Right 
+    click on your windows desktop, click Properties, click Settings, and adjust 
+    the Screen Area Slider. </li>
+  <li><u>Make sure you are running in 16 bit high colour. </u>Right click on 
+    your windows desktop, click Properties, click Settings, and select High Color 
+    on the colours box.</li>
+  <li><u>Close any unneeded programs before running TakeDown.</u> This will make 
+  the game run faster.</li>
+  <li><u>Make sure you have the msvbvm60.dll file.</u> Read the Manual Installation 
+    instructions above.</li>
+  <li><u>Can your computer run TakeDown at all?.</u> TakeDown only works in 
+  Windows. It was tested on a Celeron 450 with 256 megs of RAM running Windows 
+  98, and a Pentium 500 with 256 megs of RAM running Windows XP.</li>
+</ul>
+<p>&nbsp;</p>
+<p><font size="4"><b>Version History</b></font></p>
+<p>&nbsp;</p>
+<blockquote>
+  <p><b>Version 0.5</b></p>
+</blockquote>
+<ul>
+  <li>slight changes to mission. Hardest missions made easier.</li>
+  <li>Blank buttons on multichoice briefing fixed?</li>
+  <li>starting screenposition adjusted.</li>
+  <li>'Startled' enemies are not 'aware', so will not trigger aware triggers 
+  until they have fulley realised that the player is there.</li>
+  <li>Added support for penetrating crowd-control shots</li>
+  <li>Savegames store upgrades, current weapons and material. These still aren't 
+  implemented though</li>
+  <li>upgrading through briefing now possible</li>
+  <li>added gunmod array to player, as well as save</li>
+  <li>added temp weapon upgrade effects - exaggerated</li>
+  <li>shots may have 'stealth' - does not effect explosions</li>
+  <li>better upgrades implemented - more moderate</li>
+  <li>removed a redundant copy of the gunmod array. One that I added a little 
+  while ago.</li>
+  <li>Path improvement - each path only has X links, instead of a true\false 
+  link for every other path - paths are now far far faster - only 10 checks 
+  instead of 100!</li>
+  <li>Path - this has one problem - in outdoors, paths tend to want too many 
+  links and must be thinned out - leads to inferior outdoor navigation</li>
+  <li>Enemies now have a Target that can be other enemies or the player - not 
+  100% supported</li>
+  <li>Begun implementing teams - 0, 1 are baddies (fight each other) - 2 is 
+  player allies</li>
+  <li>2 new missions</li>
+  <li>Save interface more friendly</li>
+  <li>Player can't hurt allies</li>
+  <li>runto commands now use keysquares - this is so much easier I can hardly 
+  believe it!</li>
+  <li>fixed steal (fuel virus?) mission using keysquares</li>
+  <li>added losemission - before I made you 'win' the mission and progress 0 
+  levels, but that saved flags. Fixed.</li>
+  <li>Health and heat display at the start of a level standardised</li>
+  <li>Missions 5 and 6 swapped to give you a break</li>
+  <li>Teammate death menu for missions with a buddy</li>
+  <li>Shot owner now integer, not string</li>
+  <li>suspicion code all redone for multiple awareness</li>
+  <li>a dead enemy 'targets' it's killer so friends can see whodunnit.</li>
+  <li>bAllAware flag added</li>
+  <li>enemies who start with a combat state are set to allaware</li>
+  <li>enemies do the cansee test for friends only on a 1/3 chance - lower 
+  priority to speed up game. Checks on opponents are still every frame. (Since 
+  the fastest enemy move speed is 4, testing 'every 3 frames' should be fine)</li>
+  <li>----funtion ai_suspect - not used everywhere it should be</li>
+  <li>mission 10 redone.</li>
+</ul>
+<p>&nbsp;</p>
+<blockquote>
+  <p><b>Version 0.4</b></p>
+</blockquote>
+<ul>
+  <li>scorch marks and correctly positioned explosions!</li>
+  <li>Keysquares are coded but NOT TESTED YET</li>
+  <li>Bug fix - forgot to free all waves on shutdown. Now they're all done.</li>
+  <li>on error goto next</li>
+  <li>visual cue shows which enemy is speaking - NEEDS NEW IMAGE</li>
+  <li>different fighting distances for different enemies</li>
+  <li>triggered sounds must be able to be attached to an enemy and be given a 
+  solo flag</li>
+  <li>Scrolling! Now TakeDown maps can be as large as you want, and the screen 
+  will scroll</li>
+  <li>BUG - SOME KIND OF MEMORY LEAK? IN XP - DOESN'T FIND THE DLL</li>
+  <li>to speed stuff up - put a distance cap on Ph_cansee</li>
+  <li>off-screen things do not play sound - new function 
+  game_onscreen(x,y,width,height)</li>
+  <li>AI is about as good as dodging as I want at different skill levels. - no 
+  it isn't.</li>
+  <li>Artifacts around screen removed - I was turning Singles into integers</li>
+  <li>shots don't explode on level boundries - they just disappear</li>
+  <li>The game will not let you play episodes that don't exist</li>
+  <li>Bug fix - cloned enemies were not inheriting material or min and max fight 
+  distances</li>
+  <li>Playtest - the 8 missions of the TakeDOwn beta campaign are playable and 
+  not overly difficult - some took several attempts - the entire campaign took 
+  30 minutes.</li>
+  <li>Better notes page - it's just a form. Not as cool, but it works.</li>
+  <li>Installer</li>
+  <li>Tester informs me that Version 0.4 works fine - EXCEPT THE MISSING FONT</li>
+</ul>
+  <p>&nbsp;</p>
+<blockquote>
+  <p><b>Version 0.3</b></p>
+</blockquote>
+<ul>
+  <li>Now paths are stored to each pathnode as well as the player.</li>
+  <li>Time before being notice changed. Enemies notice player more quickly when 
+    he's closer. changes to seeing shots, friends and explosions.</li>
+  <li>Enemies attempt to surround after certain periods of fighting.</li>
+  <li>Enemies become more suspicious as they see things. Over time they become 
+    less suspicious.</li>
+  <li>more slots for: triggers, shots, explosions, objects</li>
+  <li>10 count down\up timers with bools for direction</li>
+  <li>Enemy shooting is more random</li>
+  <li>Multiplied all health and damage by 20, so there can be more precise 
+    damage amounts</li>
+  <li>removed Set Gun command</li>
+  <li>Conds now have 3 props (not 2)</li>
+  <li>Flags now exist, allowing complicated missions</li>
+  <li>killgoal and countdowntime removed, keeping Healamount</li>
+  <li>added decorations, offonable</li>
+  <li>new text messages</li>
+  <li>Paths only check for other paths closer than 7 units - allows me to use 
+    lots of pathnodes without slowing the game</li>
+  <li>When navigating on the path network, don't let enemies do a Cansee check 
+    for other paths. Instead, check if the path that they are standing on is linked.</li>
+  <li>Up to 4 options in briefing, so the player can make decisions.</li>
+  <li>Graphics loaded out of files</li>
+  <li>Improved controls - no more annoying ziggy movement!</li>
+  <li>Different types of runto command - they can be patrolling or be determined 
+    to go where they're going</li>
+  <li>Speed up blue and purple explosion animations</li>
+  <li>Scripting system - Multiple conditions! Multiple actions!</li>
+  <li>Halved sound quality, so sound files are smaller</li>
+  <li>all explosions now have 5 frames (before some had 5 and some had 3)</li>
+  <li>each shot type has its own fire sound and wall hit sound</li>
+  <li>Sounds - message beep, overheat warning</li>
+  <li>Saving + loading works</li>
+  <li>enemies see things behind them with 25% efficiency, when unaware</li>
+  <li>Make enemies use clearer paths, don't use LOS for path-finding</li>
+  <li>delay after death before message box pops up</li>
+  <li>Improved 'loading screen'</li>
+  <li>AI Movement - weigh up value of all 5 possible moves, then choose the best 
+    one.</li>
+  <li>rows of objects compressed into one large object - should speed up LOS 
+    checks tenfold...</li>
+  <li>Fatal LOS bug corrected - Got the sucker! - angle values were inverted 
+    in each quadrant - I didn't notice because I only checked the middle values, 
+    which remained the same.<br>
+    LOS still has small irrationalities, however - some squares visible in 
+    large area of non-visible squares - I guess this is because of the centres 
+    being so specific. Ideally, the desired angle would be a spread, not a single 
+    value.</li>
+  <li>increased enemy limit by 3x to 30 - my computer can handle it - big firefights!</li>
+  <li>Notes implemented! You can view and cycle through them. They're just 
+    a label, so they flicker.</li>
+  <li>Bug fix - when the player cannot be seen by a path, we don't waste time 
+    trying to draw one to him. This also means enemies will go to the last place 
+    he was on the network, instead of trying to force their way to him, which 
+    will be better most of the time.<br>
+  </li>
+</ul>
+<blockquote>
+  <p>&nbsp;</p>
+  <b>Version 0.2</b></blockquote>
+<ul>
+  <li> Navigation paths for semi-intelligent movement.</li>
+  <li>AI rework</li>
+  <li>LOS improvements?</li>
+  <li>Player's weapon is kept between levels</li>
+  <li>Double frame rate Processor usage should now be halved!</li>
+  <li>Flickering HUD Now the screen is in a picture box and is refreshed 
+    separately.</li>
+  <li>Improved interface - Smooth moving health bar, warning before exit.</li>
+</ul>
+<p>&nbsp;</p>
+<p><font size="4"><b>Legal:</b></font></p>
+<p>Everything I made is mine. You can copy and distribute it, learn from it, 
+charge people money for it, even hate it if you want to. You can do whatever you 
+want, except say you made it. You didn't. It's mine.</p>
+</body>
+</html>

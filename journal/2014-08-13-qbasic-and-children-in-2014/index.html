@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>QBasic and children in 2014</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/prism.css">
+  <link rel="stylesheet" href="/css/stark.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>QBasic and children in 2014</h2>
+    	<div class="subtle">August&nbsp;13,&nbsp;2014</div>
+    </div>
+    
+<p>Our Code Club took a break from Scratch to teach QBasic this week.</p>
+<p><img src="/journal/images/qbasic.png" alt="QBasic, still beautiful."></p>
+<p>I wrote a <a href="http://codeclubakl.github.io/qbasic/">QBasic activity</a>, made easy installers for Windows and Mac and hacked together a web based version for Chromebook.</p>
+<p>Our club has about 20 children, aged 10 to 13 years old.</p>
+<p>How did it go?</p>
+<h3 id="install-trouble">Install trouble</h3>
+<p>My “Easy installer” wasn’t. On Windows, to extract a zip, go into a subfolder and run a .bat file is not a simple task. Some people had WinZip, some had WinRar, some had the native interface… all of these tools lead you to browse through a zip rather than extract it.</p>
+<p>The Mac experience was better, because the whole zip is extracted when you click on it. But it was still not ideal.</p>
+<p>If we had to install software again, I would build a proper install wizard for Windows, and an Application for mac.</p>
+<p>But asking beginners to install anything is best avoided - use a web-based version.</p>
+<h3 id="qbasic-online">QBasic online</h3>
+<p>The <a href="http://codeclubakl.github.io/qbasic/online/">web version</a> was easier to get started with – just click a link. Unfortunately, it introduced other problems.</p>
+<p>I discovered the night before that the plus and minus keys didn’t work. We need those!</p>
+<p>I fixed that, but there were many other issues too. Some from web-DOSBox being immature, some from me not knowing how to configure it properly.</p>
+<p>One big problem is that you can’t save your work. It only exists while the DOS simulation is running.</p>
+<p>Fix that, and this would be the best way to introduce QBasic.</p>
+<h3 id="the-activity">The activity</h3>
+<p>After the slow setup, it went OK. Everyone progressed through the instructions.</p>
+<p>Some people got to the end and found the “Extra for experts.” It’s easy to tell because they start playing sounds :)</p>
+<p>These are the kinds of mistakes I saw:</p>
+<ul>
+<li><code>PRINT: &quot;Hello&quot;</code> instead of <code>PRINT &quot;Hello&quot;</code></li>
+<li><code>PRINT Hello</code> instead of <code>PRINT &quot;Hello&quot;</code></li>
+<li><code>GOTO home</code> without adding the <code>home:</code> label</li>
+</ul>
+<p>Like with beginner HTML and CSS, we saw a lot of mistakes with special characters, and the concept that they mark the start and end of blocks.</p>
+<p>An interesting difference is that Basic gives errors when you make a mistake. I think this is better for learning than HTML and CSS, which just act weird.</p>
+<p>Unfortunately, QBasic’s error messages are meaningless to beginners. I went around giving answers (“Oh, you need to get rid of that colon”) but next time I would probably try to help them to help themselves. Maybe “It means there’s a problem on that line. Can you see a difference between your code and the example? Maybe ask someone else to look too.”</p>
+<h3 id="closing">Closing</h3>
+<p>In our closing circle, most people commented on how precise you have to be.</p>
+<p>This is a good lesson, but there might be better ways to teach it.</p>
+<p>(There’s a game where you give students working code, and ask them to break it in a way that’s hard to spot – then challenge another student to find the mistake. I like this because it presents finding bugs as a fun challenge, rather than a frustration.)</p>
+<p>I wanted the activity to teach people about control flow and how programs run line-by-line – concepts that I feel are obfuscated in the colourful, multithreaded OO world of Scratch. I have no idea if it succeeded? <em>shrug</em>.</p>
+<p>At least two students were not pleased. “Can we do Scratch next week?” But someone else said they liked it more than Scratch, and another one continued working with QBasic at home. So… inconclusive.</p>
+
+  </div>
+	<footer>
+	
+  
+<a href="/journal/2014-08-25-multiplayer-block-breaking/" title="Multiplayer block-breaking">Newer</a> &nbsp; 
+  <a href="/journal/2014-08-10-qbasic-on-modern-computers/" title="QBasic on Modern Computers">Older</a>
+
+		<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">QBasic and children in 2014</span>
+	
+		</div>
+	</footer>
+	</footer>
+</section>
+</body>
+</html>

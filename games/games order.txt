@@ -1,0 +1,43 @@
+canonical games order:
+[x] 39 wizard school dropout / realm2
+[x] 38 Matthew's Dungeons of the Unforgiven
+[x] 37 100 Days
+** possibly some missing **
+[x] 36 Faithgame
+[x] 35 Caves
+[x] 34 Flick Games
+[x] 33 Episode 12
+[x] 32 Scratch Games
+[x] 31 Autograph Hunter
+[x] 30 Space Protector
+[x] 29 Cerulean (2)
+[x] 28 neptune 9
+** somewhere around here: Network
+[x] 27 Let's Be Ducks
+[x] 26 Tide
+[x] 25 Skate
+[x] 24 wearefrog
+[x] 23 locked-away
+[x] 22 alices-21st
+[x] 21 saprobiont
+[x] 20 room2011
+[x] 19 cerulean (1)
+18 brotherhood
+[17] catastrophe
+[16] improv
+[15] space-octopus-mono-2010
+[14] space-hawk
+[13] cave-flyer-green
+[12] i-thought-we-had-a-thing
+[11] oil-exploration
+[10] cave-flyer-blue
+[9]  return-to-happytown
+[8] adventure-again
+[7] my-first-flash-game
+[x] 6 space-octopus-mono (original)
+[x] 5 trail-bay
+[x] 4 takedown
+[x] 3 adventure
+2 seekers-pack (to add)
+1 old-projects
+	[1 is temporarily used for room tour 2003]

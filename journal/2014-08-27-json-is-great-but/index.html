@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON is great, but…</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/prism.css">
+  <link rel="stylesheet" href="/css/stark.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>JSON is great, but…</h2>
+    	<div class="subtle">August&nbsp;27,&nbsp;2014</div>
+    </div>
+    
+<p>In the last post I talked about making Glimmerseed, a multiplayer platform game.</p>
+<p>The network code worked great at university, but not at home. I <em>assumed</em> that I was sending too much data for my home internet connection.</p>
+<p>So how much was I actually using?</p>
+<h3 id="data-usage">Data usage</h3>
+<p>Chrome makes it easy to see what’s being sent over our websockets. Let’s pop open the web inspector and watch the traffic in a two-player game of Glimmerseed:</p>
+<p><img src="/journal/images/2014-08-27-glimmeseed-net-1.png" alt="Chrome with the web inspector open"></p>
+<p>I’m showing two frames here. Each frame has three messages:</p>
+<ul>
+<li>we send our player data (401 bytes). This line is green.</li>
+<li>we get some monster data (131 bytes)</li>
+<li>we get the other player’s data (416 bytes)</li>
+</ul>
+<p>Then it repeats. (The messages can be slightly different sizes each time.)</p>
+<p>The first frame adds up to 948 bytes. At 60 frames per second, that gives us 56 KB per second, or 3.2 MB per minute.</p>
+<p>Each additional player would add about 1.4 MB per minute.</p>
+<p>A 5 player game would use about 8.8 MB per minute.</p>
+<p>That’s more than a Netflix movie. I can do better.</p>
+<h3 id="json">JSON</h3>
+<p>All the messages are sent in JSON, which is a beautiful but inefficient format.</p>
+<p>Here’s the entire 401-byte player update:</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">{</span> <span class="token string-property property">"args"</span> <span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token punctuation">{</span> <span class="token string-property property">"player"</span> <span class="token operator">:</span> <span class="token punctuation">{</span> 
+                <span class="token string-property property">"animDelay"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"animFrame"</span> <span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"animState"</span> <span class="token operator">:</span> <span class="token string">"standing"</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"block"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"deadTimer"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"dir"</span> <span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"fallingTime"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"groundedY"</span> <span class="token operator">:</span> <span class="token number">94</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"hitPos"</span> <span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"id"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"jumpIsQueued"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"live"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"loading"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"name"</span> <span class="token operator">:</span> <span class="token string">"beta"</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"pos"</span> <span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">"x"</span> <span class="token operator">:</span> <span class="token number">79</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">"y"</span> <span class="token operator">:</span> <span class="token number">94</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"shootingAnim"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"shotThisFrame"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"size"</span> <span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">"x"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">"y"</span> <span class="token operator">:</span> <span class="token number">6</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"spawnPoint"</span> <span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">"x"</span> <span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+                    <span class="token string-property property">"y"</span> <span class="token operator">:</span> <span class="token number">90</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"state"</span> <span class="token operator">:</span> <span class="token string">"grounded"</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"timeSinceLastShot"</span> <span class="token operator">:</span> <span class="token number">221</span><span class="token punctuation">,</span>
+                <span class="token string-property property">"vDir"</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string-property property">"type"</span> <span class="token operator">:</span> <span class="token string">"p"</span>
+          <span class="token punctuation">}</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"name"</span> <span class="token operator">:</span> <span class="token string">"data"</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>Most of this message is the labels, not the data. For example, <code>&quot;animDelay&quot; : 0</code> uses 11 bytes for the label and only 1 byte for the value.</p>
+<p>Since we send the same values every time, we could remove the labels and use an array of values instead. We just remember the order: the first value is animDelay, the second value is animFrame, and so on.</p>
+<p>If we did that, the message would look like this:</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">{</span> <span class="token string-property property">"args"</span> <span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token punctuation">{</span> <span class="token string-property property">"player"</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"standing"</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">94</span>
+        <span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">"beta"</span><span class="token punctuation">,</span><span class="token number">79</span><span class="token punctuation">,</span><span class="token number">94</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">630</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token string">"grounded"</span><span class="token punctuation">,</span><span class="token number">221</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string-property property">"type"</span> <span class="token operator">:</span> <span class="token string">"p"</span>
+          <span class="token punctuation">}</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string-property property">"name"</span> <span class="token operator">:</span> <span class="token string">"data"</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>This is now only 146 bytes – 36% of the original. That’s pretty awesome, and it’s easy to do.</p>
+<p>The message is a little bit harder to understand, but as long as you remember which value goes in which position, it’s OK.</p>
+<p>With these changes, our 5 player game would only use 3 MB per minute.</p>
+<h3 id="binary-is-better">Binary is better</h3>
+<p>In a string, a number uses one byte per digit. For example, ‘10’ takes two bytes: one for the one and one for the zero. In binary, one byte can count up to 255, and two bytes can count up to 65,025. It’s much more efficient.</p>
+<p>I converted the player data to binary.</p>
+<p>(As part of this, I also the convert the state strings into numbers, so a state of “falling” is now sent as ‘0’, and ‘0’ converts back to “falling” when the message is recieved. We could have done this in the JSON too, it would have saved about 14 bytes.)</p>
+<p>The result was 35 bytes to store all player data except the name. (I left the name out of the binary, and put it in the JSON wrapper instead.)</p>
+<p><img src="/journal/images/2014-08-27-binary-and-json.png" alt="binary with JSON wrapper"></p>
+<p>The first line shows the binary. (It seems to have grown a byte for some reason - a header?) The second line shows the JSON which wraps the binary.</p>
+<p>Unfortunately, the JSON wrapper now gets a “_placeholder” object which is 29 bytes long. The placeholder is almost as big as the actual data!</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string-property property">"type"</span><span class="token operator">:</span><span class="token string">"p"</span><span class="token punctuation">,</span><span class="token string-property property">"id"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string-property property">"name"</span><span class="token operator">:</span><span class="token string">"bbb"</span><span class="token punctuation">,</span><span class="token string-property property">"player"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token string-property property">"_placeholder"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token string-property property">"num"</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
+<p>The whole message was 115 bytes, which is only 29% as big as our original message. (It’s 79% of our improved JSON-without-labels message).</p>
+<p>This version is on the server (at the time I write this). You can try it and inspect the packets for yourself: <a href="http://glimmerseed.herokuapp.com/">Glimmerseed</a>.</p>
+<p>(Note you have to open the Websocket view before the connection starts, so open it then refresh the page.)</p>
+<h3 id="other-optimisations">Other optimisations</h3>
+<p>The player’s name <em>never</em> changes, so sending it 60 times per second is extremely wasteful. I should fix that.</p>
+<p>Other values, like the player’s respawn point, only change every few seconds at most. Sending these every frame is also wasteful.</p>
+<p>However, if we have values we only send <em>sometimes</em>, we need a way to tell the reciever which bits of information are included and which are missing. This can get complicated, and adds its own overhead to the message size.</p>
+<h3 id="that-placeholder">That placeholder</h3>
+<p>Most annoying is the 29 byte placeholder that socket.io adds. It makes up 25% of the data sent. To get rid of it, I need to stop using socket.io or stop using binary.</p>
+<p>Using a library that lets me send pure binary is the right solution, but also the most effort.</p>
+<p>A quick solution is to Base64-encode the binary data. This turns it into a string, which can go straight into the JSON without a placeholder – but also makes the binary 33% larger.</p>
+<p>The resulting message would look like this:</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string-property property">"type"</span><span class="token operator">:</span><span class="token string">"p"</span><span class="token punctuation">,</span><span class="token string-property property">"id"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string-property property">"name"</span><span class="token operator">:</span><span class="token string">"bbb"</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"player"</span><span class="token operator">:</span><span class="token string">"AwAAAgAAA/8AXgAeAFoAAAAAAAADAAIAHgAeAF4ABQAGAAE="</span><span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
+<p>The binary data becomes 12 bytes larger, but we lose 29 bytes of placeholder so the total data sent is smaller.</p>
+<h3 id="conclusions">Conclusions</h3>
+<ul>
+<li>I could get big reductions in data use quite easily.</li>
+<li>Sending binary with socket.io is easy, but has a 29 byte overhead.</li>
+<li>The game still doesn’t work well on my home internet connection :/</li>
+<li>But it will use a lot less of your phone’s data cap :)</li>
+</ul>
+
+  </div>
+	<footer>
+	
+  
+<a href="/journal/2014-09-29-jump-and-shoot/" title="Jump and Shoot">Newer</a> &nbsp; 
+  <a href="/journal/2014-08-25-multiplayer-block-breaking/" title="Multiplayer block-breaking">Older</a>
+
+		<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">JSON is great, but…</span>
+	
+		</div>
+	</footer>
+	</footer>
+</section>
+</body>
+</html>

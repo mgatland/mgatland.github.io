@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+ <meta charset=utf-8>
+ 
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+ <script type="text/javascript" src="jquery.maphilight.min.js"></script>
+ <script type="text/javascript">$(function() {
+ $('.map').maphilight();
+ });
+ 
+ $.fn.maphilight.defaults = {
+ fill: true,
+ fillColor: 'ffffff',
+ fillOpacity: 0.1,
+ stroke: true,
+ strokeColor: 'ffffff',
+ strokeOpacity: 0.3,
+ strokeWidth: 1,
+ fade: true,
+ alwaysOn: false,
+ neverOn: false,
+ groupBy: false,
+ wrapClass: true,
+ shadow: false,
+ shadowX: 0,
+ shadowY: 0,
+ shadowRadius: 6,
+ shadowColor: '000000',
+ shadowOpacity: 0.8,
+ shadowPosition: 'outside',
+ shadowFrom: false
+ }
+ 
+ 
+ </script>
+ 
+</head>
+<body>
+ <div id="container">
+ <header>
+ <h1>Room Tour</h1>
+ </header>
+ <div id="photoandcaption">
+ <img class="map" src="sized510/myroom06.JPG" width="510" height="382" alt="" usemap="#imagemap">
+ <map name="imagemap">
+ <area shape="poly" alt="A packet of superglue" title="A packet of superglue" coords="148,55,255,55,250,218,247,223,112,221,108,215" href="" data-maphilight='{"strokeColor":"fff600","fillColor":"fff600","strokeOpacity":0.4}'>
+ <area shape="poly" alt="A handwritten list of Ceroc dance moves. I'm tying to get better at remembering them." title="A handwritten list of Ceroc dance moves. I'm tying to get better at remembering them." coords="286,154,260,274,260,286,249,322,293,337,298,337,328,346,343,347,509,371,509,223,466,292,290,273,283,269" href="" data-maphilight='{"strokeColor":"fff600","fillColor":"fff600","strokeOpacity":0.4}'>
+ <area shape="poly" alt="A Barkers pamphlet on how to look after clothes." title="A Barkers pamphlet on how to look after clothes." coords="271,218,260,271,259,287,249,322,292,336,287,381,114,382,163,222,247,223,250,218,251,216" href="" data-maphilight='{"strokeColor":"fff600","fillColor":"fff600","strokeOpacity":0.4}'>
+ </map>
+ <div id="caption">
+ <p><a href="topofdrawers.html">Go back.</a></p>
+ </div>
+ </div>
+ </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-707544-6");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+ <meta charset=utf-8>
+ 
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+ <script type="text/javascript" src="jquery.maphilight.min.js"></script>
+ <script type="text/javascript">$(function() {
+ $('.map').maphilight();
+ });
+ 
+ $.fn.maphilight.defaults = {
+ fill: true,
+ fillColor: 'ffffff',
+ fillOpacity: 0.1,
+ stroke: true,
+ strokeColor: 'ffffff',
+ strokeOpacity: 0.3,
+ strokeWidth: 1,
+ fade: true,
+ alwaysOn: false,
+ neverOn: false,
+ groupBy: false,
+ wrapClass: true,
+ shadow: false,
+ shadowX: 0,
+ shadowY: 0,
+ shadowRadius: 6,
+ shadowColor: '000000',
+ shadowOpacity: 0.8,
+ shadowPosition: 'outside',
+ shadowFrom: false
+ }
+ 
+ 
+ </script>
+ 
+</head>
+<body>
+ <div id="container">
+ <header>
+ <h1>Room Tour</h1>
+ </header>
+ <div id="photoandcaption">
+ <img class="map" src="sized510_2/drawers02.JPG" width="510" height="382" alt="" usemap="#imagemap">
+ <map name="imagemap">
+ <area shape="poly" alt="Some jeans." title="Some jeans." coords="24,256,29,240,66,184,76,174,161,173,178,178,177,187,194,197,213,198,219,196,227,203,232,206,237,206,235,230,233,252,233,263,231,264,24,257" href="" data-maphilight='{"strokeColor":"fff600","fillColor":"fff600","strokeOpacity":0.4}'>
+ <area shape="poly" alt="Hey Matthew, what did you get up to last night? Oh nothing much, just tracing the outlines of jeans in a photo of my drawers to put on the internet. So people can mouse over it and it gets highlighted and some text pops up. Cool, dude! Matthew, you're so cool." title="Hey Matthew, what did you get up to last night? Oh nothing much, just tracing the outlines of jeans in a photo of my drawers to put on the internet. So people can mouse over it and it gets highlighted and some text pops up. Cool, dude! Matthew, you're so cool." coords="253,264,256,240,256,232,253,217,256,211,266,204,273,198,278,195,279,189,280,187,283,187,284,179,291,176,298,176,308,175,310,166,322,166,331,168,337,169,355,162,369,157,384,153,395,150,403,147,416,142,424,144,434,146,442,160,459,168,469,189,488,236,496,268,486,269,437,268,352,267,289,266,253,266" href="" data-maphilight='{"strokeColor":"fff600","fillColor":"fff600","strokeOpacity":0.4}'>
+ </map>
+ <div id="caption">
+ <p><a href="drawers.html">Go back.</a></p>
+ </div>
+ </div>
+ </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-707544-6");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

@@ -1,0 +1,493 @@
+@import url(droidsans_regular/stylesheet.css);
+
+.game {
+	font: 20px/1em 'Droid Sans', sans-serif;
+	min-width: 955px;
+	color: black;
+}
+
+.storyText {
+	text-align: left;
+	line-height: 1.2em;
+	padding-left: 1em;
+}
+
+.chatLabel {
+	font-weight: bold;
+	text-indent: -1em;
+	display: inline-block;	
+}
+
+.chatLabel.p0 {
+	color: hsl(88, 46%, 36%);
+}
+
+.chatLabel.p1 {
+	color: hsl(190, 43%, 50%);
+}
+
+
+.lines {
+	pointer-events: none;
+}
+
+.line {
+	padding:0px;
+	margin:0px;
+	line-height:1px;
+	position:absolute;
+}
+
+.cards {
+	width: 530px;
+	height: 720px;
+	display: inline-block;
+	vertical-align:top;
+	-webkit-perspective:2000px;
+	-moz-perspective:2000px;
+}
+
+.card {
+	width: 232px; /*fit contents plus padding*/
+	height: 332px;
+	margin: 10px;
+	position: relative;
+	float: left;
+}
+
+.front, .back {
+	position: absolute;
+	width: 200px;
+	height: 300px;
+	padding: 16px;
+	border: 1px solid #ccc;
+	border-radius: 16px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+
+	box-shadow: 	inset rgba(255,254,255,0.4) 0 0.3em .3em, 
+					inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+					rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+					rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+	background-image:         linear-gradient(to bottom, white, #dddddd);
+
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	transition: 1.6s; /*ease-in*/
+	/*transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;*/
+	-moz-transition-property: -moz-transform;
+	-webkit-transition-property: -webkit-transform;
+	-o-transition-property: -o-transform;
+	transition-property: transform;
+}
+
+.card.inDanger .front {
+		background-image:         linear-gradient(to bottom, #fdd, #daa);
+}
+
+.card.dead .front {
+	background-image: linear-gradient(to bottom, #aaa, #777);
+}
+
+.card.dead .portrait {
+	opacity: 0.5;
+}
+
+/* flip the pane when hovered */
+.card.enemy.dead .front {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-transform: rotateY(180deg);
+}
+.card.enemy.dead .back {
+	-moz-transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
+	-transform: rotateY(0deg);
+}
+
+.back {
+	-moz-transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+	-transform: rotateY(-180deg);
+	background-image: linear-gradient(to bottom, #aaa, #777);
+}
+
+/* portraits */
+.image {
+	width: 144px;
+	height: 144px;
+	margin: 8px auto;
+	position: relative;
+}
+
+.portrait, .overlay {
+	position: absolute;
+	width: 140px;
+	height: 140px;
+	left: 0;
+	top: 0;	
+}
+
+.portrait {
+	border: 2px solid white;
+}
+
+/* control panels */
+
+.sidebar {
+	width: 192px; /*must fit controls perfectly?*/
+	height: 720px;
+	display: inline-block;
+	vertical-align:top;
+	text-align: center;
+}
+
+.controls {
+	width: 160px;
+	height: 400px;
+	display: inline-block;
+	vertical-align:top;
+	padding: 16px;
+	text-align: center;
+}
+
+.progress {
+	width: 160px;
+	height: 200px;
+	display: inline-block;
+	vertical-align:top;
+	padding: 16px;
+	text-align: center;
+	margin-top: 10px;
+
+	background: hsla(208, 100%, 75%, 0.2);
+	box-shadow: 0px -2px 5px hsla(208, 100%, 75%, 0.2);
+}
+
+.text {
+	margin-bottom: 24px;
+}
+
+.controls.dead {
+	background: grey;
+}
+
+.controls.aiControlled > * {
+	display: none;
+}
+
+.actionbutton {
+
+	text-shadow: 			rgba(255,255,255,.5) 0 1px 0;
+
+	width: 120px;
+	height: 32px;
+	margin: 16px auto;
+	font-size: 20px;
+	line-height: 1.5em;
+	position: relative;
+
+	/*based on BonBon Buttons 1.1 by simurai.com*/
+
+	padding: 				.5em .6em .4em 1.6em;
+
+	border-radius: 0.3em / 0.1em;
+
+	background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
+	background-image: 	-moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(noise.png);
+	background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
+
+	/* inactive */
+	color: 				hsl(88, 20%, 30%) !important;
+	background-color: 	hsl(88, 20%, 60%);
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 20%, 40%) 0 .1em 3px, hsl(88, 20%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+
+	border-top: none;
+	display: inline-block;
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.chooseAction .actionbutton,
+.popover .actionbutton {
+	/* active */
+	color: 				hsl(88, 70%, 30%) !important;
+	background-color: 	hsl(88, 70%, 60%);
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+.popover .actionbutton:hover, 
+.chooseAction .actionbutton:hover { 	
+	background-color: hsl(88, 70%, 75%); 
+}
+
+.dead .actionbutton {
+	/*based on BonBon Buttons 1.1 by simurai.com*/
+	opacity: 			.5;
+	cursor: 			default;
+	color: 				rgba(0,0,0,0.2) !important;
+	text-shadow: 		none !important;
+	background-color: 	rgba(0,0,0,0.05);
+	background-image: 	none;
+	border-top: 		none;
+	box-shadow: 		inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+	-webkit-transform: 	translateY(5px);
+	-moz-transform: 	translateY(5px);
+	transform: 			translateY(5px);
+}
+
+.popover .hardModeButton {
+	width: 200px;
+	/* active */
+	color: 				hsl(88, 20%, 30%) !important;
+	background-color: 	hsl(88, 20%, 60%);
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 20%, 40%) 0 .1em 3px, hsl(88, 20%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+.newbieMode .act2, .newbieMode .act3 {
+	display : none;
+}
+
+/* cooldown bars */
+
+
+.bar {
+	width: 192px;
+	height: 32px;
+	background: #ccc;
+	border-radius: 16px;
+	margin: 16px auto;
+	position: relative;
+	background-image: url(noise.png);
+}
+
+.cooldown {
+	height: 20px;
+	margin: 6px;
+	background: hsl(208, 100%, 75%);
+	border-radius:  16px;
+	position: absolute;
+
+	background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
+	background-image: 	-moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(noise.png);
+	background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
+}
+
+.label {
+	width: 192px;
+	position: absolute;
+	margin-top: 6px;
+	text-align: center;
+}
+
+.p0 .instruction {
+	color: hsl(88, 70%, 30%);
+}
+
+.p1 .instruction {
+	color: hsl(223, 70%, 30%);
+}
+
+/* popover */
+
+.popover {
+	position: absolute;
+	top: 250px;
+	left: 170px;
+	width: 570px;
+	height: auto;
+	z-index: 20;
+	opacity: 1;
+}
+
+.startgame {
+	top: 80px;
+}
+
+.hidden {
+	/*visibility:hidden;*/
+  	opacity:0;
+  	pointer-events: none;
+}
+
+.fadeIn {
+   transition: opacity 0.8s linear;
+   -moz-transition: opacity 0.8s linear;
+   -webkit-transition: opacity 0.8s linear;
+   }
+
+/* instructions and guides */
+
+.controlsLabel {
+	margin-top: 16px;
+	font-size: 16px;
+	height: 32px;
+}
+
+.guide {
+	display: inline-block;
+	max-width: 400px;
+}
+
+.guide b {
+	color: darkblue;
+}
+
+p {
+	line-height: 1.3em;
+	margin: 20px;
+}
+
+.newbieHint {
+	font-size: 27px;
+	margin-top: 25px;
+	line-height: 1.05em;
+}
+/* cover tokens*/
+
+.coverTokens {
+	min-height: 68px; /* will keep two rows even if all tokens are removed*/
+}
+
+.coverToken {
+	font-size: 18px;
+	/*based on BonBon Buttons 1.1 by simurai.com*/
+	width: 8px;
+	height: 8px;
+
+	padding-left: .8em;
+	padding-right: .8em;
+	border-radius: 1.5em / 1em;
+
+	background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
+	background-image: 	-moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(noise.png);
+	background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);
+
+	color: hsl(208, 50%, 40%);
+	background-color: hsl(208, 100%, 75%);
+	box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+
+	border-top: none;
+	padding: .5em .6em .4em .6em;
+	margin: .25em;
+	display: inline-block;
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.coverToken.broken {
+	color: hsl(0, 50%, 40%);
+	background-color: hsl(0, 100%, 75%);
+	box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 50%, 55%) 0 .1em 3px, hsl(0, 50%, 40%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+}
+
+p .coverToken {
+	width: 2px;
+	height: 2px;
+	font-size: 14px;
+}
+
+/* key hints */
+
+.keyhint {
+	width: 36px;
+	height: 36px;
+	margin-left: -22px;
+	margin-top: -2px;
+	line-height: 36px;
+
+	background-image: url(noise_half.png);
+	background-color: rgba(94, 233, 59, 200);
+
+	box-shadow: 		inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+	display: none;
+	z-index: 10;
+}
+
+.controls .keyhint, .popover .keyhint {
+	display: inline-block;
+	float:left;
+	background-color: rgba(200, 200, 200, 100);
+}
+
+.keyhints .keyhint.p1, .popover .keyhint {
+	background-color: skyblue;
+}
+
+.cards .keyhint {
+	width: 64px;
+	height: 64px;
+	font-size: 44px;
+	text-align: center;
+	line-height: 64px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+
+	margin-left: -32px;
+	margin-top: -20px;
+
+	position: absolute;
+	opacity: 70%;
+}
+
+
+.cards .keyhint.p1 {
+	background-color: skyblue;
+	margin-left: 160px;
+}
+
+.keyhints .keyhint {
+	display: block;
+	background-color: rgba(94, 233, 59, 200);
+}
+
+.keyhints0 .keyhint.p0 {
+	display: block;
+}
+
+.keyhints1 .keyhint.p1 {
+	display: block;
+}
+
+.controls.p0, .controls.p0 {
+	background: rgba(94, 233, 59, 0.2);
+	box-shadow: 0px -2px 5px rgba(94, 233, 59, 0.2);
+}
+
+.controls.p1, .controls.p1 {
+	background: hsla(208, 100%, 75%, 0.2);
+	box-shadow: 0px -2px 5px hsla(208, 100%, 75%, 0.2);
+}
+
+/* Elements I might remove */
+.energy, .dodge, .leadership, .aim, .cover {
+	display: none;
+}
+
+/* Control panel state */
+.onChooseTarget, .onChooseAction, .onWait, .onNewbieChooseTarget, .onNewbieChooseAction {
+	display: none;
+}
+.chooseTarget .onChooseTarget, 
+.wait .onWait, 
+.chooseAction .onChooseAction,
+.newbieMode.chooseTarget .onNewbieChooseTarget,
+.newbieMode.chooseAction .onNewbieChooseAction {
+	display: block;
+}

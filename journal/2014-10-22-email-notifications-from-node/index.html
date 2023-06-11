@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Notifications from Node</title>
+  
+  <link href='//fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/prism.css">
+  <link rel="stylesheet" href="/css/stark.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width">
+  
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+  	<div class="bar">
+		<div class="title"><a href="/">Matthew Gatland</a></div>
+		<nav>
+			<a href="/games/">Games</a>
+			<a href="/projects/">Projects</a>
+			<a href="/journal/">Journal</a>
+			<a href="/contact/">Contact</a>
+		</nav>
+	</div>
+	<section class="content">
+  <div class="journal">
+    <div>
+    	<h2>Email Notifications from Node</h2>
+    	<div class="subtle">October&nbsp;22,&nbsp;2014</div>
+    </div>
+    
+<p><strong>Warning:</strong> this is an old post and this method probably won’t work any more. These days (in 2017), I use Sendgrid, a special automated email service, rather than trying to automatically send an email from Gmail.</p>
+<hr>
+<p>I wanted to be notified whenever someone logged into <a href="www.matthewgatland.com/games/ducks/">Let’s Be Ducks</a>. Ducks is a Node application hosted by AppFog.</p>
+<p>I looked into Twitter first, but after reading the twitter API docs, email seemed a bit easier. Using <a href="https://github.com/eleith/emailjs">emailjs</a> and Gmail, I had everything working in less than an hour.</p>
+<p>Step one: Create a Gmail account.</p>
+<p>Step two: Add emailjs to the <code>package.json</code> file:</p>
+<pre class="language-js"><code class="language-js"><span class="token string-property property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">"emailjs"</span><span class="token operator">:</span> <span class="token string">"0.3.12"</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>Step three: run <code>npm install</code>.</p>
+<p>Step four: Add this code to the server:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">var</span> email <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./node_modules/emailjs/email'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> mailserver  <span class="token operator">=</span> email<span class="token punctuation">.</span>server<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+       <span class="token literal-property property">user</span><span class="token operator">:</span>    <span class="token string">"ducksalerts@gmail.com"</span><span class="token punctuation">,</span> 
+       <span class="token literal-property property">password</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>emailpassword<span class="token punctuation">,</span> 
+       <span class="token literal-property property">host</span><span class="token operator">:</span>    <span class="token string">"smtp.gmail.com"</span><span class="token punctuation">,</span> 
+       <span class="token literal-property property">ssl</span><span class="token operator">:</span>     <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function-variable function">sendEmail</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mailserver<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+           <span class="token literal-property property">text</span><span class="token operator">:</span>    message<span class="token punctuation">,</span> 
+           <span class="token literal-property property">from</span><span class="token operator">:</span>    <span class="token string">"Ducks Alerts &lt;ducksalerts@gmail.com>"</span><span class="token punctuation">,</span> 
+           <span class="token literal-property property">to</span><span class="token operator">:</span>      <span class="token string">"support@matthewgatland.com"</span><span class="token punctuation">,</span>
+           <span class="token literal-property property">subject</span><span class="token operator">:</span> <span class="token string">"ducks"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> message</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err <span class="token operator">||</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token function">sendEmail</span><span class="token punctuation">(</span><span class="token string">"Testing the email system."</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The password is set through an environment variable. In AppFog, there is a UI to configure these.</p>
+<p>At this point, the app will send me emails.</p>
+<p>After that, I just had to configure my mailbox:</p>
+<ul>
+<li>Make a Gmail filter to put a “notifyme” label on emails from Ducks Alerts</li>
+<li>Configure Gmail on my phone to pop up a notification for email with the “notifyme” label.</li>
+</ul>
+<p>Done! Note that Gmail limits you to 99 emails a day using this method.</p>
+
+  </div>
+	<footer>
+	
+  
+<a href="/journal/2014-10-28-jump-and-shoot-part-2/" title="Jump and Shoot, part two">Newer</a> &nbsp; 
+  <a href="/journal/2014-09-29-jump-and-shoot/" title="Jump and Shoot">Older</a>
+
+		<footer>
+		<div class="breadcrumbs">
+	
+			<a href="/">Home</a>
+			<span class="subtle">&rarr;</span> 
+			<a href="/journal/">Journal</a>
+			<span class="subtle">&rarr;</span> 
+			<span class="subtle">Email Notifications from Node</span>
+	
+		</div>
+	</footer>
+	</footer>
+</section>
+</body>
+</html>

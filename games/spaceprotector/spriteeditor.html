@@ -1,0 +1,35 @@
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/spriteeditor.css">
+	<script data-main="js/spriteeditor" src="js/require.js"></script>
+	
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+<div class="pixels">
+</div>
+<canvas class="frames"></canvas>
+<div id="instructions">
+	<p>
+		Click or drag to paint. - and = change frame. C to copy, V to paste. L load, S save.
+	</p>
+	<p>Write an animation as a comma separated lists of frame numbers values e.g. 0,1,2</p>
+	frames <input class="anims">
+	frame delay
+	<input class="frameDelay" value="2">
+</div>
+<p id="alerts"></p>
+</body>
+</html>

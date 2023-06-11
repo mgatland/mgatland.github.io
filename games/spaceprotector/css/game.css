@@ -1,0 +1,78 @@
+@font-face {
+	/*font by Anna Anthropy*/
+    font-family: 'Star Perv';
+    src: url('StarPerv.ttf');
+	
+}
+
+html {
+	background-color: #000000; /*blank*/
+	/*cursor:none; 
+	used when exhibiting on my laptop, because closing the lid
+	moves the cursor to the center of the screen*/
+}
+
+body {
+	color: #8598FF; /*'bad'*/
+	font-family: "Star Perv", monospace;
+	font-style: 18px;
+	text-align: center;
+}
+
+.gamecontainer {
+	position: absolute;
+	left:     0%;
+	top:      0%;
+}
+
+#instructions {
+	position: absolute;
+	top: calc(100% / 192 * 44);
+	margin-left: calc(100% / 192 * 11);
+	margin-right: calc(100% / 192 * 11);
+	left: 0;
+	right: 0;
+	background-color: #000000; /*blank*/
+	border: 4px solid #8598FF; /*'bad'*/
+}
+
+canvas {
+	width: 100%;
+	height: 100%;
+}
+
+.hide {
+	display: none;
+}
+
+input {
+	background-color: #8598FF; /*'bad'*/
+	color: #000000; /*'blank'*/
+	padding: 6px;
+	border: none;
+	border-left: 6px solid #B2FFFF; /*'good'*/
+	font-family: "Star Perv", monospace;
+	font-size: 18px;
+	max-width: calc(20px * 5);
+	font-weight: bold;
+}
+
+#connect-button {
+	color: #8598FF; /*bad*/
+	border: 1px solid #8598FF; /*'bad'*/
+	padding: 6px;
+	text-transform: uppercase;
+}
+
+#connect-button:hover {
+	background-color: #8598FF; /*'bad'*/
+	color: #FFFFFF; /*'highlight'*/
+}
+
+a, a:visited {
+	color: #8598FF; /*'bad'*/
+	text-decoration: none;
+}
+a:hover {
+	color: #B2FFFF; /*'good'*/
+};

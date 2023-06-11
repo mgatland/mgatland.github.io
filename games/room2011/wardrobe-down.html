@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+ <meta charset=utf-8>
+ 
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+ <script type="text/javascript" src="jquery.maphilight.min.js"></script>
+ <script type="text/javascript">$(function() {
+ $('.map').maphilight();
+ });
+ 
+ $.fn.maphilight.defaults = {
+ fill: true,
+ fillColor: 'ffffff',
+ fillOpacity: 0.1,
+ stroke: true,
+ strokeColor: 'ffffff',
+ strokeOpacity: 0.3,
+ strokeWidth: 1,
+ fade: true,
+ alwaysOn: false,
+ neverOn: false,
+ groupBy: false,
+ wrapClass: true,
+ shadow: false,
+ shadowX: 0,
+ shadowY: 0,
+ shadowRadius: 6,
+ shadowColor: '000000',
+ shadowOpacity: 0.8,
+ shadowPosition: 'outside',
+ shadowFrom: false
+ }
+ 
+ 
+ </script>
+ 
+</head>
+<body>
+ <div id="container">
+ <header>
+ <h1>Room Tour</h1>
+ </header>
+ <div id="photoandcaption">
+ <img class="map" src="sized510/myroom09.JPG" width="510" height="382" alt="" usemap="#imagemap">
+ <map name="imagemap">
+ <area shape="poly" alt="third shelf" title="third shelf" coords="117,0,262,3,263,48,140,116" href="wardrobe-third-shelf.html">
+ <area shape="poly" alt="bottom shelf" title="bottom shelf" coords="144,119,263,52,267,175,185,241" href="wardrobe-bottom-shelf.html">
+ <area shape="poly" alt="plastic shelves" title="plastic shelves" coords="394,109,507,159,508,381,248,380,290,208" href="plastic-shelves.html">
+ <area shape="poly" alt="Empty cardboard boxes. You can't click on them because they're boring." title="Empty cardboard boxes. You can't click on them because they're boring." coords="181,232,261,279,265,303,195,381,126,380,69,321" href="" data-maphilight='{"strokeColor":"fff600","fillColor":"fff600","strokeOpacity":0.4}'>
+ <area shape="poly" alt="dirty dishes" title="dirty dishes" coords="509,261,492,270,483,285,481,307,487,332,497,351,509,364" href="dirty-dishes.html">
+ </map>
+ <div id="caption">
+ <p>You can <a href="wardrobe.html">look higher</a> or <a href="room03.html">go back.</a></p>
+ </div>
+ </div>
+ </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-707544-6");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

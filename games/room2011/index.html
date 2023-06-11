@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+ <meta charset=utf-8>
+ 
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+ <script type="text/javascript" src="jquery.maphilight.min.js"></script>
+ <script type="text/javascript">$(function() {
+ $('.map').maphilight();
+ });
+ 
+ $.fn.maphilight.defaults = {
+ fill: true,
+ fillColor: 'ffffff',
+ fillOpacity: 0.1,
+ stroke: true,
+ strokeColor: 'ffffff',
+ strokeOpacity: 0.3,
+ strokeWidth: 1,
+ fade: true,
+ alwaysOn: false,
+ neverOn: false,
+ groupBy: false,
+ wrapClass: true,
+ shadow: false,
+ shadowX: 0,
+ shadowY: 0,
+ shadowRadius: 6,
+ shadowColor: '000000',
+ shadowOpacity: 0.8,
+ shadowPosition: 'outside',
+ shadowFrom: false
+ }
+ 
+ 
+ </script>
+ 
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-707544-6']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.  async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www'  ) + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(  ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+ <div id="container">
+ <header>
+ <h1>Room Tour</h1>
+ </header>
+ <div id="photoandcaption">
+ <img class="map" src="sized510/myroom01.JPG" width="510" height="382" alt="" usemap="#imagemap">
+ <map name="imagemap">
+ <area shape="poly" alt="open the door" title="open the door" coords="80,27,288,38,304,376,111,376" href="room02.html">
+ <area shape="poly" alt="?" title="?" coords="376,141,417,137,418,178,376,184" href="rom01.html">
+ <area shape="poly" alt="?" title="?" coords="329,113,342,112,343,133,331,134" href="rom02.html">
+ <area shape="poly" alt="?" title="?" coords="367,73,382,73,383,77,385,82,379,97,369,91,373,85,368,85" href="rom03.html">
+ </map>
+ <div id="caption">
+ <p>This is my room. Go in.</p>
+ </div>
+ </div>
+ </div>
+</body>
+</html>

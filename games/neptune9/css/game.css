@@ -1,0 +1,257 @@
+/*
+https://www.google.com/fonts/specimen/Orbitron
+https://www.google.com/fonts/specimen/Play
+*/
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('fonts/Orbitron-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('fonts/Orbitron-Black.ttf');
+  font-weight: bold;
+}
+
+body {
+	background-color: black;
+	color: orange;
+	font-family: "Orbitron";
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.setupscreen {
+	width: 408px;
+	padding: 15px;
+	border: 2px solid orange;
+	border-radius: 20px;
+
+	font-size: 28px;
+	line-height: 36px;
+}
+
+b {
+	font-weight: inherit;
+	color: #7482E6;
+}
+
+input {
+	background-color: #4A5ACA;
+	border-style: none;
+	border-radius: 16px;
+	padding-left: 20px;
+
+	margin-bottom: 20px;
+	width: 200px;
+
+	font-family: "Orbitron";
+	line-height: 32px;
+	font-size: 32px;
+	
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #141B4D;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #141B4D;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #141B4D;
+}
+
+.gamescreen {
+	width: 438px;
+	/*height: 670px;*/
+	border: 2px solid orange;
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.cards {
+	width: 400px;
+	padding-top: 15px;
+}
+
+/* controls */
+
+.controls {
+	width: 380px;
+	height: 280px;
+	font-size: 24px;
+	line-height: 27px;
+	padding: 20px;
+}
+
+.actionbutton {
+	color: black;
+	background-color: orange;
+	border-radius: 15px;
+	padding-top: 6px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: 4px;
+	cursor: pointer;
+}
+
+.disabled .actionbutton, .disabled.actionbutton {
+	background-color: #806200;
+}
+
+.action-cost {
+	float: right;
+	margin-right: 5px;
+	/* Make the dot look right: */
+	color: #4A5ACA;
+	font-family: Arial, Helvetica;
+	font-weight: bold;
+	font-size: 42px;
+}
+
+.actionodds {
+	font-size: 16px;
+	float: right;
+	font-weight: normal;
+}
+
+.selected {
+	font-weight: bold;
+}
+
+.levelup .actionbutton {
+	background-color: #7482E6;
+}
+
+/* end of controls */
+
+.card {
+	cursor: pointer;
+	position: relative; /* for contents */
+	width: 135px;
+	height: 120px;
+	border: 2px solid orange;
+	background-color: #332100;
+	border-radius: 5px;
+	border-top-right-radius: 50px;
+	display:inline-block;
+	margin: 15px;
+	padding: 10px;
+	vertical-align:top
+}
+
+.cardfx {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 1;
+}
+
+.target-icon {
+	color: red;
+	display: block;
+	position: absolute;
+	bottom: -22px;
+	right: 0px;
+}
+
+.turn {
+	border: 2px solid red;
+}
+
+.card.turn {
+	background-color: #400;
+}
+
+/* Portrait */
+
+.portrait {
+	width: 64px;
+	height: 64px;
+	border: 2px solid orange;
+	position: relative; /* Allow contents to be relatively positioned */
+	margin-right: 8px;
+	display: inline-block;
+}
+
+.inportrait {
+	width: 64px;
+	position: absolute;
+}
+
+.damage {
+	width: 100%;
+	background-color: rgba(255, 0, 0, 0.6);
+	position: absolute;
+	bottom: 0;
+}
+
+/* Energy Bar */
+
+.energybar {
+	width: 8px;
+	height: 64px;
+	position: relative; /* Allow contents to be relatively positioned */
+	border: 2px solid orange;
+	background-color: black;
+	display: inline-block;
+}
+
+.energybarinside {
+	width: 100%;
+	background-color: #4A5ACA;
+	position: absolute;
+	bottom: 0;
+}
+
+/* Experience progress bar */
+
+.xp-bar {
+	width: 344px;
+	height: 8px;
+	position: relative;
+	border: 2px solid orange;
+	background-color: black;
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 15px;
+}
+
+.xp-bar-inside {
+	height: 100%;
+	background-color: #4A5ACA;
+	position: absolute;
+	left: 0;
+}
+
+/* game over screen */
+
+.popover {
+	position: absolute;
+}
+
+/* Animations */
+
+.cardfx.ng-enter {
+  -webkit-transition:0.032s linear all;
+  transition:0.032s linear all;
+}
+
+.cardfx.ng-leave {
+  -webkit-transition:0.4s linear all;
+  transition:0.4s linear all;
+}
+
+.cardfx.ng-enter,
+.cardfx.ng-leave.ng-leave-active {
+	opacity:0;
+}
+.cardfx.ng-leave,
+.cardfx.ng-enter.ng-enter-active {
+  opacity:1;
+}
