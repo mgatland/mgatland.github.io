@@ -1,0 +1,23 @@
+{
+  "name": "mgatland.github.io",
+  "version": "1.0.0",
+  "description": "mgatland.github.io\r ==================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:": "npx eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "eleventy-xml-plugin": "github:sentience/eleventy-xml-plugin#dist",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-attrs": "^4.1.6",
+    "unidecode": "^0.1.8"
+  }
+}

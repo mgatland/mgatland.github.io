@@ -1,6 +1,6 @@
 ---
 title: Wizard School Survivors
-layout: normal
+layout: normal.html
 categories: [games]
 description: Wizard School Survivors
 order: 39

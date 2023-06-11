@@ -1,6 +1,6 @@
 ---
 title: Saprobiont
-layout: normal
+layout: normal.html
 categories: [games]
 description: A board game designed at the Global Game Jam
 order: 21
@@ -9,7 +9,7 @@ icon: saprobiont/saprobiont-icon.jpg
 tags: best
 ---
 
-<img src="saprobiont-1.png"/>
+<p><img src="saprobiont-1.png"></p>
 
 Saprobiont is a board game that was created in 48 hours for the Global Game Jame 2012.
 
@@ -23,11 +23,11 @@ Having never worked on a board game before, it was an amazing experience for me.
 
 You can [download Saprobiont](http://archive.globalgamejam.org/sites/default/files/uploads/2012/18885/Saprobiont.pdf) to print and play, or visit our [Global Game Jam page](http://globalgamejam.org/2012/saprobiont) for more information. We also have a page on [Board Game Geek.](https://boardgamegeek.com/boardgame/119219/saprobiont)
 
-<img src="the-swarm.jpg"/>
+<p><img src="the-swarm.jpg"></p>
 
 <div class="caption">Our artists produced some fantastic artwork for the rulebook.</div>
 
-<img src="saprobiont-2.jpg"/>
+<p><img src="saprobiont-2.jpg"></p>
 
 <div class="caption">Here's the full team.</div>
 

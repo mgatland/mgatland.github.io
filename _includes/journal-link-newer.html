@@ -1,1 +1,2 @@
-{% if page.next %}<a href="{{page.next.url}}" title="{{page.next.title}}">Newer</a>{% else %}<span class="disabled-link">Newer</span>{% endif %} &nbsp; 
+{% assign nextPost = collections.journal | getNextCollectionItem %}
+{% if nextPost %}<a href="{{nextPost.url}}" title="{{nextPost.data.title}}">Newer</a>{% else %}<span class="disabled-link">Newer</span>{% endif %} &nbsp; 

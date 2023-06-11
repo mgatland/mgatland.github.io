@@ -1,6 +1,6 @@
 ---
 title: faithgame
-layout: normal
+layout: normal.html
 categories: [games]
 description: faithgame
 order: 36

@@ -1,6 +1,6 @@
 ---
 title: Caves
-layout: normal
+layout: normal.html
 categories: [games]
 description: Caves
 order: 35

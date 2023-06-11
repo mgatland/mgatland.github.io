@@ -1,6 +1,6 @@
 ---
 title: Cerulean LD21
-layout: normal
+layout: normal.html
 categories: [games]
 description: A game for Ludum Dare 21
 order: 19

@@ -1,6 +1,6 @@
 ---
 title: September
-layout: normal
+layout: normal.html
 categories: [games]
 description:
 order: 44

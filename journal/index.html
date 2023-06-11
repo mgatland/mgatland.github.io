@@ -3,11 +3,11 @@ title: Journal
 layout: notitle
 rss: /journal/feed.xml
 ---
-
-{% for page in site.categories.journal limit:3 %}
-	{% include inline-journal.html %}
+{% assign reversedjournal = collections.journal | reverse %}
+{% for page in reversedjournal limit:3  %}
+	{% include 'inline-journal.html' %}
 	{% if forloop.last %}
-	<span class="disabled-link">Newer</span> &nbsp; {% include journal-link-older.html %}
+	<span class="disabled-link">Newer</span> &nbsp; {% include 'journal-link-older.html' %}
 	{% else %}
 		<!--divider between journal entries-->
 	{% endif %}

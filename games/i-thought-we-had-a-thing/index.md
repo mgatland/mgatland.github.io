@@ -1,6 +1,6 @@
 ---
 title: i thought we had a thing
-layout: normal
+layout: normal.html
 categories: [games]
 description: 
 order: 12

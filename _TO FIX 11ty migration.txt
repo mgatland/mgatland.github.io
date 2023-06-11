@@ -1,0 +1,38 @@
+Differences:
+
+[ ] code highlighting 
+[ ] then i'm ready to ship 
+[ ] fix looseleafgames archive urls 
+[ ] separate source/processed and static folders a bit better
+
+[ ] 11ty displays dates in my local timezone, messing everything up by 2 hours. There's some documentation on how to fix it. It's gross though!
+[ ] need to check all RSS feeds and make sure I haven't messed up the formatting of ampersands in particular
+
+[ ] I have added many files that contain this:
+    "permalink": "{{ page.filePathStem }}.html" }
+    But it's possible that I can set this at the top level for all folders instead of hand-setting it in each.
+    And override it in journal, but maybe nowhere else?
+    Some other examples of permalink may disappear too 
+    including ones in non json format, so search for peramlink without quotes 
+
+[ ] I have had to set 'layout: null' in many index.html files.
+    I want to make this the default for html files. Maybe! Check.
+
+[x] static files... maybe fixed.
+[x] fixed the footer \ breadcrumbs
+[x] lots of small markdown incompatibilities. Maybe fix case-by-case.
+
+todo:
+tips - https://savjee.be/blog/migrating-this-blog-from-jekyll-to-eleventy/
+haven't read yet - https://www.carteakey.dev/moving-my-site-from-jekyll-to-eleventy-part-ii/
+[ ] https://github.com/11ty/eleventy/issues/913
+    this has tips on fixing my old-school html urls 
+
+https://github.com/valeriangalliat/markdown-it-anchor
+
+
+
+git diff --no-index -w --ignore-blank-lines .\_site_reference\ .\_site\ > diff-2023-05-29.diff 
+
+/////////////
+flash game pages are completely gone?

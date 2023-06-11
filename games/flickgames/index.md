@@ -1,6 +1,6 @@
 ---
 title: flickgames
-layout: normal
+layout: normal.html
 categories: [games]
 description: Game made with flickgame
 order: 34

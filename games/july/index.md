@@ -1,6 +1,6 @@
 ---
 title: July
-layout: normal
+layout: normal.html
 categories: [games]
 description: July
 order: 42
