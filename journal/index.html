@@ -4,11 +4,19 @@ layout: notitle
 rss: /journal/feed.xml
 ---
 {% assign reversedjournal = collections.journal | reverse %}
-{% for page in reversedjournal limit:3  %}
-	{% include 'inline-journal.html' %}
-	{% if forloop.last %}
-	<span class="disabled-link">Newer</span> &nbsp; {% include 'journal-link-older.html' %}
+{% for page in reversedjournal %}
+	{% if forloop.index < 4 %}
+		{% include 'inline-journal.html' %}
 	{% else %}
-		<!--divider between journal entries-->
+	{% if forloop.index == 4 %}
+	<span class="disabled-link">Newer</span> &nbsp; {% include 'journal-link-older.html' %}
+	<details class="listOfPosts">
+		<summary><a>Show all older posts</a></summary> 
+		<!--<summary><h2>All Older Posts</h2></summary>-->
+		<h2>Older Posts</h2>
+	{% endif %}
+		
+		<div><a href="{{page.url}}" title="{{ page.date | date: "%B&nbsp;%d,&nbsp;%Y" }}">{{ page.data.title }}</a></div>
 	{% endif %}
 {% endfor %}
+	</details>
