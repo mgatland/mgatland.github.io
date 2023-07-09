@@ -281,6 +281,7 @@ a.imagelink:hover {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	width: 100%;
 }
 
 .journal {
@@ -348,6 +349,11 @@ details[open] summary {
 
 .filter {
 	display: flex;
+	flex-direction: column;
+}
+
+.filter-section {
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 20px;
@@ -359,7 +365,7 @@ details[open] summary {
 	display: none;
 }
 
-.filter label {
+.filter-light label {
 	display: block;
 	margin: 20px;
 	text-align: center;
@@ -369,17 +375,54 @@ details[open] summary {
 	text-decoration-color: rgba(255, 255, 255, 0);
 }
 
-.filter label:hover {
+.filter-light label:hover {
 	text-decoration-color: #999;
 }
 
-.filter [type=radio]:checked + label {
+.filter-light [type=radio]:checked + label {
 	color: #333;
 	text-decoration-color: #999;
 }
 
 .filtertags {
 	display: none;
+}
+
+.filter-heavy {
+	gap: 7px 10px;
+}
+
+.filter-heavy label {
+	border: 1px solid;
+	border-color: #ddd;
+	text-decoration: none;
+	display: flex;
+	padding: 0 8px;
+	align-items: center;
+	transition-property: background-color, color, border-color;
+	transition-duration: 0.2s;
+}
+
+.filter-heavy label:hover {
+	background-color: #ccc;
+	border-color: transparent;
+}
+
+.shadow-stars {
+	color: #ccc;
+}
+
+.filter-heavy label:hover .shadow-stars {
+	color: #bbb;
+}
+
+.filter-heavy [type=checkbox]:checked + label {
+	color: #BB4B00;
+	border-color: #ffab72;
+}
+
+.filter-heavy [type=checkbox]:checked + label:hover {
+	background-color: #ffe3aa;
 }
 
 /* end of filter */

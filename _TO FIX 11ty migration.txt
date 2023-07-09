@@ -1,3 +1,78 @@
+
+Priorities:
+
+[ ] add 100day games to the main series.
+[ ] make sure the old links stay as permalinks
+    https://github.com/11ty/eleventy/issues/510#issuecomment-824104799
+    This is how i'm going to do the redirects for old URLs.
+    Do this for /writing/ as well.
+
+    Wait... I should probably use cloudflare bulk redirects instead.
+    https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/create-dashboard/
+    it's a shame to have 2 places to do this but i could store the config file in the repo so it's still kinda together. 
+
+filtering:
+add
+quality: high | medium | low 
+requirements: web (keyboard + mouse) | web (touch) | download | other
+development time: days | weeks | years 
+
+// there's an example here to filter a collection by the original file extension i.e. '.md' https://www.11ty.dev/docs/collections/
+
+game screenshots could grow to 250x250 like increpare 
+his games have dates attached, and icons for the platform 
+
+my games page could probably lose its max-width restriction and go full screen. A full screen of games.
+
+(except for the footer)
+
+I could improve the filtering.
+I could add little icons above the games for where it's playable:
+    browser computer 
+    browser phone 
+    downloadable
+    N/A
+
+I can get rid of the concept of 'order' and use dates as order... but I want to update some of the dates if I do this.
+Or have two dates, the 'first published' and 'last updated'
+
+Add neptune-9 old back into the series.
+
+The filters could be a little list of 'on/off' toggles 
+they could be black text on a grey background with rounded corners and no background (like 'tags' on stackoverflow etc)
+
+good games | ok games | bad games
+download | browser (keyboard) | browser (phone) | misc 
+
+maybe star ratings is the best technicque 
+
+some art reference:
+    https://sv.wordpress.org/plugins/tags/rate/
+    for the grey icons at the bottom 
+
+Dashicons (from Wordpress)
+    browser | cloud or laptop
+    phone | smartphone
+    download | download (maybe combined with laptop)
+    misc | help or universal access or users or site (it's a globe)
+
+    Quality icons:
+    good | awards
+
+    bad | trash 
+    
+
+    or I could use 'star filled' and 'star empty' to do 3 stars, 2 stars, 1 star
+
+
+
+
+
+
+
+=====================
+
+
 Work to do:
 [x] code highlighting 
 [x] then i'm ready to ship 

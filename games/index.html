@@ -1,43 +1,142 @@
 ---
 title: Games
-layout: bigtitle
+layout: bigtitle-widecontent
 rss: /games/feed.xml
 ---
 
 <div class="filter">
-    <input type="radio" name="radio" id="filter-all" checked>
-    <label for="filter-all">All</label>
-
-    <input type="radio" name="radio" id="filter-best">
-    <label for="filter-best">Best</label>
-
-    <input type="radio" name="radio" id="filter-browser">
-    <label for="filter-browser">Browser games</label>
-
-    <input type="radio" name="radio" id="filter-phone">
-    <label for="filter-phone">Phone games</label>
+    <div class="filter-section filter-light filter-simple">
+        <input type="radio" name="radio" id="filter-simple-all" checked>
+        <label for="filter-simple-all">All</label>
+        <input type="radio" name="radio" id="filter-simple-best">
+        <label for="filter-simple-best">Best</label>
+        <input type="radio" name="radio" id="filter-simple-more"> 
+        <label for="filter-simple-more">More filters…</label>
+    </div>
+    <div class="filter-advanced" style="display:none;">
+        <div class="filter-section filter-heavy filter-quality">
+            Quality:
+            <input type="checkbox" name="checkbox" id="filter-best">
+            <label for="filter-best">★★★</label>
+            <input type="checkbox" name="checkbox" id="filter-good">
+            <label for="filter-good">★★<span class="shadow-stars">★</span></label>
+            <input type="checkbox" name="checkbox" id="filter-bad">
+            <label for="filter-bad">★<span class="shadow-stars">★★</span></label>
+        </div>
+        <div class="filter-section filter-heavy filter-platform">
+            Platform:
+            <input type="checkbox" name="checkbox" id="filter-browser">
+            <label for="filter-browser">Web (Computer)</label>
+            <input type="checkbox" name="checkbox" id="filter-phone">
+            <label for="filter-phone">Web (Phone)</label>
+            <input type="checkbox" name="checkbox" id="filter-platform-other">
+            <label for="filter-platform-other">Other</label>
+        </div>
+        <div class="filter-section filter-heavy filter-event">
+            Made for:
+            <input type="checkbox" name="checkbox" id="filter-event-anti-patreon">
+            <label for="filter-event-anti-patreon">Anti-Patreon</label>
+            <input type="checkbox" name="checkbox" id="filter-event-one-game-a-day">
+            <label for="filter-event-one-game-a-day">One Game a Day</label>
+            <input type="checkbox" name="checkbox" id="filter-event-ludum-dare">
+            <label for="filter-event-ludum-dare">Ludum Dare</label>
+            <input type="checkbox" name="checkbox" id="filter-event-global-game-jam">
+            <label for="filter-event-global-game-jam">Global Game Jam</label>
+            <input type="checkbox" name="checkbox" id="filter-event-other">
+            <label for="filter-event-other">Other</label>
+        </div>
+    </div>
 </div>
 <div class="gallery">
-{% assign sorted_pages = collections.games | sortByOrder | reverse %}
+    <div class="no-results">No games match those filters</div>
+{% assign sorted_pages = collections.games | reverse %}
 {% for post in sorted_pages %}
   {% include 'inlinegame.html' %}
 {% endfor %}
 </div>
 <script>
-    document.querySelector('.filter').addEventListener('change', e => {
-        const id = e.target.id.replace("filter-", "")
-        if (id.length > 0) {
-            filter(id)
-        }
-        //
-    })
-    function filter(id) {
-        document.querySelectorAll('.gallery .button').forEach(el => {
-            if (el.querySelector('.filtertags').innerHTML.includes(id)) {
-                el.style.display = ''
-            } else {
-                el.style.display = 'none'
+
+    const advancedFilterEl = document.querySelector('.filter-advanced')
+    const galleryButtonEls = document.querySelectorAll('.gallery .button')
+    const advancedFilterIds = ['.filter-quality', '.filter-platform', '.filter-event']
+    const noResultsEl = document.querySelector('.no-results')
+    
+    function display(el, show) {
+        el.style.display = show ? '' : 'none'
+    }
+
+    display(noResultsEl, false)
+
+    // If an item has no tags from a category, add an 'other' tag for that category
+    // For example, add an 'event-other' tag if the item has no event.
+    function setupTags () {
+        const filters = []
+            for (const filterId of advancedFilterIds) {
+                const filter = {}
+                filter.tags = Array.from(document.querySelectorAll(filterId + ' input')).map(el => el.id.replace('filter-', ''))
+                filter.default = filterId.replace('.filter-', '') + '-other'
+                filters.push(filter)
+
+                if (filter.default === 'quality-other') {
+                    filter.default = 'bad'
+                }
+            }
+        galleryButtonEls.forEach(el => {
+            for (filter of filters) {
+                const itemTagsEl = el.querySelector('.filtertags')
+                if (!filter.tags.some(tag => itemTagsEl.innerHTML.includes(tag))) {
+                    itemTagsEl.innerHTML += ' ' + filter.default + ' '
+                }
             }
         })
+    }
+    setupTags()
+
+
+    document.querySelector('.filter-simple').addEventListener('change', e => {
+        // show all, show best, or enable advanced filters
+        const id = e.target.id.replace("filter-simple-", "")
+        if (id === 'more') {
+            display(advancedFilterEl, true)
+            advancedFilter()
+        } else {
+            display(advancedFilterEl, false)
+            if (id === 'best') {
+                simpleFilter('best')
+            } else {
+                simpleFilter('') // show all
+            }
+        }
+    })
+
+    document.querySelector('.filter-advanced').addEventListener('change', e => {
+        advancedFilter()
+    })
+
+    function simpleFilter(id) {
+        galleryButtonEls.forEach(el => {
+            display(el, el.querySelector('.filtertags').innerHTML.includes(id))
+        })
+        display(noResultsEl, false) // assume simple filters never hide everything
+    }
+
+    function advancedFilter() {
+        // Go through each filter section.
+        // Collect all checked inputs
+        // An element must show one of the checked inputs to be selected.
+        const filterStates = []
+        let results = 0
+        for (const filter of advancedFilterIds) {
+            filterStates.push(Array.from(document.querySelectorAll(filter + ' input:checked')).map(el => el.id.replace('filter-', '')))
+        }
+        galleryButtonEls.forEach(el => {
+            const tags = el.querySelector('.filtertags').innerHTML
+            // Look for a filter that hides this element
+            // The filter must be active (at least 1 tag enabled) and none of the tags match this element
+            const isHidden = filterStates.some(tagSet => tagSet.length > 0 && !tagSet.some(tag => tags.includes(tag)))
+            display(el, !isHidden)
+            if (!isHidden) results++
+        })
+        display(noResultsEl, results === 0)
     }
 </script>
