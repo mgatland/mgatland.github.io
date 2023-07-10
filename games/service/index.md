@@ -5,7 +5,7 @@ categories: [games]
 description:
 icon: service/service-icon.png
 date: 2017-05-24
-tags: good web phone one-game-a-day
+tags: good browser phone one-game-a-day
 ---
 
 The third game from my one-game-a-day project.

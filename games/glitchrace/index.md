@@ -5,7 +5,7 @@ categories: [games]
 description:
 icon: glitchrace/glitchrace-icon.png
 date: 2017-05-25
-tags: bad web phone one-game-a-day
+tags: bad browser phone one-game-a-day
 ---
 
 The fourth game from my one-game-a-day project.
@@ -29,8 +29,21 @@ My tweets from the release:
 
 > sneaky update today now says 'winner' if you win, + is slightly more strategic + less random?
 
-And, later:
+See the [discussion on twitter](https://twitter.com/mgatland/status/867587575237689348).
+
+I asked for help in another thread:
 > um, how do turn-based games work? The player makes a choice, one option must be better, but it can't be obvious, and it can't be unknowable…
 
-See the [discussion on twitter](https://twitter.com/mgatland/status/867587575237689348)
+> in my 1-day games I'm falling into
+>
+> &nbsp;1. there is an obvious winning strategy that always works
+>
+> or 2. your choices don't affect whether you win
+
+> i guess I want:
+>
+> &nbsp;3. different moves are good or not based on game state, and it takes some skill to map game state to the right move?
+
+Lots of good advice from Carl de Visser in [that twitter thread](https://twitter.com/mgatland/status/868341160711921664).
+
 

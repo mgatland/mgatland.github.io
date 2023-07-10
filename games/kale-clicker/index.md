@@ -5,7 +5,7 @@ categories: [games]
 description: 
 icon: kale-clicker/kale-clicker-icon.png
 date: 2017-05-22
-tags: good web phone one-game-a-day
+tags: good browser phone one-game-a-day
 ---
 
 The first game from my one-game-a-day project.

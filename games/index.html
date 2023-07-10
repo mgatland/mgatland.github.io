@@ -34,14 +34,14 @@ rss: /games/feed.xml
         </div>
         <div class="filter-section filter-heavy filter-event">
             Made for:
-            <input type="checkbox" name="checkbox" id="filter-event-anti-patreon">
-            <label for="filter-event-anti-patreon">Anti-Patreon</label>
-            <input type="checkbox" name="checkbox" id="filter-event-one-game-a-day">
-            <label for="filter-event-one-game-a-day">One Game a Day</label>
-            <input type="checkbox" name="checkbox" id="filter-event-ludum-dare">
-            <label for="filter-event-ludum-dare">Ludum Dare</label>
-            <input type="checkbox" name="checkbox" id="filter-event-global-game-jam">
-            <label for="filter-event-global-game-jam">Global Game Jam</label>
+            <input type="checkbox" name="checkbox" id="filter-anti-patreon">
+            <label for="filter-anti-patreon">Anti-Patreon</label>
+            <input type="checkbox" name="checkbox" id="filter-one-game-a-day">
+            <label for="filter-one-game-a-day">One Game a Day</label>
+            <input type="checkbox" name="checkbox" id="filter-ludum-dare">
+            <label for="filter-ludum-dare">Ludum Dare</label>
+            <input type="checkbox" name="checkbox" id="filter-global-game-jam">
+            <label for="filter-global-game-jam">Global Game Jam</label>
             <input type="checkbox" name="checkbox" id="filter-event-other">
             <label for="filter-event-other">Other</label>
         </div>
@@ -67,19 +67,15 @@ rss: /games/feed.xml
 
     display(noResultsEl, false)
 
-    // If an item has no tags from a category, add an 'other' tag for that category
-    // For example, add an 'event-other' tag if the item has no event.
+    // If an item has no tags from a category, add the default tag for that category
+    // The default is always the last tag in the set
     function setupTags () {
         const filters = []
             for (const filterId of advancedFilterIds) {
                 const filter = {}
                 filter.tags = Array.from(document.querySelectorAll(filterId + ' input')).map(el => el.id.replace('filter-', ''))
-                filter.default = filterId.replace('.filter-', '') + '-other'
+                filter.default = filter.tags.at(-1)
                 filters.push(filter)
-
-                if (filter.default === 'quality-other') {
-                    filter.default = 'bad'
-                }
             }
         galleryButtonEls.forEach(el => {
             for (filter of filters) {
@@ -91,7 +87,6 @@ rss: /games/feed.xml
         })
     }
     setupTags()
-
 
     document.querySelector('.filter-simple').addEventListener('change', e => {
         // show all, show best, or enable advanced filters
