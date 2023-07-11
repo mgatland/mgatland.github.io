@@ -1,0 +1,138 @@
+.gameCanvas {
+	border: 1px solid black;
+    image-rendering: optimizeSpeed;             // Older versions of FF
+    image-rendering: -moz-crisp-edges;          // FF 6.0+
+    image-rendering: -webkit-optimize-contrast; // Webkit (non standard naming)
+    image-rendering: -o-crisp-edges;            // OS X & Windows Opera (12.02+)
+    image-rendering: crisp-edges;               // Possible future browsers.
+    -ms-interpolation-mode: nearest-neighbor;   // IE (non standard naming)
+}
+
+.container {
+	width:802px;
+}
+
+.controls {
+	box-sizing: border-box;
+	display:inline-block;
+	width: 298px;
+	height:602px;
+	border:1px solid black;
+	border-left: none;
+	vertical-align: top;
+	padding: 14px;
+}
+
+.hidden {
+	display: none;
+}
+
+.info {
+	height: 300px;
+}
+
+.heading {
+	font-size: 20px;
+}
+
+.readout {
+	font-size: 14px;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.event {
+	border: 1px solid black;
+	padding: 10px;
+	background-color: lightpink;
+}
+
+.good {
+	background-color: lightblue;
+}
+
+button {
+	display: block;
+	margin: 15px;
+	background-color: aliceblue;
+	border: 2px solid blue;
+	font-size:14px;
+	width:80%;
+}
+
+button:disabled {
+	background-color: lightgrey;
+	border-color: grey;	
+	color: black;
+}
+
+.traderItems {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.traderItems button {
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: lightgreen;
+	border: 2px solid green;
+}
+
+.traderItems button:first-child {
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;;
+}
+
+.traderItems button:last-child {
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+.inventory {
+	margin: 10px 0px;
+}
+
+.inventory div {
+	display: block;
+	margin: 0px 15px;
+	background-color: aliceblue;
+	border: 2px solid blue;
+	font-size:14px;
+	padding: 2px 10px;
+}
+
+.inventory div:first-child {
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;;
+}
+
+.inventory div:last-child {
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+.inventory div.unwanted {
+	background-color: lightgrey;
+	border-color: grey;
+}
+
+body {
+	font-family: monospace;
+}
+
+h4 {
+	font-family: monospace;
+	font-size:20px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+.traderItems button.chosen, .inventory div.chosen {
+	background-color: lightyellow;
+	border-color: orange;
+}
+
+.message {
+	font-size: 20px;
+	margin-top:10px;
+}

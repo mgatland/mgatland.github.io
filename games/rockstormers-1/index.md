@@ -21,6 +21,8 @@ My game, Rockstormers, was based on one of my favorite configurations of Comet B
 
 I was still pushing myself to do non-violent games so at the end of development I added a non-combat goal: you are now racing to pick up a capsule of treasure. Turning this into a racing game was a good move: moving your ship has always been the most exciting part of Asteroid clones but players often have no reason to go anywhere. Here, it works.
 
+This game originally had 3 hours and 45 minutes of development time, but I came back later and did some sneaky extra updates.
+
 I eventually make a more polished version of this game: [Rockstormers](/games/rockstormers).
 
 My tweets from the release:

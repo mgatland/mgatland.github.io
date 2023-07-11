@@ -1,0 +1,22 @@
+body {
+	font-size: 24px;
+	font-family: 'VT323', monospace;
+	color: white;
+	background-color: black;
+}
+
+a, a:visited {
+	color: lightblue;
+}
+
+.content {
+	max-width: 800px;
+	display: block;
+	margin: auto;
+}
+
+input {
+	font-size: 24px;
+	font-family: 'VT323', monospace;
+	width: 2.5em;
+}

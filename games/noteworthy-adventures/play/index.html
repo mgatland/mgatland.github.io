@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Noteworthy Adventures in Unknown Space</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Noteworthy Adventures in Unknown Space</h1>
+    <div class="container">
+        <canvas class="gameCanvas" width="500" height="600">
+        </canvas><div class="controls">
+            <h4>Location: <span class="locationName heading">Eart</span></h4>
+            <div class="endInfo info hidden">
+                <div class="message"></div>
+            </div>
+            <div class="travelInfo info">
+                <p class="readout">Your mission: explore the galaxy for 5 years, finding anything that is <b><span class="goal2"></span></b></p>
+            </div>
+            <div class="planetInfo info hidden">
+                <div class="locationDescription readout">A blue pretty planet yo</div>
+                <div class="event">
+                    <div class="eventText">
+                        There is an artifact here!
+                    </div>
+                    <div class="traderItems">
+                        <button class="trader t0"></button>
+                        <button class="trader t1"></button>
+                        <button class="trader t2"></button>
+                    </div>
+                    <button class="eventButton">Take artefact!</button>
+                </div>
+            </div>
+            <h4>Inventory:</h4>
+            <div class="inventory">
+            </div>
+        </div>
+    </div>
+    <p>Your mission: explore the galaxy for 5 years, finding anything that is <b><span class="goal"></span></b></p>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -6,43 +6,43 @@ rss: /games/feed.xml
 
 <div class="filter">
     <div class="filter-section filter-light filter-simple">
-        <input type="radio" name="radio" id="filter-simple-all" checked>
+        <input type="radio" name="filter-simple" id="filter-simple-all" checked>
         <label for="filter-simple-all">All</label>
-        <input type="radio" name="radio" id="filter-simple-best">
+        <input type="radio" name="filter-simple" id="filter-simple-best">
         <label for="filter-simple-best">Best</label>
-        <input type="radio" name="radio" id="filter-simple-more"> 
+        <input type="radio" name="filter-simple" id="filter-simple-more"> 
         <label for="filter-simple-more">More filters…</label>
     </div>
     <div class="filter-advanced" style="display:none;">
-        <div class="filter-section filter-heavy filter-quality">
+        <div class="filter-section filter-heavy filter-quality checkboxy">
             Quality:
-            <input type="checkbox" name="checkbox" id="filter-best">
+            <input type="checkbox" name="filter-quality" id="filter-best">
             <label for="filter-best">★★★</label>
-            <input type="checkbox" name="checkbox" id="filter-good">
+            <input type="checkbox" name="filter-quality" id="filter-good">
             <label for="filter-good">★★<span class="shadow-stars">★</span></label>
-            <input type="checkbox" name="checkbox" id="filter-bad">
+            <input type="checkbox" name="filter-quality" id="filter-bad">
             <label for="filter-bad">★<span class="shadow-stars">★★</span></label>
         </div>
-        <div class="filter-section filter-heavy filter-platform">
+        <div class="filter-section filter-heavy filter-platform radioy">
             Platform:
-            <input type="checkbox" name="checkbox" id="filter-browser">
+            <input type="checkbox" name="filter-platform" id="filter-browser">
             <label for="filter-browser">Web (Computer)</label>
-            <input type="checkbox" name="checkbox" id="filter-phone">
+            <input type="checkbox" name="filter-platform" id="filter-phone">
             <label for="filter-phone">Web (Phone)</label>
-            <input type="checkbox" name="checkbox" id="filter-platform-other">
+            <input type="checkbox" name="filter-platform" id="filter-platform-other">
             <label for="filter-platform-other">Other</label>
         </div>
-        <div class="filter-section filter-heavy filter-event">
+        <div class="filter-section filter-heavy filter-event radioy">
             Made for:
-            <input type="checkbox" name="checkbox" id="filter-anti-patreon">
+            <input type="checkbox" name="filter-event" id="filter-anti-patreon">
             <label for="filter-anti-patreon">Anti-Patreon</label>
-            <input type="checkbox" name="checkbox" id="filter-one-game-a-day">
+            <input type="checkbox" name="filter-event" id="filter-one-game-a-day">
             <label for="filter-one-game-a-day">One Game a Day</label>
-            <input type="checkbox" name="checkbox" id="filter-ludum-dare">
+            <input type="checkbox" name="filter-event" id="filter-ludum-dare">
             <label for="filter-ludum-dare">Ludum Dare</label>
-            <input type="checkbox" name="checkbox" id="filter-global-game-jam">
+            <input type="checkbox" name="filter-event" id="filter-global-game-jam">
             <label for="filter-global-game-jam">Global Game Jam</label>
-            <input type="checkbox" name="checkbox" id="filter-event-other">
+            <input type="checkbox" name="filter-event" id="filter-event-other">
             <label for="filter-event-other">Other</label>
         </div>
     </div>
@@ -105,6 +105,16 @@ rss: /games/feed.xml
     })
 
     document.querySelector('.filter-advanced').addEventListener('change', e => {
+        const target = e.target
+        const label = target.labels[0]
+        const checked = target.checked
+        // Option: consider using ☐ and ☑ inside the label to represent the checked state
+
+        // fake radio buttons (like real ones except they can be turned off again)
+        const parent = target.parentElement
+        if (checked && parent.classList.contains('radioy')) {
+            parent.querySelectorAll('input').forEach(el => { if (el !== target) el.checked = false } )
+        }
         advancedFilter()
     })
 

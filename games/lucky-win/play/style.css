@@ -1,0 +1,41 @@
+body, html {
+	text-align: center;
+	font-family: monospace;
+}
+
+.machine {
+	width:500px;
+	height:300px;
+	background-color: grey;
+	margin: auto;
+	border-radius: 10px;
+}
+
+.spinner {
+	width: 40px;
+	height: 60px;
+	border: 4px solid black;
+	background-color: white;
+	display: inline-block;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+
+	vertical-align: top;
+	font-size: 32px;
+	line-height: 60px;
+}
+
+button {
+	display: block;
+	margin: auto;
+	border: 2px solid black;
+	font-size: 30px;
+	background-color: aliceblue;
+	padding: 10px;
+}
+
+.balance, .result, .secret {
+	margin: 15px;
+	font-size: 25px;
+}

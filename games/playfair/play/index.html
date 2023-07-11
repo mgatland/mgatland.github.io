@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>playfair</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="game">
+      <h1>Playfair</h1>
+      <div class="page">
+        <p>OK soldier, time to learn the Playfair cipher. We'll have you coding and decoding in no time!</p>
+        <p>You start by drawing a 5x5 grid, like this.</p>
+        <div class="grid"></div>
+        <button class="nextPage">Next</button>
+      </div>
+      <div class="page">
+        <p>Each message has a secret keyword. You need the keyword to decode the message.</p>
+        <p>Write the keyword into boxes along the grid.</p>
+        <p>For example, if the keyword was LAND:</p>
+        <div class="grid egFirst"></div>
+        <p>Now fill the remaining spaces with the alphabet - leaving out the letters you have already used.</p>
+        <p>We need to fit the whole alphabet into 25 spaces, so we combine I and J in one space.</p>
+        <div class="grid egSecond"></div>
+        <button class="nextPage">Next</button>
+      </div>
+      <div class="page">
+        <p>Now you're ready to code or decode messages. To encode a message, split it into pairs:</p>
+        <p>'ATTACK AT SIX AM' becomes 'AT TA CK AT SI XA MQ'. (if the we are one letter short, we add a Q.)</p>
+        <p>Look at the grid. For each pair, imagine drawing a box in your grid with those letters at the corners. Each letter is replaced by the letter in the opposite corner of the box.</p>
+        <p>So for 'AT', the A becomes D, and the T becomes R.</p>
+        <div class="grid egThird"></div>
+        <button class="nextPage">Next</button>
+      </div>
+      <div class="page">
+        <p>Try encoding the whole message.</p>
+        <div class="grid egLandGrid"></div>
+        <p>'AT TA CK AT SI XA MQ'</p>
+        <input class="inputOne"><div class="feedbackOne"></div>
+        <button class="nextPage">Next</button>
+      </div>
+      <div class="page">
+        <p>There are a couple of weird cases to be aware of:</p>
+        <p>If both letters are on the same row, you don't swap them with each other – that would be too obvious. Instead, move both letters one space to the right. So LD would become AB. Wrap around if you hit the edge of the grid.</p>
+        <p>If the two letters are in the same column (one above the other), move them both down one place. AK would encode to ER.</p>
+        <p>If the pair is the same letter twice - like OO - then add a Q between them in the original message.</p>
+        <p>If you need an extra letter to make the last pair of letters, add a Q.</p>
+        <p>Now you know all the special rules, try encoding this message: 'GO NORTH TO OTHER BASE'</p>
+        <input class="inputTwo"><div class="feedbackTwo"></div>
+        <button class="nextPage">Next</button>
+      </div>
+      <div class="page">
+        <p>Finally, let's decode a message. You just follow the same process, but in reverse!</p>
+        <p>This message has the same secret key - LAND. The encoded message is: CNXOGRTYCFOPMD</p>
+        <div class="grid egLandGrid"></div>
+        <p>Result</p>
+        <input class="inputThree"><div class="feedbackThree"></div>
+        <p>If you have completed all three activities, you have passed basic training. Congratulations!</p>
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>

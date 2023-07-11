@@ -379,7 +379,7 @@ details[open] summary {
 	text-decoration-color: #999;
 }
 
-.filter-light [type=radio]:checked + label {
+.filter-light input:checked + label {
 	color: #333;
 	text-decoration-color: #999;
 }
@@ -403,9 +403,18 @@ details[open] summary {
 	transition-duration: 0.2s;
 }
 
+/* The thick left border is meant to represent that it's a checkbox and not radio button. */
+.filter-heavy.checkboxy label {
+	border-left-width: 10px;
+}
+
 .filter-heavy label:hover {
-	background-color: #ccc;
+	background-color: #eee;
 	border-color: transparent;
+}
+
+.filter-heavy.checkboxy label:hover {
+	border-left-color: #ddd;
 }
 
 .shadow-stars {
@@ -416,13 +425,27 @@ details[open] summary {
 	color: #bbb;
 }
 
-.filter-heavy [type=checkbox]:checked + label {
-	color: #BB4B00;
-	border-color: #ffab72;
+.filter-heavy input:checked + label .shadow-stars {
+	color: #deb69b;
 }
 
-.filter-heavy [type=checkbox]:checked + label:hover {
+.filter-heavy input:checked + label {
+	color: #BB4B00;
+	border-color: #ffab72;
+	background-color: #fff5e2;
+}
+
+.filter-heavy input:checked + label:hover {
 	background-color: #ffe3aa;
+}
+
+.filter-heavy.checkboxy input:checked + label:hover {
+	/* override the other .checkboxy style */
+	border-left-color: #ffab72;
+}
+
+.filter label {
+	user-select: none; /* to prevent accidental selection stopping your click from registering */
 }
 
 /* end of filter */

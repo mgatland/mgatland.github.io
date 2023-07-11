@@ -1,0 +1,20 @@
+body {
+	font-size: 24px;
+	font-family: 'VT323', monospace;
+	color: white;
+	background-color: black;
+}
+
+a, a:visited {
+	color: orange;
+}
+
+.oldLink {
+	color: grey;
+}
+
+.content {
+	max-width: 500px;
+	display: block;
+	margin: auto;
+}
