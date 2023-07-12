@@ -1,77 +1,34 @@
-
 Priorities:
 
-[ ] add 100day games to the main series.
-[ ] make sure the old links stay as permalinks
-    https://github.com/11ty/eleventy/issues/510#issuecomment-824104799
-    This is how i'm going to do the redirects for old URLs.
-    Do this for /writing/ as well.
+post-release (of the new filter and stuff) cleanup:
+[ ] on rockstormers 100day page i must credit the influence of [Comet Bumper](https://globalgamejam.org/2017/games/ultimate-cat-drift-comet-bumpers-bananacontra).
+    only if the timing makes sense 
+[ ] ahh https://flappyworld.mgatland.com/ is down. fix it 
+[ ] maybe bump flappyworld out of 'bad' into 'good' if it's not too bad.
+[ ] tweet about this... the filter, the games, the journal post. Perhaps a non-backdated journal post about the new filter and this whole project.
+    
+[ ] replace it with a backdated blog post 
+[ ] and a current blogpost about the new filter.
 
+[ ] update the chain game page with a link to https://experiment26.itch.io/experiment26
+
+post-release cleanup:
+[ ] fix Vampire Tanks touch controls. The positioning is not right.
+[ ] make Follower and 90 mile beach touch controls work on press instead of when finger is lifted.
+[ ] remove sortByOrder from the XML.
+[ ] fix Tide... it's broken.
+[ ] add my first global game jam game, war dance
+[ ] consider porting some old games to js. Like the original Cerulean, it's nice.
+[ ] do chromasia
+[ ] do other old games 
+[ ] port Space Octopus Mono? Both versions?
+
+[] use redirects to get rid of the old /writing/ page as well.  
     Wait... I should probably use cloudflare bulk redirects instead.
     https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/create-dashboard/
     it's a shame to have 2 places to do this but i could store the config file in the repo so it's still kinda together. 
 
-filtering:
-add
-quality: high | medium | low 
-requirements: web (keyboard + mouse) | web (touch) | download | other
-development time: days | weeks | years 
-
-// there's an example here to filter a collection by the original file extension i.e. '.md' https://www.11ty.dev/docs/collections/
-
-game screenshots could grow to 250x250 like increpare 
-his games have dates attached, and icons for the platform 
-
-my games page could probably lose its max-width restriction and go full screen. A full screen of games.
-
-(except for the footer)
-
-I could improve the filtering.
-I could add little icons above the games for where it's playable:
-    browser computer 
-    browser phone 
-    downloadable
-    N/A
-
-I can get rid of the concept of 'order' and use dates as order... but I want to update some of the dates if I do this.
-Or have two dates, the 'first published' and 'last updated'
-
-Add neptune-9 old back into the series.
-
-The filters could be a little list of 'on/off' toggles 
-they could be black text on a grey background with rounded corners and no background (like 'tags' on stackoverflow etc)
-
-good games | ok games | bad games
-download | browser (keyboard) | browser (phone) | misc 
-
-maybe star ratings is the best technicque 
-
-some art reference:
-    https://sv.wordpress.org/plugins/tags/rate/
-    for the grey icons at the bottom 
-
-Dashicons (from Wordpress)
-    browser | cloud or laptop
-    phone | smartphone
-    download | download (maybe combined with laptop)
-    misc | help or universal access or users or site (it's a globe)
-
-    Quality icons:
-    good | awards
-
-    bad | trash 
-    
-
-    or I could use 'star filled' and 'star empty' to do 3 stars, 2 stars, 1 star
-
-
-
-
-
-
-
 =====================
-
 
 Work to do:
 [x] code highlighting 
@@ -117,3 +74,94 @@ git diff --no-index -w --ignore-blank-lines .\_site_reference\ .\_site\ > diff-2
 
 /////////////
 flash game pages are completely gone?
+
+
+////////////////////////////////////////////////////////////
+done:
+////////////////////////////////////////////////////////////
+
+2023-07-12
+
+[x] add 100day games to the main series.
+    [x] add the intro pages
+    [x] check the development times of each game and add to their page.
+    [x] fix the ordering problems for the last two games and maybe another two that share a date.
+    [x] add the /play/ pages 
+        [x] these all need to be configured with layout: none
+        [x] maybe I can remove the default layout for games pages so it defaults to none. Seems to be set manually for all the pages that need it.
+        [x] I've checked and it looks like every page that should have layout: normal has it explicitely set (in the games/ folder)
+    [x] check mobile support is correctly tagged on all one-day games
+
+    [x] the filter buttons... I think they should all be radio buttons except the star ratings.
+        [x] this created an issue where you can't turn a filter off again once it's on. Maybe change back to checkboxes and javascript uncheck the others.
+        [x] now they are semi-radio buttons that can be turned off again 
+        [x] add ballot-box ticks to the star ratings so you can see that they are checkboxes, not radio buttons 
+        [no] this could haev been a double-ended discrete slider! would have been cool? maybe not. 
+
+[x] do a pass on the quality ratings in 100days
+[x] do quality pass for all the games, not only the 100days ones. 
+[x] add event labels 
+    [x] anti-patreon 
+    [x] ludum dare 
+    [x] global game jam 
+[x] quality pass: not sure if 'said so' deserves to be highlighted. [no] Also wonder if 'service' could be instead.
+[x] 'best' should only be games that I'd be happy being the only game of mine you see. One chance games.
+[x] 'bad' should be games that are not worth trying even if you're fairly interested in me as a creator. It shouldn't have notable bad games. Only bland bad games.
+
+[nope] I think Cerulean or its chain game sequel might deserve to be in 'best'
+[x] 'bad' games: bump Return to Happytown out of there, it's a different kind of bad.
+
+before release:
+[x] remove 100days multipage
+[x] add the '100days home page' somewhere... as a backdated journal post.
+[x] remove the old 100days github pages site
+[x] add redirects from the old URLs to new ones (including /100days/)
+    https://github.com/11ty/eleventy/issues/510#issuecomment-824104799
+
+2023-07-10
+
+[x] filtering:
+    add
+    quality: high | medium | low 
+    requirements: web (keyboard + mouse) | web (touch) | download | other
+    development time: days | weeks | years 
+[x] my games page could probably lose its max-width restriction and go full screen. A full screen of games.
+[x] I can get rid of the concept of 'order' and use dates as order... but I want to update some of the dates if I do this. Or have two dates, the 'first published' and 'last updated'
+
+// there's an example here to filter a collection by the original file extension i.e. '.md' https://www.11ty.dev/docs/collections/
+
+game screenshots could grow to 250x250 like increpare 
+his games have dates attached, and icons for the platform 
+
+(except for the footer)
+
+I could improve the filtering.
+I could add little icons above the games for where it's playable:
+    browser computer 
+    browser phone 
+    downloadable
+    N/A
+
+Add neptune-9 old back into the series.
+
+[x] The filters could be a little list of 'on/off' toggles 
+[x] they could be black text on a grey background with rounded corners and no background (like 'tags' on stackoverflow etc)
+    good games | ok games | bad games
+    download | browser (keyboard) | browser (phone) | misc 
+    maybe star ratings is the best technicque 
+    some art reference:
+    https://sv.wordpress.org/plugins/tags/rate/
+    for the grey icons at the bottom 
+
+Dashicons (from Wordpress)
+    browser | cloud or laptop
+    phone | smartphone
+    download | download (maybe combined with laptop)
+    misc | help or universal access or users or site (it's a globe)
+
+    Quality icons:
+    good | awards
+    bad | trash 
+    
+    or I could use 'star filled' and 'star empty' to do 3 stars, 2 stars, 1 star
+
