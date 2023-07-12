@@ -6,6 +6,7 @@ description:
 order: 13
 date: 2010-08-23
 icon: cave-flyer-green/cave-flyer-green-icon.jpg
+tags: good flash ludum-dare
 ---
 
 Use enemies as weapons in this cave exploration game.

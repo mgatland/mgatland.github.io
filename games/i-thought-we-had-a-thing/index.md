@@ -6,6 +6,7 @@ description:
 order: 12
 date: 2010-04-25
 icon: i-thought-we-had-a-thing/i-thought-we-had-a-thing-icon.png
+tags: good flash ludum-dare
 ---
 
 Help out the inhabitants of the various islands.

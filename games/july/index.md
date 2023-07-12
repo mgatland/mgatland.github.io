@@ -6,7 +6,7 @@ description: July
 order: 42
 date: 2019-07-26
 icon: july/july-icon.png
-tags: browser
+tags: good browser anti-patreon
 ---
 
 A 90s-style shooter influenced by Eye of Horus, Commander Keen, and me trying to make a game 'about something'.

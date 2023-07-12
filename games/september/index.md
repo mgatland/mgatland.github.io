@@ -6,7 +6,7 @@ description:
 order: 44
 date: 2019-09-30
 icon: september/september-icon.png
-tags: browser
+tags: good browser anti-patreon
 ---
 
 hey it's a game for september

@@ -6,6 +6,7 @@ description: A game for Ludum Dare 21
 order: 19
 date: 2011-08-22
 icon: cerulean-ld21/cerulean-ld21-icon.png
+tags: good download ludum-dare
 ---
 
 Download <a href="circles-ld21-full.zip">Cerulean</a> - 5 MB

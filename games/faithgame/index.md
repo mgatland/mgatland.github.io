@@ -6,7 +6,7 @@ description: faithgame
 order: 36
 date: 2016-01-31
 icon: faithgame/faithgame-icon.png
-tags: best browser
+tags: best browser global-game-jam
 ---
 
 By Sergio Cornaga, Matthew Gatland and Ellie Hayward. Based on flickgame by Stephen Lavelle.

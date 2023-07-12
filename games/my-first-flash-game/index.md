@@ -6,6 +6,7 @@ description:
 order: 7
 date: 2009-10-17
 icon: my-first-flash-game/my-first-flash-game-icon.png
+tags: bad flash
 ---
 
 <object height="600" width="800"><br>

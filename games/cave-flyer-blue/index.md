@@ -6,6 +6,7 @@ description:
 order: 10
 date: 2009-03-30
 icon: cave-flyer-blue/cave-flyer-blue-icon.png
+tags: good flash ludum-dare
 ---
 
 <object height="600" width="800"><br>

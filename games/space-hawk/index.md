@@ -6,6 +6,7 @@ description:
 order: 14
 date: 2010-10-11
 icon: space-hawk/space-hawk-icon.jpg
+tags: good
 ---
 
 <p>Space Hawk is an iPhone game by <b>StarKiwi Studios</b>. I was the programmer, working with designer\producer Ryan Thatcher and the artists from <a href="http://www.mediadesignschool.com/blog/studio-profile-madminute">madMinute.</a></p>

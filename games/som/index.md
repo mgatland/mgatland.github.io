@@ -6,6 +6,7 @@ description: Two-player shooter in shades of grey.
 order: 15
 date: 2013-09-30
 icon: som/som-icon.png
+tags: good download
 ---
 
 <p><img src="som-screenshot-1.png" alt="Two spaceships fight against strange creatures" width="25%" height="25%" style="float: left; margin-right: 25px"></p>

@@ -6,6 +6,7 @@ description:
 order: 11
 date: 2010-04-25
 icon: oil-exploration/oil-exploration-icon.png
+tags: good flash ludum-dare
 ---
 
 Find oil, become wealthy.

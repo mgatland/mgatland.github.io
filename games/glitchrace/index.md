@@ -5,7 +5,7 @@ categories: [games]
 description:
 icon: glitchrace/glitchrace-icon.png
 date: 2017-05-25
-tags: bad browser phone one-game-a-day
+tags: good browser phone one-game-a-day
 ---
 
 The fourth game from my one-game-a-day project.

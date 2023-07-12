@@ -6,6 +6,7 @@ description:
 order: 8
 date: 2009-11-01
 icon: adventure-again/adventure-again-icon.png
+tags: good flash
 ---
 
 The time has come to save the world… again.

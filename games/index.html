@@ -68,13 +68,16 @@ rss: /games/feed.xml
     display(noResultsEl, false)
 
     // If an item has no tags from a category, add the default tag for that category
-    // The default is always the last tag in the set
+    // The default is normally the last tag in the set
     function setupTags () {
         const filters = []
             for (const filterId of advancedFilterIds) {
                 const filter = {}
                 filter.tags = Array.from(document.querySelectorAll(filterId + ' input')).map(el => el.id.replace('filter-', ''))
                 filter.default = filter.tags.at(-1)
+                if (filter.default === 'bad') {
+                    filter.default = 'good' // 'good' really maeans 'normal' and should be the default!
+                }
                 filters.push(filter)
             }
         galleryButtonEls.forEach(el => {

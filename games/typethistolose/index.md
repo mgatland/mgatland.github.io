@@ -6,7 +6,7 @@ description:
 order: 43
 date: 2019-08-31
 icon: typethistolose/typethistolose-icon.png
-tags: browser
+tags: good browser anti-patreon
 ---
 
 A typing game.

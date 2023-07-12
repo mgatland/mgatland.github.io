@@ -6,6 +6,7 @@ description:
 order: 17
 date: 2011-01-28
 icon: catastrophe/catastrophe-icon.jpg
+tags: good global-game-jam
 ---
 
 <p>The city is under attack! Fly a futuristic rescue vehicle and save as many people as you can from the collapsing buildings.</p>

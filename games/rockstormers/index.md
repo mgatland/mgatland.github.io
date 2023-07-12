@@ -6,7 +6,7 @@ description:
 order: 45
 date: 2019-10-31
 icon: rockstormers/rockstormers-icon.png
-tags: browser
+tags: good browser anti-patreon
 ---
 
 Rockstormers was a 1-day game I made during my "100 days" project. This version, Rockstormers 2, adds 4 player support, sound effects, and a number of tweaks to the gameplay.

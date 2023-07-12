@@ -5,7 +5,7 @@ categories: [games]
 description:
 icon: said-so/said-so-icon.png
 date: 2017-06-07
-tags: best browser phone one-game-a-day
+tags: good browser phone one-game-a-day
 ---
 The fourteenth game from my one-game-a-day project.
 

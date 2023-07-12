@@ -6,7 +6,7 @@ description:
 order: 33
 date: 2015-06-12
 icon: "episode-12/episode-12-icon.png"
-tags: browser
+tags: good browser
 ---
 
 A stealth game. Sneak around the base, avoiding the guards and disabling the things.

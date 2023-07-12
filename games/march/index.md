@@ -6,7 +6,7 @@ description:
 order: 49
 date: 2020-03-31
 icon: march/march-icon.png
-tags: browser
+tags: good browser anti-patreon
 ---
 
 _This is the 12th game released with the support of my [anti-patrons](/anti-patreon)._

@@ -6,6 +6,7 @@ description:
 order: 9
 date: 2010-01-31
 icon: return-to-happytown/return-to-happytown-icon.png
+tags: good flash global-game-jam
 ---
 
 It's great day in Happytown.

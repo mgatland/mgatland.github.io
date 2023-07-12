@@ -6,7 +6,7 @@ description: Wizard School Survivors
 order: 39
 date: 2019-04-30
 icon: wizardschool/wizardschool-icon.png
-tags: best browser
+tags: best browser anti-patreon
 ---
 
 An unfinished bullet-hell MMO.

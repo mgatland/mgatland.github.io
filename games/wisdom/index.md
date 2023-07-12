@@ -6,7 +6,7 @@ description:
 order: 46
 date: 2019-11-30
 icon: wisdom/wisdom-icon.png
-tags: browser
+tags: good browser anti-patreon
 ---
 
 I'm on holiday in Sweden so have another hastily assembled video game!

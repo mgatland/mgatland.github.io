@@ -6,6 +6,7 @@ description: A game about going fast and being good at sport.
 order: 25
 date: 2013-05-13
 icon: skate/skate-icon.png
+tags: good download
 ---
 Skate is a skating game, inspired by Zineth and Jet Set Radio.
 

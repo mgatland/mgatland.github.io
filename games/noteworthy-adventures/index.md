@@ -5,7 +5,7 @@ categories: [games]
 description:
 icon: noteworthy-adventures/noteworthy-adventures-icon.png
 date: 2017-05-23
-tags: bad browser phone one-game-a-day
+tags: good browser phone one-game-a-day
 ---
 
 The second game from my one-game-a-day project.

@@ -6,7 +6,7 @@ description:
 order: 50
 date: 2020-04-30
 icon: april2020/april2020-icon.png
-tags: browser
+tags: bad browser anti-patreon
 ---
 
 _This is the 13th game released with the support of my [anti-patrons](/anti-patreon)._

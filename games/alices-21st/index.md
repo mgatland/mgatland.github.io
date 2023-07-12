@@ -6,6 +6,7 @@ description: A treasure hunt
 order: 22
 date: 2012-05-05
 icon: alices-21st/alices-21st-icon.jpg
+tags: good
 ---
 
 I helped my sister plan a game for her 21st birthday party.
