@@ -24,6 +24,6 @@ Opening the red padlock ends the game. (Or, in the revised edition, it leads to 
 
 I originally planned on making 100 games in 100 days, but this ended up being the last one. For a while I thought I would still catch up and hit the target, but I eventually realized it was not going to happen. I officially ended the project about two weeks later, with this tweet:
 
-> I tried to make 100 games in 100 days. You'll never guess what happened next? [](http://matthewgatland.com/games/100days/)
+> I tried to make 100 games in 100 days. You'll never guess what happened next? [https://matthewgatland.com/100days/](https://matthewgatland.com/100days/)
 
 See the full [twitter thread](https://twitter.com/mgatland/status/885100230693105664).
