@@ -6,7 +6,11 @@ post-release (of the new filter and stuff) cleanup:
 [ ] ahh https://flappyworld.mgatland.com/ is down. fix it 
 [ ] maybe bump flappyworld out of 'bad' into 'good' if it's not too bad.
 [ ] tweet about this... the filter, the games, the journal post. Perhaps a non-backdated journal post about the new filter and this whole project.
-    
+
+permalink and redirect:
+    http://www.matthewgatland.com/ggj2018/
+
+
 [ ] replace it with a backdated blog post 
 [ ] and a current blogpost about the new filter.
 

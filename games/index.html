@@ -56,6 +56,7 @@ rss: /games/feed.xml
 </div>
 <script>
 
+    const simpleFilterEl = document.querySelector('.filter-simple')
     const advancedFilterEl = document.querySelector('.filter-advanced')
     const galleryButtonEls = document.querySelectorAll('.gallery .button')
     const advancedFilterIds = ['.filter-quality', '.filter-platform', '.filter-event']
@@ -64,8 +65,6 @@ rss: /games/feed.xml
     function display(el, show) {
         el.style.display = show ? '' : 'none'
     }
-
-    display(noResultsEl, false)
 
     // If an item has no tags from a category, add the default tag for that category
     // The default is normally the last tag in the set
@@ -92,43 +91,48 @@ rss: /games/feed.xml
     setupTags()
 
     document.querySelector('.filter-simple').addEventListener('change', e => {
-        // show all, show best, or enable advanced filters
-        const id = e.target.id.replace("filter-simple-", "")
-        if (id === 'more') {
-            display(advancedFilterEl, true)
-            advancedFilter()
-        } else {
-            display(advancedFilterEl, false)
-            if (id === 'best') {
-                simpleFilter('best')
-            } else {
-                simpleFilter('') // show all
-            }
-        }
+        updateFilter()
     })
 
     document.querySelector('.filter-advanced').addEventListener('change', e => {
         const target = e.target
         const label = target.labels[0]
         const checked = target.checked
-        // Option: consider using ☐ and ☑ inside the label to represent the checked state
-
-        // fake radio buttons (like real ones except they can be turned off again)
+        // think about this: consider using ☐ and ☑ inside the label to represent the checked state
+        
+        // Make these checkboxes into fake radio buttons (like real ones except they can also be toggled off again)
         const parent = target.parentElement
         if (checked && parent.classList.contains('radioy')) {
             parent.querySelectorAll('input').forEach(el => { if (el !== target) el.checked = false } )
         }
-        advancedFilter()
+        applyAdvancedFilter()
     })
 
-    function simpleFilter(id) {
+    function updateFilter() {
+        const selectedSimpleFilterEl = simpleFilterEl.querySelector(':checked')
+        // show all, show best, or enable advanced filters
+        const mode = selectedSimpleFilterEl.id.replace("filter-simple-", "")
+        if (mode === 'more') {
+            display(advancedFilterEl, true)
+            applyAdvancedFilter()
+        } else {
+            display(advancedFilterEl, false)
+            if (mode === 'best') {
+                applySimpleFilter('best')
+            } else {
+                applySimpleFilter('') // show all
+            }
+        }
+    }
+
+    function applySimpleFilter(tag) {
         galleryButtonEls.forEach(el => {
-            display(el, el.querySelector('.filtertags').innerHTML.includes(id))
+            display(el, el.querySelector('.filtertags').innerHTML.includes(tag))
         })
         display(noResultsEl, false) // assume simple filters never hide everything
     }
 
-    function advancedFilter() {
+    function applyAdvancedFilter() {
         // Go through each filter section.
         // Collect all checked inputs
         // An element must show one of the checked inputs to be selected.
@@ -147,4 +151,7 @@ rss: /games/feed.xml
         })
         display(noResultsEl, results === 0)
     }
+
+    // Sync filters with values from browser autofill
+    updateFilter()
 </script>
