@@ -1,0 +1,3 @@
+Files that are not used at runtime were removed from this folder but still exist in the original repo 
+
+github.com/mgatland/july

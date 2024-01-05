@@ -15,6 +15,8 @@ Made during Kiwijam 2019 and changed a bit afterwards.
 
 _This is the fourth game released with the support of my [anti-patrons](/anti-patreon)._
 
-<p>Play <a href="https://julygame.mgatland.com">July</a></p>
+<p>Play <a href="./play/">July</a></p>
+
+2024-01-05 update: I've removed the slightly multiplayer aspect of this game. See more details on the <a href="./flap/">Flappy World</a> page.
 
 ![](1.png)
