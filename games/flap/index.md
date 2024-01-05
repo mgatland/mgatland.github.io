@@ -19,6 +19,6 @@ _This is the third game released with the support of my [anti-patrons](/anti-pat
 
 <p>Play <a href="./play/">Flappy World</a></p>
 
-*2024-01-05 update: I've removed the slightly multiplayer aspect of this because it wasn't very important, and was getting a bit annoying to find free hosting for the game's server. I originally used Heroku's free server hosting but it stopped being free 3 years later. After that I moved to Replit's free hosting, and that stayed free for only 7 months. I don't like the way this trend is going!
-
 ![](1.png)
+
+_2024-01-05 update: I've removed the slightly multiplayer aspect of this because it wasn't very important, and was getting a bit time consuming to find free hosting for the game's server. I originally used Heroku's free server hosting but it stopped being free 3 years later. After that I moved to Replit's free hosting, and that stayed free for only 7 months. I don't like the way this trend is going!_

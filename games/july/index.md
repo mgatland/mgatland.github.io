@@ -17,6 +17,6 @@ _This is the fourth game released with the support of my [anti-patrons](/anti-pa
 
 <p>Play <a href="./play/">July</a></p>
 
-2024-01-05 update: I've removed the slightly multiplayer aspect of this game. See more details on the <a href="./flap/">Flappy World</a> page.
-
 ![](1.png)
+
+_2024-01-05 update: I've removed the slightly multiplayer aspect of this game. See more details on the <a href="./flap/">Flappy World</a> page._
